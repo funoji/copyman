@@ -6,14 +6,14 @@ public class Button_KeyConfig : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<JumpManager>().Jump();　//ジャンプ
-        }
-        //if (Input.GetButtonDown("joystick button 0"))  //Ａボタン
+        //if (Input.GetKeyDown(KeyCode.Space))
         //{
         //    GetComponent<JumpManager>().Jump();　//ジャンプ
         //}
+        if (Input.GetButtonDown("Button A"))  //Ａボタン
+        {
+            GetComponent<JumpManager>().Jump();　//ジャンプ
+        }
         //if (Input.GetButtonDown("joystick button 1"))  //Ｂボタン
         //{
 

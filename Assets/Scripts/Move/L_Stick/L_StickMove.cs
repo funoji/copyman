@@ -6,7 +6,7 @@ public class L_StickMove : MonoBehaviour
 {
     public void L_Stick_Move_X(float speed_X)
     {
-        transform.position -= new Vector3(
+        transform.position += new Vector3(
             0, 0, Input.GetAxis("Horizontal")*speed_X*Time.deltaTime);
     }
 
