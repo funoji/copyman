@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class MainCameraControll : MonoBehaviour
 {
-    GameObject mainCamera; //ƒJƒƒ‰
-    GameObject fieldObject; //’†S‚Æ‚µ‚½‚¢ƒIƒuƒWƒFƒNƒg
-    public float rotateSpeed = 1.0f; //‰ñ“]ƒXƒs[ƒh
-    private Vector3 lastMousePosition; //’¼‘O‚Ì‰ñ“]‚ğ•Û‚µ‚Ä‚¨‚­‚½‚ß‚Ì•Ï”
-    private Vector3 newAngle = new Vector3(0, 0, 0); // Vector3(0,0,0)‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
+    GameObject mainCamera; //ï¿½Jï¿½ï¿½ï¿½ï¿½
+    GameObject fieldObject; //ï¿½ï¿½ï¿½Sï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
+    public float rotateSpeed = 1.0f; //ï¿½ï¿½]ï¿½Xï¿½sï¿½[ï¿½h
+    private Vector3 lastMousePosition; //ï¿½ï¿½ï¿½Oï¿½Ì‰ï¿½]ï¿½ï¿½Ûï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚Ì•Ïï¿½
+    private Vector3 newAngle = new Vector3(0, 0, 0); // Vector3(0,0,0)ï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½X
     
     void Start()
     {
-        this.mainCamera = Camera.main.gameObject; //ƒJƒƒ‰‚ÌƒIƒuƒWƒFƒNƒg‚ğæ“¾
-        this.fieldObject = GameObject.Find("LookPos"); //’†S‚Æ‚µ‚½‚¢ƒIƒuƒWƒFƒNƒg‚ğæ“¾
+        this.mainCamera = Camera.main.gameObject; //ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½æ“¾
+        this.fieldObject = GameObject.Find("LookPos"); //ï¿½ï¿½ï¿½Sï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½æ“¾
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) //“ü—Í‚³‚ê‚Ä‚©‚çˆê‰ñ‚¾‚¯Às‚·‚é
+        if (Input.GetMouseButtonDown(0)) //ï¿½ï¿½ï¿½Í‚ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ñ‚¾‚ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½
         {
-            newAngle = mainCamera.transform.localEulerAngles; //newAngle•Ï”‚É‘Š‘Î“I‚È‰ñ“]’n‚ğ‘ã“ü
-            lastMousePosition = Input.mousePosition;  //ƒNƒŠƒbƒN‚³‚ê‚½Û‚Ìƒ}ƒEƒXˆÊ’u‚ğ‘ã“ü
+            newAngle = mainCamera.transform.localEulerAngles; //newAngleï¿½Ïï¿½ï¿½É‘ï¿½ï¿½Î“Iï¿½È‰ï¿½]ï¿½nï¿½ï¿½ï¿½ï¿½
+            lastMousePosition = Input.mousePosition;  //ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ê‚½ï¿½Û‚Ìƒ}ï¿½Eï¿½Xï¿½Ê’uï¿½ï¿½ï¿½ï¿½
         }
         else if (Input.GetMouseButton(0))
         {
@@ -28,30 +28,30 @@ public class MainCameraControll : MonoBehaviour
         }
 
         Find_Angle(this.mainCamera, this.fieldObject);
-        //Debug.Log("‚Q“_ŠÔ‚Ì‹——£F"+Find_Distance(this.mainCamera, this.fieldObject));
+        //Debug.Log("ï¿½Qï¿½_ï¿½Ô‚Ì‹ï¿½ï¿½ï¿½ï¿½F"+Find_Distance(this.mainCamera, this.fieldObject));
     }
 
     private void rotateCamera()
     {
         Vector3 angle = new Vector3(Input.GetAxis("Mouse X") * this.rotateSpeed, Input.GetAxis("Mouse Y") * this.rotateSpeed, 0); 
-        this.mainCamera.transform.RotateAround(this.fieldObject.transform.position, Vector3.up, angle.x); //X²‚Ì‰ñ“]
-        this.mainCamera.transform.RotateAround(this.fieldObject.transform.position, transform.right, angle.y); //‚™²‚Ì‰ñ“]
+        this.mainCamera.transform.RotateAround(this.fieldObject.transform.position, Vector3.up, angle.x); //Xï¿½ï¿½ï¿½Ì‰ï¿½]
+        this.mainCamera.transform.RotateAround(this.fieldObject.transform.position, transform.right, angle.y); //ï¿½ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½]
     }
 
     public float Find_Distance(GameObject camera, GameObject player)
     {
-        //ƒJƒƒ‰[ƒvƒŒƒCƒ„[‚Ì‹——£
+        //ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ì‹ï¿½ï¿½ï¿½
         float dist_x = camera.transform.position.x - player.transform.position.x;
         float dist_z = camera.transform.position.y - player.transform.position.y;
-        //‹——£‚ğ‹‚ß‚é
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
         return Mathf.Sqrt((dist_x * dist_x) + (dist_z * dist_z));
     }
     void Find_Angle(GameObject camera,GameObject player)
     {
-        //Šp“x‚ğ‹‚ß‚é
+        //ï¿½pï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
         Quaternion.LookRotation(camera.transform.position, player.transform.position);
-        Debug.Log("ƒJƒƒ‰‚ÌˆÊ’uF"+camera.transform.position);
-        Debug.Log("ƒvƒŒƒCƒ„[‚ÌˆÊ’uF" + player.transform.position);
-        Debug.Log("‚Q“_ŠÔ‚ÌŠp“xF"+Quaternion.LookRotation(camera.transform.position, player.transform.position));
+        Debug.Log("ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÌˆÊ’uï¿½F"+camera.transform.position);
+        Debug.Log("ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌˆÊ’uï¿½F" + player.transform.position);
+        Debug.Log("ï¿½Qï¿½_ï¿½Ô‚ÌŠpï¿½xï¿½F"+Quaternion.LookRotation(camera.transform.position, player.transform.position));
     }
 }
