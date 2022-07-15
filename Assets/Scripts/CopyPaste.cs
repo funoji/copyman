@@ -57,7 +57,7 @@ public class CopyPaste : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Cancopy")
+        if (other.gameObject.CompareTag("Cancopy"))
         {
             Debug.Log("“–‚½‚Á‚½");
             Name = other.gameObject.name;
