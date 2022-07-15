@@ -38,7 +38,7 @@ public class AngleLimit : MonoBehaviour
 
     void Move()
     {
-        //Vector3 angle = new Vector3(Input.GetAxis("CameraHorizontal") * rotateSpeed, Input.GetAxis("CameraVertical") * rotateSpeed, 0); //Xbox360<Rstick>
+        //Vector3 angle = new Vector3(Input.GetAxis("CameraVertical") * rotateSpeed, Input.GetAxis("CameraHorizontal") * rotateSpeed * -1, 0); //Xbox360<Rstick>
         Vector3 angle = new Vector3(Input.GetAxis("Mouse Y") * rotateSpeed, Input.GetAxis("Mouse X") * rotateSpeed*-1, 0); //É}ÉEÉX
         transform.Rotate(angle);
     }
