@@ -35,20 +35,20 @@ public class CameraController : MonoBehaviour
         //targetPosition = targetObject.transform.position;
 
         //ƒ}ƒEƒX‚ÌˆÚ“®
-        //float mouseInputX = Input.GetAxis("Mouse X");
-        //float mouseInputY = Input.GetAxis("Mouse Y");
+        float mouseInputX = Input.GetAxis("Mouse X");
+        float mouseInputY = Input.GetAxis("Mouse Y");
 
         //ƒ}ƒEƒXˆÚ“®—Ê‚É‚æ‚é‰ñ“]Šp“x
-        //float rotateH = mouseInputX * rotateSpeed;
-        //float rotateV = mouseInputY * rotateSpeed;
+        float rotateH = mouseInputX * rotateSpeed;
+        float rotateV = mouseInputY * rotateSpeed;
 
-        //Xbox‚ÌˆÚ“®
-        float stickInputX = Input.GetAxis("RsitckHorizontal");
-        float stickInputY = Input.GetAxis("RsitckVerticl");
+        ////Xbox‚ÌˆÚ“®
+        //float stickInputX = Input.GetAxis("RsitckHorizontal");
+        //float stickInputY = Input.GetAxis("RsitckVerticl");
 
-        //XboxˆÚ“®—Ê‚É‚æ‚é‰ñ“]Šp“x
-        float rotateH = -stickInputX * rotateSpeed;
-        float rotateV = -stickInputY * rotateSpeed*0.5f;
+        ////XboxˆÚ“®—Ê‚É‚æ‚é‰ñ“]Šp“x
+        //float rotateH = -stickInputX * rotateSpeed;
+        //float rotateV = -stickInputY * rotateSpeed*0.5f;
 
         //Šp“x‚ğ‹‚ß‚é
         angleH += rotateH;
