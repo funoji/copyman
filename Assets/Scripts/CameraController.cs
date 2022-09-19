@@ -35,20 +35,20 @@ public class CameraController : MonoBehaviour
         //targetPosition = targetObject.transform.position;
 
         //マウスの移動
-        //float mouseInputX = Input.GetAxis("Mouse X");
-        //float mouseInputY = Input.GetAxis("Mouse Y");
+        float mouseInputX = Input.GetAxis("Mouse X");
+        float mouseInputY = Input.GetAxis("Mouse Y");
 
         //マウス移動量による回転角度
-        //float rotateH = mouseInputX * rotateSpeed;
-        //float rotateV = mouseInputY * rotateSpeed;
+        float rotateH = mouseInputX * rotateSpeed;
+        float rotateV = mouseInputY * rotateSpeed;
 
         //Xboxの移動
-        float stickInputX = Input.GetAxis("RsitckHorizontal");
-        float stickInputY = Input.GetAxis("RsitckVerticl");
+        //float stickInputX = Input.GetAxis("RsitckHorizontal");
+        //float stickInputY = Input.GetAxis("RsitckVerticl");
 
         //Xbox移動量による回転角度
-        float rotateH = -stickInputX * rotateSpeed;
-        float rotateV = -stickInputY * rotateSpeed*0.5f;
+        //float rotateH = -stickInputX * rotateSpeed;
+        //float rotateV = -stickInputY * rotateSpeed*0.5f;
 
         //角度を求める
         angleH += rotateH;

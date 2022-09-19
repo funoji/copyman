@@ -8,14 +8,14 @@ public class Stick_KeyConfig : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetAxis("Horizontal")!=0)
-        //{
-        //    GetComponent<L_StickMove>().L_Stick_Move_X(speed);
-        //}
-        //if (Input.GetAxis("Vertical")!=0)
-        //{
-        //    GetComponent<L_StickMove>().L_Stick_Move_Y(speed);
-        //}
+        if (Input.GetAxis("Horizontal") != 0)
+        {
+            GetComponent<L_StickMove>().L_Stick_Move_X(speed);
+        }
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            GetComponent<L_StickMove>().L_Stick_Move_Y(speed);
+        }
         //if (Input.GetAxis("4th axis") == 1)　//Ｒスティック（Ｘ方向）
         //{
 
