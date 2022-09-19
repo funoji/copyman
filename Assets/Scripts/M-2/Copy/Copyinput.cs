@@ -8,6 +8,7 @@ public class Copyinput : MonoBehaviour
     bool cooltime;
     float lapseTime;
     [SerializeField] float PasteCoolTime;
+    int count;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +42,18 @@ public class Copyinput : MonoBehaviour
             cooltime = true;
             lapseTime = 0.0f;
         }
-        if (lapseTime > 0)
-            Debug.Log(lapseTime);
+        //if (lapseTime > 0)
+            //Debug.Log(lapseTime);
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            count++;
+            Copy.ShotArkDrow(count);
+        }
+
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            Copy.Shot();
+        }
     }
 }

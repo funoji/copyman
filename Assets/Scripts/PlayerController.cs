@@ -18,5 +18,11 @@ public class PlayerController : MonoBehaviour
         //ƒvƒŒƒCƒ„[‚ð“®‚©‚·
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         transform.position += move * speed * Time.deltaTime;
+
+        //Debug.Log(move);
+        if(Input.GetAxis("Horizontal") >= 1)
+        {
+            Debug.Log("aaaaa");
+        }
     }
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 public class CopyUI : MonoBehaviour
 {
     [SerializeField] Transform ObjPos;
-    CopyColl CopyColl;
-    GameObject Obj;
+    GameObject Obj = default!;
     // Update is called once per frame
     void Update()
     {

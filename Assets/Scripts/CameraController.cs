@@ -30,46 +30,46 @@ public class CameraController : MonoBehaviour
 
     public void Move()
     {
-        //ƒvƒŒƒCƒ„[‚É‡‚í‚¹‚ÄƒJƒƒ‰‚ÌˆÚ“®
+        //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Éï¿½ï¿½í‚¹ï¿½ÄƒJï¿½ï¿½ï¿½ï¿½ï¿½ÌˆÚ“ï¿½
         //transform.position += targetObject.transform.position - targetPosition;
         //targetPosition = targetObject.transform.position;
 
-        //ƒ}ƒEƒX‚ÌˆÚ“®
+        //ï¿½}ï¿½Eï¿½Xï¿½ÌˆÚ“ï¿½
         float mouseInputX = Input.GetAxis("Mouse X");
         float mouseInputY = Input.GetAxis("Mouse Y");
 
-        //ƒ}ƒEƒXˆÚ“®—Ê‚É‚æ‚é‰ñ“]Šp“x
+        //ï¿½}ï¿½Eï¿½Xï¿½Ú“ï¿½ï¿½Ê‚É‚ï¿½ï¿½ï¿½]ï¿½pï¿½x
         float rotateH = mouseInputX * rotateSpeed;
         float rotateV = mouseInputY * rotateSpeed;
 
-        ////Xbox‚ÌˆÚ“®
+        //Xboxï¿½ÌˆÚ“ï¿½
         //float stickInputX = Input.GetAxis("RsitckHorizontal");
         //float stickInputY = Input.GetAxis("RsitckVerticl");
 
-        ////XboxˆÚ“®—Ê‚É‚æ‚é‰ñ“]Šp“x
+        //Xboxï¿½Ú“ï¿½ï¿½Ê‚É‚ï¿½ï¿½ï¿½]ï¿½pï¿½x
         //float rotateH = -stickInputX * rotateSpeed;
         //float rotateV = -stickInputY * rotateSpeed*0.5f;
 
-        //Šp“x‚ğ‹‚ß‚é
+        //ï¿½pï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
         angleH += rotateH;
         angleV += rotateV;
 
-        //ˆÚ“®Šp“x§ŒÀ
+        //ï¿½Ú“ï¿½ï¿½pï¿½xï¿½ï¿½ï¿½ï¿½
         float angleLimitH = Mathf.Clamp(angleH, angleLeft, angleRight);
         float angleLimitV = Mathf.Clamp(angleV, angleDown, angleUp);
 
-        //§ŒÀ”ÍˆÍ‚ğ’´‚¦‚½‚©‚ğ‹‚ß‚é
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ÍˆÍ‚ğ’´‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
         float overRangeH = angleH - angleLimitH;
         float overRangeV = angleV - angleLimitV;
 
-        //‰ñ“]—Ê‚ğ’²®
-        //’²®Œã‚ÌŠp“x‚ğ‘ã“ü
+        //ï¿½ï¿½]ï¿½Ê‚ğ’²ï¿½
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠpï¿½xï¿½ï¿½ï¿½ï¿½
         rotateH -= overRangeH;
         rotateV -= overRangeV;
         angleH = angleLimitH;
         angleV = angleLimitV;
 
-        transform.RotateAround(targetPosition, Vector3.up, rotateH); //Y²’†S‚É‰ñ“]
-        transform.RotateAround(targetPosition, transform.right, rotateV); //X²’†S‚É‰ñ“]
+        transform.RotateAround(targetPosition, Vector3.up, rotateH); //Yï¿½ï¿½ï¿½ï¿½ï¿½Sï¿½É‰ï¿½]
+        transform.RotateAround(targetPosition, transform.right, rotateV); //Xï¿½ï¿½ï¿½ï¿½ï¿½Sï¿½É‰ï¿½]
     }
 }

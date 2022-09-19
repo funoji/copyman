@@ -7,12 +7,27 @@ public class Copy : MonoBehaviour
     [SerializeField] Collider AreaCollider;
     [SerializeField] GameObject Area;
     [SerializeField] GameObject Point;
+    [SerializeField] GameObject muzzele;
+    [SerializeField] float Y, Z;
+    [SerializeField] float rot;
+    [SerializeField] float speed;   
     GameObject PasteObj;
     CopyColl CopyColl;
+    ShotPaste ShotPaste;
+    Vector3 v;
+    private LineRenderer lineRenderer;
+    public GameObject preLineRenderer;
+    private GameObject objLineRenderer;
+
     private void Start()
     {
         AreaCollider.enabled = false;
         Area.SetActive(false);
+        v = new Vector3 ( 0f, Mathf.Cos(rot * Mathf.Deg2Rad), Mathf.Sin(rot * Mathf.Deg2Rad));
+
+        objLineRenderer = Instantiate(preLineRenderer, gameObject.transform);
+        objLineRenderer.transform.localPosition = Vector3.zero;
+        lineRenderer = objLineRenderer.GetComponent<LineRenderer>();
     }
     public void Active_Area()
     {
@@ -29,5 +44,21 @@ public class Copy : MonoBehaviour
     public void Paseting()
     {
         PasteObj = Instantiate(CopyColl.Obj, Point.transform.position, Quaternion.identity);
+    }
+
+    public void Shot()
+    {
+        PasteObj = CopyColl.Obj;
+
+        PasteObj = Instantiate(CopyColl.Obj, muzzele.transform.position, transform.rotation);
+        Rigidbody m_rigidbody = PasteObj.GetComponent<Rigidbody>();
+        //Vector3 v = muzzele.transform.TransformDirection(new Vector3(0, Y, Z));
+        m_rigidbody.AddForce(v * speed, ForceMode.Impulse);
+        //ShotPaste.DrawLine();
+    }
+
+    public void ShotArkDrow(int t)
+    {
+       
     }
 }
