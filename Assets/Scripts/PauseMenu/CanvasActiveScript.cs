@@ -29,12 +29,14 @@ public class CanvasActiveScript : MonoBehaviour
         {
             Time.timeScale = 0f;
             ActivePanel.SetActive(true);
+            Debug.Log("IsPose");
         }
         else
         {
             Time.timeScale = 1f;
             ActivePanel.SetActive(false);
             InActivePanel.SetActive(false);
+            Debug.Log("IsNotPose");
         }
     }
 }
