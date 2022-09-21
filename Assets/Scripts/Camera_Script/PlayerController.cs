@@ -16,13 +16,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //ƒvƒŒƒCƒ„[‚ð“®‚©‚·
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 move = new Vector3(Input.GetAxis("MoveX"), 0, Input.GetAxis("MoveY"));
         transform.position += move * speed * Time.deltaTime;
 
-        //Debug.Log(move);
-        if(Input.GetAxis("Horizontal") >= 1)
-        {
-            Debug.Log("aaaaa");
-        }
+        ////Debug.Log(move);
+        //if(Input.GetAxis("Horizontal") >= 1)
+        //{
+        //    Debug.Log("aaaaa");
+        //}
+
+        //Vector3 move = new Vector3(Input.GetAxis("LstickHorizontal"), 0, Input.GetAxis("LstickVertical"));
+        //transform.position += move * speed * Time.deltaTime;
     }
 }
