@@ -23,9 +23,9 @@ public class VolumeManager : MonoBehaviour
     {
         switch (volumeType)
         {
-            //case VolumeType.MASTER:
-            //    soundManager.Volume = slider.value;
-            //    break;
+            case VolumeType.MASTER:
+                AudioListener.volume = slider.value;
+                break;
             case VolumeType.BGM:
                 soundManager.BgmVolume = slider.value;
                 break;

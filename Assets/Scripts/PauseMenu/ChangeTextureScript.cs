@@ -9,7 +9,7 @@ public class ChangeTextureScript : MonoBehaviour
     [SerializeField] Sprite ChangeTexture;
     void Start()
     {
-        this.gameObject.GetComponent<Image>().sprite=DefaultTexture;
+        //this.gameObject.GetComponent<Image>().sprite=DefaultTexture;
     }
 
     private void OnMouseOver()
