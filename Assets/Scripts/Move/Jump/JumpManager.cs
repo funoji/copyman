@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class JumpManager : MonoBehaviour
 {
+    [SerializeField] Transform player;
     private Rigidbody rb;　　　　//Rigidbody読み込み用変数
     public float JumpPower = 200f;　　//ジャンプする力(上方向への力)
     public int JumpLimit = 1;    //ジャンプできる回数
-    private int jumpCount = 0;   //内部処理用
+    //private int jumpCount = 0;   //内部処理用
     private bool IsGround = true;　//接地フラグ用
+    //private bool IsJumping = false; //壁ジャン禁止用　壁ジャンOKにする場合は※～※の間をアンコメントしてください
+    private float distance = 1.0f;
+    Vector3 RayPosition;
 
     void Start()
     {
@@ -17,29 +21,49 @@ public class JumpManager : MonoBehaviour
 
     void Update()
     {
-        //着地するまでジャンプ回数は元に戻らないよーっていう処理
-        if (IsGround)
-            jumpCount=0;
+        ////着地するまでジャンプ回数は元に戻らないよーっていう処理
+        //if (IsGround)
+        //    jumpCount=0;
+
+        RayPosition= transform.position + new Vector3(player.position.x, player.position.y-3.5f, player.position.z);
+        Ray ray = new Ray(RayPosition, Vector3.down);
+        Debug.DrawRay(RayPosition, Vector3.down*distance, Color.red);
+
+        IsGround = Physics.Raycast(ray, distance);
+        Debug.Log(IsGround);
     }
 
     public void Jump()
     {
-        if (jumpCount<JumpLimit)　　//Limitの分だけジャンプできる
+        if (IsGround) //ジャンプしていなければ
         {
             rb.velocity = Vector3.zero;
             rb.AddForce(new Vector3(0, JumpPower, 0)); //ジャンプの方向
-            IsGround=false;　//ジャンプしたよーっていうフラグ
+/*            IsJumping=true;*/　//ジャンプしたよーっていうフラグ
+        }
+    }
 
-            jumpCount++;
-        }
-    }
-    private void OnCollisionEnter(Collision coll)
-    {
-        //地面に着地しているかどうかの判定
-        //ここを作るにあたってステージのタグを”StageGround”に変更しました。
-        if (coll.gameObject.tag=="StageGround")
-        {
-            IsGround=true;
-        }
-    }
+    //※
+    //public void Jump()
+    //{
+    //    if (jumpCount<JumpLimit)　　//Limitの分だけジャンプできる
+    //    {
+    //        rb.velocity = Vector3.zero;
+    //        rb.AddForce(new Vector3(0, JumpPower, 0)); //ジャンプの方向
+    //        IsGround=false;　//ジャンプしたよーっていうフラグ
+
+    //        jumpCount++;
+    //    }
+    //}
+    //private void OnCollisionEnter(Collision coll)
+    //{
+    //    //地面に着地しているかどうかの判定
+    //    //ここを作るにあたってステージのタグを”StageGround”に変更しました。
+    //    if (coll.gameObject.tag=="StageGround"||
+    //        coll.gameObject.tag=="Cancopy")
+    //    {
+    //        IsGround=true;
+    //    }
+    //}
+    //※
 }

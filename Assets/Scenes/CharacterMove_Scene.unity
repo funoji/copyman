@@ -456,7 +456,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 828193234}
-  - component: {fileID: 828193233}
   m_Layer: 0
   m_Name: test
   m_TagString: Untagged
@@ -464,19 +463,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &828193233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828193232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee4a562ee3b5ec4284fe206d7aefc91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 1
 --- !u!4 &828193234
 Transform:
   m_ObjectHideFlags: 0
@@ -1220,6 +1206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce34bab6867e954f8ee7e8755d179ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1743916504}
   JumpPower: 0.00005
   JumpLimit: 1
 --- !u!114 &1743916513
