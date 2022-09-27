@@ -20,14 +20,14 @@ public class JumpManager : MonoBehaviour
 
     void Start()
     {
-        rb= GetComponent<Rigidbody>();   //Rigidbody取得  
+        rb= GetComponent<Rigidbody>();   //Rigidbody取得 
     }
 
     void Update()
     {
-        rayPosition= transform.position+new Vector3(
+        rayPosition=transform.position+new Vector3(
             playerPosition.position.x-x, playerPosition.position.y-y, playerPosition.position.z-z);
-        Ray ray=new Ray(rayPosition,Vector3.down);
+        Ray ray = new Ray(rayPosition, Vector3.down);
         IsGround = Physics.Raycast(ray, distance);
         Debug.DrawRay(rayPosition, Vector3.down*distance, Color.red);
 
@@ -35,7 +35,7 @@ public class JumpManager : MonoBehaviour
     }
     public void Jump()
     {
-        if (IsGround)　　//Limitの分だけジャンプできる
+        if (IsGround) //Rayでジャンプを管理するVer
         {
             rb.velocity = Vector3.zero;
             rb.AddForce(new Vector3(0, JumpPower, 0)); //ジャンプの方向
@@ -53,7 +53,7 @@ public class JumpManager : MonoBehaviour
     //        jumpCount++;
     //    }
     //}
-    //private void OnCollisionEnter(Collision coll)
+    //void OnCollisionEnter(Collision coll)
     //{
     //    //地面に着地しているかどうかの判定
     //    //ここを作るにあたってステージのタグを”StageGround”に変更しました。

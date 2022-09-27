@@ -10,10 +10,10 @@ public class Button_KeyConfig : MonoBehaviour
         {
             GetComponent<JumpManager>().Jump();　//ジャンプ
         }
-        //if (Input.GetButtonDown("Button A"))  //Ａボタン
-        //{
-        //    GetComponent<JumpManager>().Jump();　//ジャンプ
-        //}
+        if (Input.GetButtonDown("Jump"))  //Ａボタン
+        {
+            GetComponent<JumpManager>().Jump();　//ジャンプ
+        }
         //if (Input.GetButtonDown("joystick button 1"))  //Ｂボタン
         //{
 

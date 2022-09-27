@@ -8,7 +8,9 @@ public class GameQuitScript : MonoBehaviour
 {
     [SerializeField] GameObject DefaltImage;
     [SerializeField] Sprite ReallySprite;
+    [SerializeField] Sprite ReallySprite2;
     private bool IsSecond = false;
+    private bool IsThird = false;
     void Start()
     {
         
@@ -23,12 +25,13 @@ public class GameQuitScript : MonoBehaviour
     {
         if (IsSecond)
         {
+            DefaltImage.GetComponent<Image>().sprite = ReallySprite2;
             SceneManager.LoadScene("TestScene");
         }
         else
         {
             DefaltImage.GetComponent<Image>().sprite = ReallySprite;
-            IsSecond = true;
+            IsSecond=true;
         }
     }
 }
