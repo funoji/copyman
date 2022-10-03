@@ -25,7 +25,7 @@ public class JumpManager : MonoBehaviour
 
     void Update()
     {
-        rayPosition=transform.position+new Vector3(
+        rayPosition=/*transform.position+*/new Vector3(
             playerPosition.position.x-x, playerPosition.position.y-y, playerPosition.position.z-z);
         Ray ray = new Ray(rayPosition, Vector3.down);
         IsGround = Physics.Raycast(ray, distance);
