@@ -10,7 +10,6 @@ public class GameQuitScript : MonoBehaviour
     [SerializeField] Sprite ReallySprite;
     [SerializeField] Sprite ReallySprite2;
     private bool IsSecond = false;
-    private bool IsThird = false;
     void Start()
     {
         

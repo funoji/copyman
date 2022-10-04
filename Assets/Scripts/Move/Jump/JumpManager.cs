@@ -11,8 +11,8 @@ public class JumpManager : MonoBehaviour
     public float z = -3;
 
     private Rigidbody rb;　　　　//Rigidbody読み込み用変数
-    public float JumpPower = 200f;　　//ジャンプする力(上方向への力)
-    public int JumpLimit = 1;    //ジャンプできる回数
+    public float JumpPower = 0.0001f;　　//ジャンプする力(上方向への力)
+    //public int JumpLimit = 1;    //ジャンプできる回数
     //private int jumpCount = 0;   //内部処理用
     private bool IsGround = true;　//接地フラグ用
     private float distance = 1.0f;
@@ -25,13 +25,10 @@ public class JumpManager : MonoBehaviour
 
     void Update()
     {
-        rayPosition=/*transform.position+*/new Vector3(
+        rayPosition=new Vector3(
             playerPosition.position.x-x, playerPosition.position.y-y, playerPosition.position.z-z);
         Ray ray = new Ray(rayPosition, Vector3.down);
         IsGround = Physics.Raycast(ray, distance);
-        Debug.DrawRay(rayPosition, Vector3.down*distance, Color.red);
-
-        Debug.Log(IsGround);
     }
     public void Jump()
     {
