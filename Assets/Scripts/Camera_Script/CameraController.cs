@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] [Tooltip("移動のスピード")] float rotateSpeed = 0.5f;
+    [Header("カメラの設定")]
+    [SerializeField] [Range(0.0f, 5.0f), Tooltip("移動のスピード")] float rotateSpeed = 0.5f;
+    [Space(5)]
     [SerializeField] [Tooltip("注目する所")] GameObject targetObject;
     private Vector3 targetPosition;
 
     private float angleH;
     private float angleV;
 
+    [Space(5)]
     [SerializeField] [Tooltip("上方向の角度")] float angleUp = 70f;
     [SerializeField] [Tooltip("下方向の角度")] float angleDown = -40f;
     [SerializeField] [Tooltip("右方向の角度")] float angleRight = 90f;
