@@ -6,6 +6,7 @@ public class CopyUI : MonoBehaviour
 {
     [SerializeField] Transform ObjPos;
     GameObject Obj = default!;
+    CopyColl CopyColl;
     // Update is called once per frame
     void Update()
     {

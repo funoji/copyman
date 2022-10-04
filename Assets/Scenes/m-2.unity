@@ -878,6 +878,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 920636078}
+  - component: {fileID: 920636079}
   m_Layer: 0
   m_Name: GameDriector
   m_TagString: Untagged
@@ -900,6 +901,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &920636079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920636077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873c6ab64fa5b9f45afe5ebeeec964cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &964757281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 710eb404a31e6c54684facaf01d02207, type: 3}
       propertyPath: m_Name
-      value: CPM_TestModel
+      value: CPM_TestPrefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710eb404a31e6c54684facaf01d02207, type: 3}
@@ -1676,6 +1689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60042221896494d419704cb9068f8576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CountDown: 2
+  CountDown: 9999999
   countdown: {fileID: 964757282}
   GameOverText: {fileID: 648577594}

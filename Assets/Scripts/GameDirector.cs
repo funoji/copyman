@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameDirector : MonoBehaviour
 {
     public static bool GameOver = false;
+    public static bool GameClear = false;
 }

@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float rotateSpeed = 0.1f;
-    [SerializeField] GameObject targetObject;
-    Vector3 targetPosition;
+    [Header("カメラの設定")]
+    [SerializeField] [Range(0.0f, 5.0f), Tooltip("移動のスピード")] float rotateSpeed = 0.5f;
+    [Space(5)]
+    [SerializeField] [Tooltip("注目する所")] GameObject targetObject;
+    private Vector3 targetPosition;
 
     private float angleH;
     private float angleV;
 
-    [SerializeField] float angleUp;
-    [SerializeField] float angleDown;
-    [SerializeField] float angleRight;
-    [SerializeField] float angleLeft;
+    [Space(5)]
+    [SerializeField] [Tooltip("上方向の角度")] float angleUp = 70f;
+    [SerializeField] [Tooltip("下方向の角度")] float angleDown = -40f;
+    [SerializeField] [Tooltip("右方向の角度")] float angleRight = 90f;
+    [SerializeField] [Tooltip("左方向の角度")] float angleLeft = -90f;
+
+    [SerializeField] [Tooltip("カメラとプレイヤーとの距離")] float intervalM = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
-        targetPosition = targetObject.transform.position;
+        //注目している所を設定
+        transform.LookAt(targetObject.transform.position);
     }
 
     // Update is called once per frame
@@ -30,46 +36,45 @@ public class CameraController : MonoBehaviour
 
     public void Move()
     {
-        //�v���C���[�ɍ��킹�ăJ�����̈ړ�
-        //transform.position += targetObject.transform.position - targetPosition;
-        //targetPosition = targetObject.transform.position;
+        //カメラと注目点の距離を更新
+        gameObject.transform.position = targetObject.transform.position - transform.forward * intervalM;
 
-        //�}�E�X�̈ړ�
+        //矢印キー
         float mouseInputX = Input.GetAxis("Mouse X");
         float mouseInputY = Input.GetAxis("Mouse Y");
 
-        //�}�E�X�ړ��ʂɂ���]�p�x
+        //矢印キー：移動のスピード
         float rotateH = mouseInputX * rotateSpeed;
         float rotateV = mouseInputY * rotateSpeed;
 
-        //Xbox�̈ړ�
+        //Xbox
         //float stickInputX = Input.GetAxis("RsitckHorizontal");
         //float stickInputY = Input.GetAxis("RsitckVerticl");
 
-        //Xbox�ړ��ʂɂ���]�p�x
+        //Xbox：移動のスピード
         //float rotateH = -stickInputX * rotateSpeed;
-        //float rotateV = -stickInputY * rotateSpeed*0.5f;
+        //float rotateV = -stickInputY * rotateSpeed * 0.5f;
 
-        //�p�x�����߂�
+        //移動量を代入
         angleH += rotateH;
         angleV += rotateV;
 
-        //�ړ��p�x����
+        //角度の制限
         float angleLimitH = Mathf.Clamp(angleH, angleLeft, angleRight);
         float angleLimitV = Mathf.Clamp(angleV, angleDown, angleUp);
 
-        //�����͈͂𒴂����������߂�
+        //移動量と角度の距離を求める
         float overRangeH = angleH - angleLimitH;
         float overRangeV = angleV - angleLimitV;
 
-        //��]�ʂ𒲐�
-        //������̊p�x����
+        //  ] ʂ𒲐 
+        //      ̊p x    
         rotateH -= overRangeH;
         rotateV -= overRangeV;
         angleH = angleLimitH;
         angleV = angleLimitV;
 
-        transform.RotateAround(targetPosition, Vector3.up, rotateH); //Y�����S�ɉ�]
-        transform.RotateAround(targetPosition, transform.right, rotateV); //X�����S�ɉ�]
+        transform.RotateAround(targetPosition, Vector3.up, rotateH); //Y軸の回転
+        transform.RotateAround(targetPosition, transform.right, rotateV); //X軸の回転
     }
 }
