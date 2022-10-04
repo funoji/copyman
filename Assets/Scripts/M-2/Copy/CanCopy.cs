@@ -1,24 +1,17 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
-public class CanCopy : MonoBehaviour
+public class Sample : MonoBehaviour
 {
-    [SerializeField] GameObject copys;
-    [SerializeField] GameObject Pos;
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
+    public CanCopyObj animal;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 CopyPos = Pos.transform.position;
-        if(Input.GetMouseButton(0))
-        {
-            GameObject instance = (GameObject)Instantiate(copys,CopyPos,Quaternion.identity);
-        }
-    }
+[System.Serializable]
+public class CanCopyObj
+{
+    public string name;
+    [Header("objectñº")]
+
+    [Header("î‘çÜ")]
+    public int NumberOfObj;
 }

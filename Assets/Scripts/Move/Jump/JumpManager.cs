@@ -10,17 +10,17 @@ public class JumpManager : MonoBehaviour
     public float y = -3;
     public float z = -3;
 
-    private Rigidbody rb;@@@@//Rigidbody“Ç‚İ‚İ—p•Ï”
-    public float JumpPower = 200f;@@//ƒWƒƒƒ“ƒv‚·‚é—Í(ã•ûŒü‚Ö‚Ì—Í)
-    public int JumpLimit = 1;    //ƒWƒƒƒ“ƒv‚Å‚«‚é‰ñ”
-    //private int jumpCount = 0;   //“à•”ˆ——p
-    private bool IsGround = true;@//Ú’nƒtƒ‰ƒO—p
+    private Rigidbody rb;ï¿½@ï¿½@ï¿½@ï¿½@//Rigidbodyï¿½Ç‚İï¿½ï¿½İ—pï¿½Ïï¿½
+    public float JumpPower = 200f;ï¿½@ï¿½@//ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚Ì—ï¿½)
+    public int JumpLimit = 1;    //ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Å‚ï¿½ï¿½ï¿½ï¿½
+    //private int jumpCount = 0;   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½p
+    private bool IsGround = true;ï¿½@//ï¿½Ú’nï¿½tï¿½ï¿½ï¿½Oï¿½p
     private float distance = 1.0f;
     Vector3 rayPosition;
 
     void Start()
     {
-        rb= GetComponent<Rigidbody>();   //Rigidbodyæ“¾ 
+        rb= GetComponent<Rigidbody>();   //Rigidbodyï¿½æ“¾ 
     }
 
     void Update()
@@ -35,28 +35,28 @@ public class JumpManager : MonoBehaviour
     }
     public void Jump()
     {
-        if (IsGround) //Ray‚ÅƒWƒƒƒ“ƒv‚ğŠÇ—‚·‚éVer
+        if (IsGround) //Rayï¿½ÅƒWï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Ç—ï¿½ï¿½ï¿½ï¿½ï¿½Ver
         {
             rb.velocity = Vector3.zero;
-            rb.AddForce(new Vector3(0, JumpPower, 0)); //ƒWƒƒƒ“ƒv‚Ì•ûŒü
+            rb.AddForce(new Vector3(0, JumpPower, 0)); //ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Ì•ï¿½ï¿½ï¿½
         }
     }
 
     //public void Jump()
     //{
-    //    if (jumpCount<JumpLimit)@@//Limit‚Ì•ª‚¾‚¯ƒWƒƒƒ“ƒv‚Å‚«‚é
+    //    if (jumpCount<JumpLimit)ï¿½@ï¿½@//Limitï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Å‚ï¿½ï¿½ï¿½
     //    {
     //        rb.velocity = Vector3.zero;
-    //        rb.AddForce(new Vector3(0, JumpPower, 0)); //ƒWƒƒƒ“ƒv‚Ì•ûŒü
-    //        IsGround=false;@//ƒWƒƒƒ“ƒv‚µ‚½‚æ[‚Á‚Ä‚¢‚¤ƒtƒ‰ƒO
+    //        rb.AddForce(new Vector3(0, JumpPower, 0)); //ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Ì•ï¿½ï¿½ï¿½
+    //        IsGround=false;ï¿½@//ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O
 
     //        jumpCount++;
     //    }
     //}
     //void OnCollisionEnter(Collision coll)
     //{
-    //    //’n–Ê‚É’…’n‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚Ì”»’è
-    //    //‚±‚±‚ğì‚é‚É‚ ‚½‚Á‚ÄƒXƒe[ƒW‚Ìƒ^ƒO‚ğhStageGroundh‚É•ÏX‚µ‚Ü‚µ‚½B
+    //    //ï¿½nï¿½Ê‚É’ï¿½ï¿½nï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½Ì”ï¿½ï¿½ï¿½
+    //    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÄƒXï¿½eï¿½[ï¿½Wï¿½Ìƒ^ï¿½Oï¿½ï¿½ï¿½hStageGroundï¿½hï¿½É•ÏXï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
     //    if (coll.gameObject.tag=="StageGround")
     //    {
     //        IsGround=true;
