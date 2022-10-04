@@ -10,11 +10,11 @@ public class JumpManager : MonoBehaviour
     public float y = -3;
     public float z = -3;
 
-    private Rigidbody rb;�@�@�@�@//Rigidbody�ǂݍ��ݗp�ϐ�
-    public float JumpPower = 200f;�@�@//�W�����v�����(������ւ̗�)
-    public int JumpLimit = 1;    //�W�����v�ł����
+    private Rigidbody rb;//Rigidbody�ǂݍ��ݗp�ϐ�
+    public float JumpPower = 200f;//�W�����v�����(������ւ̗�)
+    public int JumpLimit = 1;//�W�����v�ł����
     //private int jumpCount = 0;   //���������p
-    private bool IsGround = true;�@//�ڒn�t���O�p
+    private bool IsGround = true;//�ڒn�t���O�p
     private float distance = 1.0f;
     Vector3 rayPosition;
 
