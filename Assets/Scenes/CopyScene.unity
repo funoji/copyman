@@ -275,7 +275,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -355,9 +355,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  turnMove: 1
-  playerCamera: {fileID: 0}
-  player: {fileID: 0}
 --- !u!136 &1002429743
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -508,7 +505,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -749,9 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227f6248290679a448128301072b9916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaCollider: {fileID: 1958739931}
-  Area: {fileID: 935815428}
-  Point: {fileID: 1958739927}
+  Copy: {fileID: 0}
   PasteCoolTime: 3
 --- !u!135 &1958739931
 SphereCollider:
