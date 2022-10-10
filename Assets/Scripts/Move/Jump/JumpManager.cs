@@ -6,9 +6,9 @@ public class JumpManager : MonoBehaviour
 {
     [SerializeField] Transform playerPosition;
 
-    public float x = -3;
-    public float y = -3;
-    public float z = -3;
+    public float x = 0;
+    public float y = 0;
+    public float z = 0;
 
     private Rigidbody rb;　　　　//Rigidbody読み込み用変数
     public float JumpPower = 0.0001f;　　//ジャンプする力(上方向への力)
@@ -29,6 +29,8 @@ public class JumpManager : MonoBehaviour
             playerPosition.position.x-x, playerPosition.position.y-y, playerPosition.position.z-z);
         Ray ray = new Ray(rayPosition, Vector3.down);
         IsGround = Physics.Raycast(ray, distance);
+
+        Debug.DrawRay(rayPosition, Vector3.down, Color.red);
     }
     public void Jump()
     {

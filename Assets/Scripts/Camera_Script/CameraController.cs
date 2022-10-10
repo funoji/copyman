@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
 
     private float angleH;
     private float angleV;
+    public float Hrotation;
 
     [SerializeField] [Tooltip("上方向の角度")] float angleUp = 70f;
     [SerializeField] [Tooltip("下方向の角度")] float angleDown = -40f;
@@ -51,6 +52,8 @@ public class CameraController : MonoBehaviour
         //Xbox：移動のスピード
         float rotateH = -stickInputX * rotateSpeed;
         float rotateV = -stickInputY * rotateSpeed * 0.5f;
+
+        Hrotation = rotateH;
 
         //移動量を代入
         angleH += rotateH;
