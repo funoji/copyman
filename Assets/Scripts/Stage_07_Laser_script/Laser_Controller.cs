@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserController : MonoBehaviour
+public class Laser_Controller: MonoBehaviour
 {
     [SerializeField] [Tooltip("発射場所")] GameObject firingLocatioin;
     [SerializeField] [Tooltip("レーザーの元となるオブジェクト")] GameObject laserObj;
@@ -23,6 +23,7 @@ public class LaserController : MonoBehaviour
         //gameOver = laserGameOverScript.GetComponent<LaserGameOver>().gameoverFlag;
         //gameClear = GameObject.FindWithTag("Goar_Judg");
         //gameClear = goarScript.GetComponent<GoarManeger>().gameclearFlag;
+        //Destroy(laserObj, 10.0f);
     }
 
     private void Update()
@@ -47,6 +48,8 @@ public class LaserController : MonoBehaviour
             else if (!isOn) isOn = true; shotOn = true;
             time = 0; //時間の初期化
         }
+
+        //Destroy(laserObj, 10.0f);
 
         ////GameOverになったら処理を停止する。又はGameClearになったら処理を停止する
         //if (gameOver == false || gameClear == false) 
@@ -84,6 +87,6 @@ public class LaserController : MonoBehaviour
         //出現させたオブジェクトのfoward(z軸方向）
         Vector3 direction = newLaser.transform.right;
         //オブジェクトの発射方向にZ方向を入れ、オブジェクトのrigibodyに力を加える
-        newLaser.GetComponent<Rigidbody>().AddForce(direction * laserSpeed, ForceMode.Impulse);
+        newLaser.GetComponent<Rigidbody>().AddForce(direction * laserSpeed*2f, ForceMode.Impulse);
     }
 }

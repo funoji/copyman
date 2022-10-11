@@ -14,6 +14,7 @@ public class TransitionScene : MonoBehaviour
     [Header("フェイドアウト機能")]
     public bool fadeout; //フェイドアウトしているかの判定
     [SerializeField] [Tooltip("メインの表示刺せるパネル")] GameObject mainPanel;   //タイトルパネル
+    //[SerializeField] [Tooltip("ステージセレクト部分の画像")] Image selectImage; //メニュー画面にあるステージ選択画像
     [SerializeField] [Tooltip("フェイドアウト用のパネル")] GameObject fadeoutPanel; //フェイドアウト用の下地パネル
     [SerializeField] [Tooltip("フェイドアウトするスピード")] float fadespeed;　//フェイドアウトするスピード
 
@@ -45,40 +46,40 @@ public class TransitionScene : MonoBehaviour
 
     public void Trans_Menu()
     {
-        Debug.Log("スタートボタンが押された。");
-        //SceneManager.LoadScene("MainScene");
+        //Debug.Log("スタートボタンが押された。");
+        SceneManager.LoadScene("S-02_Menu_Scene");
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }
 
     public void Trans_StageSelect()
     {
-        Debug.Log("ステージ選択ボタンが押された。");
-        //SceneManager.LoadScene("MainScene");
+        //Debug.Log("ステージ選択ボタンが押された。");
+        SceneManager.LoadScene("CameraScene");
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }
 
     public void Trans_Option()
     {
-        Debug.Log("オプションボタンが押された。");
-        //SceneManager.LoadScene("MainScene");
+        //Debug.Log("オプションボタンが押された。");
+        SceneManager.LoadScene("S-03_Option_Scene");
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }
 
     public void Trans_Catalog()
     {
-        Debug.Log("アイテム図鑑ボタンが押された。");
-        //SceneManager.LoadScene("MainScene");
+        //Debug.Log("アイテム図鑑ボタンが押された。");
+        SceneManager.LoadScene("CameraScene");
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }
 
     public void Trasn_Exit()
     {
-        Debug.Log("戻るボタンが押された。");
-        //SceneManager.LoadScene("MainScene");
+        //Debug.Log("戻るボタンが押された。");
+        SceneManager.LoadScene("S-01_Title_Scene");
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }

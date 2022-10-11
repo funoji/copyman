@@ -351,8 +351,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 908929826}
-        m_TargetAssemblyTypeName: TitleController, Assembly-CSharp
-        m_MethodName: Onclick
+        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
+        m_MethodName: Trans_Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeout: 0
-  mainPanel: {fileID: 0}
+  mainPanel: {fileID: 908929822}
   fadeoutPanel: {fileID: 1472443394}
   fadespeed: 0.1
 --- !u!225 &908929827
