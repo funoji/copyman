@@ -33,5 +33,9 @@ public class M1UI : MonoBehaviour
         {
             GameOverText.text = "GAMEOVER";
         }
+        if(GameDirector.GameClear == true)
+        {
+            GameOverText.text = "GameClear";
+        }
     }
 }

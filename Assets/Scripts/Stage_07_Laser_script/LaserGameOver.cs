@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserGameOver : MonoBehaviour
+public class Laser_GameOver : MonoBehaviour
 {
     //ゲームオーバーフラグ（初期：false）
     public bool gameoverFlag = false;
@@ -13,6 +13,15 @@ public class LaserGameOver : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             gameoverFlag = true;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            gameoverFlag = true;
+            Debug.Log("落下した");
         }
     }
 }

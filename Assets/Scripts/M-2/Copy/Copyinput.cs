@@ -21,12 +21,13 @@ public class Copyinput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Copy.Active_Area();
+            CopyColl.count = 0;
         }
         if (Input.GetKeyUp(KeyCode.Q))
         {
             Copy.DisActive_Area();
         }
-        if (Input.GetKeyDown(KeyCode.E) && cooltime)
+        if (Input.GetKeyUp(KeyCode.E) && cooltime)
         {
             Copy.Paseting();
             cooltime = false;
