@@ -17,6 +17,7 @@ public class TransitionScene : MonoBehaviour
     //[SerializeField] [Tooltip("ステージセレクト部分の画像")] Image selectImage; //メニュー画面にあるステージ選択画像
     [SerializeField] [Tooltip("フェイドアウト用のパネル")] GameObject fadeoutPanel; //フェイドアウト用の下地パネル
     [SerializeField] [Tooltip("フェイドアウトするスピード")] float fadespeed;　//フェイドアウトするスピード
+    [Space(15)]
 
     CanvasGroup main_panel;
 
@@ -55,7 +56,7 @@ public class TransitionScene : MonoBehaviour
     public void Trans_StageSelect()
     {
         //Debug.Log("ステージ選択ボタンが押された。");
-        SceneManager.LoadScene("CameraScene");
+        SceneManager.LoadScene("Stage_01");
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }
@@ -71,7 +72,7 @@ public class TransitionScene : MonoBehaviour
     public void Trans_Catalog()
     {
         //Debug.Log("アイテム図鑑ボタンが押された。");
-        SceneManager.LoadScene("CameraScene");
+        SceneManager.LoadScene("Stage_01");
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }
