@@ -7,6 +7,12 @@ public class GoTitleScript : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene("TestScene");
+        StartCoroutine("Test");
+    }
+
+    private IEnumerator Test()
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("S-02_Menu_Scene");
     }
 }

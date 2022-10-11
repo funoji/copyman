@@ -25,7 +25,12 @@ public class GameQuitScript : MonoBehaviour
         if (IsSecond)
         {
             DefaltImage.GetComponent<Image>().sprite = ReallySprite2;
-            SceneManager.LoadScene("TestScene");
+#if UNITY_STANDALONE
+            Application.Quit();
+#endif
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
         }
         else
         {
