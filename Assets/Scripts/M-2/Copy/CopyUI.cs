@@ -5,13 +5,24 @@ using UnityEngine;
 public class CopyUI : MonoBehaviour
 {
     [SerializeField] Transform ObjPos;
-    GameObject Obj = default!;
-    CopyColl CopyColl;
+    [SerializeField] GameObject CopyCallObj;
+    GameObject UIObj;
+    [SerializeField] GameObject DEMI;
+
+    void Start()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
-        Obj = CopyColl.Obj;
-        Obj.transform.position = ObjPos.position;
-        Obj.transform.Rotate(new Vector3(0, 100, 0)*Time.deltaTime);
+        UIObj = CopyCallObj.GetComponent<CopyColl>().ForUIObj;
+        if (!UIObj)
+        {
+            UIObj = DEMI;
+        }
+        UIObj.transform.position = ObjPos.position;
+        UIObj.transform.Rotate(new Vector3(0, 100, 0)*Time.deltaTime);
+
     }
 }
