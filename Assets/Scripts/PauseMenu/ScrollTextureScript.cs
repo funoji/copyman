@@ -13,9 +13,9 @@ public class ScrollTextureScript : MonoBehaviour
     void Update()
     {
         transform.Translate(-speed, 0, 0);
-        if (transform.position.x < -500f)
+        if (transform.position.x < -1370f)
         {
-            transform.position = new Vector3(1375f, 205f, 0);
+            transform.position = new Vector3(3000f, 540f, 0);
         }
     }
 }
