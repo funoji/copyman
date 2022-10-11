@@ -12,8 +12,9 @@ public class Copy : MonoBehaviour
     [SerializeField] float rot;
     [SerializeField] float speed;   
     GameObject PasteObj;
-    CopyColl CopyColl;
+    GameObject willPaste;
     ShotPaste ShotPaste;
+    [SerializeField] CopyColl CopyColl;
     Vector3 v;
     private LineRenderer lineRenderer;
     public GameObject preLineRenderer;
@@ -47,9 +48,7 @@ public class Copy : MonoBehaviour
     }
 
     public void Shot()
-    {
-        PasteObj = CopyColl.Obj;
-
+    { 
         PasteObj = Instantiate(CopyColl.Obj, muzzele.transform.position, transform.rotation);
         Rigidbody m_rigidbody = PasteObj.GetComponent<Rigidbody>();
         //Vector3 v = muzzele.transform.TransformDirection(new Vector3(0, Y, Z));
