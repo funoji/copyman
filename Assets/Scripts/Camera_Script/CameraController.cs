@@ -40,20 +40,20 @@ public class CameraController : MonoBehaviour
         gameObject.transform.position = targetObject.transform.position - transform.forward * intervalM;
 
         //矢印キー
-        //float mouseInputX = Input.GetAxis("ArrowX");
-        //float mouseInputY = Input.GetAxis("ArrowY");
+        float mouseInputX = Input.GetAxis("Mouse X");
+        float mouseInputY = Input.GetAxis("Mouse Y");
 
         //矢印キー：移動のスピード
-        //float rotateH = mouseInputX * rotateSpeed;
-        //float rotateV = mouseInputY * rotateSpeed;
+        float rotateH = mouseInputX * rotateSpeed;
+        float rotateV = mouseInputY * rotateSpeed;
 
         //Xbox
-        float stickInputX = Input.GetAxis("RsitckHorizontal");
-        float stickInputY = Input.GetAxis("RsitckVerticl");
+        //float stickInputX = Input.GetAxis("RsitckHorizontal");
+        //float stickInputY = Input.GetAxis("RsitckVerticl");
 
         //Xbox：移動のスピード
-        float rotateH = -stickInputX * rotateSpeed;
-        float rotateV = -stickInputY * rotateSpeed * 0.5f;
+        //float rotateH = -stickInputX * rotateSpeed;
+        //float rotateV = -stickInputY * rotateSpeed * 0.5f;
 
         //移動量を代入
         angleH += rotateH;
