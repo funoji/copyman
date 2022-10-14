@@ -10,16 +10,17 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class GravityController : MonoBehaviour
 {
-    public float ExtraGravity = 1f;　//Rigidbodyに加える重力の倍率
+    [SerializeField]private Vector3 ExtraGravity;　//Rigidbodyに加える重力の倍率
     private Rigidbody rb;　　//Rigidbody取得用の変数
 
     private void Start()
     {
         rb= GetComponent<Rigidbody>(); //Rigidbody取得
+        rb.useGravity = false;
     }
 
     private void FixedUpdate()
     {
-        rb.AddForce((ExtraGravity-1f)*Physics.gravity, ForceMode.Acceleration);　//本処理
+        rb.AddForce(ExtraGravity, ForceMode.Acceleration);　//本処理
     }
 }
