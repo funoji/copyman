@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
-    //ƒvƒŒƒCƒ„[‚ª“®‚­‘¬“x
+    //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½x
     [SerializeField] float speed = 2f;
     private float applySpeed = 0.2f;
     [SerializeField] private CameraController refCamera;
@@ -15,13 +16,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        
     }
     // Update is called once per frame
     void Update()
     {
 
-        //ƒvƒŒƒCƒ„[‚ğ“®‚©‚·
+        //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ğ“®‚ï¿½ï¿½ï¿½
         Vector3 move = new Vector3(Input.GetAxis("MoveY"), 0, Input.GetAxis("MoveX"));
         transform.position += move * speed * Time.deltaTime;
 
