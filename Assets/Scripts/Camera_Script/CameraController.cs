@@ -34,11 +34,14 @@ public class CameraController : MonoBehaviour
         Move();
     }
 
-    public void Move()
+    private void LateUpdate()
     {
         //カメラと注目点の距離を更新
         gameObject.transform.position = targetObject.transform.position - transform.forward * intervalM;
+    }
 
+    public void Move()
+    {
         //矢印キー
         float mouseInputX = Input.GetAxis("Mouse X");
         float mouseInputY = Input.GetAxis("Mouse Y");
