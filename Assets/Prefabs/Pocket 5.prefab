@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3126017262294737831}
   - component: {fileID: 3501879730237782091}
   - component: {fileID: 3973013882526651015}
+  - component: {fileID: 928514917332563343}
+  - component: {fileID: 4072639467098269115}
   m_Layer: 0
   m_Name: Pocket 5
   m_TagString: Cancopy
@@ -61,8 +63,37 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2615113, y: 3.0999737, z: 2.4215212}
-  m_Center: {x: -0.00000023841858, y: 0.00000047683716, z: -0.19384384}
+  m_Size: {x: 3.2615113, y: 3.0999737, z: 2}
+  m_Center: {x: -0.00000023841858, y: 0.00000047683716, z: -0.07}
+--- !u!65 &928514917332563343
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317674372172708125}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4, y: 2.38, z: 0.25}
+  m_Center: {x: 0, y: -0.11, z: -1.14}
+--- !u!114 &4072639467098269115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317674372172708125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b343ee85c925e624bb70353615ac2ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SmartBall: {fileID: 7122187172659527914, guid: 14c7707b2ce00a044b7b7c0aeeb31fb9, type: 3}
+  SpawnPoint: {fileID: 0}
+  WinBall: 5
+  waitTime: 1
 --- !u!1 &3995661842280757846
 GameObject:
   m_ObjectHideFlags: 0

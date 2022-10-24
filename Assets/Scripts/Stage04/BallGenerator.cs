@@ -7,6 +7,9 @@ public class BallGenerator : MonoBehaviour
     [SerializeField] Transform SpawnPoint;
     [SerializeField] GameObject ball;
 
+    [SerializeField] private int LoseRate = 5;
+    [SerializeField] private int WinRate = 1;
+
     Rigidbody rb;
 
     public float minPower = 1.0f;
@@ -14,13 +17,11 @@ public class BallGenerator : MonoBehaviour
     private int randomPower;
     public float waitTime = 5.0f;
 
-    Vector3 Power;
+    private int GenerateCount = 0;
 
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
-
-        StartCoroutine("Spawn");
     }
 
     // Update is called once per frame
@@ -31,19 +32,40 @@ public class BallGenerator : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        while (true)
+        int count = 0;
+        do
         {
-            randomPower = (int)Random.Range(minPower, maxPower);
+            //randomPower = (int)Random.Range(minPower, maxPower);
+            Vector3 Power = (new Vector3(Random.Range(minPower, maxPower),
+                                        0,
+                                        -Random.Range(minPower, maxPower)));
 
-            Debug.Log(randomPower);
+            GameObject obj = Instantiate(ball, SpawnPoint);
 
-            Power = new Vector3(0, randomPower, 0);
-            Instantiate(ball, SpawnPoint);
-
-            rb = ball.GetComponent<Rigidbody>();
-            rb.AddForce(-Power.normalized,ForceMode.Impulse);
+            rb = obj.GetComponent<Rigidbody>();
+            rb.AddForce(Power,ForceMode.Impulse);
 
             yield return new WaitForSeconds(waitTime);
+            count++;
+        } while (count < WinRate);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("TriggerIn");
+        if (other.gameObject.name=="SmartBall" ||
+            other.gameObject.name == "SmartBall(Clone)")
+        {
+            GenerateCount++;
+
+            Debug.Log("TriggerOn");
+            Destroy(other.gameObject);
+
+            if (GenerateCount >= LoseRate)
+            {
+                StartCoroutine("Spawn");
+                GenerateCount = 0;
+            }
         }
     }
 }
