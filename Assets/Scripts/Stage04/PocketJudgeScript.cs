@@ -7,9 +7,9 @@ public class PocketJudgeScript : MonoBehaviour
     [SerializeField] GameObject SmartBall;
     [SerializeField] Transform SpawnPoint;
 
-    private int IsFinish = 0;
+    private int IsIn = 0;
 
-    public int FinishCount = 5;
+    public static int FinishCount = 30;
     public int WinBall;
 
     public float waitTime = 1.0f;
@@ -18,7 +18,7 @@ public class PocketJudgeScript : MonoBehaviour
 
     void Update()
     {
-        if(IsFinish == FinishCount)
+        if(IsIn == FinishCount)
         {
             ClearFlag = true;
             Debug.Log(ClearFlag);
@@ -27,20 +27,17 @@ public class PocketJudgeScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SmartBall")
+        if (other.gameObject.name == "SmartBall" ||
+            other.gameObject.name == "SmartBall(Clone)")
         {
             Destroy(other.gameObject,0.1f);
             StartCoroutine("Spawn");
-        }
-        if (other.gameObject.tag == "Player")
-        {
-            /*GameOver*/
         }
     }
 
     public IEnumerator Spawn()
     {
-        IsFinish++;
+        IsIn++;
         for (int i = 0; i < WinBall; i++)
         {
             Instantiate(SmartBall, SpawnPoint.position, Quaternion.identity);

@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 7610177180349717072}
   - component: {fileID: 4979834945554374147}
   - component: {fileID: 8790676674304425837}
+  - component: {fileID: -4773660870590325863}
   m_Layer: 0
   m_Name: SmartBall
   m_TagString: Cancopy
@@ -146,3 +147,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.9646735
   m_Center: {x: -0.00000047683716, y: 0, z: 0}
+--- !u!114 &-4773660870590325863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122187172659527914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13600881ba916348b3a2570b717a2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExtraGravity: {x: 0, y: -60, z: 55}
