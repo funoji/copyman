@@ -14,10 +14,11 @@ public class BallGenerator : MonoBehaviour
 
     public float minPower = 1.0f;
     public float maxPower = 10f;
-    private int randomPower;
     public float waitTime = 5.0f;
 
     private int GenerateCount = 0;
+
+    private bool IsGenerating = false;
 
     void Start()
     {
@@ -27,6 +28,11 @@ public class BallGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GenerateCount == 0)
+        {
+            GenerateCount = 1;
+            StartCoroutine("Spawn");
+        }
 
     }
 
@@ -35,7 +41,7 @@ public class BallGenerator : MonoBehaviour
         int count = 0;
         do
         {
-            //randomPower = (int)Random.Range(minPower, maxPower);
+            IsGenerating = true;
             Vector3 Power = (new Vector3(Random.Range(minPower, maxPower),
                                         0,
                                         -Random.Range(minPower, maxPower)));
@@ -47,24 +53,28 @@ public class BallGenerator : MonoBehaviour
 
             yield return new WaitForSeconds(waitTime);
             count++;
-        } while (count < WinRate);
+            Debug.Log("GenerateCount=" + GenerateCount);
+        } while (count <= GenerateCount);
+
+        IsGenerating=false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("TriggerIn");
         if (other.gameObject.name=="SmartBall" ||
             other.gameObject.name == "SmartBall(Clone)")
         {
             GenerateCount++;
 
-            Debug.Log("TriggerOn");
             Destroy(other.gameObject);
 
-            if (GenerateCount >= LoseRate)
+            if (IsGenerating == false)
             {
-                StartCoroutine("Spawn");
-                GenerateCount = 0;
+                if (GenerateCount >= LoseRate)
+                {
+                    StartCoroutine("Spawn");
+                    GenerateCount -= LoseRate;
+                }
             }
         }
     }
