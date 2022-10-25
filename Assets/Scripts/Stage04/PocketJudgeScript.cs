@@ -13,6 +13,7 @@ public class PocketJudgeScript : MonoBehaviour
     public int WinBall;
 
     public float waitTime = 1.0f;
+    private bool ClearFlag; 
 
     void Update()
     {
