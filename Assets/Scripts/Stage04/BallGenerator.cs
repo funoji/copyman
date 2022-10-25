@@ -19,9 +19,12 @@ public class BallGenerator : MonoBehaviour
 
     private int GenerateCount = 0;
 
+    private bool IsGenerating;
+
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
+        IsGenerating = false;
     }
 
     // Update is called once per frame
@@ -52,19 +55,17 @@ public class BallGenerator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("TriggerIn");
         if (other.gameObject.name=="SmartBall" ||
             other.gameObject.name == "SmartBall(Clone)")
         {
             GenerateCount++;
 
-            Debug.Log("TriggerOn");
             Destroy(other.gameObject);
 
             if (GenerateCount >= LoseRate)
             {
-                StartCoroutine("Spawn");
-                GenerateCount = 0;
+                 IsGenerating=true;
+                 StartCoroutine("Spawn");
             }
         }
     }
