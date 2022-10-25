@@ -7,20 +7,18 @@ public class JumpManager : MonoBehaviour
     [SerializeField] Transform playerPosition;
 
     public float x = 0;
-    public float y = 0;
+    public float y = 0.5f;
     public float z = 0;
 
-    private Rigidbody rb;//Rigidbody�ǂݍ��ݗp�ϐ�
-    public float JumpPower = 0.0001f;//�W�����v�����(������ւ̗�)
-    //public int JumpLimit = 1;    //�W�����v�ł����
-    //private int jumpCount = 0;   //���������p
-    private bool IsGround = true;//�ڒn�t���O�p
+    private Rigidbody rb;
+    public float JumpPower = 0.0001f;
+    private bool IsGround = true;
     private float distance = 1.0f;
     Vector3 rayPosition;
 
     void Start()
     {
-        rb= GetComponent<Rigidbody>();   //Rigidbody�擾 
+        rb= GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -34,31 +32,10 @@ public class JumpManager : MonoBehaviour
     }
     public void Jump()
     {
-        if (IsGround) //Ray�ŃW�����v���Ǘ�����Ver
+        if (IsGround)
         {
             rb.velocity = Vector3.zero;
-            rb.AddForce(new Vector3(0, JumpPower, 0)); //�W�����v�̕���
+            rb.AddForce(new Vector3(0, JumpPower, 0));
         }
     }
-
-    //public void Jump()
-    //{
-    //    if (jumpCount<JumpLimit)�@�@//Limit�̕������W�����v�ł���
-    //    {
-    //        rb.velocity = Vector3.zero;
-    //        rb.AddForce(new Vector3(0, JumpPower, 0)); //�W�����v�̕���
-    //        IsGround=false;�@//�W�����v������[���Ă����t���O
-
-    //        jumpCount++;
-    //    }
-    //}
-    //void OnCollisionEnter(Collision coll)
-    //{
-    //    //�n�ʂɒ��n���Ă��邩�ǂ����̔���
-    //    //���������ɂ������ăX�e�[�W�̃^�O���hStageGround�h�ɕύX���܂����B
-    //    if (coll.gameObject.tag=="StageGround")
-    //    {
-    //        IsGround=true;
-    //    }
-    //}
 }
