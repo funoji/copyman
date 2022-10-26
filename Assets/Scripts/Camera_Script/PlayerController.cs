@@ -2,45 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PlayerController : MonoBehaviour
 {
-    //�v���C���[���������x
-    [SerializeField] float speed = 2f;
-    private float applySpeed = 0.2f;
-    [SerializeField] private CameraController refCamera;
-    private Rigidbody rb;
-    private float inputVertical;
-    private float inputHorizontal;
+    //移動の変数
+    [SerializeField] [Tooltip("プレイヤーの移動スピード")] private float move_speed = 10f;
+    [SerializeField] [Tooltip("プレイヤーの重力")] private Rigidbody rb;
+    [SerializeField] [Tooltip("プレイヤーの移動方向")] private Vector3 direction;
+    [SerializeField] [Tooltip("カメラの水平方向")] private CameraController refCamera_H;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
+
     // Update is called once per frame
     void Update()
     {
+        Move();
+    }
 
-        //�v���C���[�𓮂���
-        Vector3 move = new Vector3(Input.GetAxis("MoveY"), 0, Input.GetAxis("MoveX"));
-        transform.position += move * speed * Time.deltaTime;
+    private void Move()
+    {
+        direction = Vector3.zero;
+        if (Input.GetKey(KeyCode.W))
+            direction.z -= 1f;
+        if(Input.GetKey(KeyCode.S))
+            direction.z += 1f;
+        if (Input.GetKey(KeyCode.D))
+            direction.x -= 1f;
+        if (Input.GetKey(KeyCode.A))
+            direction.x += 1f;
+        direction = direction.normalized * move_speed * Time.deltaTime;
 
-        if (move.magnitude>0)
+        if (direction.magnitude > 0)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-                                                      Quaternion.LookRotation(refCamera.Hrotation*move),
-                                                      applySpeed);
-
-            transform.position += refCamera.Hrotation * move;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(refCamera_H.rotateH * -direction), 5.0f);
+            transform.position += refCamera_H.rotateH * direction;
         }
-        ////Debug.Log(move);
-        //if(Input.GetAxis("Horizontal") >= 1)
-        //{
-        //    Debug.Log("aaaaa");
-        //}
-
-        //Vector3 move = new Vector3(Input.GetAxis("LstickHorizontal"), 0, Input.GetAxis("LstickVertical"));
-        //transform.position += move * speed * Time.deltaTime;
     }
 }

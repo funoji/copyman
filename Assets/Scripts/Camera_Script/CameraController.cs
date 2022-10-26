@@ -12,7 +12,8 @@ public class CameraController : MonoBehaviour
 
     private float angleH;
     private float angleV;
-    public float Hrotation;
+    [SerializeField] [Tooltip("カメラの水平")] public Quaternion rotateH;
+    [SerializeField] [Tooltip("カメラの垂直")] public Quaternion rotateV;
 
     [Space(5)]
     [SerializeField] [Tooltip("上方向の角度")] float angleUp = 70f;
@@ -20,36 +21,49 @@ public class CameraController : MonoBehaviour
     [SerializeField] [Tooltip("右方向の角度")] float angleRight = 90f;
     [SerializeField] [Tooltip("左方向の角度")] float angleLeft = -90f;
 
-    [SerializeField][Tooltip("カメラとプレイヤーとの距離")] float intervalM = 10f;
+    [SerializeField] [Tooltip("カメラとプレイヤーとの距離")] float intervalM = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
         //注目している所を設定
         transform.LookAt(targetObject.transform.position);
+
+        rotateH = Quaternion.identity;
+        rotateV= Quaternion.Euler(30, 180, 0);
+        transform.rotation = rotateH * rotateV;
+
+        transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        //Move();
     }
 
     private void LateUpdate()
     {
         //カメラと注目点の距離を更新
-        gameObject.transform.position = targetObject.transform.position - transform.forward * intervalM;
+        //gameObject.transform.position = targetObject.transform.position - transform.forward * intervalM;
+
+        if (!(Input.GetKey(KeyCode.W)))
+            rotateH *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * rotateSpeed, 0);
+
+        transform.rotation = rotateH * rotateV;
+        transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
     }
 
     public void Move()
     {
+        /*
         //矢印キー
         float mouseInputX = Input.GetAxis("Mouse X");
         float mouseInputY = Input.GetAxis("Mouse Y");
 
         //矢印キー：移動のスピード
-        float rotateH = mouseInputX * rotateSpeed;
-        float rotateV = mouseInputY * rotateSpeed;
+        rotateH = mouseInputX * rotateSpeed;
+        rotateV = mouseInputY * rotateSpeed;
 
         //Xbox
         //float stickInputX = Input.GetAxis("RsitckHorizontal");
@@ -58,8 +72,6 @@ public class CameraController : MonoBehaviour
         //Xbox：移動のスピード
         //float rotateH = -stickInputX * rotateSpeed;
         //float rotateV = -stickInputY * rotateSpeed * 0.5f;
-
-        Hrotation = rotateH;
 
         //移動量を代入
         angleH += rotateH;
@@ -82,5 +94,6 @@ public class CameraController : MonoBehaviour
 
         transform.RotateAround(targetPosition, Vector3.up, rotateH); //Y軸の回転
         transform.RotateAround(targetPosition, transform.right, rotateV); //X軸の回転
+        */
     }
 }
