@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Firework_HitPoint : MonoBehaviour
+public class Stage_2_Firework_HitPoint_Script : MonoBehaviour
 {
     //爆発についての処理
     [SerializeField] [Tooltip("当たり判定のオブジェクト")] GameObject hitPoint;
@@ -21,11 +21,11 @@ public class Firework_HitPoint : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Target")
+        if (collision.gameObject.tag == "Target" && collision != null)
         {
             //爆発範囲をオンにする
             hitPoint.GetComponent<SphereCollider>().enabled = true;
-            
+
             //時間経過で消す
             Destroy(this.gameObject, deleTime);
         }
