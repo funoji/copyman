@@ -6,9 +6,11 @@ public class BallGenerator : MonoBehaviour
 {
     [SerializeField] Transform SpawnPoint;
     [SerializeField] GameObject ball;
+    [SerializeField] GameObject Canvas;
 
     [SerializeField] private int LoseRate = 5;
     [SerializeField] private int WinRate = 1;
+    [SerializeField] private int Clearcount = 0;
 
     Rigidbody rb;
 
@@ -23,6 +25,7 @@ public class BallGenerator : MonoBehaviour
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
+        Canvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,6 +35,10 @@ public class BallGenerator : MonoBehaviour
         {
             GenerateCount = 1;
             StartCoroutine("Spawn");
+        }
+        if(Clearcount == 50)
+        {
+            Canvas.SetActive(true);
         }
 
     }
@@ -65,6 +72,7 @@ public class BallGenerator : MonoBehaviour
             other.gameObject.name == "SmartBall(Clone)")
         {
             GenerateCount++;
+            Clearcount++;
 
             Destroy(other.gameObject);
 
