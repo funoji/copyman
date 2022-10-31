@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Money_counter : MonoBehaviour
 {
-    [HeaderAttribute("お金の数")]
-    [SerializeField] int Money;
+    [HeaderAttribute("カウントしたいオブジェクトの数")]
+    [SerializeField] int objects;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class Money_counter : MonoBehaviour
     {
         GameObject[] cubeObjects = GameObject.FindGameObjectsWithTag("Cancopy");
         Debug.Log(cubeObjects.Length);
-        if(cubeObjects.Length >= Money)
+        if(cubeObjects.Length >= objects)
         {
             GameDirector.GameClear = true;
         }
