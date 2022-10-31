@@ -10,6 +10,7 @@ public class CopyColl : MonoBehaviour
     public static int count = 0;
     public GameObject ForUIObj;
     public GameObject Obj;
+    [SerializeField] Transform UIpos;
     GameObject Origin;
     public ObjectManager ObjectManager;
 
@@ -21,10 +22,7 @@ public class CopyColl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Cancopy"))
         {
-            //Debug.Log("“–‚½‚Á‚½");
             Name = other.gameObject.name;
-            //Debug.Log(Name);
-
             if (Name != inName && count == 0)
             {
                 for (int i = 0; i < ObjectManager._CanCopyObj.Length; i++)
@@ -32,11 +30,11 @@ public class CopyColl : MonoBehaviour
                     if (ObjectManager._CanCopyObj[i].name == Name)
                     {
                         Obj = ObjectManager._CanCopyObj[i].Object;
+                        Obj.name = ObjectManager._CanCopyObj[i].Object.name;
                         ObjectManager._CanCopyObj[i].Copied = true;
-                        ForUIObj = GameObject.Instantiate(GameObject.Find(Name));
+                        ForUIObj = Instantiate(ObjectManager._CanCopyObj[i].Object);
                         inName = Name;
                         count = 1;
-                        Debug.Log(Obj.name);
                         break;
                     }
                 }
