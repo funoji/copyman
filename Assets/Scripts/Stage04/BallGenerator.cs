@@ -1,26 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BallGenerator : MonoBehaviour
 {
     [SerializeField] Transform SpawnPoint;
     [SerializeField] GameObject ball;
     [SerializeField] GameObject Canvas;
+    [SerializeField] TextMeshProUGUI Score;
 
     [SerializeField] private int LoseRate = 5;
-    [SerializeField] private int WinRate = 1;
-    [SerializeField] private int Clearcount = 0;
+    [SerializeField] private int Clearcount = 50;
 
-    Rigidbody rb;
-
-    public float minPower = 1.0f;
-    public float maxPower = 10f;
-    public float waitTime = 5.0f;
+    [SerializeField] private float minPower = 1.0f;
+    [SerializeField] private float maxPower = 10f;
+    [SerializeField] private float waitTime = 5.0f;
+    [SerializeField] private float WinwaitTime = 1.0f;
 
     private int GenerateCount = 0;
-
     private bool IsGenerating = false;
+
+    Rigidbody rb;
 
     void Start()
     {
@@ -36,10 +38,13 @@ public class BallGenerator : MonoBehaviour
             GenerateCount = 1;
             StartCoroutine("Spawn");
         }
-        if(Clearcount == 50)
+        if(Clearcount==0)
         {
             Canvas.SetActive(true);
+            Score.alpha = 0.0f;
         }
+
+        Score.text = "ÉNÉäÉAÇ‹Ç≈ÅF" + Clearcount + "å¬";
 
     }
 
@@ -57,12 +62,14 @@ public class BallGenerator : MonoBehaviour
 
             rb = obj.GetComponent<Rigidbody>();
             rb.AddForce(Power,ForceMode.Impulse);
-
-            yield return new WaitForSeconds(waitTime);
+            if(GenerateCount <= 4)
+                yield return new WaitForSeconds(waitTime);
+            if(GenerateCount > 5)
+                yield return new WaitForSeconds(WinwaitTime);
             count++;
             Debug.Log("GenerateCount=" + GenerateCount);
         } while (count <= GenerateCount);
-
+        GenerateCount = 0;
         IsGenerating=false;
     }
 
@@ -72,7 +79,7 @@ public class BallGenerator : MonoBehaviour
             other.gameObject.name == "SmartBall(Clone)")
         {
             GenerateCount++;
-            Clearcount++;
+            Clearcount--;
 
             Destroy(other.gameObject);
 
