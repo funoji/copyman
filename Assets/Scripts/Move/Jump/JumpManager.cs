@@ -10,10 +10,10 @@ public class JumpManager : MonoBehaviour
     public float y = 0.5f;
     public float z = 0;
 
-    private Rigidbody rb;
+    Rigidbody rb;
     public float JumpPower = 0.0001f;
-    private bool IsGround = true;
-    private float distance = 1.0f;
+     bool IsGround = true;
+    float distance = 1.0f;
     Vector3 rayPosition;
 
     void Start()
@@ -29,6 +29,7 @@ public class JumpManager : MonoBehaviour
         IsGround = Physics.Raycast(ray, distance);
 
         Debug.DrawRay(rayPosition, Vector3.down, Color.red);
+        Debug.Log(IsGround);
     }
     public void Jump()
     {

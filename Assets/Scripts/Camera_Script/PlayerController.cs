@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Tooltip("プレイヤーの重力")] private Rigidbody rb;
     [SerializeField] [Tooltip("プレイヤーの移動方向")] private Vector3 direction;
     [SerializeField] [Tooltip("カメラの水平方向")] private CameraController refCamera_H;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +21,7 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    private void Move()
+    void Move()
     {
         direction = Vector3.zero;
         if (Input.GetKey(KeyCode.W))
@@ -34,6 +32,8 @@ public class PlayerController : MonoBehaviour
             direction.x -= 1f;
         if (Input.GetKey(KeyCode.A))
             direction.x += 1f;
+        if (Input.GetKey(KeyCode.Space))
+            GetComponent<JumpManager>().Jump();
         direction = direction.normalized * move_speed * Time.deltaTime;
 
         if (direction.magnitude > 0)

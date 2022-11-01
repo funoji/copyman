@@ -2150,6 +2150,7 @@ GameObject:
   - component: {fileID: 880928177}
   - component: {fileID: 880928186}
   - component: {fileID: 880928185}
+  - component: {fileID: 880928187}
   m_Layer: 0
   m_Name: CPM (2)
   m_TagString: Untagged
@@ -2314,6 +2315,23 @@ MonoBehaviour:
   speed: 0
   CopyColl: {fileID: 0}
   preLineRenderer: {fileID: 0}
+--- !u!114 &880928187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880928176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce34bab6867e954f8ee7e8755d179ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPosition: {fileID: 880928184}
+  x: 0
+  y: 0.2
+  z: 0
+  JumpPower: 0.0008
 --- !u!1 &939617131
 GameObject:
   m_ObjectHideFlags: 0
