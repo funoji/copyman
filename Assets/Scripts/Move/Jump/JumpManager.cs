@@ -31,7 +31,7 @@ public class JumpManager : MonoBehaviour
         IsGround = Physics.Raycast(ray, distance);
         Debug.DrawRay(rayPosition, Vector3.down*distance, Color.red);
 
-        Debug.Log(IsGround);
+        //Debug.Log(IsGround);
     }
     public void Jump()
     {

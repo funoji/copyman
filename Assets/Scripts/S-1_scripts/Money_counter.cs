@@ -16,7 +16,7 @@ public class Money_counter : MonoBehaviour
     void Update()
     {
         GameObject[] cubeObjects = GameObject.FindGameObjectsWithTag("Cancopy");
-        Debug.Log(cubeObjects.Length);
+        //Debug.Log(cubeObjects.Length);
         if(cubeObjects.Length >= objects)
         {
             GameDirector.GameClear = true;

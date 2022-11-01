@@ -16,6 +16,7 @@ public class Copy : MonoBehaviour
     ShotPaste ShotPaste;
     [SerializeField] CopyColl CopyColl;
     Vector3 v;
+    Vector3 rotvec;
     private LineRenderer lineRenderer;
     public GameObject preLineRenderer;
     private GameObject objLineRenderer;
@@ -24,7 +25,7 @@ public class Copy : MonoBehaviour
     {
         AreaCollider.enabled = false;
         Area.SetActive(false);
-        v = new Vector3 ( 0f, Mathf.Cos(rot * Mathf.Deg2Rad), Mathf.Sin(rot * Mathf.Deg2Rad));
+        rotvec = new Vector3 ( 0f, Mathf.Cos(rot * Mathf.Deg2Rad), Mathf.Sin(rot * Mathf.Deg2Rad));
 
         objLineRenderer = Instantiate(preLineRenderer, gameObject.transform);
         objLineRenderer.transform.localPosition = Vector3.zero;
@@ -53,8 +54,8 @@ public class Copy : MonoBehaviour
         PasteObj = Instantiate(CopyColl.Obj, muzzele.transform.position, transform.rotation);
         PasteObj.name = CopyColl.Obj.name;
         Rigidbody m_rigidbody = PasteObj.GetComponent<Rigidbody>();
-        //Vector3 v = muzzele.transform.TransformDirection(new Vector3(0, Y, Z));
-        m_rigidbody.AddForce(v * speed, ForceMode.Impulse);
+        Vector3 v = muzzele.transform.TransformDirection(new Vector3(0, Y, Z));
+        m_rigidbody.AddForce(rotvec + v * speed, ForceMode.Impulse);
         //ShotPaste.DrawLine();
     }
 
