@@ -10,7 +10,8 @@ public class Copy : MonoBehaviour
     [SerializeField] GameObject muzzele;
     [SerializeField] float Y, Z;
     [SerializeField] float rot;
-    [SerializeField] float speed;   
+    [SerializeField] float speed;
+    [SerializeField] GameObject moneycount;
     GameObject PasteObj;
     GameObject willPaste;
     ShotPaste ShotPaste;
@@ -20,6 +21,7 @@ public class Copy : MonoBehaviour
     private LineRenderer lineRenderer;
     public GameObject preLineRenderer;
     private GameObject objLineRenderer;
+    private bool count = false;
 
     private void Start()
     {
@@ -47,6 +49,11 @@ public class Copy : MonoBehaviour
     {
         PasteObj = Instantiate(CopyColl.Obj, Point.transform.position, Quaternion.identity);
         PasteObj.name = CopyColl.Obj.name;
+        if(CopyColl.Obj.name == "Money")
+        {
+            moneycount.GetComponent<Money_counter>().metaobject++;
+            Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
+        }
     }
 
     public void Shot()
@@ -56,6 +63,11 @@ public class Copy : MonoBehaviour
         Rigidbody m_rigidbody = PasteObj.GetComponent<Rigidbody>();
         Vector3 v = muzzele.transform.TransformDirection(new Vector3(0, Y, Z));
         m_rigidbody.AddForce(rotvec + v * speed, ForceMode.Impulse);
+        if (CopyColl.Obj.name == "Money")
+        {
+            moneycount.GetComponent<Money_counter>().metaobject++;
+            Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
+        }
         //ShotPaste.DrawLine();
     }
 

@@ -506,7 +506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1a98d6351baee4397745b13e47c3a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: 50
+  objects: 100
+  metaobject: 22
 --- !u!114 &345360706 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1990332367622872347, guid: 45bec9a89965259499a1902319e4c20a, type: 3}
@@ -2375,17 +2376,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6769976031247415209, guid: 0ff6941bfacc87147a962ffbff5d1ccf, type: 3}
   m_PrefabInstance: {fileID: 1124685617}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1120909215 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6769976030232056508, guid: 0ff6941bfacc87147a962ffbff5d1ccf, type: 3}
-  m_PrefabInstance: {fileID: 1124685617}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfaff7d6920f7c4a816571ab2286ac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1124685617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2513,6 +2503,10 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4504594086243221385, guid: 0ff6941bfacc87147a962ffbff5d1ccf, type: 3}
+      propertyPath: moneycount
+      value: 
+      objectReference: {fileID: 240445964}
     - target: {fileID: 5805611099117778506, guid: 0ff6941bfacc87147a962ffbff5d1ccf, type: 3}
       propertyPath: m_Mass
       value: 10
@@ -3080,15 +3074,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2081466071473614158, guid: ec0e2bd98d0c9de44856bec37f0a6f4c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.49
+      value: 8.96
       objectReference: {fileID: 0}
     - target: {fileID: 2081466071473614158, guid: ec0e2bd98d0c9de44856bec37f0a6f4c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.54
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 2081466071473614158, guid: ec0e2bd98d0c9de44856bec37f0a6f4c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.49
+      value: -7.44
       objectReference: {fileID: 0}
     - target: {fileID: 2081466071473614158, guid: ec0e2bd98d0c9de44856bec37f0a6f4c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3791,9 +3785,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60042221896494d419704cb9068f8576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CountDown: 50
+  CountDown: 5
   countdown: {fileID: 1230055644}
-  GameOverText: {fileID: 0}
+  GameOverText: {fileID: 657832777}
 --- !u!114 &1974303221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3897,10 +3891,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae838574e5bbf54ba57a3056f617ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  PlayerTrans: {fileID: 1976942248}
-  rotspeed: 50
-  movespeed: 5
+  move_speed: 10
+  rb: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
+  refCamera_H: {fileID: 0}
 --- !u!4 &1976942250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4384477527235311180, guid: 0ff6941bfacc87147a962ffbff5d1ccf, type: 3}
@@ -3923,11 +3917,6 @@ MonoBehaviour:
   y: -0.2
   z: 0
   JumpPower: 2000
---- !u!54 &1976942252 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 5805611099117778506, guid: 0ff6941bfacc87147a962ffbff5d1ccf, type: 3}
-  m_PrefabInstance: {fileID: 1124685617}
-  m_PrefabAsset: {fileID: 0}
 --- !u!64 &2017180351
 MeshCollider:
   m_ObjectHideFlags: 0

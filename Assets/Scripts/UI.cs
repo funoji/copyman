@@ -35,6 +35,7 @@ public class UI : MonoBehaviour
             }
         }
         if (GameDirector.GameClear) result.text = "StageClear";
+        if (GameDirector.GameOver) result.text = "GameOver";
 
         //var rectObj = new RectTransform();  // ƒV[ƒ“‚©‚ç‚Æ‚Á‚Ä‚«‚½‚à‚Ì‚Æ‚·‚é
         //var rectP = rectObj.rect;
