@@ -16,6 +16,9 @@ public class ObjectManager : MonoBehaviour
         [HideInInspector]
         public int NumberOfObj;
 
+        [SerializeField]
+        public Vector3 Scale;
+
         //this object got copied
         [HideInInspector]
         public bool Copied = false;

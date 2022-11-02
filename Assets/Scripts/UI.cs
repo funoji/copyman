@@ -13,7 +13,9 @@ public class UI : MonoBehaviour
     [HeaderAttribute("ストリング型打ち込み系")]
     [SerializeField] string MissionStr;
     [SerializeField] string Stage;
+    [SerializeField] ObjectManager ObjectManager;
     GameObject  UIobj;
+    
 
     private void Start()
     {
@@ -25,6 +27,13 @@ public class UI : MonoBehaviour
     {
         UIobj = CopyCollObj.GetComponent<CopyColl>().ForUIObj;
         UIobj.transform.position = ObjUiPos.position;
+        for (int i = 0; i < ObjectManager._CanCopyObj.Length; i++)
+        {
+            if (UIobj.name == ObjectManager._CanCopyObj[i].name)
+            {
+                UIobj.GetComponent<Transform>().localScale = ObjectManager._CanCopyObj[i].Scale;
+            }
+        }
         if (GameDirector.GameClear) result.text = "StageClear";
 
         //var rectObj = new RectTransform();  // シーンからとってきたものとする
