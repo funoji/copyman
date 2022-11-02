@@ -40,6 +40,7 @@ public class BallGenerator : MonoBehaviour
         }
         if(Clearcount==0)
         {
+            //クリア条件の場所（ここにシーンの遷移を入れる）
             Canvas.SetActive(true);
             Score.alpha = 0.0f;
         }

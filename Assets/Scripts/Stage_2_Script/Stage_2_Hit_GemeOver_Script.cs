@@ -1,17 +1,22 @@
 //アタッチするオブジェクト：Debug用Cube「DebugCD_Cube」・プレイヤー
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Stage_2_Hit_GemeOver_Script : MonoBehaviour
 {
-    private Transtion transScene;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "GameOver")
         {
             gameObject.GetComponent<Renderer>().material.color = Color.red;
-            transScene.Trans_GameOver();
+            Transtion.instatns.Trans_GameOver();
+            return;
+        }
+        else if (other.gameObject.tag == "GameOver" && other.gameObject.GetComponent<Renderer>().material.color == Color.red)
+        {
+            return;
         }
     }
 }

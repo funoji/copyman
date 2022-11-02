@@ -19,7 +19,6 @@ public class TransitionScene : MonoBehaviour
     [Space(15)]
 
     CanvasGroup main_panel;
-    public Transtion transScene;
 
     // Start is called before the first frame update
     void Start()
@@ -45,42 +44,42 @@ public class TransitionScene : MonoBehaviour
         }
     }
 
-    public void Trans_Menu()
+    public void Menu()
     {
         //Debug.Log("スタートボタンが押された。");
-        transScene.Trans_Menu();
         fadeout = true;
         fadeoutPanel.SetActive(true);
+        Transtion.instatns.Trans_Menu();
     }
 
-    public void Trans_StageSelect()
+    public void StageSelect()
     {
         //Debug.Log("ステージ選択ボタンが押された。");
-        transScene.Trans_StageSelect();
+        Transtion.instatns.Trans_StageSelect();
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }
 
-    public void Trans_Option()
+    public void Option()
     {
         //Debug.Log("オプションボタンが押された。");
-        transScene.Trans_Option();
+        Transtion.instatns.Trans_Option();
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }
 
-    public void Trans_Catalog()
+    public void Catalog()
     {
         //Debug.Log("アイテム図鑑ボタンが押された。");
-        transScene.Trans_Catalog();
+        Transtion.instatns.Trans_Catalog();
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }
 
-    public void Trasn_Exit()
+    public void Exit()
     {
         //Debug.Log("戻るボタンが押された。");
-        transScene.Trasn_Exit();
+        Transtion.instatns.Trasn_Exit();
         fadeout = true;
         fadeoutPanel.SetActive(true);
     }

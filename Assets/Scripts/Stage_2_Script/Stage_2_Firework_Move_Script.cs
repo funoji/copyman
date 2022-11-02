@@ -11,14 +11,9 @@ public class Stage_2_Firework_Move_Script: MonoBehaviour
     [SerializeField] [Tooltip("弾")] GameObject firework;
     [SerializeField] [Tooltip("弾のスピード")] float fireworkSpeed = 20f;
 
-    //Denug : オブジェクトが消滅する時間
-    [SerializeField] [Tooltip("時間開始の数")] private float time = 0.0f;
-
     //ゲームクリア処理
     [SerializeField] [Tooltip("ターゲットの個数")] public GameObject[] Count;
     [SerializeField] [Tooltip("ゲームクリア用のパネル")] public GameObject clearPanel;
-
-    public Transtion transScene;
 
     private void Start()
     {
@@ -29,13 +24,13 @@ public class Stage_2_Firework_Move_Script: MonoBehaviour
     {
         //ターゲットを見つけて個数を見つける（Count.Length：ターゲットの個数）
         Count = GameObject.FindGameObjectsWithTag("Target");
-        Debug.Log("残りのターゲット数：" + Count.Length);
+        //Debug.Log("残りのターゲット数：" + Count.Length);
         //個数が０になった時の処理
         if (Count.Length == 0)
         {
             clearPanel.SetActive(true);
-            Debug.Log("ゲームクリア");
-            transScene.Trans_GameClear();
+            //Debug.Log("ゲームクリア");
+            Transtion.instatns.Trans_GameClear();
         }
 
         //Debug : スペースキーを押したときの処理

@@ -18,21 +18,35 @@ public class Stage_2_Firework_HitPoint_Script : MonoBehaviour
         //爆発範囲の変更処理
         hitPoint.GetComponent<SphereCollider>().radius = hitRadius;
 
+        //爆発範囲をオフ
+        hitPoint.GetComponent<SphereCollider>().enabled = false;
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Target" && collision != null)
+        if (collision.gameObject.tag == "Target")
         {
+
             //爆発範囲をオンにする
             hitPoint.GetComponent<SphereCollider>().enabled = true;
 
             //時間経過で消す
             Destroy(this.gameObject, deleTime);
+            
+            if(this.gameObject==null)
+            {
+                return;
+            }
+
         }
         else
         {
             //当たらなかった場合 : 時間経過で消す
             Destroy(this.gameObject, NodeleTime);
+            if (this.gameObject == null)
+            {
+                return;
+            }
         }
     }
 }
