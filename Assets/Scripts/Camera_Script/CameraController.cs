@@ -16,10 +16,10 @@ public class CameraController : MonoBehaviour
     [SerializeField] [Tooltip("カメラの垂直")] public Quaternion rotateV;
 
     [Space(5)]
-    [SerializeField] [Tooltip("上方向の角度")] float angleUp = 70f;
-    [SerializeField] [Tooltip("下方向の角度")] float angleDown = -40f;
-    [SerializeField] [Tooltip("右方向の角度")] float angleRight = 90f;
-    [SerializeField] [Tooltip("左方向の角度")] float angleLeft = -90f;
+    //[SerializeField] [Tooltip("上方向の角度")] float angleUp = 70f;
+    //[SerializeField] [Tooltip("下方向の角度")] float angleDown = -40f;
+    //[SerializeField] [Tooltip("右方向の角度")] float angleRight = 90f;
+    //[SerializeField] [Tooltip("左方向の角度")] float angleLeft = -90f;
 
     [SerializeField] [Tooltip("カメラとプレイヤーとの距離")] float intervalM = 10f;
 

@@ -7,7 +7,7 @@ using TMPro;
 //文字の点滅する処理
 public class TextIndicates_Management : MonoBehaviour
 {
-    public TransitionScene fadebool; // TransitionSceneのスクリプト参照
+    public S_1_Fadeout_Script fadebool; // TransitionSceneのスクリプト参照
 
     private TextMeshProUGUI text;
     private float time;
