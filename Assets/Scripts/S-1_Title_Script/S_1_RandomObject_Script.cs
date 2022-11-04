@@ -15,6 +15,7 @@ public class S_1_RandomObject_Script : MonoBehaviour
     private Rigidbody rb;
     private Quaternion rotation;
     private Vector3 scale;
+    private GameObject instansObj;
 
     [Header("ランダム値の設定")]
     [SerializeField] [Tooltip("スケールの最小値")] private float scaleMin;
@@ -57,10 +58,10 @@ public class S_1_RandomObject_Script : MonoBehaviour
             float z = Random.Range(rangeA.position.z, rangeB.position.z);
 
             //落下オブジェクトを生成 : Generate falling objects
-            Instantiate(creatPrefab, new Vector3(x, y, z), rotation);
+            instansObj=Instantiate(creatPrefab, new Vector3(x, y, z), rotation);
 
             //落下オブジェクトの大きさを変更 : Change size of falling objects
-            creatPrefab.transform.localScale = new Vector3(scale.x * scaleRandom, scale.y * scaleRandom, scale.z * scaleRandom);
+            instansObj.transform.localScale = new Vector3(scale.x * scaleRandom, scale.y * scaleRandom, scale.z * scaleRandom);
 
             //落下オブジェクトの落下スピードと回転スピードを変更 : Change falling speed and rotation speed of falling objects
             rb.drag = Random.Range(-dragMin, dragMax);
