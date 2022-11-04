@@ -25,7 +25,7 @@ public class Transtion : MonoBehaviour
         SceneManager.LoadScene("Stage_01");
     }
 
-    public void Trasn_Exit()
+    public void Trasn_RetuenTitle()
     {
         SceneManager.LoadScene("S-01_Title_Scene");
     }
@@ -38,5 +38,10 @@ public class Transtion : MonoBehaviour
     public void Trans_GameOver()
     {
         SceneManager.LoadScene("GameOverScene");
+    }
+
+    public void Trans_GameEnd()
+    {
+        Application.Quit();
     }
 }
