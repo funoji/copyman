@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2487665773678984418}
   - component: {fileID: 3012387514015557190}
-  - component: {fileID: 3012387514015557191}
+  - component: {fileID: -837376243420086515}
   m_Layer: 0
   m_Name: Nail
   m_TagString: Cancopy
@@ -132,9 +132,9 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!65 &3012387514015557191
-BoxCollider:
+  m_CollisionDetection: 1
+--- !u!136 &-837376243420086515
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,6 +143,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.2946482, z: 0.8559978}
-  m_Center: {x: 0, y: -1.4111123, z: -0.030857444}
+  m_Radius: 0.2
+  m_Height: 1.39
+  m_Direction: 1
+  m_Center: {x: 0, y: -1.44, z: 0}
