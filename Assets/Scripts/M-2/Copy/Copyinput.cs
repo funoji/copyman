@@ -18,16 +18,16 @@ public class Copyinput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("Copy"))
         {
             Copy.Active_Area();
             CopyColl.count = 0;
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Copy"))
         {
             Copy.DisActive_Area();
         }
-        if (Input.GetKeyUp(KeyCode.E) && cooltime)
+        if (Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("Paste") && cooltime)
         {
             Copy.Paseting();
             cooltime = false;
@@ -52,7 +52,7 @@ public class Copyinput : MonoBehaviour
             Copy.ShotArkDrow(count);
         }
 
-        if(Input.GetKeyUp(KeyCode.R))
+        if(Input.GetKeyUp(KeyCode.R) || Input.GetButtonUp("shotpaste"))
         {
             Copy.Shot();
         }
