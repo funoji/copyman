@@ -18,16 +18,18 @@ public class Copyinput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("Copy"))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
+            Debug.Log("Button A Push");
             Copy.Active_Area();
             CopyColl.count = 0;
         }
-        if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Copy"))
+        if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
+            Debug.Log("Button A Up");
             Copy.DisActive_Area();
         }
-        if (Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("Paste") && cooltime)
+        if (Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button1) && cooltime)
         {
             Copy.Paseting();
             cooltime = false;
@@ -46,13 +48,13 @@ public class Copyinput : MonoBehaviour
         //if (lapseTime > 0)
             //Debug.Log(lapseTime);
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Joystick1Button3))
         {
             count++;
             Copy.ShotArkDrow(count);
         }
 
-        if(Input.GetKeyUp(KeyCode.R) || Input.GetButtonUp("shotpaste"))
+        if(Input.GetKeyUp(KeyCode.R) || Input.GetKeyUp(KeyCode.Joystick1Button3))
         {
             Copy.Shot();
         }
