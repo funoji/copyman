@@ -42,7 +42,7 @@ public class CPM_Cheat : MonoBehaviour
 
     void CheatEnd()
     {
-        if ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Backspace)) || (Input.GetKey(KeyCode.Joystick1Button5) && Input.GetKey(KeyCode.Joystick1Button8) && Input.GetKey(KeyCode.Joystick1Button9)))
+        if ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Backspace)) || (Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKeyDown(KeyCode.Joystick1Button7)))
         {
             Debug.Log("CheatEnd");
 #if UNITY_EDITOR
