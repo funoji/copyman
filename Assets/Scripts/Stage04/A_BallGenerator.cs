@@ -41,6 +41,7 @@ public class A_BallGenerator : MonoBehaviour
         if (Clearcount <= 0)
         {
             Canvas.SetActive(true);
+            GameDirector.GameClear = true;
             Score.alpha = 0.0f;
         }
 
