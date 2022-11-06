@@ -30,7 +30,7 @@ public class Stage_2_DebugAddMove_Script : MonoBehaviour
     {
         if (other.gameObject.tag == "Trigger")
         {
-            Debug.Log("“–‚½‚Á‚½");
+            //Debug.Log("“–‚½‚Á‚½");
         }
     }
 

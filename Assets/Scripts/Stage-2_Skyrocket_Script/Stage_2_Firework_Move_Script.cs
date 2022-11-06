@@ -29,7 +29,7 @@ public class Stage_2_Firework_Move_Script: MonoBehaviour
         if (Count.Length == 0)
         {
             clearPanel.SetActive(true);
-            Debug.Log("ゲームクリア");
+            //Debug.Log("ゲームクリア");
         }
 
         //Debug : スペースキーを押したときの処理

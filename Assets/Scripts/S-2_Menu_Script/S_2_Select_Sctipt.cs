@@ -56,7 +56,7 @@ public class S_2_Select_Sctipt : MonoBehaviour
     {
         //現在選択中のボタンを保存 : Save the currently selected button
         button = EventSystem.current.currentSelectedGameObject;
-        Debug.Log(button.name);
+        //Debug.Log(button.name);
 
         ////キーボード用　ボタンの選択状態の設定 : For keyboard Set button selection status
         //if (Input.GetKeyDown(KeyCode.LeftArrow))

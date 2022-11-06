@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Tooltip("プレイヤーの重力")] private Rigidbody rb;
     [SerializeField] [Tooltip("プレイヤーの移動方向")] private Vector3 direction;
     [SerializeField] [Tooltip("カメラの水平方向")] private CameraController refCamera_H;
-
+    public float horizontal;
+    public float vertical; 
     // Start is called before the first frame update
     void Start()
     {
@@ -24,25 +25,27 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        float HorizontalInput = Input.GetAxis("Horizontal");
-        float VerticalInput = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("LstickHorizontal");
+        vertical = Input.GetAxis("LstickVertical");
+
+        Debug.Log("horizontal : " + horizontal + "  Vertical : " + vertical);
 
         direction = Vector3.zero;
-        if (Input.GetKey(KeyCode.W) || VerticalInput > 0.0f)
+        if (Input.GetKey(KeyCode.W) || vertical > 0.0f)
         {
-            Debug.Log("Up Key");
+            //Debug.Log("Up Key");
             direction.z -= 1f;
         }
-        if (Input.GetKey(KeyCode.S) || VerticalInput < 0.0f)
+        if (Input.GetKey(KeyCode.S) || vertical < 0.0f)
         {
-            Debug.Log("down Key");
+            //Debug.Log("down Key");
             direction.z += 1f;
         }
-        if (Input.GetKey(KeyCode.D) || HorizontalInput > 0.0f)
+        if (Input.GetKey(KeyCode.D) || horizontal > 0.0f)
         {
             direction.x -= 1f;
         }
-        if (Input.GetKey(KeyCode.A) || HorizontalInput < 0.0f)
+        if (Input.GetKey(KeyCode.A) || horizontal < 0.0f)
         {
             direction.x += 1f;
         }

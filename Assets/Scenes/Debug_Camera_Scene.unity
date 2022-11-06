@@ -1387,15 +1387,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfaff7d6920f7c4a816571ab2286ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 0.5
+  rotateSpeed: 1
   targetObject: {fileID: 1597657569}
   rotateH: {x: 0, y: 0, z: 0, w: 0}
   rotateV: {x: 0, y: 0, z: 0, w: 0}
-  angleUp: 70
-  angleDown: -40
-  angleRight: 90
-  angleLeft: -90
   intervalM: 10
+  horizontal: {fileID: 1743916506}
 --- !u!114 &1466259412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,6 +1884,8 @@ MonoBehaviour:
   rb: {fileID: 1743916507}
   direction: {x: 0, y: 0, z: 0}
   refCamera_H: {fileID: 1466259411}
+  horizontal: 0
+  vertical: 0
 --- !u!54 &1743916507
 Rigidbody:
   m_ObjectHideFlags: 0

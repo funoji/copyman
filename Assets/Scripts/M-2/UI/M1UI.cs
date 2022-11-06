@@ -10,14 +10,12 @@ public class M1UI : MonoBehaviour
     [SerializeField] float CountDown = default!;
     [SerializeField] TextMeshProUGUI countdown;
     [SerializeField] TextMeshProUGUI GameOverText;
-    [SerializeField] GameObject transtion;
+    [SerializeField] [Tooltip("ƒ{ƒ^ƒ“‚Ì•\Ž¦")] GameObject transtion;
     // Start is called before the first frame update
-    void Start()
+    public void Awake()
     {
         transtion.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(transtion);
     }
-
     // Update is called once per frame
     void Update()
     {
