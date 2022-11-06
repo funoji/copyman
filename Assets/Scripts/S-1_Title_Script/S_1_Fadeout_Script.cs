@@ -11,77 +11,123 @@ using UnityEngine.SceneManagement;
 public class S_1_Fadeout_Script : MonoBehaviour
 {
     [Header("フェイドアウト機能")]
-    public bool fadeout; //フェイドアウトしているかの判定
-    [SerializeField] [Tooltip("メインの表示刺せるパネル")] GameObject mainPanel;   //タイトルパネル
-    //[SerializeField] [Tooltip("ステージセレクト部分の画像")] Image selectImage; //メニュー画面にあるステージ選択画像
-    [SerializeField] [Tooltip("フェイドアウト用のパネル")] GameObject fadeoutPanel; //フェイドアウト用の下地パネル
-    [SerializeField] [Tooltip("フェイドアウトするスピード")] float fadespeed;　//フェイドアウトするスピード
-    [Space(15)]
+    public static bool fadeInstance = false; //フェイドアウトしているかの判定
+    public bool fadeIn = false;
+    public bool fadeOut = false;
+    public float alpha = 0.0f;
 
-    CanvasGroup main_panel;
+    //[SerializeField] [Tooltip("メインの表示刺せるパネル")] GameObject mainPanel;  
+    //[SerializeField] [Tooltip("フェイドアウト用のパネル")] GameObject fadeoutPanel; 
+    [SerializeField] [Tooltip("フェイドアウトするスピード")] float fadespeed = 0.2f;　
+
+    //CanvasGroup fadepanel;
+    //public Transtion transScene;
+
     //public Transtion transScene;
 
     // Start is called before the first frame update
     void Start()
     {
-        main_panel = mainPanel.GetComponent<CanvasGroup>();　//Title_Panelに含まれてるUIをすべてまとめている
-        fadeout = false;
-        fadeoutPanel.SetActive(false);
+        //fadepanel = fadeoutPanel.GetComponent<CanvasGroup>();　//Title_Panelに含まれてるUIをすべてまとめている
+        //fadeout = false;
+        //fadeoutPanel.SetActive(false);
+
+        if (!fadeInstance)
+        {
+            DontDestroyOnLoad(this);
+            fadeInstance = true;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (fadeout) Fadeout(); 
+        //if (fadeout) Fadeout(); 
+
+        if (fadeIn)
+        {
+            alpha -= 0.01f * fadespeed;
+            if (alpha < 0.0f)
+            {
+                fadeIn = false;
+                alpha = 0.0f;
+            }
+            this.GetComponentInChildren<Image>().color = new Color(0.0f, 0.0f, 0.0f, alpha);
+        }
+        else if (fadeOut)
+        {
+            alpha+= 0.01f * fadespeed;
+            if (alpha >= 1.0f)
+            {
+                fadeOut = false;
+                alpha = 1.0f;
+            }
+            this.GetComponentInChildren<Image>().color = new Color(0.0f, 0.0f, 0.0f, alpha);
+        }
+    }
+    public void FadeIn()
+    {
+        fadeIn = true;
+        fadeOut = false;
+    }
+
+    public void FadeOut()
+    {
+        fadeOut = true;
+        fadeIn = false;
     }
 
     //フェイドアウトの動作
-    void Fadeout()
-    {
-        main_panel.alpha -= 0.01f*fadespeed;　//canvasGounpの透明度を下げる
-        if (main_panel.alpha <= 0.00f)
-        {
-            //Debug.Log("透明度が0になった。");
-        }
-    }
+    //public void Fadeout()
+    //{
+    //    main_panel.alpha -= 0.01f*fadespeed;　//canvasGounpの透明度を下げる
+    //    if (main_panel.alpha <= 0.01f)
+    //    {
+            
+    //    }
+    //}
 
-    public void Trans_Menu()
-    {
-        //Debug.Log("スタートボタンが押された。");
-        //transScene.Trans_Menu();
-        fadeout = true;
-        fadeoutPanel.SetActive(true);
-    }
+    //public void Trans_Menu()
+    //{
+    //    //Debug.Log("スタートボタンが押された。");
+    //    transScene.Trans_ToMenu();
+    //    fadeout = true;
+    //    fadeoutPanel.SetActive(true);
+    //}
 
-    public void Trans_StageSelect()
-    {
-        //Debug.Log("ステージ選択ボタンが押された。");
-       // transScene.Trans_StageSelect();
-        fadeout = true;
-        fadeoutPanel.SetActive(true);
-    }
+    //public void Trans_StageSelect()
+    //{
+    //    //Debug.Log("ステージ選択ボタンが押された。");
+    //    transScene.Trans_ToStage1();
+    //    fadeout = true;
+    //    fadeoutPanel.SetActive(true);
+    //}
 
-    public void Trans_Option()
-    {
-        //Debug.Log("オプションボタンが押された。");
-        //transScene.Trans_Option();
-        fadeout = true;
-        fadeoutPanel.SetActive(true);
-    }
+    //public void Trans_Option()
+    //{
+    //    //Debug.Log("オプションボタンが押された。");
+    //    transScene.Trans_ToOption();
+    //    fadeout = true;
+    //    fadeoutPanel.SetActive(true);
+    //}
 
-    public void Trans_Catalog()
-    {
-        //Debug.Log("アイテム図鑑ボタンが押された。");
-        //transScene.Trans_Catalog();
-        fadeout = true;
-        fadeoutPanel.SetActive(true);
-    }
+    //public void Trans_Catalog()
+    //{
+    //    //Debug.Log("アイテム図鑑ボタンが押された。");
+    //    transScene.Trans_ToCatalog();
+    //    fadeout = true;
+    //    fadeoutPanel.SetActive(true);
+    //}
 
-    public void Trasn_Exit()
-    {
-        //Debug.Log("戻るボタンが押された。");
-        //transScene.Trasn_Exit();
-        fadeout = true;
-        fadeoutPanel.SetActive(true);
-    }
+    //public void Trasn_Exit()
+    //{
+    //    //Debug.Log("戻るボタンが押された。");
+    //    transScene.Trasn_ToRetuenTitle();
+    //    fadeout = true;
+    //    fadeoutPanel.SetActive(true);
+    //}
 }

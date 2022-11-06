@@ -32,9 +32,9 @@ public class S_1_ChangeText_Script : MonoBehaviour
     [SerializeField] [Tooltip("点滅をする周期のスピード")] public float speed = 1.0f; 
     [SerializeField] [Tooltip("点滅する周期の時間")] public float length;
 
-    [Space(5)]
-    [Header("コントローラー用の変数")]
-    [SerializeField] [Tooltip("コントローラーのPlayerInput")] private InputAction.CallbackContext context;
+    //[Space(5)]
+    //[Header("コントローラー用の変数")]
+    //[SerializeField] [Tooltip("コントローラーのPlayerInput")] private InputAction.CallbackContext context;
 
     // Start is called before the first frame update
     void Start()
@@ -57,10 +57,11 @@ public class S_1_ChangeText_Script : MonoBehaviour
     void Update()
     {
         //フェードアウトさせるときに文字が移らないようにする処理 : Process to prevent text from shifting when fading out
-        if (!fadebool.fadeout)
-        {
-            Info();
-        }
+        //if (!)
+        //{
+        //    Info();
+        //}
+        Info();
     }
 
     //処理をまとめた関数 : A function that summarizes the process
@@ -80,27 +81,27 @@ public class S_1_ChangeText_Script : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(startButton);
         }
 
-        //コントローラー用(アナログスティック)　ボタンの選択状態の設定 : Setting the selection state of the (analog stick) buttons for the controller
-        var inputAnalog = context.ReadValue<Vector2>();
-        if (inputAnalog == new Vector2(0, -1)) //下 : down
-        {
-            EventSystem.current.SetSelectedGameObject(endgameButton);
-        }
-        if (inputAnalog == new Vector2(0, 1)) //上 : up
-        {
-            EventSystem.current.SetSelectedGameObject(startButton);
-        }
+        ////コントローラー用(アナログスティック)　ボタンの選択状態の設定 : Setting the selection state of the (analog stick) buttons for the controller
+        //var inputAnalog = context.ReadValue<Vector2>();
+        //if (inputAnalog == new Vector2(0, -1)) //下 : down
+        //{
+        //    EventSystem.current.SetSelectedGameObject(endgameButton);
+        //}
+        //if (inputAnalog == new Vector2(0, 1)) //上 : up
+        //{
+        //    EventSystem.current.SetSelectedGameObject(startButton);
+        //}
 
-        //コントローラー用（十字キー）　ボタンの選択状態の設定 : For controllers (cross key) Set button selection status
-        var inputCross = context.ReadValue<Vector2>();
-        if (inputCross == new Vector2(0, -1)) //下 : down
-        {
-            EventSystem.current.SetSelectedGameObject(endgameButton);
-        }
-        if (inputCross == new Vector2(0, 1)) //上 : up
-        {
-            EventSystem.current.SetSelectedGameObject(startButton);
-        }
+        ////コントローラー用（十字キー）　ボタンの選択状態の設定 : For controllers (cross key) Set button selection status
+        //var inputCross = context.ReadValue<Vector2>();
+        //if (inputCross == new Vector2(0, -1)) //下 : down
+        //{
+        //    EventSystem.current.SetSelectedGameObject(endgameButton);
+        //}
+        //if (inputCross == new Vector2(0, 1)) //上 : up
+        //{
+        //    EventSystem.current.SetSelectedGameObject(startButton);
+        //}
 
         //選択された状態のテキストを点滅させる : Blinking text in selected state
         if (button == endgameButton)
