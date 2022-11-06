@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class M1UI : MonoBehaviour
@@ -9,10 +10,12 @@ public class M1UI : MonoBehaviour
     [SerializeField] float CountDown = default!;
     [SerializeField] TextMeshProUGUI countdown;
     [SerializeField] TextMeshProUGUI GameOverText;
+    [SerializeField] GameObject transtion;
     // Start is called before the first frame update
     void Start()
     {
-        
+        transtion.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(transtion);
     }
 
     // Update is called once per frame
@@ -36,6 +39,9 @@ public class M1UI : MonoBehaviour
         if(GameDirector.GameClear == true)
         {
             GameOverText.text = "GameClear";
+            transtion.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(transtion);
+
         }
     }
 }

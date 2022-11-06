@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GoTitleScript : MonoBehaviour
 {
-    public void OnClick()
+    [SerializeField] [Tooltip("–ß‚éƒ{ƒ^ƒ“")] private GameObject toMenuButton;
+    private GameObject button;
+
+    private void Start()
     {
-        StartCoroutine("Test");
+        EventSystem.current.SetSelectedGameObject(toMenuButton);
     }
 
-    private IEnumerator Test()
+    private void Update()
     {
-        yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene("S-02_Menu_Scene");
+        EventSystem.current.SetSelectedGameObject(toMenuButton);
+        button = EventSystem.current.currentSelectedGameObject;
+        if(button!=null)
+            Debug.Log(button.name);
     }
 }

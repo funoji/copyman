@@ -674,11 +674,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e76271bea2883a4f82ae7d1b6726fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeout: 0
-  mainPanel: {fileID: 95848798}
-  fadeoutPanel: {fileID: 0}
+  fadeIn: 0
+  fadeOut: 0
+  alpha: 0
   fadespeed: 1
-  transScene: {fileID: 0}
 --- !u!114 &183892738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,7 +722,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1268659041}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
         m_MethodName: Trans_ToOption
         m_Mode: 1
@@ -1010,9 +1009,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771177474}
-        m_TargetAssemblyTypeName: S_1_Fadeout_Script, Assembly-CSharp
-        m_MethodName: Trans_Option
+      - m_Target: {fileID: 2042513132}
+        m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
+        m_MethodName: Trans_ToOption
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1302,7 +1301,6 @@ GameObject:
   - component: {fileID: 771177471}
   - component: {fileID: 771177470}
   - component: {fileID: 771177473}
-  - component: {fileID: 771177474}
   m_Layer: 5
   m_Name: Menu A_Panel
   m_TagString: Untagged
@@ -1399,28 +1397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749413a927b8aa444a158deef2947c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadebool: {fileID: 771177474}
   mainButton: {fileID: 1229853953}
   itemButton: {fileID: 1682561430}
   optionButton: {fileID: 624282073}
-  fadeoutPanel: {fileID: 2008258902}
---- !u!114 &771177474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771177467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e76271bea2883a4f82ae7d1b6726fe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeout: 0
-  mainPanel: {fileID: 771177467}
-  fadeoutPanel: {fileID: 2008258902}
-  fadespeed: 1
-  transScene: {fileID: 1268659041}
 --- !u!1 &793198052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,9 +1975,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771177474}
-        m_TargetAssemblyTypeName: S_1_Fadeout_Script, Assembly-CSharp
-        m_MethodName: Trans_StageSelect
+      - m_Target: {fileID: 2042513132}
+        m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
+        m_MethodName: Trans_ToStage1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2122,50 +2101,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231976990}
   m_CullTransparentMesh: 1
---- !u!1 &1268659040
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1268659042}
-  - component: {fileID: 1268659041}
-  m_Layer: 0
-  m_Name: Transtion
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1268659041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268659040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e6088bd37dc1b4ba657ed180216c4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1268659042
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268659040}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 275.05576, y: 865.63477, z: -18.017273}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1354737770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,11 +2230,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e76271bea2883a4f82ae7d1b6726fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeout: 0
-  mainPanel: {fileID: 95848798}
-  fadeoutPanel: {fileID: 0}
+  fadeIn: 0
+  fadeOut: 0
+  alpha: 0
   fadespeed: 1
-  transScene: {fileID: 0}
 --- !u!114 &1377708648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2344,7 +2278,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1268659041}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
         m_MethodName: Trans_ToCatalog
         m_Mode: 1
@@ -2622,11 +2556,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e76271bea2883a4f82ae7d1b6726fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeout: 0
-  mainPanel: {fileID: 95848798}
-  fadeoutPanel: {fileID: 0}
+  fadeIn: 0
+  fadeOut: 0
+  alpha: 0
   fadespeed: 0.5
-  transScene: {fileID: 0}
 --- !u!114 &1527655099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2671,7 +2604,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1268659040}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -2805,9 +2738,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771177474}
-        m_TargetAssemblyTypeName: S_1_Fadeout_Script, Assembly-CSharp
-        m_MethodName: Trans_Catalog
+      - m_Target: {fileID: 2042513132}
+        m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
+        m_MethodName: Trans_ToCatalog
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3345,6 +3278,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018034016}
   m_CullTransparentMesh: 1
+--- !u!1001 &2042513131
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 275.05576
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 865.63477
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.017273
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623283746091921024, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: m_Name
+      value: TranstionSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+--- !u!114 &2042513132 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7890714084879384825, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+  m_PrefabInstance: {fileID: 2042513131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e6088bd37dc1b4ba657ed180216c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2043103141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,11 +3595,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e76271bea2883a4f82ae7d1b6726fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeout: 0
-  mainPanel: {fileID: 95848798}
-  fadeoutPanel: {fileID: 0}
+  fadeIn: 0
+  fadeOut: 0
+  alpha: 0
   fadespeed: 1
-  transScene: {fileID: 0}
 --- !u!114 &2126071351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3643,7 +3643,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1268659041}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
         m_MethodName: Trans_ToSelect
         m_Mode: 1
@@ -3777,9 +3777,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771177474}
-        m_TargetAssemblyTypeName: S_1_Fadeout_Script, Assembly-CSharp
-        m_MethodName: Trasn_Exit
+      - m_Target: {fileID: 2042513132}
+        m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
+        m_MethodName: Trasn_ToTitle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
