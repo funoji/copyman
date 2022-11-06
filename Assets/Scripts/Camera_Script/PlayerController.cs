@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Tooltip("プレイヤーの重力")] private Rigidbody rb;
     [SerializeField] [Tooltip("プレイヤーの移動方向")] private Vector3 direction;
     [SerializeField] [Tooltip("カメラの水平方向")] private CameraController refCamera_H;
-    float HorizontalInput = Input.GetAxis("Horizontal");
-    float VerticalInput = Input.GetAxis("Vertical");
+    //float HorizontalInput = Input.GetAxis("Horizontal");
+    //float VerticalInput = Input.GetAxis("Vertical");
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        HorizontalInput = Input.GetAxis("Horizontal");
-        VerticalInput = Input.GetAxis("Vertical");
+       float HorizontalInput = Input.GetAxis("Horizontal");
+       float VerticalInput = Input.GetAxis("Vertical");
         direction = Vector3.zero;
         if (Input.GetKey(KeyCode.W) || VerticalInput > 0.0f)
         {

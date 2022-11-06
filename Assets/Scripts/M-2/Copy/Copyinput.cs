@@ -20,13 +20,11 @@ public class Copyinput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
-            Debug.Log("Button A Push");
             Copy.Active_Area();
             CopyColl.count = 0;
         }
         if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.Joystick1Button2))
         {
-            Debug.Log("Button A Up");
             Copy.DisActive_Area();
         }
         if (Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button1) && cooltime)

@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
         transform.LookAt(targetObject.transform.position);
 
         rotateH = Quaternion.identity;
-        rotateV= Quaternion.Euler(30, 180, 0);
+        rotateV= Quaternion.Euler(15, 180, 0);
         transform.rotation = rotateH * rotateV;
 
         transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;

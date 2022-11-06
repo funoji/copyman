@@ -11,14 +11,17 @@ public class CPM_Cheat : MonoBehaviour
     {
         a_ballGeneratorObj = GameObject.Find("BallGenerateTrigger");
         a_ballGenerator = a_ballGeneratorObj.GetComponent<A_BallGenerator>();
+        CheatEnd();
         CheatClear();
         CheatReset();
+
     }
 
     void CheatClear()
     {
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.C))
+        if ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.C)) ||(Input.GetKeyDown(KeyCode.Joystick1Button7) && Input.GetKey(KeyCode.Joystick1Button9)))
         {
+            Debug.Log("CheatClear");
             //ClearFlag of Stage1
             GameDirector.GameClear = true;
             //Clearflag ob Stage4
@@ -29,11 +32,24 @@ public class CPM_Cheat : MonoBehaviour
 
     void CheatReset()
     {
-        if (Input.GetKey(KeyCode.LeftControl)&&Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKey(KeyCode.LeftControl)&&Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button9))
         {
-            Debug.Log("Cheat");
             GameDirector.GameClear = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Debug.Log("CheatReset");
+        }
+    }
+
+    void CheatEnd()
+    {
+        if ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Backspace)) || (Input.GetKey(KeyCode.Joystick1Button5) && Input.GetKey(KeyCode.Joystick1Button8) && Input.GetKey(KeyCode.Joystick1Button9)))
+        {
+            Debug.Log("CheatEnd");
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+    #else
+        Application.Quit();
+    #endif
         }
     }
 }

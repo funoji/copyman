@@ -508,7 +508,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: cab6bf35-1642-49e5-993e-c716932d7d2c
+  m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &415186234
@@ -838,15 +838,15 @@ MonoBehaviour:
   creatPrefab: {fileID: 6104588155710582485, guid: 296a69506e276dc48b54829738d70c27, type: 3}
   rangeA: {fileID: 325034573}
   rangeB: {fileID: 2047914335}
-  cycle: 2
+  cycle: 3
   scaleMin: 0.5
   scaleMax: 3
-  rotaMin: 180
+  rotaMin: 0
   rotaMax: 180
-  dragMin: 1
-  dragMax: 1
-  angleMin: 30
-  angleMax: 70
+  dragMin: 0
+  dragMax: 0
+  angleMin: 100
+  angleMax: 360
 --- !u!4 &531227429
 Transform:
   m_ObjectHideFlags: 0
@@ -1387,10 +1387,10 @@ MonoBehaviour:
   endgameText: {fileID: 24498879}
   startColor:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190335
   endColor:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 255
   thinColor: 0
   speed: 1
   length: 1
