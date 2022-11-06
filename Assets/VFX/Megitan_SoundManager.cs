@@ -35,13 +35,13 @@ public class Megitan_SoundManager : MonoBehaviour
         if ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.UpArrow)) || (Input.GetKeyDown(KeyCode.Joystick1Button3) && Input.GetKey(KeyCode.Joystick1Button9)))
         {
             Debug.Log("VolumeUp");
-            Sound.volume += 0.1f;
+            Sound.volume += 0.05f;
         }
 
         if ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.DownArrow)) || (Input.GetKeyDown(KeyCode.Joystick1Button0) && Input.GetKey(KeyCode.Joystick1Button9)))
         {
             Debug.Log("VolumeDown");
-            Sound.volume -= 0.1f;
+            Sound.volume -= 0.05f;
         }
     }
 }
