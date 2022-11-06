@@ -41,7 +41,6 @@ public class M1UI : MonoBehaviour
             GameOverText.text = "GameClear";
             transtion.SetActive(true);
             EventSystem.current.SetSelectedGameObject(transtion);
-
         }
     }
 }
