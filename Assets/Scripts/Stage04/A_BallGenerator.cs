@@ -38,7 +38,7 @@ public class A_BallGenerator : MonoBehaviour
             GenerateCount = 1;
             StartCoroutine("Spawn");
         }
-        if (Clearcount == 0)
+        if (Clearcount <= 0)
         {
             Canvas.SetActive(true);
             Score.alpha = 0.0f;
