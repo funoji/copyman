@@ -87,15 +87,15 @@ public class S_2_Select_Sctipt : MonoBehaviour
         //}
 
         //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
-        //if (Input.GetKeyDown(KeyCode.Joystick1Button1))
-        //{
-        //    EventSystem.current.SetSelectedGameObject(ExitButton);
-        //    Debug.Log("押された。");
-        //    transtion.Trasn_ToTitle();
-        //}
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+        {
+            EventSystem.current.SetSelectedGameObject(ExitButton);
+            Debug.Log("押された。");
+            transtion.Trasn_ToTitle();
+        }
 
-        //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.
-        if (button == optionButton)
+            //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.
+            if (button == optionButton)
             Scaling(optionImage);
         else if (button != optionButton)
             optionImage.transform.localScale = Reset_ImageScale(_optionScale);

@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] [Range(0.0f, 5.0f), Tooltip("移動のスピード")] float rotateSpeed = 0.5f;
     [Space(5)]
     [SerializeField] [Tooltip("注目する所")] GameObject targetObject;
+    [SerializeField] [Tooltip("カメラお🄱ジェクト")] private Camera maincamera;
     private Vector3 targetPosition;
 
     private float angleH;
@@ -28,9 +29,9 @@ public class CameraController : MonoBehaviour
 
         rotateH = Quaternion.identity;
         rotateV= Quaternion.Euler(15, 180, 0);
-        transform.rotation = rotateH * rotateV;
+        maincamera.transform.rotation = rotateH * rotateV;
 
-        transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
+        maincamera.transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
     }
 
     // Update is called once per frame
@@ -41,12 +42,14 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        float conHorizon = Input.GetAxis("RsitckHorizontal");
+        float conHorizon = -Input.GetAxis("RsitckHorizontal");
         rotateH *= Quaternion.Euler(0, conHorizon * rotateSpeed, 0);
-        transform.rotation = rotateH * rotateV;
+        maincamera.transform.rotation = rotateH * rotateV;
+
+        Debug.Log(conHorizon);
 
         //Debug.DrawLine(targetObject.transform.position, transform.position, Color.red, 0f, false);
 
-        transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
+        maincamera.transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
     }
 }

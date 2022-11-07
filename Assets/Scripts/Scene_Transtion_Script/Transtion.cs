@@ -11,7 +11,7 @@ public class Transtion : MonoBehaviour
 
     public void Trans_ToOption() { SceneManager.LoadScene("S-03_Option_Scene"); }
 
-    public void Trans_ToCatalog() { SceneManager.LoadScene("Stage4"); }
+    public void Trans_ToCatalog() { /*SceneManager.LoadScene("Stage4");*/ }
 
     public void Trasn_ToTitle() { SceneManager.LoadScene("S-01_Title_Scene"); }
 
