@@ -5,16 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class CPM_Cheat : MonoBehaviour
 {
-    A_BallGenerator a_ballGenerator;
-    private GameObject a_ballGeneratorObj;
     void Update()
     {
-        a_ballGeneratorObj = GameObject.Find("BallGenerateTrigger");
-        a_ballGenerator = a_ballGeneratorObj.GetComponent<A_BallGenerator>();
         CheatEnd();
         CheatClear();
         CheatReset();
-
     }
 
     void CheatClear()
@@ -24,10 +19,7 @@ public class CPM_Cheat : MonoBehaviour
             Debug.Log("CheatClear");
             //ClearFlag of Stage1
             GameDirector.GameClear = true;
-            //Clearflag ob Stage4
-            a_ballGenerator.Clearcount = 0;
-        }
-        
+        }  
     }
 
     void CheatReset()
