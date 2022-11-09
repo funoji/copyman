@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 811717876497570536}
   - component: {fileID: 3671585153825409475}
   - component: {fileID: -4946597826704185818}
+  - component: {fileID: 5796279774305393952}
   m_Layer: 0
   m_Name: Pocket 10
   m_TagString: Cancopy
@@ -160,3 +161,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.39, y: 2.39, z: 0.18}
   m_Center: {x: 0, y: -0.2, z: -1.02}
+--- !u!114 &5796279774305393952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172217744173631463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b343ee85c925e624bb70353615ac2ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SmartBall: {fileID: 7122187172659527914, guid: 14c7707b2ce00a044b7b7c0aeeb31fb9, type: 3}
+  SpawnPoint: {fileID: 0}
+  WinBall: 10
+  waitTime: 0.1

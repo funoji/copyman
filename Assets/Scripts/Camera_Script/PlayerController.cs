@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
             direction.x += 1f;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && Input.GetKeyDown(KeyCode.Space))
             GetComponent<JumpManager>().Jump();
         direction = direction.normalized * move_speed * Time.deltaTime;
 

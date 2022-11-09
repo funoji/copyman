@@ -43,7 +43,7 @@ public class CameraController : MonoBehaviour
     private void LateUpdate()
     {
         float conHorizon = -Input.GetAxis("RsitckHorizontal");
-        rotateH *= Quaternion.Euler(0, conHorizon * rotateSpeed, 0);
+        rotateH *= Quaternion.Euler(0, -conHorizon * rotateSpeed, 0);
         maincamera.transform.rotation = rotateH * rotateV;
 
         Debug.Log(conHorizon);

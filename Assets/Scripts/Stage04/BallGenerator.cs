@@ -38,14 +38,13 @@ public class BallGenerator : MonoBehaviour
             GenerateCount = 1;
             StartCoroutine("Spawn");
         }
-        if(Clearcount==0)
+        if(Clearcount <= 0)
         {
             Canvas.SetActive(true);
             Score.alpha = 0.0f;
         }
 
         Score.text = "ƒNƒŠƒA‚Ü‚ÅF" + Clearcount + "ŒÂ";
-
     }
 
     private IEnumerator Spawn()
@@ -58,7 +57,8 @@ public class BallGenerator : MonoBehaviour
                                         0,
                                         -Random.Range(minPower, maxPower)));
 
-            GameObject obj = Instantiate(ball, SpawnPoint);
+            GameObject obj =Instantiate(ball);
+            obj.transform.position = SpawnPoint.position;
 
             rb = obj.GetComponent<Rigidbody>();
             rb.AddForce(Power,ForceMode.Impulse);
