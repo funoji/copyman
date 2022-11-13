@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
         transform.LookAt(targetObject.transform.position);
 
         rotateH = Quaternion.identity;
-        rotateV= Quaternion.Euler(15, 180, 0);
+        rotateV = Quaternion.Euler(15, 180, 0);
         maincamera.transform.rotation = rotateH * rotateV;
 
         maincamera.transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
@@ -37,16 +37,16 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void LateUpdate()
     {
-        float conHorizon = -Input.GetAxis("RsitckHorizontal");
+        float conHorizon = Input.GetAxis("RsitckHorizontal");
         rotateH *= Quaternion.Euler(0, conHorizon * rotateSpeed, 0);
         maincamera.transform.rotation = rotateH * rotateV;
 
-        Debug.Log(conHorizon);
+        //Debug.Log(conHorizon);
 
         //Debug.DrawLine(targetObject.transform.position, transform.position, Color.red, 0f, false);
 
