@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("カメラの設定")]
-    [SerializeField] [Range(0.0f, 5.0f), Tooltip("移動のスピード")] float rotateSpeed = 0.5f;
+    [SerializeField] [Range(-5.0f, 5.0f), Tooltip("回転のスピード")] float rotateSpeed = 0.5f;
     [Space(5)]
     [SerializeField] [Tooltip("注目する所")] GameObject targetObject;
     [Space(5)]
@@ -15,6 +15,8 @@ public class CameraController : MonoBehaviour
     [Header("PlayerContoroller用")]
     [SerializeField] [Tooltip("カメラの水平")] public Quaternion rotateH;
     [SerializeField] [Tooltip("カメラの垂直")] public Quaternion rotateV;
+    private RaycastHit hit;
+    private LayerMask objLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -22,20 +24,45 @@ public class CameraController : MonoBehaviour
         //注目している所を設定
         transform.LookAt(targetObject.transform.position);
 
+        //rotateH：水平方向の角度　rotateV：垂直方向の角度 の初期化
         rotateH = Quaternion.identity;
-        rotateV = Quaternion.Euler(15, 180, 0);
+        rotateV = Quaternion.Euler(15, 0, 0);
+
+        //回転の初期化
         this.transform.rotation = rotateH * rotateV;
+        //位置の初期化
         this.transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
     }
 
     private void LateUpdate()
     {
         //コントローラー用
-        //float conHorizon = Input.GetAxis("RsitckHorizontal");
+        //float horizon = Input.GetAxis("RsitckHorizontal");
         //キーボード用
-        float keyHorizon = Input.GetAxis("ArrowX");
-        rotateH *= Quaternion.Euler(0, keyHorizon, 0);
-        transform.rotation = rotateH * rotateV;
-        transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
+        float horizon = Input.GetAxis("ArrowX")* rotateSpeed;
+
+        //ボタン操作による回転
+        rotateH *= Quaternion.Euler(0, horizon, 0);
+        //カメラの角度を回転させる。位置を移動させる。
+        this.transform.rotation = rotateH * rotateV;
+
+        //　キャラクターとカメラの間に障害物があったら障害物の位置にカメラを移動させる
+        if (Physics.Raycast(targetObject.transform.position, this.transform.position - targetObject.transform.position, out hit, Vector3.Distance(targetObject.transform.position, this.transform.position), objLayer, QueryTriggerInteraction.Ignore))
+        {
+            this.transform.position = hit.point;
+        }
+        else
+            this.transform.position = targetObject.transform.position - this.transform.rotation * Vector3.forward * intervalM;
+
+        //if (Physics.Linecast(targetObject.transform.position, this.transform.position, out hit, objLayer))
+        //{
+        //    Debug.Log("当たった。");
+        //    this.transform.position = hit.point;
+        //}
+        //else
+        //    this.transform.position = targetObject.transform.position - this.transform.rotation * Vector3.forward * intervalM;
+
+        //　レイを視覚的に確認
+        Debug.DrawLine(targetObject.transform.position, this.transform.position, Color.red, 0f, false);
     }
 }
