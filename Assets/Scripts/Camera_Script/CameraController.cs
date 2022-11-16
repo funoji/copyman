@@ -37,9 +37,9 @@ public class CameraController : MonoBehaviour
     private void LateUpdate()
     {
         //コントローラー用
-        //float horizon = Input.GetAxis("RsitckHorizontal");
+        float horizon = Input.GetAxis("RsitckHorizontal");
         //キーボード用
-        float horizon = Input.GetAxis("ArrowX")* rotateSpeed;
+        //float horizon = Input.GetAxis("ArrowX")* rotateSpeed;
 
         //ボタン操作による回転
         rotateH *= Quaternion.Euler(0, horizon, 0);

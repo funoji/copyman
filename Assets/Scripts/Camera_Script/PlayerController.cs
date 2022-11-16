@@ -25,11 +25,11 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         //コントローラー用
-        //horizontal = Input.GetAxis("LstickHorizontal");
-        //vertical = Input.GetAxis("LstickVertical");
+        horizontal = Input.GetAxis("LstickHorizontal");
+        vertical = Input.GetAxis("LstickVertical");
         //キーボード用
-        horizontal = Input.GetAxis("MoveX");
-        vertical = Input.GetAxis("MoveY");
+        //horizontal = Input.GetAxis("MoveX");
+        //vertical = Input.GetAxis("MoveY");
 
         //Debug : 入力の値を確認する
         //Debug.Log("horizontal : " + horizontal + "  Vertical : " + vertical);
