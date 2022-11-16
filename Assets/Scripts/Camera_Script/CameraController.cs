@@ -31,10 +31,10 @@ public class CameraController : MonoBehaviour
     private void LateUpdate()
     {
         //コントローラー用
-        //float conHorizon = Input.GetAxis("RsitckHorizontal");
+        float conHorizon = Input.GetAxis("RsitckHorizontal");
         //キーボード用
-        float keyHorizon = Input.GetAxis("ArrowX");
-        rotateH *= Quaternion.Euler(0, keyHorizon, 0);
+        //float keyHorizon = Input.GetAxis("ArrowX");
+        rotateH *= Quaternion.Euler(0, conHorizon, 0);
         transform.rotation = rotateH * rotateV;
         transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
     }
