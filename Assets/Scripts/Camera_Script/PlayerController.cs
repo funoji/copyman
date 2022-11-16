@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 direction;
-    [SerializeField] private CameraController refCamera_H;
+    private CameraController refCamera_H;
     private float horizontal;
     private float vertical;
 
@@ -22,10 +22,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        horizontal = Input.GetAxis("LstickHorizontal");
-        vertical = Input.GetAxis("LstickVertical");
-        //horizontal = Input.GetAxis("MoveX");
-        //vertical = Input.GetAxis("MoveY");
+        //horizontal = Input.GetAxis("LstickHorizontal");
+        //vertical = Input.GetAxis("LstickVertical");
+        horizontal = Input.GetAxis("MoveX");
+        vertical = Input.GetAxis("MoveY");
 
         //Debug.Log("horizontal : " + horizontal + "  Vertical : " + vertical);
 
