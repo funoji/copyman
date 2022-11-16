@@ -2,24 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpGround : Gimmick
-{
-    Gimmick gimmick;
-     
-    [SerializeField] private float moveX;
-    [SerializeField] private float moveY;
-    [SerializeField] private float moveZ;
+public class MoveGimmick : Gimmick
+{    
+    [SerializeField] private Vector3Int move;
     [SerializeField] private float speed;
 
-    float step;
-    bool goBack = false;
-    Vector3 origin;
-    Vector3 destination;
+    private float step;
+    private bool goBack = false;
+    private Vector3 origin;
+    private Vector3 destination;
 
     protected override void Start()
     {
         origin = transform.position;
-        destination = new Vector3(origin.x - moveX, origin.y - moveY, origin.z - moveZ);
+        destination = new Vector3(origin.x - move.x, origin.y - move.y, origin.z - move.z);
     }
 
     protected override void Update()
