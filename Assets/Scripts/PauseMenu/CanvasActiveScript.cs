@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasActiveScript : MonoBehaviour
 {
@@ -17,10 +18,11 @@ public class CanvasActiveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Pose();
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    Debug.Log("P is pushed");
+        //    Pose();
+        //}
         if (Input.GetButtonDown("Pose"))
         {
             Pose();
@@ -30,6 +32,7 @@ public class CanvasActiveScript : MonoBehaviour
     {
         if (IsPose==false)
         {
+            Debug.Log("Panel is Instance");
             Time.timeScale = 0f;
             ActivePanel.SetActive(true);
         }
