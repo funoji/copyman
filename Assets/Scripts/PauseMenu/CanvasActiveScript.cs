@@ -20,7 +20,10 @@ public class CanvasActiveScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             Pose();
-            IsPose=!IsPose;
+        }
+        if (Input.GetButtonDown("Pose"))
+        {
+            Pose();
         }
     }
     private void Pose()
@@ -36,5 +39,6 @@ public class CanvasActiveScript : MonoBehaviour
             ActivePanel.SetActive(false);
             InActivePanel.SetActive(false);
         }
+        IsPose = !IsPose;
     }
 }
