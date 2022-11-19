@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         if (direction.magnitude > 0)
         {
             //カメラの角度に応じて、プレイヤーをカメラの正面の向きに合わせる
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(refCamera_H.rotateH * direction), 5.0f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(refCamera_H.rotateH * direction), 1.0f);
             //プレイヤーの移動
             transform.position += refCamera_H.rotateH * direction;
         }

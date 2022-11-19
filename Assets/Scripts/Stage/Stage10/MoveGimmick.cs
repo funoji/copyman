@@ -2,24 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveGimmick : Gimmick
+public class MoveGimmick : MonoBehaviour
 {    
-    [SerializeField] private Vector3Int move;
+    [SerializeField] private Vector3 move;
     [SerializeField] private float speed;
+    [SerializeField] private float waitTime;
+    [SerializeField] bool isActive = true;
+
+    public bool ActiveGimmick
+    {
+        get => isActive;
+        set => isActive = value;
+    }
 
     private float step;
     private bool goBack = false;
+    private bool stop = false;
+    
     private Vector3 origin;
     private Vector3 destination;
 
-    protected override void Start()
+    void Start()
     {
         origin = transform.position;
         destination = new Vector3(origin.x - move.x, origin.y - move.y, origin.z - move.z);
     }
 
-    protected override void Update()
+    void Update()
     {
+        if(!isActive)
+        {
+            return;
+        }
+
         if (stop)
         {
             return;
@@ -38,6 +53,7 @@ public class MoveGimmick : Gimmick
                 StartCoroutine(Wait());
             }
         }
+
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, origin, step);
@@ -49,5 +65,15 @@ public class MoveGimmick : Gimmick
                 StartCoroutine(Wait());
             }
         }
+
+    }
+
+    IEnumerator Wait()
+    {
+        stop = true;
+
+        yield return new WaitForSeconds(waitTime);
+
+        stop = false;
     }
 }
