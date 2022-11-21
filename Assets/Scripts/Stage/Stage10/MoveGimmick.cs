@@ -30,15 +30,9 @@ public class MoveGimmick : MonoBehaviour
 
     void Update()
     {
-        if(!isActive)
-        {
-            return;
-        }
+        if(!isActive) return;
+        if (stop) return;
 
-        if (stop)
-        {
-            return;
-        }
 
         step = speed * Time.deltaTime;
 
