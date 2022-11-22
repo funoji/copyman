@@ -6,16 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     //アタッチ：移動の変数
     [Header("カメラのスクリプトを参照")]
-    [SerializeField] [Tooltip("CameraControllerを参照")] private CameraController refCamera_H;
+    //[SerializeField] [Tooltip("CameraControllerを参照")] private CameraController refCamera_H;
     [Header("プレイヤーの設定")]
     [SerializeField] [Range(0.0f, 20.0f), Tooltip("移動のスピード")] private float moveSpeed;
 
     //スクリプト内 : 移動の変数
     private Rigidbody rb;
     private Vector3 direction;
-    [SerializeField]private CameraController refCamera_H;
-    private float horizontal;
-    private float vertical;
+    //[SerializeField]private CameraController refCamera_H;
+    //private float horizontal;
+    //private float vertical;
     private JumpManager jump;
     Vector3 Forward = new Vector3(0, 0, 2);
     Vector3 Backward = new Vector3(0, 0, -2);
@@ -34,8 +34,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         //コントローラー用
-        horizontal = Input.GetAxis("LstickHorizontal");
-        vertical = Input.GetAxis("LstickVertical");
+        //horizontal = Input.GetAxis("LstickHorizontal");
+        //vertical = Input.GetAxis("LstickVertical");
         //キーボード用
         //horizontal = Input.GetAxis("MoveX");
         //vertical = Input.GetAxis("MoveY");
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         if (direction.magnitude > 0)
         {
             //カメラの角度に応じて、プレイヤーをカメラの正面の向きに合わせる
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(refCamera_H.rotateH * direction), 1.0f);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(refCamera_H.rotateH * direction), 1.0f);
             //プレイヤーの移動
             transform.position += direction;
         }
