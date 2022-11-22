@@ -380,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997143691741488441, guid: 0ff6941bfacc87147a962ffbff5d1ccf, type: 3}
       propertyPath: y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5997143691741488441, guid: 0ff6941bfacc87147a962ffbff5d1ccf, type: 3}
       propertyPath: JumpPower
@@ -1242,7 +1242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669550965}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.5, y: 3.05, z: 7.14}
+  m_LocalPosition: {x: 14.5, y: 0.99999976, z: 7.14}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1264,7 +1264,7 @@ MonoBehaviour:
   move: {x: 10, y: 0, z: 0}
   speed: 20
   waitTime: 1
-  isActive: 1
+  isActive: 0
 --- !u!65 &669550968
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1405,6 +1405,11 @@ CanvasRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5538348009566038285, guid: 6e77f7fd0e0396c4a801de0bb60317d9, type: 3}
   m_PrefabInstance: {fileID: 5538348009934056139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &947165259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5224359231057451186, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+  m_PrefabInstance: {fileID: 1142446199}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &951993606
 GameObject:
@@ -1861,6 +1866,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1142446199
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885129779562807816, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224359231057451186, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
+      propertyPath: m_Name
+      value: Barricade
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b74669f2f7e90d4ab63970c925145df, type: 3}
 --- !u!1 &1182756397
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,6 +3234,10 @@ PrefabInstance:
       propertyPath: _CanCopyObj.Array.data[0].Object
       value: 
       objectReference: {fileID: 8478351736743436626, guid: 260cc17d18bb7d947b2cb7c011338fe2, type: 3}
+    - target: {fileID: 1990332367622872347, guid: 45bec9a89965259499a1902319e4c20a, type: 3}
+      propertyPath: _CanCopyObj.Array.data[1].Object
+      value: 
+      objectReference: {fileID: 947165259}
     - target: {fileID: 1990332367622872347, guid: 45bec9a89965259499a1902319e4c20a, type: 3}
       propertyPath: _CanCopyObj.Array.data[11].Object
       value: 
