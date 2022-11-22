@@ -2,77 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//RayCast
-//https://tech.pjin.jp/blog/2021/10/28/unity-raycast/
-
-
-public class CameraController : MonoBehaviour
+public class CameraControllerFromCinemachine : MonoBehaviour
 {
-    [Header("カメラの設定")]
-    [SerializeField] [Range(-5.0f, 5.0f), Tooltip("回転のスピード")] float rotateSpeed = 0.5f;
-    [SerializeField] [Tooltip("注目する所")] GameObject targetObject;
-    [SerializeField] [Tooltip("カメラとプレイヤーとの距離")] float intervalM;
-    [SerializeField] [Tooltip("カメラが当たったら近づいてほしいオブジェクト")] private LayerMask objLayer;
+    [Header("追跡するゲームオブジェクト")]
+    public GameObject targetObj;
 
-    [Header("PlayerContoroller用")]
-    [SerializeField] [Tooltip("カメラの水平")] public Quaternion rotateH;
-    [SerializeField] [Tooltip("カメラの垂直")] public Quaternion rotateV;
-    private RaycastHit hit;
-    private Ray ray;
-    private float distance;
-    private Vector3 in_distance;
-    public Vector3 hitPosition;
+    [SerializeField]
+    private float cameraRotateSpeed = 80.0f;     // カメラの回転速度
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private float maxLimit = 45.0f;              // X 軸方向の最大可動範囲
+
+    [SerializeField]
+    private float minLimit = 25.0f;              // X 軸方向の最小可動範囲
+
+
+    void Update()
     {
-        //注目している所を設定
-        transform.LookAt(targetObject.transform.position);
-
-        //rotateH：水平方向の角度　rotateV：垂直方向の角度 の初期化
-        rotateH = Quaternion.identity;
-        rotateV = Quaternion.Euler(10, 0, 0);
-
-        //回転の初期化
-        this.transform.rotation = rotateH * rotateV;
-        //位置の初期化
-        this.transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
-        Debug.Log("transform.position : " + this.transform.position);
-
-
-        in_distance = transform.position - targetObject.transform.position;
+            // カメラの回転
+            RotateCamera();
     }
 
-    private void FixedUpdate()
+    /// <summary>
+    /// targetObj を軸にしたカメラの公転回転
+    /// </summary>
+    private void RotateCamera()
     {
-        //コントローラー用
-        float horizon = Input.GetAxis("RsitckHorizontal");
-        //キーボード用
-        //float horizon = Input.GetAxis("ArrowX")* rotateSpeed;
 
-        //ボタン操作による回転
-        rotateH *= Quaternion.Euler(0, horizon, 0);
+        // マウスの入力値を取得
+        float x = Input.GetAxis("ArrowX");
+        float z = Input.GetAxis("ArrowY");
 
-        ray = new Ray(targetObject.transform.position, this.transform.position - targetObject.transform.position);
-        distance = Vector3.Distance(targetObject.transform.position, this.transform.position);
-        Debug.Log(distance);
-        //　レイを視覚的に確認
-        Debug.DrawLine(targetObject.transform.position, this.transform.position, Color.red, 0f, true);
-    }
+        // カメラを追従対象の周囲を公転回転させる
+        transform.RotateAround(targetObj.transform.position, Vector3.up, x * Time.deltaTime * cameraRotateSpeed);
 
-    private void Update()
-    {
-        this.transform.rotation = rotateH * rotateV;
-        if (Physics.Raycast(ray, out hit, distance, objLayer, QueryTriggerInteraction.Ignore) && distance < intervalM)
+        //カメラの回転情報の初期値をセット
+        var localAngle = transform.localEulerAngles;
+
+        // X 軸の回転情報をセット
+        localAngle.x += z;
+
+        // X 軸を稼働範囲内に収まるように制御
+        if (localAngle.x > maxLimit)
         {
-            //hitPosition = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            Debug.Log("当たった場所：" + hitPosition);
-            this.transform.position = hit.point;
+            localAngle.x = maxLimit;
         }
-        else
+
+        if (localAngle.x < minLimit)
         {
-            this.transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
+            localAngle.x = minLimit;
         }
+
+        // カメラの回転
+        transform.localEulerAngles = localAngle;
     }
 }
-
