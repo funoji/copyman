@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4885129779562807816}
-  - component: {fileID: 4918439711072109936}
-  - component: {fileID: 4918439711072109937}
+  - component: {fileID: -6948944672086617430}
   m_Layer: 0
   m_Name: Barricade
   m_TagString: Cancopy
@@ -34,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &4918439711072109936
+--- !u!54 &-6948944672086617430
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,19 +49,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &4918439711072109937
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5224359231057451186}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 2.48, y: 1.3, z: 1}
-  m_Center: {x: 0, y: -0.09, z: 0}
 --- !u!1 &5592330837458059440
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,8 +62,8 @@ GameObject:
   - component: {fileID: 8038019559061744770}
   - component: {fileID: 1250353959009606011}
   m_Layer: 0
-  m_Name: pCube1
-  m_TagString: Untagged
+  m_Name: Barricade
+  m_TagString: Cancopy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
