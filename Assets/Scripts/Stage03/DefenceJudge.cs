@@ -17,15 +17,17 @@ public class DefenceJudge : MonoBehaviour
     {
         if(GameOverCount == 0)
         {
+            Debug.Log("Stage3 GameOver");
             GameDirector.GameOver = true;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "SockerBall")
+        if (other.gameObject.tag == "SoccerBall")
         {
             GameOverCount--;
+            Debug.Log(GameOverCount);
             DefenceFlag = true;
         }
     }

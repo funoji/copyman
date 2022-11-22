@@ -11,15 +11,17 @@ public class GoalJudge : MonoBehaviour
     {
         if (GoalCount == 0)
         {
+            Debug.Log("Stage3 Clear");
             GameDirector.GameClear = true;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "SockerBall")
+        if (other.gameObject.tag == "SoccerBall")
         {
             GoalCount--;
+            Debug.Log(GoalCount);
             GoalFlag = true;
             Destroy(other.gameObject,0.0f);
         }
