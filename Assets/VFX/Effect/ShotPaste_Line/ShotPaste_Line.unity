@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -685,6 +685,14 @@ MonoBehaviour:
   AreaCollider: {fileID: 1678502027}
   Area: {fileID: 1678502021}
   Point: {fileID: 2014221853}
+  muzzele: {fileID: 0}
+  Y: 0
+  Z: 0
+  rot: 0
+  speed: 0
+  moneycount: {fileID: 0}
+  CopyColl: {fileID: 0}
+  preLineRenderer: {fileID: 0}
 --- !u!114 &626229909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,7 +719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae838574e5bbf54ba57a3056f617ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  moveSpeed: 0
+  refCamera_H: {fileID: 0}
 --- !u!4 &626229911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4af36dd5249d7cf439b2c3c11093f005, type: 3}
@@ -908,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1056,6 +1066,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab856530a164e83409f9df4d3eebb2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ForUIObj: {fileID: 0}
+  Obj: {fileID: 0}
+  UIpos: {fileID: 0}
+  ObjectManager: {fileID: 0}
 --- !u!54 &1150751907
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1371,7 +1385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae838574e5bbf54ba57a3056f617ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  moveSpeed: 0
+  refCamera_H: {fileID: 0}
 --- !u!114 &1465264748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1401,6 +1416,14 @@ MonoBehaviour:
   AreaCollider: {fileID: 1150751904}
   Area: {fileID: 1150751900}
   Point: {fileID: 746283868}
+  muzzele: {fileID: 0}
+  Y: 0
+  Z: 0
+  rot: 0
+  speed: 0
+  moneycount: {fileID: 0}
+  CopyColl: {fileID: 0}
+  preLineRenderer: {fileID: 0}
 --- !u!114 &1465264750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1496,6 +1519,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab856530a164e83409f9df4d3eebb2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ForUIObj: {fileID: 0}
+  Obj: {fileID: 0}
+  UIpos: {fileID: 0}
+  ObjectManager: {fileID: 0}
 --- !u!23 &1678502024
 MeshRenderer:
   m_ObjectHideFlags: 0
