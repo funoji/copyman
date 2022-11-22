@@ -27,8 +27,6 @@ public class CameraController : MonoBehaviour
         //rotateH：水平方向の角度　rotateV：垂直方向の角度 の初期化
         rotateH = Quaternion.identity;
         rotateV = Quaternion.Euler(15, 0, 0);
-
-        //回転の初期化
         this.transform.rotation = rotateH * rotateV;
         //位置の初期化
         this.transform.position = targetObject.transform.position - transform.rotation * Vector3.forward * intervalM;
