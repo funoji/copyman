@@ -14,12 +14,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private CameraController refCamera_H;
     private float horizontal;
     private float vertical;
+    private JumpManager jump;
 
     // Start is called before the first frame update
     void Start()
     {
         //Rigidbodyの取得
         rb = this.GetComponent<Rigidbody>();
+        jump = GetComponent<JumpManager>();
     }
 
     void FixedUpdate()
@@ -49,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
         //キー入力：ジャンプ
         if (Input.GetButtonDown("Jump"))
-            GetComponent<JumpManager>().Jump();
+            jump.Jump();
 
         //移動のスピード
         direction = direction.normalized * moveSpeed * Time.deltaTime;
