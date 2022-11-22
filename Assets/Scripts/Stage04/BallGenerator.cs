@@ -53,9 +53,9 @@ public class BallGenerator : MonoBehaviour
         do
         {
             IsGenerating = true;
-            Vector3 Power = (new Vector3(Random.Range(minPower, maxPower),
+            Vector3 Power = (new Vector3(-Random.Range(minPower, maxPower),
                                         0,
-                                        -Random.Range(minPower, maxPower)));
+                                        Random.Range(minPower, maxPower)));
 
             GameObject obj =Instantiate(ball);
             obj.transform.position = SpawnPoint.position;
