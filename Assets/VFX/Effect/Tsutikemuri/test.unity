@@ -519,7 +519,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &383321816
 GameObject:
@@ -606,7 +606,7 @@ Transform:
   m_Children:
   - {fileID: 1614941407}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &383321820
 MonoBehaviour:
@@ -851,7 +851,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1106134094}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &456985472
 MonoBehaviour:
@@ -1160,7 +1160,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &815359575
 PrefabInstance:
@@ -1326,6 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1361,7 +1362,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1020531899
 PrefabInstance:
@@ -1746,6 +1747,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab856530a164e83409f9df4d3eebb2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ForUIObj: {fileID: 0}
+  Obj: {fileID: 0}
+  UIpos: {fileID: 0}
+  ObjectManager: {fileID: 0}
 --- !u!54 &1150751907
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1855,7 +1860,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &1192133570
 MonoBehaviour:
@@ -2152,7 +2157,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1465264744
 PrefabInstance:
@@ -2228,7 +2233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae838574e5bbf54ba57a3056f617ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  moveSpeed: 0
+  refCamera_H: {fileID: 0}
 --- !u!114 &1465264748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2258,6 +2264,14 @@ MonoBehaviour:
   AreaCollider: {fileID: 1150751904}
   Area: {fileID: 1150751900}
   Point: {fileID: 746283868}
+  muzzele: {fileID: 0}
+  Y: 0
+  Z: 0
+  rot: 0
+  speed: 0
+  moneycount: {fileID: 0}
+  CopyColl: {fileID: 0}
+  preLineRenderer: {fileID: 0}
 --- !u!114 &1465264750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2905,7 +2919,7 @@ RectTransform:
   m_Children:
   - {fileID: 856999068}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3025,7 +3039,7 @@ Transform:
   m_Children:
   - {fileID: 6344667407187960576}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6344667407187960576
 Transform:

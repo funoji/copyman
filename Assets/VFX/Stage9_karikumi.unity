@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1345,6 +1345,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab856530a164e83409f9df4d3eebb2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ForUIObj: {fileID: 0}
+  Obj: {fileID: 0}
+  UIpos: {fileID: 0}
+  ObjectManager: {fileID: 0}
 --- !u!1 &889423768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,6 +1817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
@@ -1829,6 +1834,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!114 &1377291582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2449,11 +2455,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 5
   targetObject: {fileID: 1800931360}
-  angleUp: 70
-  angleDown: -40
-  angleRight: 90
-  angleLeft: -90
   intervalM: 10
+  rotateH: {x: 0, y: 0, z: 0, w: 0}
+  rotateV: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1908560112
 GameObject:
   m_ObjectHideFlags: 0
@@ -124085,7 +124089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae838574e5bbf54ba57a3056f617ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -5
+  moveSpeed: 0
+  refCamera_H: {fileID: 0}
 --- !u!114 &3164139769943791925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124120,6 +124125,8 @@ MonoBehaviour:
   Z: 0
   rot: 45
   speed: 10
+  moneycount: {fileID: 0}
+  CopyColl: {fileID: 0}
   preLineRenderer: {fileID: 0}
 --- !u!114 &3164139769943791927
 MonoBehaviour:
@@ -124138,7 +124145,6 @@ MonoBehaviour:
   y: -3
   z: -3
   JumpPower: 200
-  JumpLimit: 1
 --- !u!1 &3349541511885222971
 GameObject:
   m_ObjectHideFlags: 0
