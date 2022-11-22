@@ -8,6 +8,7 @@ public class Copyinput : MonoBehaviour
     bool cooltime;
     float lapseTime;
     [SerializeField] float PasteCoolTime;
+    [SerializeField] Playeranimationcontroller PlayerAnim;
     int count;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,8 @@ public class Copyinput : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button1) && cooltime)
         {
             Copy.Paseting();
+            PlayerAnim.PlessedPasteButton();
+
             cooltime = false;
         }
 
