@@ -67,7 +67,7 @@ public class BallGenerator : MonoBehaviour
             if(GenerateCount > 5)
                 yield return new WaitForSeconds(WinwaitTime);
             count++;
-            Debug.Log("GenerateCount=" + GenerateCount);
+            //Debug.Log("GenerateCount=" + GenerateCount);
         } while (count <= GenerateCount);
         GenerateCount = 0;
         IsGenerating=false;
