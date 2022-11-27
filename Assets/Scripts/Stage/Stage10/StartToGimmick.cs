@@ -9,6 +9,7 @@ public class StartToGimmick : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //if (other.tag != "Cancooy") return;
         gimmick.ActiveGimmick = true;
     }
 
