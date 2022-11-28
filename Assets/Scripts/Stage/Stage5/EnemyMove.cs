@@ -10,7 +10,6 @@ public class EnemyMove : MonoBehaviour
     private bool arrived;
     private Vector3 prePos;
     private Vector3 direction;
-    private Vector3 startPosition;
     private Vector3 destination;
     private float elapsedTime;
 
@@ -39,8 +38,8 @@ public class EnemyMove : MonoBehaviour
         isStan = false;
         arrived = false;
         elapsedTime = 0f;
-        startPosition = transform.position;
-        SetDestination(transform.position);
+        CreateRandomPosition();
+        
     }
 
     private void FixedUpdate()
@@ -112,10 +111,10 @@ public class EnemyMove : MonoBehaviour
 
     void RotateToMove()
     {
-        
         Vector3 diff = transform.position - prePos;
         prePos = transform.position;
-        if (diff.magnitude <= 0.01) return;
+        if (diff == Vector3.zero) return;
+        if (diff.magnitude <= 0.01f) return;
         transform.rotation = Quaternion.LookRotation(diff,Vector3.up);
     }
 
@@ -143,7 +142,7 @@ public class EnemyMove : MonoBehaviour
     public void CreateRandomPosition()
     {
         var randDestination = Random.insideUnitCircle * 8;
-        SetDestination(startPosition + new Vector3(randDestination.x, 0, randDestination.y));
+        SetDestination(transform.position + new Vector3(randDestination.x, 0, randDestination.y));
     }
 
     public void SetDestination(Vector3 position)
