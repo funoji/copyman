@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class Water : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag=="Player")
+        if (other.gameObject.tag == "Player")
         {
             GameDirector.GameOver = true;
+          
+        }
+
+        Debug.Log(GameDirector.GameOver);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            GameDirector.GameOver = true;
+
         }
     }
 }
