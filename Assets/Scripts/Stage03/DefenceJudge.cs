@@ -5,6 +5,7 @@ using UnityEngine;
 public class DefenceJudge : MonoBehaviour
 {
     [SerializeField] static private int GameOverCount = 5;
+    [SerializeField] private Transform PlayerPos;
 
     public static bool DefenceFlag = false;
     void Start()
@@ -24,11 +25,20 @@ public class DefenceJudge : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SoccerBall")
+        if (other.gameObject.name == "SoccerBall")
         {
             GameOverCount--;
+            RefrectBall(other.gameObject, PlayerPos);
             Debug.Log(GameOverCount);
             DefenceFlag = true;
         }
+    }
+
+    void RefrectBall(GameObject obj,Transform position)
+    {
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        rb.AddForce(new Vector3(
+            transform.position.x, transform.position.y, transform.position.z), 
+            ForceMode.Impulse);
     }
 }
