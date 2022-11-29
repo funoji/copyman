@@ -24,6 +24,7 @@ public class SheepMove : MonoBehaviour
     private float waitTime = 5f;
     
     private float elapsedTime;
+    private float arriveTime;
     
     private Vector3 destination;
 
@@ -51,6 +52,14 @@ public class SheepMove : MonoBehaviour
         if (escapeFlag) return;
         if (!arrived)
         {
+            arriveTime += Time.deltaTime;
+            if(arriveTime>=waitTime)
+            {
+                CreateRandomPosition();
+                destination = GetDestination();
+                arrived = false;
+                arriveTime = 0;
+            }
             direction = (destination - transform.position).normalized;
 
             transform.Translate(direction * walkSpeed * Time.deltaTime,Space.World);
@@ -58,6 +67,7 @@ public class SheepMove : MonoBehaviour
             if (Vector3.Distance(transform.position, destination) < 0.5f)
             {
                 arrived = true;
+                arriveTime = 0;
             }
         }
         else
@@ -92,8 +102,9 @@ public class SheepMove : MonoBehaviour
     void RotateToMove()
     {
         Vector3 diff = transform.position - prePos;
+        Debug.Log(diff.magnitude);
         prePos = transform.position;
-        if (diff.magnitude <= 0.01) return;
+        if (diff.magnitude <= 0.03) return;
         transform.rotation = Quaternion.LookRotation(diff,Vector3.up);
     }
 
