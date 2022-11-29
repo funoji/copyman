@@ -24,7 +24,7 @@ public class DefenceJudge : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "SoccerBall")
+        if (other.gameObject.name == "SoccerBall")
         {
             GameOverCount--;
             Debug.Log(GameOverCount);
