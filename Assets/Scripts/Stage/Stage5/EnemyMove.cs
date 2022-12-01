@@ -8,10 +8,18 @@ public class EnemyMove : MonoBehaviour
     private bool isStan;
     private bool isAttck;
     private bool arrived;
+    private bool isExplosion;
+
     private Vector3 prePos;
     private Vector3 direction;
     private Vector3 destination;
+    private Vector3 diff;
+
     private float elapsedTime;
+    private float animSpd;
+
+    private Animator animator;
+    private Rigidbody rb;
 
     [SerializeField] private float searchDis;
     [SerializeField] private GameObject attackObj;
@@ -33,11 +41,19 @@ public class EnemyMove : MonoBehaviour
 
     void Start()
     {
+
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+
         prePos = transform.position;
+
         isAttck = false;
         isStan = false;
         arrived = false;
+        isExplosion = false;
+
         elapsedTime = 0f;
+        
         CreateRandomPosition();
         
     }
@@ -45,9 +61,12 @@ public class EnemyMove : MonoBehaviour
     private void FixedUpdate()
     {
         if (isStan) return;
+        if (isExplosion) return;
+        rb.angularVelocity = Vector3.zero;
         Move();
         Attack();
         RotateToMove();
+        AnimController();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -56,11 +75,13 @@ public class EnemyMove : MonoBehaviour
         {
             IsStan();
             Invoke("IsStan", 3.0f);
-            Debug.Log("aaaa");
         }
 
         if(collision.gameObject.tag == "Player")
         {
+            rb.velocity = Vector3.zero;
+            isExplosion = true;
+            animator.SetBool("IsAttack", true);
             GameDirector.GameOver = true;
         }
     }
@@ -111,10 +132,11 @@ public class EnemyMove : MonoBehaviour
 
     void RotateToMove()
     {
-        Vector3 diff = transform.position - prePos;
+        diff = transform.position - prePos;
         prePos = transform.position;
         if (diff == Vector3.zero) return;
-        if (diff.magnitude <= 0.01f) return;
+        if (diff.magnitude <= 0.02f) return;
+        diff = new Vector3(diff.x, 0, diff.z);
         transform.rotation = Quaternion.LookRotation(diff,Vector3.up);
     }
 
@@ -153,5 +175,11 @@ public class EnemyMove : MonoBehaviour
     public Vector3 GetDestination()
     {
         return destination;
+    }
+    void AnimController()
+    {
+        animSpd = rb.velocity.magnitude;
+        animator.SetFloat("Spd", diff.magnitude);
+        animator.SetBool("IsAttack", isExplosion);
     }
 }
