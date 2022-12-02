@@ -58,39 +58,11 @@ public class S_2_Select_Sctipt : MonoBehaviour
         button = EventSystem.current.currentSelectedGameObject;
         //Debug.Log(button.name);
 
-        ////キーボード用　ボタンの選択状態の設定 : For keyboard Set button selection status
-        //if (Input.GetKeyDown(KeyCode.LeftArrow))
-        //{
-        //    if(button== optionButton)
-        //        EventSystem.current.SetSelectedGameObject(mainButton);
-        //    if(button== itemButton)
-        //        EventSystem.current.SetSelectedGameObject(mainButton);
-        //}
-        //if (Input.GetKeyDown(KeyCode.RightArrow))
-        //{
-        //    if (button == mainButton)
-        //        EventSystem.current.SetSelectedGameObject(itemButton);
-        //}
-        //if (Input.GetKeyDown(KeyCode.UpArrow))
-        //{
-        //    if (button == optionButton)
-        //        EventSystem.current.SetSelectedGameObject(itemButton);
-        //}
-        //if (Input.GetKeyDown(KeyCode.DownArrow))
-        //{
-        //    if (button == itemButton)
-        //        EventSystem.current.SetSelectedGameObject(optionButton);
-        //}
-        //if (Input.GetKeyDown(KeyCode.B))
-        //{
-        //    Debug.Log("押された。");
-        //}
-
         //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             EventSystem.current.SetSelectedGameObject(ExitButton);
-            Debug.Log("押された。");
+            //Debug.Log("押された。");
             transtion.Trasn_ToTitle();
         }
 

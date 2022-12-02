@@ -40,6 +40,10 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxis("LstickHorizontal");
         vertical = Input.GetAxis("LstickVertical");
 
+        //キーボード用
+        //horizontal = Input.GetAxis("MoveX");
+        //vertical = Input.GetAxis("MoveY");
+
         //ジャンプ
         if (Input.GetButtonDown("Jump")) jump.Jump();
 
