@@ -6502,7 +6502,7 @@ PrefabInstance:
       objectReference: {fileID: 629259202}
     - target: {fileID: 1983423030279282799, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
       propertyPath: y
-      value: -0.85
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1983423030279282799, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
       propertyPath: JumpPower
@@ -6814,6 +6814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5986230605876739910}
   moveController: {fileID: 5986230605876739915}
+  JumpManager: {fileID: 0}
 --- !u!4 &5986230605876739917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5577325956241947163, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
