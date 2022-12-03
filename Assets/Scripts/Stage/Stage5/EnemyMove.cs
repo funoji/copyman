@@ -77,7 +77,7 @@ public class EnemyMove : MonoBehaviour
             Invoke("IsStan", 3.0f);
         }
 
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.name == "Player")
         {
             rb.velocity = Vector3.zero;
             isExplosion = true;
