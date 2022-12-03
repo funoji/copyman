@@ -41,7 +41,10 @@ public class PlayerController : MonoBehaviour
         vertical = Input.GetAxis("LstickVertical");
 
         //ジャンプ
-        if (Input.GetButtonDown("Jump")) jump.Jump();
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump.Jump();
+        }
 
         //移動のスピードとカメラの正面の向きに合わせる。
         rb.velocity = horizontalRotaion * new Vector3(horizontal, 0, vertical) * moveSpeed * Time.deltaTime;

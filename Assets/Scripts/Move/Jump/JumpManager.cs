@@ -30,18 +30,21 @@ public class JumpManager : MonoBehaviour
 
         Debug.DrawRay(rayPosition, Vector3.down, Color.red);
         Debug.Log(IsGround);
-
-        if (Input.GetButtonDown("Jump"))
+        if (!IsGround)
         {
-            Jump();
+            if(Physics.Raycast(ray, 1.001f))
+            {
+                AudioManager.Instance.PlaySE(SESoundData.SE.landing);
+            }
         }
     }
     public void Jump()
     {
         if (IsGround)
         {
-            rb.velocity = Vector3.zero;
-            rb.AddForce(new Vector3(0, JumpPower, 0));
+            AudioManager.Instance.PlaySE(SESoundData.SE.jump);
+            //rb.velocity = Vector3.zero;
+            rb.AddForce(transform.up * JumpPower);
         }
     }
 }
