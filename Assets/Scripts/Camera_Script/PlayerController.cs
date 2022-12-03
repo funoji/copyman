@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private Quaternion targetRotion;
     private Quaternion horizontalRotaion;
 
+    private Vector3 velocity;
+
     void Start()
     {
         //Rigidbodyの取得
@@ -47,15 +49,17 @@ public class PlayerController : MonoBehaviour
         //ジャンプ
         if (Input.GetButtonDown("Jump")) jump.Jump();
 
-        //移動のスピードとカメラの正面の向きに合わせる。
-        rb.velocity = horizontalRotaion * new Vector3(horizontal, 0, vertical) * moveSpeed * Time.deltaTime;
+        //アニメーション用にRbのvelocityも変える
+        rb.AddForce(new Vector3(horizontal, 0, vertical));
 
-        if (rb.velocity.magnitude > 0.05f)
+        //移動のスピードとカメラの正面の向きに合わせる。
+        velocity = horizontalRotaion * new Vector3(horizontal, 0, vertical) * moveSpeed * Time.deltaTime;
+        if (velocity.magnitude > 0.05f)
         {
             //カメラの角度に応じて、プレイヤーをカメラの正面の向きに合わせる
-            transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
+            transform.rotation = Quaternion.LookRotation(new Vector3(velocity.x,0,velocity.z), Vector3.up);
             //プレイヤーの移動
-            rb.MovePosition(transform.position + rb.velocity);
+            rb.MovePosition(transform.position + velocity);
         }
         //滑らかに回転させる
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotion, rotationSpeed);
