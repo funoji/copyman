@@ -5903,10 +5903,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1665160842233005594, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2000864190}
     - target: {fileID: 1665160842233005595, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
       propertyPath: speed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1665160842233005595, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2000864190}
     - target: {fileID: 1665160842233005595, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
       propertyPath: preLineRenderer
       value: 
@@ -5961,7 +5969,7 @@ PrefabInstance:
       objectReference: {fileID: 218326234}
     - target: {fileID: 2864978243128715872, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2864978243128715872, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
       propertyPath: PlayerAnimator
@@ -6354,6 +6362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2000864190}
   moveController: {fileID: 2000864189}
+  JumpManager: {fileID: 0}
 --- !u!1 &2056049770
 GameObject:
   m_ObjectHideFlags: 0
