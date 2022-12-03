@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class AudioManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] List<BGMSoundData> bgmSoundDatas;
     [SerializeField] List<SESoundData> seSoundDatas;
+
+    [SerializeField] private Slider BGMslider;
+    [SerializeField] private Slider SEslider;
 
     public float masterVolume = 1;
     public float bgmMasterVolume = 1;
@@ -28,6 +32,15 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void BGMValueChange()
+    {
+        bgmAudioSource.volume = BGMslider.value;
+    }
+    public void SEValueChenge()
+    {
+        seAudioSource.volume = SEslider.value;
     }
 
     public void PlayBGM(BGMSoundData.BGM bgm)
@@ -54,8 +67,10 @@ public class BGMSoundData
     public enum BGM
     {
         Title,
-        Dungeon,
-        Hoge, // ‚±‚ê‚ªƒ‰ƒxƒ‹‚É‚È‚é
+        Stage1,
+        Stage2,
+        Stage3,
+        Stage4,
     }
 
     public BGM bgm;
@@ -70,7 +85,11 @@ public class SESoundData
     public enum SE
     {
         jump,
-        landing
+        landing,
+        copy,
+        paste,
+        shotpaste,
+        walk
     }
 
     public SE se;

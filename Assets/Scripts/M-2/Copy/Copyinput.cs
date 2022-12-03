@@ -21,6 +21,7 @@ public class Copyinput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
+            AudioManager.Instance.PlaySE(SESoundData.SE.copy);
             Copy.Active_Area();
             CopyColl.count = 0;
         }
@@ -30,6 +31,7 @@ public class Copyinput : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button1) && cooltime)
         {
+            AudioManager.Instance.PlaySE(SESoundData.SE.paste);
             Copy.Paseting();
             PlayerAnim.PlessedPasteButton();
 
@@ -57,6 +59,7 @@ public class Copyinput : MonoBehaviour
 
         if(Input.GetKeyUp(KeyCode.R) || Input.GetKeyUp(KeyCode.Joystick1Button3))
         {
+            AudioManager.Instance.PlaySE(SESoundData.SE.shotpaste);
             Copy.Shot();
         }
     }
