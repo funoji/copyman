@@ -47,7 +47,7 @@ public class Copy : MonoBehaviour
 
     public void Paseting()
     {
-        PasteObj = Instantiate(CopyColl.Obj, Point.transform.position, Quaternion.identity);
+        PasteObj = Instantiate(CopyColl.Obj, Point.transform.position, transform.rotation);
         PasteObj.name = CopyColl.Obj.name;
         // animator.SetBool("isPaste", true);  
         if (CopyColl.Obj.name == "Money")
@@ -60,7 +60,7 @@ public class Copy : MonoBehaviour
 
     public void Shot()
     { 
-        PasteObj = Instantiate(CopyColl.Obj, muzzele.transform.position,Quaternion.identity);
+        PasteObj = Instantiate(CopyColl.Obj, muzzele.transform.position,transform.rotation);
         PasteObj.name = CopyColl.Obj.name;
         Rigidbody m_rigidbody = PasteObj.GetComponent<Rigidbody>();
         Vector3 v = muzzele.transform.TransformDirection(new Vector3(0, Y, Z));
