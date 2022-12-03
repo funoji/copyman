@@ -1163,7 +1163,8 @@ MonoBehaviour:
   x: 0
   y: -0.8
   z: 0
-  JumpPower: 200
+  rb: {fileID: 0}
+  JumpPower: 250
 --- !u!54 &1983423030279282784
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1383,6 +1384,7 @@ MonoBehaviour:
   Copy: {fileID: 1665160842233005595}
   PasteCoolTime: 0
   PlayerAnim: {fileID: 2864978243128715872}
+  animator: {fileID: 1983423030279282785}
 --- !u!114 &1665160842233005595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1402,7 +1404,7 @@ MonoBehaviour:
   Y: 0.25
   Z: -1
   rot: 45
-  speed: 10
+  speed: 20
   moneycount: {fileID: 0}
   CopyColl: {fileID: 7064675953536685142}
   preLineRenderer: {fileID: 0}
@@ -2012,6 +2014,7 @@ MonoBehaviour:
   Obj: {fileID: 5230321536403265928}
   UIpos: {fileID: 0}
   ObjectManager: {fileID: 281360660762938432}
+  audio: {fileID: 0}
 --- !u!54 &7064675953536685143
 Rigidbody:
   m_ObjectHideFlags: 0
