@@ -47,7 +47,10 @@ public class PlayerController : MonoBehaviour
         //vertical = Input.GetAxis("MoveY");
 
         //ジャンプ
-        if (Input.GetButtonDown("Jump")) jump.Jump();
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump.Jump();
+        }
 
         //アニメーション用にRbのvelocityも変える
         rb.AddForce(new Vector3(horizontal, 0, vertical));
