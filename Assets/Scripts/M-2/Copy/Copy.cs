@@ -28,7 +28,7 @@ public class Copy : MonoBehaviour
         AreaCollider.enabled = false;
         Area.SetActive(false);
         rotvec = new Vector3 ( 0f, Mathf.Cos(rot * Mathf.Deg2Rad), Mathf.Sin(rot * Mathf.Deg2Rad));
-
+       // TryGetComponent(out animator);
         objLineRenderer = Instantiate(preLineRenderer, gameObject.transform);
         objLineRenderer.transform.localPosition = Vector3.zero;
         lineRenderer = objLineRenderer.GetComponent<LineRenderer>();
@@ -49,16 +49,18 @@ public class Copy : MonoBehaviour
     {
         PasteObj = Instantiate(CopyColl.Obj, Point.transform.position, Quaternion.identity);
         PasteObj.name = CopyColl.Obj.name;
-        if(CopyColl.Obj.name == "Money")
+        // animator.SetBool("isPaste", true);  
+        if (CopyColl.Obj.name == "Money")
         {
             moneycount.GetComponent<Money_counter>().metaobject++;
             Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
         }
+        //CopyColl.audio.Play();
     }
 
     public void Shot()
     { 
-        PasteObj = Instantiate(CopyColl.Obj, muzzele.transform.position, transform.rotation);
+        PasteObj = Instantiate(CopyColl.Obj, muzzele.transform.position,Quaternion.identity);
         PasteObj.name = CopyColl.Obj.name;
         Rigidbody m_rigidbody = PasteObj.GetComponent<Rigidbody>();
         Vector3 v = muzzele.transform.TransformDirection(new Vector3(0, Y, Z));
@@ -68,6 +70,8 @@ public class Copy : MonoBehaviour
             moneycount.GetComponent<Money_counter>().metaobject++;
             Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
         }
+       // CopyColl.audio.Play();
+        //  animator.SetBool("isShot",true);
         //ShotPaste.DrawLine();
     }
 

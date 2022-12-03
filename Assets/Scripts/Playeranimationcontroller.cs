@@ -41,21 +41,21 @@ public class Playeranimationcontroller : MonoBehaviour
         //    PlayerAnimator.SetBool("Isrunning", IsRunning);
         //}
 
-        if (rb.velocity.x > limit || rb.velocity.z > limit)
-        {
-            IsRunning = true;
-            PlayerAnimator.SetBool("Isrunning", IsRunning);
-        }
-        else if (rb.velocity.x < -limit || rb.velocity.z < -limit)
-        {
-            IsRunning = true;
-            PlayerAnimator.SetBool("Isrunning", IsRunning);
-        }
-        else
-        {
-            IsRunning = false;
-            PlayerAnimator.SetBool("Isrunning", IsRunning);
-        }
+        //if (rb.velocity.x > limit || rb.velocity.z > limit)
+        //{
+        //    IsRunning = true;
+        //    PlayerAnimator.SetBool("Isrunning", IsRunning);
+        //}
+        //else if (rb.velocity.x < -limit || rb.velocity.z < -limit)
+        //{
+        //    IsRunning = true;
+        //    PlayerAnimator.SetBool("Isrunning", IsRunning);
+        //}
+        //else
+        //{
+        //    IsRunning = false;
+        //    PlayerAnimator.SetBool("Isrunning", IsRunning);
+        //}
         Debug.Log(rb.velocity);
     }
 }

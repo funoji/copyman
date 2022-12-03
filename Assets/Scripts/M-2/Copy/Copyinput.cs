@@ -9,6 +9,7 @@ public class Copyinput : MonoBehaviour
     float lapseTime;
     [SerializeField] float PasteCoolTime;
     [SerializeField] Playeranimationcontroller PlayerAnim;
+    [SerializeField] [Tooltip("Debug_Camera_Animator Reference")] Animator animator;
     int count;
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,9 @@ public class Copyinput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
             Copy.Active_Area();
+            animator.SetBool("isCopy", true);
             CopyColl.count = 0;
-        }
+        }else animator.SetBool("isCopy", false);
         if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.Joystick1Button2))
         {
             Copy.DisActive_Area();
@@ -32,7 +34,7 @@ public class Copyinput : MonoBehaviour
         {
             Copy.Paseting();
             PlayerAnim.PlessedPasteButton();
-
+            animator.Play("Paste", 0, 0);
             cooltime = false;
         }
 
@@ -58,6 +60,7 @@ public class Copyinput : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.R) || Input.GetKeyUp(KeyCode.Joystick1Button3))
         {
             Copy.Shot();
+            animator.Play("ShotPaste", 0, 0);
         }
     }
 }

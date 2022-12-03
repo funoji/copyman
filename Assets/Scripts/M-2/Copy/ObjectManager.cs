@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
+    bool OnSound;
     [System.Serializable]
     public class CanCopyObj
     { 
@@ -22,6 +23,10 @@ public class ObjectManager : MonoBehaviour
         //this object got copied
         [HideInInspector]
         public bool Copied = false;
+
+        //suond
+        [SerializeField]
+        public AudioSource Audio;
     }
 
     [SerializeField] public CanCopyObj[] _CanCopyObj;

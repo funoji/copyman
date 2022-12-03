@@ -10,7 +10,7 @@ public class JumpManager : MonoBehaviour
     public float y = 0.5f;
     public float z = 0;
 
-    Rigidbody rb;
+    public Rigidbody rb;
     public float JumpPower = 0.0001f;
      bool IsGround = true;
     float distance = 1.0f;
