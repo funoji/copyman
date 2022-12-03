@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private JumpManager jump;
     private Quaternion targetRotion;
     private Quaternion horizontalRotaion;
+    private int count = 0;
 
     private Vector3 velocity;
 
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         targetRotion = transform.rotation;
     }
 
-    void FixedUpdate()
+    private void Update()
     {
         var rotationSpeed = 600 * Time.deltaTime;
         //カメラの正面の向きを取得
@@ -51,6 +52,21 @@ public class PlayerController : MonoBehaviour
         {
             jump.Jump();
         }
+    }
+
+    void FixedUpdate()
+    {
+        var rotationSpeed = 600 * Time.deltaTime;
+        //カメラの正面の向きを取得
+        horizontalRotaion = Quaternion.AngleAxis(playerCamera.transform.eulerAngles.y, Vector3.up);
+
+        ////コントローラー用
+        horizontal = Input.GetAxis("LstickHorizontal");
+        vertical = Input.GetAxis("LstickVertical");
+
+        //キーボード用
+        //horizontal = Input.GetAxis("MoveX");
+        //vertical = Input.GetAxis("MoveY");
 
         //アニメーション用にRbのvelocityも変える
         rb.AddForce(new Vector3(horizontal, 0, vertical));
@@ -63,6 +79,13 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(new Vector3(velocity.x,0,velocity.z), Vector3.up);
             //プレイヤーの移動
             rb.MovePosition(transform.position + velocity);
+
+            count++;
+            if (count > 10)
+            {
+                AudioManager.Instance.PlaySE(SESoundData.SE.walk);
+                count = 0;
+            }
         }
         //滑らかに回転させる
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotion, rotationSpeed);

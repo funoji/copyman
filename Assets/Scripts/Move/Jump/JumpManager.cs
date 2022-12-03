@@ -7,11 +7,11 @@ public class JumpManager : MonoBehaviour
     [SerializeField] Transform playerPosition;
 
     public float x = 0;
-    public float y = 0.5f;
+    public float y = -0.75f;
     public float z = 0;
 
-    public Rigidbody rb;
-    public float JumpPower = 0.0001f;
+    Rigidbody rb;
+    public float JumpPower = 250f;
      bool IsGround = true;
     float distance = 1.0f;
     Vector3 rayPosition;
@@ -30,13 +30,6 @@ public class JumpManager : MonoBehaviour
 
         Debug.DrawRay(rayPosition, Vector3.down, Color.red);
         Debug.Log(IsGround);
-        if (!IsGround)
-        {
-            if(Physics.Raycast(ray, 1.001f))
-            {
-                AudioManager.Instance.PlaySE(SESoundData.SE.landing);
-            }
-        }
     }
     public void Jump()
     {
