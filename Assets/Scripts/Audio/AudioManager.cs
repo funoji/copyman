@@ -71,6 +71,7 @@ public class BGMSoundData
         Stage2,
         Stage3,
         Stage4,
+        Tutrial
     }
 
     public BGM bgm;
@@ -89,7 +90,7 @@ public class SESoundData
         copy,
         paste,
         shotpaste,
-        walk
+        walk,
     }
 
     public SE se;
