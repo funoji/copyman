@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StageBGMManager : MonoBehaviour
 {
-    [SerializeField] enum StageNo { ONE,TWO,THREE,FOUR }
+    [SerializeField] enum StageNo { ONE,TWO,THREE,FOUR,TUTLIAL,TITLE,MENU }
     [SerializeField] StageNo stageNo = 0;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,15 @@ public class StageBGMManager : MonoBehaviour
                 break;
             case StageNo.FOUR:
                 AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Stage4);
+                break;
+            case StageNo.TUTLIAL:
+                AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Tutlial);
+                break;
+            case StageNo.TITLE:
+                AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Title);
+                break;
+            case StageNo.MENU:
+                AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Menu);
                 break;
         }
     }

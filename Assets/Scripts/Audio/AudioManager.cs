@@ -26,21 +26,12 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-    }
-
-    public void BGMValueChange()
-    {
-        bgmAudioSource.volume = BGMslider.value;
-    }
-    public void SEValueChenge()
-    {
-        seAudioSource.volume = SEslider.value;
     }
 
     public void PlayBGM(BGMSoundData.BGM bgm)
@@ -59,6 +50,15 @@ public class AudioManager : MonoBehaviour
         seAudioSource.PlayOneShot(data.audioClip);
     }
 
+    public void BGMValueChange()
+    {
+        bgmAudioSource.volume = BGMslider.value;
+    }
+    public void SEValueChenge()
+    {
+        seAudioSource.volume = SEslider.value;
+    }
+
 }
 
 [System.Serializable]
@@ -71,12 +71,14 @@ public class BGMSoundData
         Stage2,
         Stage3,
         Stage4,
+        Tutlial,
+        Menu
     }
 
     public BGM bgm;
     public AudioClip audioClip;
     [Range(0, 1)]
-    public float volume = 1;
+    public float volume = 0.5f;
 }
 
 [System.Serializable]
@@ -89,7 +91,9 @@ public class SESoundData
         copy,
         paste,
         shotpaste,
-        walk
+        walk,
+        Buck_ClickButton,
+        A_ClickButton
     }
 
     public SE se;
