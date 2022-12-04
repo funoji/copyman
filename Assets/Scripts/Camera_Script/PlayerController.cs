@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         if (velocity.magnitude > 0.05f)
         {
             //カメラの角度に応じて、プレイヤーをカメラの正面の向きに合わせる
-            transform.rotation = Quaternion.LookRotation(new Vector3(velocity.x,0,velocity.z), Vector3.up);
+            transform.rotation = Quaternion.LookRotation(velocity, Vector3.up);
             //プレイヤーの移動
             rb.MovePosition(transform.position + velocity);
 
@@ -88,6 +88,6 @@ public class PlayerController : MonoBehaviour
             }
         }
         //滑らかに回転させる
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotion, rotationSpeed);
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotion, rotationSpeed);
     }
 }
