@@ -139,7 +139,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069997778044132020}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 3f805a2283bd66b4f8f4463e04d09db4, type: 3}
   m_Controller: {fileID: 9100000, guid: 303a310a1891f5245ae9f0b0d49a8787, type: 2}
   m_CullingMode: 1
@@ -165,7 +165,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &1187672475454224789
 MonoBehaviour:
@@ -707,7 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6789251683548080649}
   - component: {fileID: 8628178877489150490}
-  - component: {fileID: 1187672474978042813}
+  - component: {fileID: 1262983230603401548}
   m_Layer: 0
   m_Name: polySurface1
   m_TagString: Untagged
@@ -722,14 +722,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8932191569234604497}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.6177316, y: 0.60063267, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1725385186878373902}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!137 &8628178877489150490
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -802,7 +802,7 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.62076676, y: -0.15242478, z: 0.01294142}
     m_Extent: {x: 1.0342413, y: 0.6525247, z: 0.5472751}
   m_DirtyAABB: 0
---- !u!135 &1187672474978042813
+--- !u!135 &1262983230603401548
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -813,5 +813,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.0537078
-  m_Center: {x: -0.0045671463, y: 0.6132742, z: -1.1860518}
+  m_Radius: 1.0537077
+  m_Center: {x: -0.012641504, y: 0.61316526, z: -1.1860517}

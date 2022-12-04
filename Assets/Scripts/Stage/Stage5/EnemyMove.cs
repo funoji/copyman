@@ -9,6 +9,7 @@ public class EnemyMove : MonoBehaviour
     private bool isAttck;
     private bool arrived;
     private bool isExplosion;
+    private bool isRotate;
 
     private Vector3 prePos;
     private Vector3 direction;
@@ -47,6 +48,7 @@ public class EnemyMove : MonoBehaviour
 
         prePos = transform.position;
 
+        isRotate = true;
         isAttck = false;
         isStan = false;
         arrived = false;
@@ -86,6 +88,22 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Cancopy"))
+        {
+            isRotate = false;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Cancopy"))
+        {
+            isRotate = true;
+        }
+    }
+
     void Move()
     {
         if (isAttck) return;
@@ -120,6 +138,7 @@ public class EnemyMove : MonoBehaviour
     {
         IsAttack();
         if (!isAttck) return;
+        if (rb.velocity.magnitude > maxSpd) return;
 
         Vector3 posA = attackObj.transform.position;
         Vector3 posB = transform.position;
@@ -127,15 +146,16 @@ public class EnemyMove : MonoBehaviour
         Vector3 attackVec = new Vector3(dif.x, 0, dif.z);
 
         transform.Translate(attackVec * Time.deltaTime,Space.World);
-        
+        //rb.AddForce(attackVec*100);
     }
 
     void RotateToMove()
     {
+        if (!isRotate) return;
         diff = transform.position - prePos;
         prePos = transform.position;
         if (diff == Vector3.zero) return;
-        if (diff.magnitude <= 0.02f) return;
+        if (diff.magnitude <= 0.05f) return;
         diff = new Vector3(diff.x, 0, diff.z);
         transform.rotation = Quaternion.LookRotation(diff,Vector3.up);
     }
