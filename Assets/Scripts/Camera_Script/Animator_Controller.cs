@@ -20,7 +20,6 @@ public class Animator_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rb.velocity);
         if (moveController.horizontal > state ||
             moveController.vertical > state ||
             moveController.horizontal < -state ||
