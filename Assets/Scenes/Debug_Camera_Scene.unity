@@ -2349,19 +2349,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731735962899903259, guid: f251432e45dc04c488085cfa1dcc3d75, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5045927
+      value: 1.6630855
       objectReference: {fileID: 0}
     - target: {fileID: 2731735962899903259, guid: f251432e45dc04c488085cfa1dcc3d75, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.1392307
+      value: -7.247823
       objectReference: {fileID: 0}
     - target: {fileID: 2731735962899903259, guid: f251432e45dc04c488085cfa1dcc3d75, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9961947
+      value: 0.99813485
       objectReference: {fileID: 0}
     - target: {fileID: 2731735962899903259, guid: f251432e45dc04c488085cfa1dcc3d75, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08715574
+      value: 0.061048545
       objectReference: {fileID: 0}
     - target: {fileID: 2731735962899903259, guid: f251432e45dc04c488085cfa1dcc3d75, type: 3}
       propertyPath: m_LocalRotation.y
@@ -2661,19 +2661,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3862037631747763650, guid: 9d78c9d6d93851148a65b0fc5075f056, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5045927
+      value: 1.6630855
       objectReference: {fileID: 0}
     - target: {fileID: 3862037631747763650, guid: 9d78c9d6d93851148a65b0fc5075f056, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.1392307
+      value: -7.247823
       objectReference: {fileID: 0}
     - target: {fileID: 3862037631747763650, guid: 9d78c9d6d93851148a65b0fc5075f056, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9961947
+      value: 0.99813485
       objectReference: {fileID: 0}
     - target: {fileID: 3862037631747763650, guid: 9d78c9d6d93851148a65b0fc5075f056, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08715574
+      value: 0.061048545
       objectReference: {fileID: 0}
     - target: {fileID: 3862037631747763650, guid: 9d78c9d6d93851148a65b0fc5075f056, type: 3}
       propertyPath: m_LocalRotation.y
@@ -2933,7 +2933,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2148227397021169797}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 1
   m_Height: 1
   m_Direction: 1
@@ -3231,6 +3231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5556344783099237759}
   moveController: {fileID: 5556344783099237761}
+  JumpManager: {fileID: 0}
 --- !u!1 &5675763194540701792
 GameObject:
   m_ObjectHideFlags: 0

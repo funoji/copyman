@@ -17,6 +17,8 @@ public class Transtion : MonoBehaviour
 
     public void Trans_ToSelect() { SceneManager.LoadScene("S_04_Stage_Select"); }
 
+    public void Trans_ToTutorial() { SceneManager.LoadScene("Tutorial"); }
+
     public void Trans_ToStage1() { SceneManager.LoadScene("Stage1"); }
 
     public void Trans_ToStage2() { SceneManager.LoadScene("Stage2"); }
