@@ -9,7 +9,7 @@ using TMPro;
 public class S_1_ChangeText_Script : MonoBehaviour
 {
     [Header("スクリプトを参照")]
-    public S_1_Fadeout_Script fadebool; 
+    public S_1_Fadeout_Script fadebool;
 
     [Space(5)]
     [Header("Button")]
@@ -19,22 +19,20 @@ public class S_1_ChangeText_Script : MonoBehaviour
 
     [Space(5)]
     [Header("テキストの点滅")]
-    [SerializeField] [Tooltip("「ゲームスタート」のテキスト")] private TextMeshProUGUI startText;
-    [SerializeField] [Tooltip("「ゲーム終了」のテキスト")] private TextMeshProUGUI endgameText;
-    [Space(2)]
-    [SerializeField] [Tooltip("ループ開始時の色")] private Color32 startColor= new Color32(255, 255, 255, 255);
-    [SerializeField] [Tooltip("ループ終了時の色")] private Color32 endColor= new Color32(255, 255, 255, 40);
-    [Space(2)]
-    [SerializeField] [Tooltip("透明度")] private float thinColor;
+    [SerializeField] [Tooltip("「ゲームスタート」のテキスト")] private GameObject startText;
+    [SerializeField] [Tooltip("「ゲーム終了」のテキスト")] private GameObject endgameText;
+    [SerializeField] [Tooltip("「ゲームスタート」の保存用変数")] private Vector3 _startText;
+    [SerializeField] [Tooltip("「ゲーム終了」の保存用変数")] private Vector3 _endgameText;
+
+    [Header("拡大縮小の演出用")]
+    [SerializeField] [Tooltip("変化する速さ")] private float scallSpeed;
+    [SerializeField] [Tooltip("拡大縮小の時間")] private float maxTime;
+    private float time;
+    private bool enlarge = true;
 
     [Space(5)]
-    [Header("点滅の周期")]
-    [SerializeField] [Tooltip("点滅をする周期のスピード")] public float speed = 1.0f; 
-    [SerializeField] [Tooltip("点滅する周期の時間")] public float length;
-
-    //[Space(5)]
-    //[Header("コントローラー用の変数")]
-    //[SerializeField] [Tooltip("コントローラーのPlayerInput")] private InputAction.CallbackContext context;
+    [Header("コントローラー用の変数")]
+    [SerializeField] [Tooltip("コントローラーのPlayerInput")] private InputAction.CallbackContext context;
 
     // Start is called before the first frame update
     void Start()
@@ -42,25 +40,13 @@ public class S_1_ChangeText_Script : MonoBehaviour
         //初期の選択状態をスタートボタンに設定 : Set initial selection status to Start button
         EventSystem.current.SetSelectedGameObject(startButton);
 
-        //初期の点滅をスタートのテキストに設定 : Set initial blinking to start text
-        startText.color = Change_Color(startColor, endColor);
-
-        //テキストのコンポーネント取得 : Text component acquisition
-        if (startText == null|| endgameText == null)
-        {
-            startText = GetComponent<TextMeshProUGUI>();
-            endgameText = GetComponent<TextMeshProUGUI>();
-        }
+        _startText = startText.transform.localScale;
+        _endgameText = endgameText.transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //フェードアウトさせるときに文字が移らないようにする処理 : Process to prevent text from shifting when fading out
-        //if (!)
-        //{
-        //    Info();
-        //}
         Info();
     }
 
@@ -69,62 +55,67 @@ public class S_1_ChangeText_Script : MonoBehaviour
     {
         //現在選択中のボタンを保存 : Save the currently selected button
         button = EventSystem.current.currentSelectedGameObject;
-        //Debug.Log(button.name);
 
         //キーボード用　ボタンの選択状態の設定 : For keyboard Set button selection status
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        //if (Input.GetKeyDown(KeyCode.DownArrow))
+        //{
+        //    EventSystem.current.SetSelectedGameObject(endgameButton);
+        //}
+        //if (Input.GetKeyDown(KeyCode.UpArrow))
+        //{
+        //    EventSystem.current.SetSelectedGameObject(startButton);
+        //}
+
+        //コントローラー用(アナログスティック)　ボタンの選択状態の設定 : Setting the selection state of the (analog stick) buttons for the controller
+        var inputAnalog = context.ReadValue<Vector2>();
+        if (inputAnalog == new Vector2(0, -1)) //下 : down
         {
             EventSystem.current.SetSelectedGameObject(endgameButton);
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (inputAnalog == new Vector2(0, 1)) //上 : up
         {
             EventSystem.current.SetSelectedGameObject(startButton);
         }
 
-        ////コントローラー用(アナログスティック)　ボタンの選択状態の設定 : Setting the selection state of the (analog stick) buttons for the controller
-        //var inputAnalog = context.ReadValue<Vector2>();
-        //if (inputAnalog == new Vector2(0, -1)) //下 : down
-        //{
-        //    EventSystem.current.SetSelectedGameObject(endgameButton);
-        //}
-        //if (inputAnalog == new Vector2(0, 1)) //上 : up
-        //{
-        //    EventSystem.current.SetSelectedGameObject(startButton);
-        //}
-
-        ////コントローラー用（十字キー）　ボタンの選択状態の設定 : For controllers (cross key) Set button selection status
-        //var inputCross = context.ReadValue<Vector2>();
-        //if (inputCross == new Vector2(0, -1)) //下 : down
-        //{
-        //    EventSystem.current.SetSelectedGameObject(endgameButton);
-        //}
-        //if (inputCross == new Vector2(0, 1)) //上 : up
-        //{
-        //    EventSystem.current.SetSelectedGameObject(startButton);
-        //}
-
         //選択された状態のテキストを点滅させる : Blinking text in selected state
         if (button == endgameButton)
         {
-            endgameText.color = Change_Color(startColor, endColor);
-            startText.color = Thin_Color();
+            Scaling(endgameText);
+            startText.transform.localScale = Reset_ImageScale(_startText);
         }
         if (button == startButton)
         {
-            startText.color = Change_Color(startColor, endColor);
-            endgameText.color = Thin_Color();
+            Scaling(startText);
+            endgameText.transform.localScale = Reset_ImageScale(_endgameText);
         }
     }
 
-    //色を変化させる : Change color
-    Color Change_Color(Color startcolor, Color endcolor)
+    //拡大縮小の演出の処理 : Processing of scaling direction
+    void Scaling(GameObject image)
     {
-        return Color.Lerp(startcolor, endcolor, Mathf.PingPong(Time.time / length, speed)); 
+        scallSpeed = Time.deltaTime * 0.1f;
+
+        if (time < 0)
+            enlarge = true;
+        if (time > maxTime)
+            enlarge = false;
+
+        if (enlarge)
+        {
+            time += Time.deltaTime;
+            image.transform.localScale += new Vector3(scallSpeed, scallSpeed, scallSpeed);
+        }
+        else
+        {
+            time -= Time.deltaTime;
+            image.transform.localScale -= new Vector3(scallSpeed, scallSpeed, scallSpeed);
+        }
     }
 
-    //色を薄くする : lighten a color
-    Color Thin_Color()
+    //大きさの初期化 : Size initialization
+    Vector3 Reset_ImageScale(Vector3 afterObj)
     {
-        return new Color(0, 0, 0, thinColor);
+        return afterObj;
     }
+
 }
