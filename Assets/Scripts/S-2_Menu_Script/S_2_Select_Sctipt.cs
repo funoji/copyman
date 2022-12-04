@@ -37,7 +37,6 @@ public class S_2_Select_Sctipt : MonoBehaviour
     [SerializeField] [Tooltip("拡大縮小の時間")] private float maxTime;
     private float time;
     private bool enlarge = true;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +45,7 @@ public class S_2_Select_Sctipt : MonoBehaviour
 
         //初期の大きさを保存 : Save initial size
         _mainScale = mainImage.transform.localScale;
-        _itemScale= itemImage.transform.localScale;
+        _itemScale = itemImage.transform.localScale;
         _optionScale = optionImage.transform.localScale;
         _ExitScale = ExitImage.transform.localScale;
     }
@@ -66,8 +65,8 @@ public class S_2_Select_Sctipt : MonoBehaviour
             transtion.Trasn_ToTitle();
         }
 
-            //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.
-            if (button == optionButton)
+        //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.
+        if (button == optionButton)
             Scaling(optionImage);
         else if (button != optionButton)
             optionImage.transform.localScale = Reset_ImageScale(_optionScale);
@@ -111,6 +110,6 @@ public class S_2_Select_Sctipt : MonoBehaviour
     //大きさの初期化 : Size initialization
     Vector3 Reset_ImageScale(Vector3 afterObj)
     {
-        return  afterObj;
+        return afterObj;
     }
 }

@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        var rotationSpeed = 600 * Time.deltaTime;
+        //var rotationSpeed = 600 * Time.deltaTime;
         //カメラの正面の向きを取得
-        horizontalRotaion = Quaternion.AngleAxis(playerCamera.transform.eulerAngles.y, Vector3.up);
+        //horizontalRotaion = Quaternion.AngleAxis(playerCamera.transform.eulerAngles.y, Vector3.up);
 
         //コントローラー用
         horizontal = Input.GetAxis("LstickHorizontal");
