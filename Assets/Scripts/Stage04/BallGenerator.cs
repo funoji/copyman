@@ -42,6 +42,7 @@ public class BallGenerator : MonoBehaviour
         {
             GameDirector.GameClear = true;
             Canvas.SetActive(true);
+            GameDirector.GameClear = true;
             Score.alpha = 0.0f;
         }
 
