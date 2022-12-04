@@ -17,6 +17,6 @@ public class Animator_Controller : MonoBehaviour
     void Update()
     {
         if (moveController.horizontal > 0.2f || moveController.vertical > 0.2f || moveController.horizontal < -0.2f || moveController.vertical < -0.2f) animator.SetBool("isRun", true);
-        else animator.SetBool("isRun", false);
+        else animator.SetBool("Isrunning", false);
     }
 }

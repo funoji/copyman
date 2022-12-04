@@ -1078,6 +1078,7 @@ GameObject:
   - component: {fileID: 1983423030279282798}
   - component: {fileID: 1983423030279282799}
   - component: {fileID: 1983423030279282784}
+  - component: {fileID: 5700107347100306002}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1142,7 +1143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  refCamera_H: {fileID: 7064675952403509597}
+  playerCamera: {fileID: 0}
+  rb: {fileID: 0}
+  horizontal: 0
+  vertical: 0
 --- !u!114 &1983423030279282799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,6 +1180,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &5700107347100306002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056826345408798881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00d37ef9ea2ff94f9e76b2e0077e808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1983423030279282785}
+  moveController: {fileID: 1983423030279282798}
 --- !u!1 &5227554093522039101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,12 +1427,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5425320187910737307}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39f68c15189fe0f44adbd1b0ae945963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerAnimator: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &5504910581056856151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,7 +1844,6 @@ GameObject:
   - component: {fileID: 7064675952403509598}
   - component: {fileID: 7064675952403509595}
   - component: {fileID: 7064675952403509596}
-  - component: {fileID: 7064675952403509597}
   - component: {fileID: 7064675952403509594}
   m_Layer: 7
   m_Name: Main Camera
@@ -1841,8 +1859,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7064675952403509599}
-  m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 3.2350001, z: -4}
+  m_LocalRotation: {x: 0.061048545, y: -0, z: -0, w: 0.99813485}
+  m_LocalPosition: {x: 0, y: 2, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1872,11 +1890,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1900,23 +1918,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7064675952403509599}
   m_Enabled: 1
---- !u!114 &7064675952403509597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7064675952403509599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfaff7d6920f7c4a816571ab2286ac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 0.1
-  targetObject: {fileID: 7064675953230851321}
-  intervalM: 5
-  rotateH: {x: 0, y: 0, z: 0, w: 0}
-  rotateV: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &7064675952403509594
 MonoBehaviour:
   m_ObjectHideFlags: 0
