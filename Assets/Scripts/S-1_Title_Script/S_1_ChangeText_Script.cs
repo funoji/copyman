@@ -37,6 +37,7 @@ public class S_1_ChangeText_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Title);
         //初期の選択状態をスタートボタンに設定 : Set initial selection status to Start button
         EventSystem.current.SetSelectedGameObject(startButton);
 
