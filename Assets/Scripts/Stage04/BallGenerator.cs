@@ -58,6 +58,7 @@ public class BallGenerator : MonoBehaviour
                                         Random.Range(minPower, maxPower)));
 
             GameObject obj =Instantiate(ball);
+            obj.name = ball.name;
             obj.transform.position = SpawnPoint.position;
 
             rb = obj.GetComponent<Rigidbody>();
