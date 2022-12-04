@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             count++;
             if (count > 10)
             {
-                AudioManager.Instance.PlaySE(SESoundData.SE.walk);
+                //AudioManager.Instance.PlaySE(SESoundData.SE.walk);
                 count = 0;
             }
         }
