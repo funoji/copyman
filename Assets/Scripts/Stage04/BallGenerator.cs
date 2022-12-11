@@ -40,7 +40,9 @@ public class BallGenerator : MonoBehaviour
         }
         if(Clearcount <= 0)
         {
+            GameDirector.GameClear = true;
             Canvas.SetActive(true);
+            GameDirector.GameClear = true;
             Score.alpha = 0.0f;
         }
 
@@ -53,11 +55,12 @@ public class BallGenerator : MonoBehaviour
         do
         {
             IsGenerating = true;
-            Vector3 Power = (new Vector3(Random.Range(minPower, maxPower),
+            Vector3 Power = (new Vector3(-Random.Range(minPower, maxPower),
                                         0,
-                                        -Random.Range(minPower, maxPower)));
+                                        Random.Range(minPower, maxPower)));
 
             GameObject obj =Instantiate(ball);
+            obj.name = ball.name;
             obj.transform.position = SpawnPoint.position;
 
             rb = obj.GetComponent<Rigidbody>();
@@ -67,7 +70,7 @@ public class BallGenerator : MonoBehaviour
             if(GenerateCount > 5)
                 yield return new WaitForSeconds(WinwaitTime);
             count++;
-            Debug.Log("GenerateCount=" + GenerateCount);
+            //Debug.Log("GenerateCount=" + GenerateCount);
         } while (count <= GenerateCount);
         GenerateCount = 0;
         IsGenerating=false;

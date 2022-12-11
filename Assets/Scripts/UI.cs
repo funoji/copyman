@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
+    [Header("Player > CopyCollObjをアタッチする ")]
     [SerializeField] GameObject CopyCollObj;
     [SerializeField] Transform ObjUiPos;
     [SerializeField] TextMeshProUGUI MissionUI;

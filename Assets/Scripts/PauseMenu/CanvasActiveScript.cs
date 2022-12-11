@@ -32,7 +32,7 @@ public class CanvasActiveScript : MonoBehaviour
     {
         if (IsPose==false)
         {
-            Debug.Log("Panel is Instance");
+            Debug.Log("Panel is active");
             Time.timeScale = 0f;
             ActivePanel.SetActive(true);
         }

@@ -262,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7499402367689442476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0.6}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -347,7 +347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9172217744173631463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.97, y: -7.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -364,11 +364,11 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9172217744173631463}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 319.85144
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -383,8 +383,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2615113, y: 3.0999737, z: 2.01}
-  m_Center: {x: -0.00000023841858, y: 0.00000047683716, z: 0.11}
+  m_Size: {x: 3.2615113, y: 3.0569787, z: 1.934557}
+  m_Center: {x: -0.00000023841858, y: 0.7435541, z: 0.6969538}
 --- !u!65 &-4946597826704185818
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -396,8 +396,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.39, y: 2.39, z: 0.18}
-  m_Center: {x: 0, y: -0.2, z: -1.02}
+  m_Size: {x: 2.39, y: 2.9501848, z: 0.20150691}
+  m_Center: {x: 0, y: 0.7693854, z: -0.4492133}
 --- !u!114 &5796279774305393952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,8 +412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmartBall: {fileID: 7122187172659527914, guid: 14c7707b2ce00a044b7b7c0aeeb31fb9, type: 3}
   SpawnPoint: {fileID: 0}
-  PocketCount: {fileID: 0}
-  PocketIndex: 0
-  MaxCount: 15
-  WinBall: 10
-  waitTime: 0.1
+  PocketCount: {fileID: 6876519128889299805}
+  PocketIndex: 1
+  MaxCount: 30
+  WinBall: 1
+  waitTime: 0.5

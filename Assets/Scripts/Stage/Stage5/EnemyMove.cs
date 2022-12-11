@@ -8,11 +8,19 @@ public class EnemyMove : MonoBehaviour
     private bool isStan;
     private bool isAttck;
     private bool arrived;
+    private bool isExplosion;
+    private bool isRotate;
+
     private Vector3 prePos;
     private Vector3 direction;
-    private Vector3 startPosition;
     private Vector3 destination;
+    private Vector3 diff;
+
     private float elapsedTime;
+    private float animSpd;
+
+    private Animator animator;
+    private Rigidbody rb;
 
     [SerializeField] private float searchDis;
     [SerializeField] private GameObject attackObj;
@@ -34,35 +42,65 @@ public class EnemyMove : MonoBehaviour
 
     void Start()
     {
+
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+
         prePos = transform.position;
+
+        isRotate = true;
         isAttck = false;
         isStan = false;
         arrived = false;
+        isExplosion = false;
+
         elapsedTime = 0f;
-        startPosition = transform.position;
-        SetDestination(transform.position);
+        
+        CreateRandomPosition();
+        
     }
 
     private void FixedUpdate()
     {
         if (isStan) return;
+        if (isExplosion) return;
+        rb.angularVelocity = Vector3.zero;
         Move();
         Attack();
         RotateToMove();
+        AnimController();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Rigidbody>().velocity.magnitude <= 10)
+        if (collision.gameObject.GetComponent<Rigidbody>().velocity.magnitude >= 5)
         {
             IsStan();
             Invoke("IsStan", 3.0f);
-            Debug.Log("aaaa");
         }
 
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.name == "Player")
         {
+            rb.velocity = Vector3.zero;
+            isExplosion = true;
+            animator.SetBool("IsAttack", true);
             GameDirector.GameOver = true;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Cancopy"))
+        {
+            isRotate = false;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Cancopy"))
+        {
+            isRotate = true;
         }
     }
 
@@ -75,7 +113,7 @@ public class EnemyMove : MonoBehaviour
 
             transform.Translate(direction * moveSpd * Time.deltaTime,Space.World);
 
-            //–Ú“I’n‚É“ž’…‚µ‚½‚©‚Ç‚¤‚©‚Ì”»’è
+            //ï¿½Ú“Iï¿½nï¿½É“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½Ì”ï¿½ï¿½ï¿½
             if (Vector3.Distance(transform.position, destination) < 0.5f)
             {
                 arrived = true;
@@ -85,7 +123,7 @@ public class EnemyMove : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            //‘Ò‚¿ŽžŠÔ‚ð‰z‚¦‚½‚çŽŸ‚Ì–Ú“I’n‚ðÝ’è
+            //ï¿½Ò‚ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½zï¿½ï¿½ï¿½ï¿½ï¿½çŽŸï¿½Ì–Ú“Iï¿½nï¿½ï¿½Ý’ï¿½
             if (elapsedTime > waitTime)
             {
                 CreateRandomPosition();
@@ -100,6 +138,7 @@ public class EnemyMove : MonoBehaviour
     {
         IsAttack();
         if (!isAttck) return;
+        if (rb.velocity.magnitude > maxSpd) return;
 
         Vector3 posA = attackObj.transform.position;
         Vector3 posB = transform.position;
@@ -107,15 +146,17 @@ public class EnemyMove : MonoBehaviour
         Vector3 attackVec = new Vector3(dif.x, 0, dif.z);
 
         transform.Translate(attackVec * Time.deltaTime,Space.World);
-        
+        //rb.AddForce(attackVec*100);
     }
 
     void RotateToMove()
     {
-        
-        Vector3 diff = transform.position - prePos;
+        if (!isRotate) return;
+        diff = transform.position - prePos;
         prePos = transform.position;
-        if (diff.magnitude <= 0.01) return;
+        if (diff == Vector3.zero) return;
+        if (diff.magnitude <= 0.05f) return;
+        diff = new Vector3(diff.x, 0, diff.z);
         transform.rotation = Quaternion.LookRotation(diff,Vector3.up);
     }
 
@@ -143,7 +184,7 @@ public class EnemyMove : MonoBehaviour
     public void CreateRandomPosition()
     {
         var randDestination = Random.insideUnitCircle * 8;
-        SetDestination(startPosition + new Vector3(randDestination.x, 0, randDestination.y));
+        SetDestination(transform.position + new Vector3(randDestination.x, 0, randDestination.y));
     }
 
     public void SetDestination(Vector3 position)
@@ -154,5 +195,11 @@ public class EnemyMove : MonoBehaviour
     public Vector3 GetDestination()
     {
         return destination;
+    }
+    void AnimController()
+    {
+        animSpd = rb.velocity.magnitude;
+        animator.SetFloat("Spd", diff.magnitude);
+        animator.SetBool("IsAttack", isExplosion);
     }
 }

@@ -37,7 +37,6 @@ public class S_2_Select_Sctipt : MonoBehaviour
     [SerializeField] [Tooltip("拡大縮小の時間")] private float maxTime;
     private float time;
     private bool enlarge = true;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +45,7 @@ public class S_2_Select_Sctipt : MonoBehaviour
 
         //初期の大きさを保存 : Save initial size
         _mainScale = mainImage.transform.localScale;
-        _itemScale= itemImage.transform.localScale;
+        _itemScale = itemImage.transform.localScale;
         _optionScale = optionImage.transform.localScale;
         _ExitScale = ExitImage.transform.localScale;
     }
@@ -58,44 +57,16 @@ public class S_2_Select_Sctipt : MonoBehaviour
         button = EventSystem.current.currentSelectedGameObject;
         //Debug.Log(button.name);
 
-        ////キーボード用　ボタンの選択状態の設定 : For keyboard Set button selection status
-        //if (Input.GetKeyDown(KeyCode.LeftArrow))
-        //{
-        //    if(button== optionButton)
-        //        EventSystem.current.SetSelectedGameObject(mainButton);
-        //    if(button== itemButton)
-        //        EventSystem.current.SetSelectedGameObject(mainButton);
-        //}
-        //if (Input.GetKeyDown(KeyCode.RightArrow))
-        //{
-        //    if (button == mainButton)
-        //        EventSystem.current.SetSelectedGameObject(itemButton);
-        //}
-        //if (Input.GetKeyDown(KeyCode.UpArrow))
-        //{
-        //    if (button == optionButton)
-        //        EventSystem.current.SetSelectedGameObject(itemButton);
-        //}
-        //if (Input.GetKeyDown(KeyCode.DownArrow))
-        //{
-        //    if (button == itemButton)
-        //        EventSystem.current.SetSelectedGameObject(optionButton);
-        //}
-        //if (Input.GetKeyDown(KeyCode.B))
-        //{
-        //    Debug.Log("押された。");
-        //}
-
         //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             EventSystem.current.SetSelectedGameObject(ExitButton);
-            Debug.Log("押された。");
+            //Debug.Log("押された。");
             transtion.Trasn_ToTitle();
         }
 
-            //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.
-            if (button == optionButton)
+        //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.
+        if (button == optionButton)
             Scaling(optionImage);
         else if (button != optionButton)
             optionImage.transform.localScale = Reset_ImageScale(_optionScale);
@@ -139,6 +110,6 @@ public class S_2_Select_Sctipt : MonoBehaviour
     //大きさの初期化 : Size initialization
     Vector3 Reset_ImageScale(Vector3 afterObj)
     {
-        return  afterObj;
+        return afterObj;
     }
 }

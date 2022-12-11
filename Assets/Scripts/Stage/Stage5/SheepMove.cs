@@ -24,9 +24,6 @@ public class SheepMove : MonoBehaviour
     private float waitTime = 5f;
     
     private float elapsedTime;
-
-    
-    private Vector3 startPosition;
     
     private Vector3 destination;
 
@@ -37,16 +34,16 @@ public class SheepMove : MonoBehaviour
         arrived = false;
         escapeFlag = false;
         elapsedTime = 0f;
-        startPosition = transform.position;
-        SetDestination(transform.position);
+        CreateRandomPosition();
     }
 
     private void FixedUpdate()
     {
         if (isStan) return;
         MoveAround();
-        EscapeToObj();
         RotateToMove();
+        EscapeToObj();
+
     }
 
     private void MoveAround()
@@ -121,7 +118,7 @@ public class SheepMove : MonoBehaviour
     public void CreateRandomPosition()
     {
         var randDestination = Random.insideUnitCircle * 8;
-        SetDestination(startPosition + new Vector3(randDestination.x, 0, randDestination.y));
+        SetDestination(transform.position + new Vector3(randDestination.x, 0, randDestination.y));
     }
 
     public void SetDestination(Vector3 position)

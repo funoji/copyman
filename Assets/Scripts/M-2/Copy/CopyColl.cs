@@ -13,6 +13,7 @@ public class CopyColl : MonoBehaviour
     [SerializeField] Transform UIpos;
     GameObject Origin;
     public ObjectManager ObjectManager;
+    public AudioSource audio;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class CopyColl : MonoBehaviour
                         Obj.name = ObjectManager._CanCopyObj[i].Object.name;
                         ObjectManager._CanCopyObj[i].Copied = true;
                         ForUIObj = Instantiate(ObjectManager._CanCopyObj[i].Object);
+                        audio = ObjectManager._CanCopyObj[i].Audio;
                         inName = Name;
                         count = 1;
                         break;
