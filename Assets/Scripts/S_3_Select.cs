@@ -6,32 +6,40 @@ using TMPro;
 
 public class S_3_Select : MonoBehaviour
 {
+    [Header("Master")]
     [SerializeField] [Tooltip("「Master」スレンダー")] private GameObject select_Master;
     [SerializeField] [Tooltip("「Master」のイメージ")] private GameObject masterImage;
     [SerializeField] TextMeshProUGUI masterText;
     //[SerializeField] [Tooltip("「Master」の保存用変数")] private Vector3 _masterImage;
 
+    [Space(10)]
+    [Header("BGM")]
     [SerializeField] [Tooltip("「BGM」スレンダー")] private GameObject select_BGM;
     [SerializeField] [Tooltip("「BGM」のイメージ")] private GameObject bgmImage;
     [SerializeField] TextMeshProUGUI bgmText;
     //[SerializeField] [Tooltip("「BGM」の保存用変数")] private Vector3 _bgmImage;
 
+    [Space(10)]
+    [Header("SE")]
     [SerializeField] [Tooltip("「SE」スレンダー")] private GameObject select_SE;
     [SerializeField] [Tooltip("「SE」のイメージ")] private GameObject seImage;
     [SerializeField] TextMeshProUGUI seText;
     //[SerializeField] [Tooltip("「SE」の保存用変数")] private Vector3 _seImage;
 
+    [Space(10)]
+    [Header("ゲーム終了")]
     [SerializeField] [Tooltip("「ゲーム終了」ボタン")] private GameObject endgame_Button;
     [SerializeField] [Tooltip("「ゲーム終了」のイメージ")] private GameObject endgameImage;
     [SerializeField] [Tooltip("「ゲーム終了」の保存用変数")] private Vector3 _endgameImage;
 
+    [Space(10)]
+    [Header("戻る")]
     [SerializeField] [Tooltip("「戻る」ボタン")] private GameObject toMenuButton;
     [SerializeField] [Tooltip("「戻る」のイメージ")] private GameObject menuImage;
     [SerializeField] [Tooltip("「戻る」の保存用変数")] private Vector3 _menuImage;
-
     private GameObject button;
 
-    [Space(10)]
+    [Space(20)]
     [Header("拡大縮小の演出用")]
     [SerializeField] [Tooltip("変化する速さ")] private float scallSpeed;
     [SerializeField] [Tooltip("拡大縮小の時間")] private float maxTime;
@@ -41,7 +49,7 @@ public class S_3_Select : MonoBehaviour
     private void Start()
     {
         //初期の選択状態をスタートボタンに設定 : Set initial selection status to Start button
-        EventSystem.current.SetSelectedGameObject(endgame_Button);
+        EventSystem.current.SetSelectedGameObject(select_Master);
 
         _endgameImage= endgameImage.transform.localScale;
         _menuImage = menuImage.transform.localScale;
