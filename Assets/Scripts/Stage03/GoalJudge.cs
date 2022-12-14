@@ -9,7 +9,7 @@ public class GoalJudge : MonoBehaviour
 
     void Update()
     {
-        if (GoalCount == 0)
+        if (GoalCount <= 0)
         {
             Debug.Log("Stage3 Clear");
             GameDirector.GameClear = true;

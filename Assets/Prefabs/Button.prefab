@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6411581781577328928}
   - component: {fileID: 7187859431902796895}
   - component: {fileID: 5831748704400709853}
-  - component: {fileID: 1821265229157088064}
+  - component: {fileID: 1940226607412636679}
   m_Layer: 0
   m_Name: Button
   m_TagString: Cancopy
@@ -147,8 +147,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6199839, y: 0.31861472, z: 0.62902325}
   m_Center: {x: 0.0015613611, y: 0.15847486, z: 0.0064518517}
---- !u!65 &1821265229157088064
-BoxCollider:
+--- !u!135 &1940226607412636679
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,5 +158,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.59400743, y: 0.18837878, z: 0.6152001}
-  m_Center: {x: 0.0014960414, y: 0.38239074, z: -0.0020859346}
+  m_Radius: 0.27301368
+  m_Center: {x: -0.0054617487, y: 0.2, z: 0}
