@@ -12,13 +12,13 @@ public class UI : MonoBehaviour
     [SerializeField] TextMeshProUGUI result;
     [SerializeField] TextMeshProUGUI StageNum;
     [HeaderAttribute("ÉXÉgÉäÉìÉOå^ë≈ÇøçûÇ›ån")]
-    [SerializeField] string MissionStr;
+    [SerializeField] public string MissionStr;
     [SerializeField] string Stage;
     [SerializeField] ObjectManager ObjectManager;
     GameObject  UIobj;
     
 
-    private void Start()
+    void Start()
     {
         StageNum.text = Stage;
         MissionUI.text = MissionStr;

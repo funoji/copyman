@@ -13,12 +13,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Tooltip("horizontal")] public float horizontal;
     [SerializeField] [Tooltip("vertical")] public float vertical;    // Start is called before the first frame update
 
-    private JumpManager jump;
     private Quaternion targetRotion;
     private Quaternion horizontalRotaion;
     private int count = 0;
 
     private Vector3 velocity;
+
+    private JumpManager jump;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
         //var rotationSpeed = 600 * Time.deltaTime;
         //カメラの正面の向きを取得
         //horizontalRotaion = Quaternion.AngleAxis(playerCamera.transform.eulerAngles.y, Vector3.up);
@@ -42,6 +44,12 @@ public class PlayerController : MonoBehaviour
         //コントローラー用
         horizontal = Input.GetAxis("LstickHorizontal");
         vertical = Input.GetAxis("LstickVertical");
+
+        /*以下変更点に疑問なら保井マデ*/
+        if (InvertManagerScript.HoriInvert)
+            horizontal *= -1;
+        if(InvertManagerScript.VertInvert)
+            vertical *= -1;
 
         //キーボード用
         //horizontal = Input.GetAxis("MoveX");

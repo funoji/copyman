@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DefenceJudge : MonoBehaviour
 {
     [SerializeField] static private int GameOverCount = 5;
-    [SerializeField] private Transform PlayerPos;
+    [SerializeField] private float Power = 0.5f;
+    //[SerializeField] private Transform PlayerPos;
+    [SerializeField] private TextMeshProUGUI Score;
+
+    private static int Count = 0;
 
     public static bool DefenceFlag = false;
     void Start()
@@ -16,29 +22,29 @@ public class DefenceJudge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Score.text =""+ Count;
         if(GameOverCount == 0)
         {
-            Debug.Log("Stage3 GameOver");
             GameDirector.GameOver = true;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "SoccerBall")
+        if (other.gameObject.name == "soccerball")
         {
+            Count++;
             GameOverCount--;
-            RefrectBall(other.gameObject, PlayerPos);
-            Debug.Log(GameOverCount);
+            RefrectBall(other.gameObject);
+            other.gameObject.name = "RefSoccerBall";
             DefenceFlag = true;
         }
     }
 
-    void RefrectBall(GameObject obj,Transform position)
+    void RefrectBall(GameObject obj)
     {
         Rigidbody rb = obj.GetComponent<Rigidbody>();
-        rb.AddForce(new Vector3(
-            transform.position.x, transform.position.y, transform.position.z), 
+        rb.AddForce(new Vector3(-2,2,25) * Power,
             ForceMode.Impulse);
     }
 }
