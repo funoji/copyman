@@ -88,22 +88,6 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Cancopy"))
-        {
-            isRotate = false;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Cancopy"))
-        {
-            isRotate = true;
-        }
-    }
-
     void Move()
     {
         if (isAttck) return;
@@ -113,7 +97,6 @@ public class EnemyMove : MonoBehaviour
 
             transform.Translate(direction * moveSpd * Time.deltaTime,Space.World);
 
-            //�ړI�n�ɓ����������ǂ����̔���
             if (Vector3.Distance(transform.position, destination) < 0.5f)
             {
                 arrived = true;
@@ -123,7 +106,6 @@ public class EnemyMove : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            //�҂����Ԃ��z�����玟�̖ړI�n��ݒ�
             if (elapsedTime > waitTime)
             {
                 CreateRandomPosition();
@@ -154,10 +136,12 @@ public class EnemyMove : MonoBehaviour
         if (!isRotate) return;
         diff = transform.position - prePos;
         prePos = transform.position;
-        if (diff == Vector3.zero) return;
-        if (diff.magnitude <= 0.05f) return;
-        diff = new Vector3(diff.x, 0, diff.z);
-        transform.rotation = Quaternion.LookRotation(diff,Vector3.up);
+
+        if (diff.magnitude <= 0.03f) return;
+        diff = new Vector3(diff.x, diff.y, diff.z);
+        
+        Quaternion lookRotate = Quaternion.LookRotation(diff,Vector3.up);
+        transform.rotation=Quaternion.Slerp(transform.rotation,lookRotate,Time.deltaTime * 2f);
     }
 
     void IsAttack()
@@ -196,10 +180,16 @@ public class EnemyMove : MonoBehaviour
     {
         return destination;
     }
+
     void AnimController()
     {
         animSpd = rb.velocity.magnitude;
         animator.SetFloat("Spd", diff.magnitude);
         animator.SetBool("IsAttack", isExplosion);
+    }
+
+    void Explosion()
+    {
+
     }
 }
