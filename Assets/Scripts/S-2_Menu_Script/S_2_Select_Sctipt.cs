@@ -13,22 +13,22 @@ public class S_2_Select_Sctipt : MonoBehaviour
     [Header("ゲームスタート / ステージ選択")]
     [SerializeField] [Tooltip("「ゲームスタート / ステージ選択」のボタン")] private GameObject mainButton;
     [SerializeField] [Tooltip("「ゲームスタート / ステージ選択」のイメージ")] private GameObject mainImage;
-    [SerializeField] [Tooltip("「ゲームスタート / ステージ選択」の保存用変数")] private Vector3 _mainScale;
+     private Vector3 _mainScale;
     [Space(5)]
     [Header("アイテム図鑑")]
     [SerializeField] [Tooltip("「アイテム図鑑」のボタン")] private GameObject itemButton;
     [SerializeField] [Tooltip("「アイテム図鑑」のイメージ")] private GameObject itemImage;
-    [SerializeField] [Tooltip("「アイテム図鑑」の保存用変数")] private Vector3 _itemScale;
+    private Vector3 _itemScale;
     [Space(5)]
     [Header("オプション")]
     [SerializeField] [Tooltip("「オプション」のボタン")] private GameObject optionButton;
     [SerializeField] [Tooltip("「オプション」のイメージ")] private GameObject optionImage;
-    [SerializeField] [Tooltip("「オプション」の保存用変数")] private Vector3 _optionScale;
+    private Vector3 _optionScale;
     [Space(5)]
     [Header("戻る")]
     [SerializeField] [Tooltip("「戻る」のボタン")] private GameObject ExitButton;
     [SerializeField] [Tooltip("「戻る」のイメージ")] private GameObject ExitImage;
-    [SerializeField] [Tooltip("「戻る」の保存用変数")] private Vector3 _ExitScale;
+    private Vector3 _ExitScale;
     private GameObject button;
 
     [Space(10)]
@@ -61,8 +61,6 @@ public class S_2_Select_Sctipt : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             EventSystem.current.SetSelectedGameObject(ExitButton);
-            //Debug.Log("押された。");
-            transtion.Trasn_ToTitle();
         }
 
         //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.

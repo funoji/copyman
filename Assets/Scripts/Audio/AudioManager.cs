@@ -50,14 +50,14 @@ public class AudioManager : MonoBehaviour
         seAudioSource.PlayOneShot(data.audioClip);
     }
 
-    public void BGMValueChange()
-    {
-        bgmAudioSource.volume = BGMslider.value;
-    }
-    public void SEValueChenge()
-    {
-        seAudioSource.volume = SEslider.value;
-    }
+    //public void BGMValueChange()
+    //{
+    //    bgmMasterVolume = BGMslider.value;
+    //}
+    //public void SEValueChenge()
+    //{
+    //    seMasterVolume = SEslider.value;
+    //}
 
 }
 

@@ -42,7 +42,6 @@ public class S_1_ChangeText_Script : MonoBehaviour
 
         _startText = startText.transform.localScale;
         _endgameText = endgameText.transform.localScale;
-        AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Title);
     }
 
     // Update is called once per frame
