@@ -6,6 +6,7 @@ public class AudioManager_03 : MonoBehaviour
 {
     [SerializeField] private AudioClip IsGoal;
     [SerializeField] private AudioClip IsDefenced;
+    [SerializeField] private AudioClip IsLosed;
 
     new AudioSource audio;
     // Start is called before the first frame update
@@ -17,15 +18,20 @@ public class AudioManager_03 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GoalJudge.GoalFlag)
+        if (GoalJudge.CPMGoalFlag)
         {
             audio.PlayOneShot(IsGoal);
-            GoalJudge.GoalFlag=false;
+            GoalJudge.CPMGoalFlag=false;
         }
         if (DefenceJudge.DefenceFlag)
         {
             audio.PlayOneShot(IsDefenced);
             DefenceJudge.DefenceFlag=false;
+        }
+        if (FriendlyGoalJudge.EnemyGoalFlag)
+        {
+            audio.PlayOneShot(IsLosed);
+            FriendlyGoalJudge.EnemyGoalFlag=false;
         }
     }
 }

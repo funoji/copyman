@@ -7,13 +7,20 @@ using TMPro;
 public class GoalJudge : MonoBehaviour
 {
     [SerializeField] private int GoalCount = 15;
-    [SerializeField] private TextMeshProUGUI Score;
-    public static bool GoalFlag = false;
-    private int Goal;
+    [SerializeField] private TextMeshProUGUI CPMScore;
+
+    public static bool CPMGoalFlag = false;
+    private int FriendGoalCount;
+
+    private void Start()
+    {
+        FriendGoalCount = 0;
+    }
 
     void Update()
     {
-        Score.text =""+ Goal;
+        CPMScore.text = "" + FriendGoalCount;
+
         if (GoalCount <= 0)
         {
             Debug.Log("Stage3 Clear");
@@ -23,13 +30,13 @@ public class GoalJudge : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "soccerball")
+        if (other.gameObject.name == "soccerball"
+            || other.gameObject.name == "RefSoccerBall")
         {
             GoalCount--;
-            Goal++;
-            Debug.Log(GoalCount);
-            GoalFlag = true;
-            Destroy(other.gameObject,0.0f);
+            FriendGoalCount++;
+            CPMGoalFlag = true;
+            Destroy(other.gameObject, 0.0f);
         }
     }
 }

@@ -9,9 +9,9 @@ public class DefenceJudge : MonoBehaviour
     [SerializeField] static private int GameOverCount = 5;
     [SerializeField] private float Power = 0.5f;
     //[SerializeField] private Transform PlayerPos;
-    [SerializeField] private TextMeshProUGUI Score;
+    //[SerializeField] private TextMeshProUGUI Score;
 
-    private static int Count = 0;
+    //private static int Count = 0;
 
     public static bool DefenceFlag = false;
     void Start()
@@ -22,19 +22,15 @@ public class DefenceJudge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Score.text =""+ Count;
-        if(GameOverCount == 0)
-        {
-            GameDirector.GameOver = true;
-        }
+        //Score.text =""+ Count;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "soccerball")
+        if (other.gameObject.name == "soccerball"||
+            other.gameObject.name == "RefSoccerBall")
         {
-            Count++;
-            GameOverCount--;
+            //Count++;
             RefrectBall(other.gameObject);
             other.gameObject.name = "RefSoccerBall";
             DefenceFlag = true;
@@ -44,7 +40,7 @@ public class DefenceJudge : MonoBehaviour
     void RefrectBall(GameObject obj)
     {
         Rigidbody rb = obj.GetComponent<Rigidbody>();
-        rb.AddForce(new Vector3(-2,2,25) * Power,
+        rb.AddForce(transform.forward * Power,
             ForceMode.Impulse);
     }
 }
