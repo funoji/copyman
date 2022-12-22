@@ -42,12 +42,11 @@ public class EnemyMove : MonoBehaviour
 
     void Start()
     {
-
+        
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-
+        attackObj = GameObject.Find("Player");
         prePos = transform.position;
-
         isRotate = true;
         isAttck = false;
         isStan = false;
