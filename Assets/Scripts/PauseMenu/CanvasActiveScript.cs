@@ -15,6 +15,7 @@ public class CanvasActiveScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CopyInput = GameObject.Find("CPM");
         copyInput = CopyInput.GetComponent<Copyinput>();
         ActivePanel.SetActive(false);
         InActivePanel.SetActive(false);

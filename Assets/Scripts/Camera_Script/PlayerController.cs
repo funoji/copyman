@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     private JumpManager jump;
 
+    GameObject CopyInput;
+    Copyinput copyInput;
+
     void Start()
     {
         //Rigidbodyの取得
@@ -32,11 +35,14 @@ public class PlayerController : MonoBehaviour
 
         //ターゲットとの角度
         targetRotion = transform.rotation;
+
+        CopyInput = GameObject.Find("CPM");
+        copyInput = CopyInput.GetComponent<Copyinput>();
     }
 
     private void Update()
     {
-
+        if (!copyInput.IsActive) return;
         //var rotationSpeed = 600 * Time.deltaTime;
         //カメラの正面の向きを取得
         //horizontalRotaion = Quaternion.AngleAxis(playerCamera.transform.eulerAngles.y, Vector3.up);
