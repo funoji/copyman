@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class EnemyMove : MonoBehaviour
 {
-
     private bool isStan;
     private bool isAttck;
     private bool arrived;
@@ -22,8 +22,10 @@ public class EnemyMove : MonoBehaviour
     private Animator animator;
     private Rigidbody rb;
 
-    [SerializeField] private float searchDis;
     [SerializeField] private GameObject attackObj;
+    [SerializeField] private new GameObject collider;
+    [SerializeField] private OnEffect explosion;
+    [SerializeField] private float searchDis;
     [SerializeField] private float attackSpd;
     [SerializeField] private float moveSpd;
     [SerializeField] private float maxSpd;
@@ -56,7 +58,6 @@ public class EnemyMove : MonoBehaviour
         elapsedTime = 0f;
         
         CreateRandomPosition();
-        
     }
 
     private void FixedUpdate()
@@ -83,6 +84,7 @@ public class EnemyMove : MonoBehaviour
             rb.velocity = Vector3.zero;
             isExplosion = true;
             animator.SetBool("IsAttack", true);
+            Invoke("Explosion", 1.0f);
             GameDirector.GameOver = true;
         }
     }
@@ -189,6 +191,8 @@ public class EnemyMove : MonoBehaviour
 
     void Explosion()
     {
-
+        explosion.StartEff = true;
+        rb.isKinematic = true;
+        collider.SetActive(false);
     }
 }
