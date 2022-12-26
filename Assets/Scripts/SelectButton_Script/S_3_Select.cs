@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,130 +7,145 @@ using UnityEngine.UI;
 
 public class S_3_Select : MonoBehaviour
 {
-    [Header("Button1")]
-    [SerializeField] [Tooltip("「Button1」のボタン")] private GameObject mainButton;
-    [SerializeField] [Tooltip("「Button1」のイメージ")] private GameObject mainImage;
-    [SerializeField] [Tooltip("「Button1」の選択中イメージ")] private GameObject mainImage_back;
-    private Vector3 _mainScale;
-    [Space(5)]
-    [Header("Button2")]
-    [SerializeField] [Tooltip("「Button2」のボタン")] private GameObject sub1Button;
-    [SerializeField] [Tooltip("「Button2」のイメージ")] private GameObject sub1Image;
-    [SerializeField] [Tooltip("「Button2」の選択中イメージ")] private GameObject sub1Image_back;
-    private Vector3 _sub1Scale;
-    [Space(5)]
-    [Header("Button3")]
-    [SerializeField] [Tooltip("「Button3」のボタン")] private GameObject sub2Button;
-    [SerializeField] [Tooltip("「Button3」のイメージ")] private GameObject sub2Image;
-    [SerializeField] [Tooltip("「Button3」の選択中イメージ")] private GameObject sub2Image_back;
-    private Vector3 _sub2Scale;
-    [Space(5)]
-    [Header("Button4")]
-    [SerializeField] [Tooltip("「Button4」のボタン")] private GameObject sub3Button;
-    [SerializeField] [Tooltip("「Button4」のイメージ")] private GameObject sub3Image;
-    [SerializeField] [Tooltip("「Button4」の選択中イメージ")] private GameObject sub3Image_back;
-    private Vector3 _sub3Scale;
-    [Space(5)]
-    [Header("戻る")]
-    [SerializeField] [Tooltip("「戻る」のボタン")] private GameObject ExitButton;
-    [SerializeField] [Tooltip("「戻る」のイメージ")] private GameObject ExitImage;
-    [SerializeField] [Tooltip("「戻る」の選択中イメージ")] private GameObject ExitImage_back;
-    private Vector3 _ExitScale;
-    private GameObject button;
-
-    [Space(10)]
-    [Header("拡大縮小の演出用")]
-    [SerializeField] [Tooltip("変化する速さ")] private float scallSpeed;
-    [SerializeField] [Tooltip("拡大縮小の時間")] private float maxTime;
-    private float time;
-    private bool enlarge = true;
-    // Start is called before the first frame update
-    void Start()
+    //選択状態の種類
+    public enum ModeType
     {
-        //初期の選択状態をスタートボタンに設定 : Set initial selection status to Start button
-        EventSystem.current.SetSelectedGameObject(mainButton);
-
-        //初期の大きさを保存 : Save initial size
-        _mainScale = mainImage.transform.localScale;
-        _sub1Scale = sub1Image.transform.localScale;
-        _sub2Scale = sub2Image.transform.localScale;
-        _sub3Scale = sub3Image.transform.localScale;
-        _ExitScale = ExitImage.transform.localScale;
-
-        //初期の表示を設定
-        mainImage_back.SetActive(false);
-        sub1Image_back.SetActive(false);
-        sub2Image_back.SetActive(false);
-        sub3Image_back.SetActive(false);
-        ExitImage_back.SetActive(false);
+        size,
+        image,
+        normal
     }
 
-    // Update is called once per frame
-    void Update()
+    public ModeType mode;
+
+    //ボタンの中身
+    [System.Serializable]
+    public struct SelectData
+    {
+        public string buttonName;
+        public GameObject buttonObj;
+        public GameObject buttonImage;
+        public Vector3 _buttonScale;
+    }
+    [SerializeField]
+    public SelectData[] selectData;
+
+    //選択状態がサイズの変更時用の変数
+    public float scallSpeed;
+    public  float maxTime;
+    private float time;
+    private bool enlarge = true;
+
+    //選択したボタンの保存する変数
+    private GameObject _button;
+
+    private void Start()
+    {
+        //初期の選択状態をスタートボタンに設定 : Set initial selection status to Start button
+        EventSystem.current.SetSelectedGameObject(selectData[0].buttonObj);
+
+        //モードごとの初期化
+        if (mode == ModeType.size)
+        {
+            //初期の大きさを保存
+            for (int num = 0; num < selectData.Length; num++)
+            {
+                selectData[num]._buttonScale = selectData[num].buttonImage.transform.localScale;
+            }
+        }
+        if (mode == ModeType.image)
+        {
+            //初期の表示を設定
+            for (int num = 0; num < selectData.Length; num++)
+            {
+                selectData[num].buttonImage.SetActive(false);
+            }
+        }
+    }
+
+    //各モードの時の処理
+    private void FixedUpdate()
+    {
+        if (mode == ModeType.size)
+        {
+            Select_Size();
+        }
+        if (mode == ModeType.image)
+        {
+            Select_Image();
+        }
+        if (mode == ModeType.normal)
+        {
+            Select_Normal();
+        }
+    }
+
+    //選択状態：画像
+    public void Select_Image()
     {
         //現在選択中のボタンを保存 : Save the currently selected button
-        button = EventSystem.current.currentSelectedGameObject;
-        Debug.Log(button.name);
+        _button = EventSystem.current.currentSelectedGameObject;
+        //Debug.Log(_button.name);
 
         //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
-            EventSystem.current.SetSelectedGameObject(ExitButton);
+            EventSystem.current.SetSelectedGameObject(selectData[1].buttonObj);
         }
 
         //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.
-        if (button == sub1Button)
+        for (int num = 0; num < selectData.Length; num++)
         {
-            Scaling(sub1Image);
-            sub1Image_back.SetActive(true);
-        }
-        else if (button != sub1Button)
-        {
-            sub1Image.transform.localScale = Reset_ImageScale(_sub1Scale);
-            sub1Image_back.SetActive(false);
-        }
-        if (button == sub2Button)
-        {
-            Scaling(sub2Image);
-            sub2Image_back.SetActive(true);
-        }
-        else if (button != sub2Button)
-        {
-            sub2Image.transform.localScale = Reset_ImageScale(_sub2Scale);
-            sub2Image_back.SetActive(false);
-        }
-        if (button == sub3Button)
-        {
-            Scaling(sub3Image);
-            sub3Image_back.SetActive(true);
-        }
-        else if (button != sub3Button)
-        {
-            sub3Image.transform.localScale = Reset_ImageScale(_sub3Scale);
-            sub3Image_back.SetActive(false);
-        }
-        if (button == mainButton)
-        {
-            Scaling(mainImage);
-            mainImage_back.SetActive(true);
-        }
-        else if (button != mainButton)
-        {
-            mainImage.transform.localScale = Reset_ImageScale(_mainScale);
-            mainImage_back.SetActive(false);
-        }
-        if (button == ExitButton)
-        {
-            Scaling(ExitImage);
-            ExitImage_back.SetActive(true);
-        }
-        else if (button != ExitButton)
-        {
-            ExitImage.transform.localScale = Reset_ImageScale(_ExitScale);
-            ExitImage_back.SetActive(false);
+            if (_button == selectData[num].buttonObj)
+            {
+                selectData[num].buttonImage.SetActive(true);
+            }
+            else if (_button != selectData[num].buttonObj)
+            {
+                selectData[num].buttonImage.SetActive(false);
+            }
         }
     }
 
+    //選択状態：ノーマル
+    public void Select_Normal()
+    {
+        //現在選択中のボタンを保存 : Save the currently selected button
+        _button = EventSystem.current.currentSelectedGameObject;
+        //Debug.Log(_button.name);
+
+        //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+        {
+            EventSystem.current.SetSelectedGameObject(selectData[1].buttonObj);
+        }
+    }
+
+    //選択状態：大きさ
+    public void Select_Size()
+    {
+        //現在選択中のボタンを保存 : Save the currently selected button
+        _button = EventSystem.current.currentSelectedGameObject;
+        //Debug.Log(_button.name);
+
+        //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+        {
+            EventSystem.current.SetSelectedGameObject(selectData[1].buttonObj);
+        }
+
+        //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.
+        for (int num = 0; num < selectData.Length; num++)
+        {
+            if (_button == selectData[num].buttonObj)
+            {
+                Scaling(selectData[num].buttonImage);
+            }
+            else if (_button != selectData[num].buttonObj)
+            {
+                selectData[num].buttonImage.transform.localScale = Reset_ImageScale(selectData[num]._buttonScale);
+            }
+        }
+    }
     //拡大縮小の演出の処理 : Processing of scaling direction
     void Scaling(GameObject image)
     {
@@ -148,7 +164,7 @@ public class S_3_Select : MonoBehaviour
         else
         {
             time -= Time.deltaTime;
-            image.transform.localScale -= new Vector3(scallSpeed, scallSpeed, scallSpeed);
+            image.transform.localScale -= new Vector3(scallSpeed,scallSpeed, scallSpeed);
         }
     }
 

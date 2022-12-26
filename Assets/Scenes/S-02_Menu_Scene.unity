@@ -1033,7 +1033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &573124304
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1042,7 +1042,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573124303}
   m_LocalRotation: {x: -0, y: 0.38069865, z: -0, w: 0.9246992}
-  m_LocalPosition: {x: 0, y: 0, z: -198}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1050,10 +1050,10 @@ RectTransform:
   m_Father: {fileID: 168478344}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 44.754, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -165, y: -54}
-  m_SizeDelta: {x: -362, y: -144}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 882, y: 294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573124305
 MonoBehaviour:
@@ -1686,7 +1686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &771177468
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2051,7 +2051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1002395271
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2091,14 +2091,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81152cb1c19414b4bb828e3e573acf2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainButton: {fileID: 105727286}
-  mainImage: {fileID: 154413050}
-  sub1Button: {fileID: 1719813637}
-  sub1Image: {fileID: 168478343}
-  sub2Button: {fileID: 192354224}
-  sub2Image: {fileID: 1623392817}
-  ExitButton: {fileID: 1534680303}
-  ExitImage: {fileID: 592646206}
+  mode: 0
+  selectData:
+  - buttonName: GameStart(main)
+    buttonObj: {fileID: 105727286}
+    buttonImage: {fileID: 154413050}
+    _buttonScale: {x: 0, y: 0, z: 0}
+  - buttonName: Exit
+    buttonObj: {fileID: 1534680303}
+    buttonImage: {fileID: 592646206}
+    _buttonScale: {x: 0, y: 0, z: 0}
+  - buttonName: Option
+    buttonObj: {fileID: 192354224}
+    buttonImage: {fileID: 1623392817}
+    _buttonScale: {x: 0, y: 0, z: 0}
+  - buttonName: Catalog
+    buttonObj: {fileID: 1719813637}
+    buttonImage: {fileID: 168478343}
+    _buttonScale: {x: 0, y: 0, z: 0}
   scallSpeed: 1
   maxTime: 1
 --- !u!225 &1002395273

@@ -1762,16 +1762,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 908929822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ca02023fcb0aa45a1da6959b2f6f35, type: 3}
+  m_Script: {fileID: 11500000, guid: 81152cb1c19414b4bb828e3e573acf2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadebool: {fileID: 3716918722564093836, guid: 36bd8749bbd42054a961d477d88f3b23, type: 3}
-  startButton: {fileID: 510661007}
-  endgameButton: {fileID: 431921844}
-  startText: {fileID: 857789950}
-  endgameText: {fileID: 24498876}
-  _startText: {x: 0, y: 0, z: 0}
-  _endgameText: {x: 0, y: 0, z: 0}
+  mode: 0
+  selectData:
+  - buttonName: Start
+    buttonObj: {fileID: 510661007}
+    buttonImage: {fileID: 857789950}
+    _buttonScale: {x: 0, y: 0, z: 0}
+  - buttonName: Exit
+    buttonObj: {fileID: 431921844}
+    buttonImage: {fileID: 24498876}
+    _buttonScale: {x: 0, y: 0, z: 0}
   scallSpeed: 1
   maxTime: 1
 --- !u!1 &1076422721
@@ -1792,7 +1795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1076422722
 MonoBehaviour:
   m_ObjectHideFlags: 0
