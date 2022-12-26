@@ -7,7 +7,7 @@ public class OnEffect : MonoBehaviour
 {
     private bool OnStart = false;
     [SerializeField] VisualEffect eff;
-
+    [SerializeField] AudioClip se;
     public bool StartEff
     {
         get => OnStart;
@@ -19,6 +19,7 @@ public class OnEffect : MonoBehaviour
     {
         if (!OnStart) return;
         eff.SendEvent("OnPlay");
+        AudioSource.PlayClipAtPoint(se, transform.position);
         OnStart = false;
     }
 }
