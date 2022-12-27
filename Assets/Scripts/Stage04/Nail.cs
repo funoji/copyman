@@ -5,7 +5,7 @@ using UnityEngine;
 public class Nail : MonoBehaviour
 {
     private Rigidbody rb;
-    private Collider collider;
+    private new Collider collider;
     private bool isGround;
 
     // Start is called before the first frame update
