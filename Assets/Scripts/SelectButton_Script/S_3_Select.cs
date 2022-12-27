@@ -42,6 +42,7 @@ public class S_3_Select : MonoBehaviour
     {
         //初期の選択状態をスタートボタンに設定 : Set initial selection status to Start button
         EventSystem.current.SetSelectedGameObject(selectData[0].buttonObj);
+        Debug.Log(selectData[0].buttonObj);
 
         //モードごとの初期化
         if (mode == ModeType.size)
@@ -63,7 +64,7 @@ public class S_3_Select : MonoBehaviour
     }
 
     //各モードの時の処理
-    private void FixedUpdate()
+    private void Update()
     {
         if (mode == ModeType.size)
         {
@@ -84,7 +85,7 @@ public class S_3_Select : MonoBehaviour
     {
         //現在選択中のボタンを保存 : Save the currently selected button
         _button = EventSystem.current.currentSelectedGameObject;
-        //Debug.Log(_button.name);
+        Debug.Log(_button.name);
 
         //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
@@ -111,7 +112,7 @@ public class S_3_Select : MonoBehaviour
     {
         //現在選択中のボタンを保存 : Save the currently selected button
         _button = EventSystem.current.currentSelectedGameObject;
-        //Debug.Log(_button.name);
+        Debug.Log(_button.name);
 
         //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))

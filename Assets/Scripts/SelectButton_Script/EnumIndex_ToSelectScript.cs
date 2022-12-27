@@ -103,7 +103,6 @@ public class SetMonsterStatusEditor : Editor
                 {
                     select.selectData[num].buttonName = EditorGUILayout.TextField("button name:", select.selectData[num].buttonName);
                     select.selectData[num].buttonObj = (GameObject)EditorGUILayout.ObjectField("button obj:", select.selectData[num].buttonObj, typeof(GameObject), true);
-                    select.selectData[num].buttonImage = (GameObject)EditorGUILayout.ObjectField("button image:", select.selectData[num].buttonImage, typeof(GameObject), true);
 
                     EditorGUILayout.Space(); //スペースを描画
                 }
