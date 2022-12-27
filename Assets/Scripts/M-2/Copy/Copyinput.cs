@@ -5,7 +5,14 @@ using UnityEngine;
 public class Copyinput : MonoBehaviour
 {
     public Copy Copy;
-    bool cooltime;
+    bool cooltime;[SerializeField] 
+    bool isActive = true;
+    public bool IsActive
+    {
+        get => isActive;
+        set => isActive = value;
+    }
+
     float lapseTime;
     [SerializeField] float PasteCoolTime;
     [SerializeField] Playeranimationcontroller PlayerAnim;
@@ -20,6 +27,9 @@ public class Copyinput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(isActive);
+        if (!isActive) return;
+        
         if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
             AudioManager.Instance.PlaySE(SESoundData.SE.copy);

@@ -5,13 +5,19 @@ using UnityEngine;
 public class CopyAreaShow : MonoBehaviour
 {
     [SerializeField] GameObject eff;
+    GameObject CopyInput;
+    Copyinput copyInput;
+
     private void Start()
     {
+        CopyInput = GameObject.Find("CPM");
+        copyInput = CopyInput.GetComponent<Copyinput>();
         eff.gameObject.SetActive(false);
     }
 
     void Update()
     {
+        if (!copyInput.IsActive) return;
         IsActive();
     }
 

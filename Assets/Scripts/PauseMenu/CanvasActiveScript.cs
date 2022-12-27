@@ -7,10 +7,16 @@ public class CanvasActiveScript : MonoBehaviour
 {
     [SerializeField] GameObject ActivePanel;
     [SerializeField] GameObject InActivePanel;
+    [SerializeField] GameObject CopyInput;
     bool IsPose = false;
+
+    Copyinput copyInput;
+
     // Start is called before the first frame update
     void Start()
     {
+        CopyInput = GameObject.Find("CPM");
+        copyInput = CopyInput.GetComponent<Copyinput>();
         ActivePanel.SetActive(false);
         InActivePanel.SetActive(false);
     }
@@ -27,17 +33,20 @@ public class CanvasActiveScript : MonoBehaviour
         {
             Pose();
         }
+        //Debug.Log(copyInput.IsActive);
     }
     private void Pose()
     {
         if (IsPose==false)
         {
+            copyInput.IsActive = false;
             Debug.Log("Panel is active");
             Time.timeScale = 0f;
             ActivePanel.SetActive(true);
         }
         else
         {
+            copyInput.IsActive = true;
             Time.timeScale = 1f;
             ActivePanel.SetActive(false);
             InActivePanel.SetActive(false);
