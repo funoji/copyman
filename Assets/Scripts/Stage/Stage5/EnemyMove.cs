@@ -84,7 +84,7 @@ public class EnemyMove : MonoBehaviour
             rb.velocity = Vector3.zero;
             isExplosion = true;
             animator.SetBool("IsAttack", true);
-            Invoke("Explosion", 1.0f);
+            Invoke("Explosion", 0.5f);
             GameDirector.GameOver = true;
         }
     }
