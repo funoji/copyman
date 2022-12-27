@@ -14,8 +14,8 @@ public class BallGenerator : MonoBehaviour
     [SerializeField] private int LoseRate = 5;
     [SerializeField] private int Clearcount = 50;
 
-    [SerializeField] private float minPower = 1.0f;
-    [SerializeField] private float maxPower = 10f;
+    [SerializeField] private Vector3 minPower;
+    [SerializeField] private Vector3 maxPower;
     [SerializeField] private float waitTime = 5.0f;
     [SerializeField] private float WinwaitTime = 1.0f;
 
@@ -55,9 +55,9 @@ public class BallGenerator : MonoBehaviour
         do
         {
             IsGenerating = true;
-            Vector3 Power = (new Vector3(-Random.Range(minPower, maxPower),
+            Vector3 Power = (new Vector3(-Random.Range(minPower.x, maxPower.x),
                                         0,
-                                        Random.Range(minPower, maxPower)));
+                                        Random.Range(minPower.z, maxPower.z)));
 
             GameObject obj =Instantiate(ball);
             obj.name = ball.name;
