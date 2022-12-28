@@ -4925,6 +4925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActivePanel: {fileID: 1045876502}
   InActivePanel: {fileID: 1876440096}
+  CopyInput: {fileID: 0}
 --- !u!4 &1064516826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7064675953230851320, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
@@ -8032,6 +8033,10 @@ PrefabInstance:
       propertyPath: PocketCount
       value: 
       objectReference: {fileID: 1102849231}
+    - target: {fileID: 8426545547260785511, guid: 48f35fd2a0249e84f830a94d5c936a61, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48f35fd2a0249e84f830a94d5c936a61, type: 3}
 --- !u!1001 &2670440695771217751
@@ -8162,6 +8167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3501879730237782091, guid: 6b2bc3ba27fa6b2488e8a438f75a4270, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4072639467098269115, guid: 6b2bc3ba27fa6b2488e8a438f75a4270, type: 3}
       propertyPath: waitTime
       value: 0.5
@@ -8187,6 +8196,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 294787594}
     m_Modifications:
+    - target: {fileID: 811717876497570536, guid: 5fac9c5fa0de38541948fa1546606fae, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3671585153825409475, guid: 5fac9c5fa0de38541948fa1546606fae, type: 3}
       propertyPath: m_Size.z
       value: 2.13

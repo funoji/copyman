@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6571681229522754007}
   - component: {fileID: 6571681229522754002}
   - component: {fileID: 5115964611209372946}
+  - component: {fileID: -6575631378256413325}
+  - component: {fileID: 276594100068041350}
   m_Layer: 0
   m_Name: KP
   m_TagString: Cancopy
@@ -114,3 +116,32 @@ MonoBehaviour:
   speed: 5
   waitTime: 0.4
   isActive: 1
+--- !u!54 &-6575631378256413325
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571681229522754012}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &276594100068041350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6571681229522754012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b088490a5ed65844827b7a68f1afc13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Power: 1000

@@ -2228,11 +2228,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440157411}
   m_Mesh: {fileID: 2272001217198551621, guid: 3d7d6430662b72e4096c2f9fd482f6eb, type: 3}
---- !u!1 &471199891 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6571681229522754012, guid: 4625ce6bc29ef7d4198f3baeb66c0764, type: 3}
-  m_PrefabInstance: {fileID: 6571681230591125291}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &494456691 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8848131362350862096, guid: 84b14723e223bf24c8422852797d3005, type: 3}
@@ -4784,19 +4779,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6571681229522754003, guid: 4625ce6bc29ef7d4198f3baeb66c0764, type: 3}
   m_PrefabInstance: {fileID: 6571681230591125291}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1085423357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471199891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b088490a5ed65844827b7a68f1afc13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Power: 1000
 --- !u!1 &1094273910
 GameObject:
   m_ObjectHideFlags: 0
@@ -10101,8 +10083,8 @@ MonoBehaviour:
   Score: {fileID: 320088369}
   LoseRate: 1
   Clearcount: 50
-  minPower: 20
-  maxPower: 50
+  minPower: {x: 0, y: 0, z: 0}
+  maxPower: {x: 0, y: 0, z: 0}
   waitTime: 500
   WinwaitTime: 500
 --- !u!64 &2044177689
@@ -10233,6 +10215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActivePanel: {fileID: 1880700218}
   InActivePanel: {fileID: 2008632697}
+  CopyInput: {fileID: 0}
 --- !u!114 &2070615504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12387,6 +12370,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1426456896}
     m_Modifications:
+    - target: {fileID: -6575631378256413325, guid: 4625ce6bc29ef7d4198f3baeb66c0764, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6571681229522754002, guid: 4625ce6bc29ef7d4198f3baeb66c0764, type: 3}
       propertyPath: m_IsTrigger
       value: 1
