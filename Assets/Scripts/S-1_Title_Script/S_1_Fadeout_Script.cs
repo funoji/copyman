@@ -10,21 +10,43 @@ using UnityEngine.SceneManagement;
 //パネルがフェイドアウトする仕様
 public class S_1_Fadeout_Script : MonoBehaviour
 {
-    [SerializeField]
-    S_1_SoundPlayer sound;
-    [SerializeField] Loading_ReadIn load;
-    [SerializeField] float fadeTime;
-    [SerializeField] Image fadeImage;
+    //public enum FadeMode
+    //{
+    //    fade,
+    //    load
+    //}
 
+    //public FadeMode fadeMode;
+
+
+    //Load
+    [SerializeField, Header("Load")]
+    public Loading_ReadIn load;
+
+    //fade
+    [Header("Fade")]
+    public float fadeTime;
+    public Image fadeImage;
+    public bool fadeIn = false;
+    public bool fadeOut = false;
+    public bool sound_fadeIn = false;
+    public bool sound_fadeOut = false;
     private float alpha, red, green, blue;
-    public bool fadeIn;
-    public bool fadeOut;
-    public bool Player_Bool;
+
+    //sound
+    [Header("Sound\n※AudioSourceを入れてください。※")]
+    public AudioSource[] audioSource;
+    public float soundfadeTime;
+    [Header("※ロード画面終了後の音量を入れてください。※")]
+    public float soundVolume;
+    private float _fadetime;
 
     private void Start()
     {
-        Player_Bool = false;
+        //コンポーネント取得
         fadeImage = GetComponent<Image>();
+
+        //フェードの色を取得
         red = fadeImage.color.r;
         green = fadeImage.color.g;
         blue = fadeImage.color.b;
@@ -33,13 +55,10 @@ public class S_1_Fadeout_Script : MonoBehaviour
 
     private void Update()
     {
-        if (load.Video_Player())
-        {
-            fadeImage.enabled = true;
-            Player_FadeIn();
-        }
         if (fadeIn) FadeIn();
         if (fadeOut) FadeOut();
+        if (sound_fadeIn) Sound_FadeIn();
+        if (sound_fadeOut) Sound_FadeOut();
     }
 
     void FadeOut()
@@ -51,7 +70,6 @@ public class S_1_Fadeout_Script : MonoBehaviour
         {
             fadeOut = false;
         }
-
     }
 
     void FadeIn()
@@ -61,26 +79,42 @@ public class S_1_Fadeout_Script : MonoBehaviour
         if (alpha <= 0)
         {
             fadeImage.enabled = false ;
-            fadeOut = true;
+            fadeIn = false;
             
         }
-    }
-
-    void Player_FadeIn()
-    {
-        alpha -= fadeTime;
-        Set_Alpha();
-        sound.FadeIn_Sound();
-        if (alpha <= 0)
-        {
-            fadeImage.enabled = false;
-            Player_Bool = true;
-        }
-
     }
 
     void Set_Alpha()
     {
         fadeImage.color = new Color(0f, 0f, 0f, alpha);
+    }
+
+    public void Sound_FadeIn()
+    {
+        _fadetime += Time.deltaTime;
+        if (_fadetime >= soundfadeTime)
+        {
+            _fadetime = soundfadeTime;
+            sound_fadeIn = false;
+        }
+
+        for (int num = 0; num < audioSource.Length; num++)
+        {
+            if (audioSource[num].volume > soundVolume) audioSource[num].volume = soundVolume;
+            else if (audioSource[num].volume < soundVolume) audioSource[num].volume = (float)(_fadetime / soundfadeTime);
+
+        }
+    }
+
+    public void Sound_FadeOut()
+    {
+        _fadetime += Time.deltaTime;
+        if (_fadetime >= soundfadeTime)
+        {
+            _fadetime = soundfadeTime;
+            sound_fadeOut = false;
+        }
+        for(int num=0;num<audioSource.Length;num++)
+            audioSource[num].volume = (float)(soundVolume - _fadetime / soundfadeTime);
     }
 }

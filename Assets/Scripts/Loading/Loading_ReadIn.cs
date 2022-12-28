@@ -7,20 +7,37 @@ using UnityEngine.Video;
 
 public class Loading_ReadIn : MonoBehaviour
 {
-    [SerializeField] S_1_Fadeout_Script fadeScript;
-    [SerializeField] S_1_SoundPlayer soundScript;
-    //　シーンロード中に表示するUI画面
-    [SerializeField] private GameObject loadImage;
-    [SerializeField] VideoPlayer loadVideo;
-    private float loadTime;
-    public bool loading ;
+    [SerializeField, Header("フェード用のスクリプト")]
+    S_1_Fadeout_Script fadeScript;
+    [SerializeField, Header("サウンドのAudioSource\n※AudioSourceを入れてください。※")]
+    AudioSource[] audioSource;
+
+    [Space(5), Header("ロード画面")]
+    public GameObject loadImage;
+    public VideoPlayer loadVideo;
+    [Header("※ロード画面の再生時間を入れてください。※\n1000…約６秒　500…約２秒")]
+    public float loadTime;
+
+    private float count = 0;
 
     private void Start()
     {
-        loading = false;
+        //コンポーネント取得
         loadVideo = GetComponent<VideoPlayer>();
+        //ロード画面を表示
         loadImage.SetActive(true);
+
+        //ロード動画再生
         loadVideo.Play();
+        //BGMを一時停止
+        for (int num = 0; num < audioSource.Length; num++)
+        {
+            audioSource[num].Pause();
+            audioSource[num].volume = 0;
+        }
+
+        //メインの動作を停止
+        Time.timeScale = 0;
     }
 
     private void Update()
@@ -28,16 +45,24 @@ public class Loading_ReadIn : MonoBehaviour
         Video_Player();
     }
 
-    public bool Video_Player()
+    public void Video_Player()
     {
-        loadTime += Time.deltaTime;
-        //Debug.Log(loadTime);
-        if (loadTime > 10f)
+        count++;
+        Debug.Log("Count : " + count);
+        if (count >= loadTime)
         {
+            //ロード画面
             loadVideo.Stop();
             loadImage.SetActive(false);
-            return true;
+            fadeScript.fadeIn = true;
+
+            //サウンド
+            for(int num=0;num<audioSource.Length;num++)
+                audioSource[num].Play();
+            fadeScript.sound_fadeIn = true;
+
+            //メインの動作を再生
+            Time.timeScale = 1.0f;
         }
-        return false;
     }
 }
