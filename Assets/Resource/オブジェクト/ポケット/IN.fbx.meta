@@ -1,12 +1,19 @@
 fileFormatVersion: 2
-guid: e7137aa08bdc7c04f8e31718ad76a8e9
+guid: 3b0c890e94610c34d8f18531c03ba58c
 ModelImporter:
-  serializedVersion: 21300
-  internalIDToNameTable:
+  serializedVersion: 20200
+  internalIDToNameTable: []
+  externalObjects:
   - first:
-      74: 3812161117888954109
-    second: ShotPaste
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IN
+    second: {fileID: 2100000, guid: 9ceb6d89b4f7ea9448c0888e68bbcea2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OutLine
+    second: {fileID: 2100000, guid: a8e3449630662474dabcd32c95cb2450, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -17,7 +24,6 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -47,7 +53,6 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -59,7 +64,6 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -102,7 +106,6 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
