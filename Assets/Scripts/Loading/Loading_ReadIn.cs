@@ -18,6 +18,9 @@ public class Loading_ReadIn : MonoBehaviour
     [Header("※ロード画面の再生時間を入れてください。※\n1000…約６秒　500…約２秒")]
     public float loadTime;
 
+    [Space(5), Header("その他\n※カメラに固定されているUIを入れてください。※")]
+    public GameObject Image;
+
     private float count = 0;
 
     private void Start()
@@ -38,6 +41,9 @@ public class Loading_ReadIn : MonoBehaviour
 
         //メインの動作を停止
         Time.timeScale = 0;
+
+        //UI関連の固定されているものを非表示にする
+        Image.SetActive(false);
     }
 
     private void Update()
@@ -63,6 +69,9 @@ public class Loading_ReadIn : MonoBehaviour
 
             //メインの動作を再生
             Time.timeScale = 1.0f;
+
+            //UI関連の固定されているものを表示
+            Image.SetActive(true);
         }
     }
 }
