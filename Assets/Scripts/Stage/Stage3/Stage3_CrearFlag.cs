@@ -1,0 +1,65 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class Stage3_CrearFlag : MonoBehaviour
+{
+    private float clearNum;
+    private int pushButtonNow = 0;
+    public int pushButtonNum
+    {
+        set => pushButtonNow = value;
+        get => pushButtonNow;
+    }
+
+    [SerializeField] GameObject[] targetObj;
+    [SerializeField] TextMeshProUGUI buttonUI;
+
+    private void Awake()
+    {
+        clearNum = ClearNum(targetObj) / 2;
+    }
+
+    void Start()
+    {
+        StartCoroutine("ClearButton");
+        pushButtonNum = 0;
+    }
+
+    void Update()
+    {
+        Debug.Log(" PushbuttonNow:" + pushButtonNow);
+        Debug.Log("clearNum:" + clearNum);
+        buttonUI.text = pushButtonNow + "/" + clearNum;
+        Clear();
+    }
+
+    void Clear()
+    {
+        if (pushButtonNum >= clearNum) GameDirector.GameClear = true;
+    }
+
+    int ClearNum(GameObject[] targets)
+    {
+        int num = 0;
+        foreach (GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject)))
+        {
+            if (!obj.activeInHierarchy) return -1;
+            for (int i = 0; i < targets.Length; i++)
+            {
+                if (obj.name == targets[i].name) num++;
+            }
+        }
+        return num;
+    }
+
+    private IEnumerator ClearButton()
+    {
+        while (true)
+        {
+            clearNum = ClearNum(targetObj) / 2;
+            yield return new WaitForSeconds(5.0f);
+        }
+    }
+}

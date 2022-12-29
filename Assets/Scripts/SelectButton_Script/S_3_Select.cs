@@ -112,7 +112,7 @@ public class S_3_Select : MonoBehaviour
     {
         //現在選択中のボタンを保存 : Save the currently selected button
         _button = EventSystem.current.currentSelectedGameObject;
-        Debug.Log(_button.name);
+        //Debug.Log(_button.name);
 
         //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))

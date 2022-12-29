@@ -93,7 +93,9 @@ public class SESoundData
         shotpaste,
         walk,
         Buck_ClickButton,
-        A_ClickButton
+        A_ClickButton,
+        explosion,
+        button
     }
 
     public SE se;
