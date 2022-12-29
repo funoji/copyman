@@ -29,8 +29,6 @@ public class Stage3_CrearFlag : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(" PushbuttonNow:" + pushButtonNow);
-        Debug.Log("clearNum:" + clearNum);
         buttonUI.text = pushButtonNow + "/" + clearNum;
         Clear();
     }
@@ -59,7 +57,7 @@ public class Stage3_CrearFlag : MonoBehaviour
         while (true)
         {
             clearNum = ClearNum(targetObj) / 2;
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

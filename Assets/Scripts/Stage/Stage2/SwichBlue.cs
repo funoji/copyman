@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Swich : MonoBehaviour
+public class SwichBlue : MonoBehaviour
 {
-    [SerializeField]MoveGimmick gimmick;
+    MoveGimmick gimmick;
     Stage3_CrearFlag count;
 
     private bool firstPushFlag;
@@ -13,13 +13,14 @@ public class Swich : MonoBehaviour
     {
         firstPushFlag = false;
         count = GameObject.Find("Stage3Manger").GetComponent<Stage3_CrearFlag>();
+        gimmick = GameObject.Find("MoveWall").GetComponent<MoveGimmick>();
         if (count == null) count = new Stage3_CrearFlag();
         if (gimmick == null) gimmick = new MoveGimmick();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Cancopy" && other.tag !="Player") return;
+        if (other.tag != "Cancopy" && other.tag != "Player") return;
         AudioManager.Instance.PlaySE(SESoundData.SE.button);
         if (firstPushFlag) return;
         count.pushButtonNum += 1;
