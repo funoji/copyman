@@ -9516,7 +9516,7 @@ PrefabInstance:
     - target: {fileID: 147742281006924168, guid: 731ec0eb9037cb9459fb82ba43abdcde, type: 3}
       propertyPath: gimmick
       value: 
-      objectReference: {fileID: 2087507954}
+      objectReference: {fileID: 0}
     - target: {fileID: 6030692659414709146, guid: 731ec0eb9037cb9459fb82ba43abdcde, type: 3}
       propertyPath: m_Name
       value: Button
@@ -12138,7 +12138,7 @@ GameObject:
   - component: {fileID: 2087507957}
   - component: {fileID: 2087507956}
   - component: {fileID: 2087507955}
-  - component: {fileID: 2087507954}
+  - component: {fileID: 2087507958}
   m_Layer: 0
   m_Name: MoveWall
   m_TagString: Untagged
@@ -12161,22 +12161,6 @@ Transform:
   m_Father: {fileID: 607555699}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2087507954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2087507952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b355b495835eca4b99f3a571df62d87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: {x: 0, y: -10, z: 0}
-  speed: 1
-  waitTime: 1
-  isActive: 0
 --- !u!65 &2087507955
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12240,6 +12224,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087507952}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2087507958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087507952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822b60fd1a98c194680949ca20c711a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move: {x: 0, y: -10, z: 0}
+  speed: 1
+  waitTime: 1
+  isActive: 0
 --- !u!1001 &2111708350
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwichBlue : MonoBehaviour
 {
-    MoveGimmick gimmick;
+    MoveGimmick_ToBack gimmick;
     Stage3_CrearFlag count;
 
     private bool firstPushFlag;
@@ -13,9 +13,9 @@ public class SwichBlue : MonoBehaviour
     {
         firstPushFlag = false;
         count = GameObject.Find("Stage2Manger").GetComponent<Stage3_CrearFlag>();
-        gimmick = GameObject.Find("MoveWall").GetComponent<MoveGimmick>();
+        gimmick = GameObject.Find("MoveWall").GetComponent<MoveGimmick_ToBack>();
         if (count == null) count = new Stage3_CrearFlag();
-        if (gimmick == null) gimmick = new MoveGimmick();
+        if (gimmick == null) gimmick = new MoveGimmick_ToBack();
     }
 
     private void OnTriggerEnter(Collider other)
