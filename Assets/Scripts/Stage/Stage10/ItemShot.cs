@@ -10,6 +10,7 @@ public class ItemShot : MonoBehaviour
     [SerializeField] private Vector3 maxPower;
     [SerializeField] private Vector3 minTorque;
     [SerializeField] private Vector3 maxTorque;
+    [SerializeField] private float maxScale;
     [SerializeField] private float spawnCoolTime;
     private int itemNum;
 
@@ -36,12 +37,15 @@ public class ItemShot : MonoBehaviour
             Vector3 torquePower = (new Vector3(Random.Range(minPower.x, maxPower.x),
                                           Random.Range(minPower.y, maxPower.y),
                                           Random.Range(minPower.z, maxPower.z)));
+            float changeScale = Random.Range(1.0f, maxScale);
+            Vector3 changeScales = new Vector3(changeScale,changeScale,changeScale);
 
             GameObject item = Instantiate(copyManager._CanCopyObj[itemNum].Object);
             Rigidbody rb = item.GetComponent<Rigidbody>();
 
             item.transform.position = spawnPoint.position;
             item.name = copyManager._CanCopyObj[itemNum].name;
+            item.transform.localScale = changeScales;
             rb.AddForce(shotPower, ForceMode.Acceleration);
             rb.AddTorque(torquePower, ForceMode.Acceleration);
 
