@@ -12,7 +12,7 @@ public class SwichBlue : MonoBehaviour
     private void Start()
     {
         firstPushFlag = false;
-        count = GameObject.Find("Stage3Manger").GetComponent<Stage3_CrearFlag>();
+        count = GameObject.Find("Stage2Manger").GetComponent<Stage3_CrearFlag>();
         gimmick = GameObject.Find("MoveWall").GetComponent<MoveGimmick>();
         if (count == null) count = new Stage3_CrearFlag();
         if (gimmick == null) gimmick = new MoveGimmick();

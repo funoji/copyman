@@ -12,7 +12,7 @@ public class Swich : MonoBehaviour
     private void Start()
     {
         firstPushFlag = false;
-        count = GameObject.Find("Stage3Manger").GetComponent<Stage3_CrearFlag>();
+        count = GameObject.Find("Stage2Manger").GetComponent<Stage3_CrearFlag>();
         if (count == null) count = new Stage3_CrearFlag();
         if (gimmick == null) gimmick = new MoveGimmick();
     }
