@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7622944637200360247}
+  - component: {fileID: 9127229054755035502}
   m_Layer: 0
   m_Name: rock1
   m_TagString: Cancopy
@@ -32,6 +33,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &9127229054755035502
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930331770774795151}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3307906227795936199
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +61,6 @@ GameObject:
   - component: {fileID: 8412710851743423705}
   - component: {fileID: 3969477370701790806}
   - component: {fileID: 4290518481562071855}
-  - component: {fileID: 3388492002988920638}
   m_Layer: 0
   m_Name: rock1
   m_TagString: Cancopy
@@ -131,19 +147,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7434549690534084444, guid: 4e5dcfcab9972e84783078c0b439ce74, type: 3}
---- !u!54 &3388492002988920638
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3307906227795936199}
-  serializedVersion: 2
-  m_Mass: 10
-  m_Drag: 0
-  m_AngularDrag: 344.4519
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
