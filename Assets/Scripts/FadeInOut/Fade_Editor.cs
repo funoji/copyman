@@ -2,14 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEditor;
+using TMPro;
 
 [CustomEditor(typeof(Fade_Manager))]
 public class Fade_Editor : Editor
 {
-    //private int _fadeSize = 0; //配列の長さを一時的に保存するための変数
-    //private int _soundSize = 0;
-    //private bool _fadeFold = false;
-    //private bool _soundFold = false; //折りたたみ機能のための変数
+    private int _fadesize = 0; //配列の長さを一時的に保存するための変数
+    private bool _fadeFold = false;
 
     public override void OnInspectorGUI()
     {
@@ -19,53 +18,58 @@ public class Fade_Editor : Editor
         var soundObj = serializedObject.FindProperty("audioSource"); //S_1_Fadeout_Scriptクラスの配列 audioSource を取得
         EditorGUI.BeginChangeCheck();
 
-        //_fadeSize = fadeObj.arraySize;
-        //_soundSize = soundObj.arraySize;
+        _fadesize = fadeObj.arraySize;
 
         //特定のモードの時に表示する項目
         //Fade
         EditorGUILayout.LabelField("Fade Setting", EditorStyles.boldLabel);
-        //fade.fadeImage = (Image)EditorGUILayout.ObjectField(" Fade Image " , fade.fadeImage, typeof(Image), true);
-        //fade.fadeTime = EditorGUILayout.FloatField("　Fade Change Time ", fade.fadeTime);
-        //fade.fadeIn = EditorGUILayout.Toggle("　Fade In  ", fade.fadeIn);
-        //fade.fadeOut = EditorGUILayout.Toggle("　Fade Out  ", fade.fadeOut);
-        EditorGUILayout.PropertyField(fadeObj);
+        //EditorGUILayout.PropertyField(fadeObj);
         EditorGUILayout.Space();
 
         //二つの要素を横並びに表示させる
-        //EditorGUILayout.BeginHorizontal();
-        //_fadeFold = EditorGUILayout.Foldout(_fadeFold, "　Fade Setting ");
-        //_fadeSize = EditorGUILayout.IntField(_fadeSize, GUILayout.Width(30)); //一時的に保存した長さをカスタムインスタンスに描画（書き換え可能）
-        //EditorGUILayout.EndHorizontal();
-        //if (_fadeFold)
-        //{
-        //    //一時的に保存した配列の長さと、本来の配列の長さが同じかチェックする
-        //    if (_fadeSize != fadeObj.arraySize)
-        //    {
-        //        fadeObj.arraySize = _fadeSize; // 長さの変更を適用
+        EditorGUILayout.BeginHorizontal();
+        _fadeFold = EditorGUILayout.Foldout(_fadeFold, "　Fade Setting ");
+        _fadesize = EditorGUILayout.IntField(_fadesize, GUILayout.Width(30)); //一時的に保存した長さをカスタムインスタンスに描画（書き換え可能）
+        EditorGUILayout.EndHorizontal();
+        if (_fadeFold)
+        {
+            //一時的に保存した配列の長さと、本来の配列の長さが同じかチェックする
+            if (_fadesize != fadeObj.arraySize)
+            {
+                fadeObj.arraySize = _fadesize; // 長さの変更を適用
 
-        //        //ここでserializedObjectへの変更を適用し、再び更新する
-        //        serializedObject.ApplyModifiedProperties();
-        //        serializedObject.Update();
-        //    }
-        //    else
-        //    {
-        //        GUILayout.BeginVertical();
-        //        //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
-        //        for (int num = 0; num < fadeObj.arraySize; num++)
-        //        {
-        //            GUILayout.FlexibleSpace();
+                //ここでserializedObjectへの変更を適用し、再び更新する
+                serializedObject.ApplyModifiedProperties();
+                serializedObject.Update();
+            }
+            else
+            {
+                GUILayout.BeginVertical();
+                //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
+                for (int num = 0; num < fadeObj.arraySize; num++)
+                {
+                    GUILayout.FlexibleSpace();
+                    fade.fadeSystem[num]._textObj = EditorGUILayout.Toggle("Use Other Object ", fade.fadeSystem[num]._textObj);
+                    if (fade.fadeSystem[num]._textObj)
+                    {
+                        fade.fadeSystem[num].textObj = (TextMeshProUGUI)EditorGUILayout.ObjectField("  Text Object ", fade.fadeSystem[num].textObj, typeof(TextMeshProUGUI), true);
+                        fade.fadeSystem[num].fadeTime = EditorGUILayout.FloatField("　　Fade Change Time ", fade.fadeSystem[num].fadeTime);
+                        fade.fadeSystem[num].fadeIn = EditorGUILayout.Toggle("　　Fade In  ", fade.fadeSystem[num].fadeIn);
+                        fade.fadeSystem[num].fadeOut = EditorGUILayout.Toggle("　　Fade Out  ", fade.fadeSystem[num].fadeOut);
 
-        //            fade.fadeSystem[num].fadeImage = (Image)EditorGUILayout.ObjectField("　Image " + num, fade.fadeSystem[num].fadeImage, typeof(Image), true);
-        //            fade.fadeSystem[num].fadeTime = EditorGUILayout.FloatField("　　Fade Change Time ", fade.fadeSystem[num].fadeTime);
-        //            fade.fadeSystem[num].fadeIn = EditorGUILayout.Toggle("　　Fade In  ", fade.fadeSystem[num].fadeIn);
-        //            fade.fadeSystem[num].fadeOut = EditorGUILayout.Toggle("　　Fade Out  ", fade.fadeSystem[num].fadeOut);
-        //            EditorGUILayout.Space();
-        //        }
-        //        GUILayout.EndVertical();
-        //    }
-        //}
-
+                    }
+                    else
+                    {
+                        fade.fadeSystem[num].fadeImage = (Image)EditorGUILayout.ObjectField("　Fade Image " + num, fade.fadeSystem[num].fadeImage, typeof(Image), true);
+                        fade.fadeSystem[num].fadeTime = EditorGUILayout.FloatField("　　Fade Change Time ", fade.fadeSystem[num].fadeTime);
+                        fade.fadeSystem[num].fadeIn = EditorGUILayout.Toggle("　　Fade In  ", fade.fadeSystem[num].fadeIn);
+                        fade.fadeSystem[num].fadeOut = EditorGUILayout.Toggle("　　Fade Out  ", fade.fadeSystem[num].fadeOut);
+                    }
+                    EditorGUILayout.Space();
+                }
+                GUILayout.EndVertical();
+            }
+        }
 
         EditorGUILayout.Space();
 

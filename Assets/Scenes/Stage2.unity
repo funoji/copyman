@@ -9504,6 +9504,18 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1977589401}
+    - target: {fileID: 5909559807919074653, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: fixationImage.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909559807919074653, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: audioSource.Array.data[0]
+      value: 
+      objectReference: {fileID: 1977589401}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: audioSource.Array.data[0]
+      value: 
+      objectReference: {fileID: 1977589401}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
 --- !u!1001 &1369195578
@@ -10599,21 +10611,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1559192260}
-        m_TargetAssemblyTypeName: ButtonClickSE, Assembly-CSharp
-        m_MethodName: OnClick_A
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1069746950}
         m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
-        m_MethodName: Trans_ToMenu
+        m_MethodName: Trans_ToStage3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

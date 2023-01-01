@@ -1470,6 +1470,46 @@ PrefabInstance:
       propertyPath: audioSource.Array.data[0]
       value: 
       objectReference: {fileID: 21396695}
+    - target: {fileID: 5909559807919074653, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: _textObj
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909559807919074653, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: fixationText
+      value: 
+      objectReference: {fileID: 1953739611}
+    - target: {fileID: 5909559807919074653, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: audioSource.Array.data[0]
+      value: 
+      objectReference: {fileID: 21396695}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: soundVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: fadeSystem.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: audioSource.Array.data[0]
+      value: 
+      objectReference: {fileID: 21396695}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: fadeSystem.Array.data[1].textObj
+      value: 
+      objectReference: {fileID: 1953739611}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: fadeSystem.Array.data[1]._textObj
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: fadeSystem.Array.data[1].fadeTime
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: fadeSystem.Array.data[1].fadeImage
+      value: 
+      objectReference: {fileID: 1916448796}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
 --- !u!1 &212437190
@@ -2350,6 +2390,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7890714084879384825, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: fadeFeature
+      value: 
+      objectReference: {fileID: 1916448795}
     - target: {fileID: 8623283746091921024, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
       propertyPath: m_Name
       value: TranstionSystem
@@ -3003,19 +3047,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 469924411}
         m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
-        m_MethodName: Trans_ToStage3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 625911057}
-        m_TargetAssemblyTypeName: ButtonClickSE, Assembly-CSharp
-        m_MethodName: OnClick_A
+        m_MethodName: Trans_ToStage5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5962,6 +5994,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 951993608}
     m_Modifications:
+    - target: {fileID: 6658145575376273364, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658145575376273364, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: ExitButton
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6893984792364634922, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7475,6 +7515,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6893984793893632733, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
   m_PrefabInstance: {fileID: 1458913105}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1916448795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+  m_PrefabInstance: {fileID: 211257416}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e76271bea2883a4f82ae7d1b6726fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1916448796 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5562920282091115055, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+  m_PrefabInstance: {fileID: 211257416}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1920407790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2487665773678984418, guid: 54c2830cc5453ad43b95966541b15b6f, type: 3}
@@ -7505,7 +7567,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953739609}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5735, y: 2.5735, z: 2.5735}
   m_ConstrainProportionsScale: 0

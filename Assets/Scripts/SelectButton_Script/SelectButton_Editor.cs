@@ -45,7 +45,7 @@ public class SelectButton_Editor : Editor
                 //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
                 for (int num = 0; num < selectObj.arraySize; num++)
                 {
-                    EditorGUILayout.LabelField(select.selectData[num].buttonObj.name);
+                    //EditorGUILayout.LabelField(select.selectData[num].buttonObj.name);
                     select.selectData[num].buttonObj = (GameObject)EditorGUILayout.ObjectField("button obj:", select.selectData[num].buttonObj, typeof(GameObject), true);
                     select.selectData[num].buttonImage = (GameObject)EditorGUILayout.ObjectField("button image:", select.selectData[num].buttonImage, typeof(GameObject), true);
 
@@ -85,7 +85,7 @@ public class SelectButton_Editor : Editor
                 //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
                 for (int num = 0; num < selectObj.arraySize; num++)
                 {
-                    EditorGUILayout.LabelField(select.selectData[num].buttonObj.name);
+                    //EditorGUILayout.LabelField(select.selectData[num].buttonObj.name);
                     select.selectData[num].buttonObj = (GameObject)EditorGUILayout.ObjectField("button obj:", select.selectData[num].buttonObj, typeof(GameObject), true);
                     select.selectData[num].buttonImage = (GameObject)EditorGUILayout.ObjectField("button image:", select.selectData[num].buttonImage, typeof(GameObject), true);
 
@@ -124,7 +124,7 @@ public class SelectButton_Editor : Editor
                 //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
                 for (int num = 0; num < selectObj.arraySize; num++)
                 {
-                    EditorGUILayout.LabelField(select.selectData[num].buttonObj.name);
+                    //EditorGUILayout.LabelField(select.selectData[num].buttonObj.name);
                     select.selectData[num].buttonObj = (GameObject)EditorGUILayout.ObjectField("button obj:", select.selectData[num].buttonObj, typeof(GameObject), true);
 
                     EditorGUILayout.Space(); //スペースを描画

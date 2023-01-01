@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEditor;
 using UnityEngine.Video;
+using TMPro;
 
 [CustomEditor(typeof(Load_Manager))]
 public class Load_Editor : Editor
@@ -29,7 +30,9 @@ public class Load_Editor : Editor
         loading.loadTime = EditorGUILayout.FloatField("　Load Time ", loading.loadTime);
         EditorGUILayout.HelpBox("ロード画面の再生時間\n1000…約６秒　500…約２秒", MessageType.None);
         EditorGUILayout.PropertyField(imageObj);
-
+        loading._textObj = EditorGUILayout.Toggle("Use Text Object ", loading._textObj);
+        if (loading._textObj) { loading.fixationText = (TextMeshProUGUI)EditorGUILayout.ObjectField("  Text Object ", loading.fixationText, typeof(TextMeshProUGUI), true); }
+       
         //_imagesize = EditorGUILayout.IntField("Fixation Image ", _imagesize); //一時的に保存した長さをカスタムインスタンスに描画（書き換え可能）
         ////一時的に保存した配列の長さと、本来の配列の長さが同じかチェックする
         //if (_imagesize != imageObj.arraySize)

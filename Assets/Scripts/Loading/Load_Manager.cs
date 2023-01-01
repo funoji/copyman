@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using TMPro;
 
 public class Load_Manager: MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Load_Manager: MonoBehaviour
     ///[Header("※ロード画面の再生時間を入れてください。※\n1000…約６秒　500…約２秒")]
     public float loadTime;
     public Image[] fixationImage;
+    public bool _textObj;
+    public TextMeshProUGUI fixationText;
 
     private float count = 0;
 
@@ -39,13 +42,30 @@ public class Load_Manager: MonoBehaviour
         //ロード動画再生
         loadVideo.Play();
 
-        for (int num = 0; num < fixationImage.Length; num++)
+        if (_textObj) 
         {
-            fadeScript.fadeSystem[num].fadeIn = false;
-            fadeScript.fadeSystem[num].fadeOut = false;
+            fixationText.color = new Color(fixationText.color.r, fixationText.color.g, fixationText.color.b, 0);
+            fadeScript.fadeSystem[1].textObj = fixationText;
+            for (int num = 1; num < fixationImage.Length; num++)
+            {
+                fadeScript.fadeSystem[num].fadeIn = false;
+                fadeScript.fadeSystem[num].fadeOut = false;
 
-            fixationImage[num].color = new Color(fixationImage[num].color.r, fixationImage[num].color.g, fixationImage[num].color.b, 0);
-            fadeScript.fadeSystem[num + 1].fadeImage = fixationImage[num];
+                fixationImage[num].color = new Color(fixationImage[num].color.r, fixationImage[num].color.g, fixationImage[num].color.b, 0);
+                fadeScript.fadeSystem[num + 1].fadeImage = fixationImage[num];
+            }
+        }
+        else
+        {
+            for (int num = 0; num < fixationImage.Length; num++)
+            {
+                fadeScript.fadeSystem[num].fadeIn = false;
+                fadeScript.fadeSystem[num].fadeOut = false;
+
+                fixationImage[num].color = new Color(fixationImage[num].color.r, fixationImage[num].color.g, fixationImage[num].color.b, 0);
+                fadeScript.fadeSystem[num + 1].fadeImage = fixationImage[num];
+            }
+
         }
     }
 

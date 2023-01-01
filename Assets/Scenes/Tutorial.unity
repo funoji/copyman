@@ -610,7 +610,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6658145575376273364, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
 --- !u!224 &120472235 stripped
 RectTransform:
@@ -4824,6 +4825,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7890714084879384825, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: fadeFeature
+      value: 
+      objectReference: {fileID: 1484109335}
     - target: {fileID: 8623283746091921024, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
       propertyPath: m_Name
       value: TranstionSystem
@@ -5683,6 +5688,18 @@ PrefabInstance:
       propertyPath: audioSource.Array.data[0]
       value: 
       objectReference: {fileID: 850655314}
+    - target: {fileID: 5909559807919074653, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: fixationImage.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909559807919074653, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: audioSource.Array.data[0]
+      value: 
+      objectReference: {fileID: 850655314}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: audioSource.Array.data[0]
+      value: 
+      objectReference: {fileID: 850655314}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
 --- !u!4 &1422449341 stripped
@@ -5953,6 +5970,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1484109335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+  m_PrefabInstance: {fileID: 1402906153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e76271bea2883a4f82ae7d1b6726fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1493461846
 PrefabInstance:
   m_ObjectHideFlags: 0

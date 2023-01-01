@@ -19,6 +19,9 @@ public class Fade_Manager : MonoBehaviour
         public bool fadeOut;
         [HideInInspector]
         public float _alpha;
+
+        public bool _textObj;
+        public TextMeshProUGUI textObj;
     }
     public FadeSystem[] fadeSystem;
 
@@ -38,7 +41,8 @@ public class Fade_Manager : MonoBehaviour
     {
         for(_fadeNum=0;_fadeNum< fadeSystem.Length;_fadeNum++)
         {
-            fadeSystem[_fadeNum]._alpha = fadeSystem[_fadeNum].fadeImage.color.a;
+            if (fadeSystem[_fadeNum]._textObj) { fadeSystem[_fadeNum]._alpha = fadeSystem[_fadeNum].textObj.color.a; }
+            else { fadeSystem[_fadeNum]._alpha = fadeSystem[_fadeNum].fadeImage.color.a; }
         }
     }
 
@@ -62,17 +66,37 @@ public class Fade_Manager : MonoBehaviour
 
     void FadeOut(int Num)
     {
-        fadeSystem[Num].fadeImage.enabled = true;
-        fadeSystem[Num]._alpha += fadeSystem[Num].fadeTime;
-        Set_Alpha(Num);
-        if (fadeSystem[Num]._alpha >= 1) { fadeSystem[Num].fadeOut = false;  }
+        if (fadeSystem[Num]._textObj)
+        {
+            fadeSystem[Num].textObj.enabled = true;
+            fadeSystem[Num]._alpha += fadeSystem[Num].fadeTime;
+            Set_AlphaText(Num);
+            if (fadeSystem[Num]._alpha >= 1) { fadeSystem[Num].fadeOut = false; }
+        }
+        else
+        {
+            fadeSystem[Num].fadeImage.enabled = true;
+            fadeSystem[Num]._alpha += fadeSystem[Num].fadeTime;
+            Set_AlphaImage(Num);
+            if (fadeSystem[Num]._alpha >= 1) { fadeSystem[Num].fadeOut = false; }
+        }
     }
 
     void FadeIn(int Num)
     {
-        fadeSystem[Num]._alpha -= fadeSystem[Num].fadeTime;
-        Set_Alpha(Num);
-        if (fadeSystem[Num]._alpha <= 0.0f) { fadeSystem[Num].fadeImage.enabled = false; fadeSystem[Num].fadeIn = false; }
+        if (fadeSystem[Num]._textObj)
+        {
+            fadeSystem[Num]._alpha -= fadeSystem[Num].fadeTime;
+            Set_AlphaText(Num);
+            if (fadeSystem[Num]._alpha <= 0.0f) { fadeSystem[Num].textObj.enabled = false; fadeSystem[Num].fadeIn = false; }
+
+        }
+        else
+        {
+            fadeSystem[Num]._alpha -= fadeSystem[Num].fadeTime;
+            Set_AlphaImage(Num);
+            if (fadeSystem[Num]._alpha <= 0.0f) { fadeSystem[Num].fadeImage.enabled = false; fadeSystem[Num].fadeIn = false; }
+        }
     }
 
     public void Sound_FadeIn()
@@ -101,9 +125,13 @@ public class Fade_Manager : MonoBehaviour
         for (int num = 0; num < audioSource.Length; num++) { audioSource[num].volume = (float)(soundVolume - _fadetime / soundfadeTime); }
     }
 
-    void Set_Alpha(int Num)
+    void Set_AlphaImage(int Num)
     {
         fadeSystem[Num].fadeImage.color = new Color(fadeSystem[Num].fadeImage.color.r, fadeSystem[Num].fadeImage.color.g, fadeSystem[Num].fadeImage.color.b, fadeSystem[Num]._alpha);
     }
 
+    void Set_AlphaText(int Num)
+    {
+        fadeSystem[Num].textObj.color = new Color(fadeSystem[Num].textObj.color.r, fadeSystem[Num].textObj.color.g, fadeSystem[Num].textObj.color.b, fadeSystem[Num]._alpha);
+    }
 }
