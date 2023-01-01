@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 105727289}
   - component: {fileID: 105727288}
   m_Layer: 5
-  m_Name: GameStart_Button
+  m_Name: GameStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 192354227}
   - component: {fileID: 192354226}
   m_Layer: 5
-  m_Name: Options_Button
+  m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -826,6 +826,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192354224}
   m_CullTransparentMesh: 1
+--- !u!114 &206109200 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+  m_PrefabInstance: {fileID: 739759532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e76271bea2883a4f82ae7d1b6726fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &291101166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,7 +1736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5562920281422731058, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5562920281422731062, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
       propertyPath: m_Pivot.x
@@ -1823,6 +1834,30 @@ PrefabInstance:
       propertyPath: audioSource.Array.data[0]
       value: 
       objectReference: {fileID: 1250412501}
+    - target: {fileID: 5562920282091115048, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562920282091115048, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562920282091115048, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562920282091115048, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562920282091115048, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562920282091115048, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1082
+      objectReference: {fileID: 0}
     - target: {fileID: 5562920282091115053, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
       propertyPath: audioSource
       value: 
@@ -1832,6 +1867,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5562920282091115053, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: audioSource.Array.data[0]
+      value: 
+      objectReference: {fileID: 1250412501}
+    - target: {fileID: 5909559807919074653, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: loadTime
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909559807919074653, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: fixationImage.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909559807919074653, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: audioSource.Array.data[0]
+      value: 
+      objectReference: {fileID: 1250412501}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
       propertyPath: audioSource.Array.data[0]
       value: 
       objectReference: {fileID: 1250412501}
@@ -2370,24 +2421,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81152cb1c19414b4bb828e3e573acf2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 1
+  mode: 2
   selectData:
   - buttonName: GameStart(main)
     buttonObj: {fileID: 105727286}
     buttonImage: {fileID: 116905692}
     _buttonScale: {x: 0, y: 0, z: 0}
   - buttonName: Exit
-    buttonObj: {fileID: 1534680303}
-    buttonImage: {fileID: 592646206}
+    buttonObj: {fileID: 1719813637}
+    buttonImage: {fileID: 2083872630}
     _buttonScale: {x: 0, y: 0, z: 0}
   - buttonName: Option
     buttonObj: {fileID: 192354224}
     buttonImage: {fileID: 639624679}
     _buttonScale: {x: 0, y: 0, z: 0}
-  - buttonName: Catalog
-    buttonObj: {fileID: 1719813637}
-    buttonImage: {fileID: 2083872630}
-    _buttonScale: {x: 0, y: 0, z: 0}
+  exitData:
+    exitButton: {fileID: 1534680303}
+    exitImage: {fileID: 592646206}
+    _exitImage: {x: 0, y: 0, z: 0}
+  ExitButton: 1
   scallSpeed: 1
   maxTime: 1
 --- !u!225 &1002395273
@@ -3575,7 +3627,7 @@ GameObject:
   - component: {fileID: 1534680306}
   - component: {fileID: 1534680305}
   m_Layer: 5
-  m_Name: Exit_Button
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4105,7 +4157,7 @@ GameObject:
   - component: {fileID: 1719813640}
   - component: {fileID: 1719813639}
   m_Layer: 5
-  m_Name: ItemCatalog_Button
+  m_Name: ItemCatalog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4760,6 +4812,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7890714084879384825, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: fadeFeature
+      value: 
+      objectReference: {fileID: 206109200}
     - target: {fileID: 8623283746091921024, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
       propertyPath: m_Name
       value: TranstionSystem

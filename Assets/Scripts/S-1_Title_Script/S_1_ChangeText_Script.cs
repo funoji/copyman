@@ -9,7 +9,7 @@ using TMPro;
 public class S_1_ChangeText_Script : MonoBehaviour
 {
     [Header("スクリプトを参照")]
-    public S_1_Fadeout_Script fadebool;
+    public Fade_Manager fadebool;
 
     [Space(5)]
     [Header("Button")]

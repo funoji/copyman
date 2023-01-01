@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class S_1_SoundPlayer : MonoBehaviour
 {
-    [SerializeField] S_1_Fadeout_Script fade_Script;
+    [SerializeField] Fade_Manager fade_Script;
     public AudioSource audio_Player;
     public double FadeInSeconds = 0.07;
     double FadeDeltaTime = 0;
