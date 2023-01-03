@@ -360,26 +360,36 @@ MonoBehaviour:
     fadeIn: 0
     fadeOut: 0
     _alpha: 0
+    _textObj: 0
+    textObj: {fileID: 0}
   - fadeTime: 0.0001
     fadeImage: {fileID: 595473470}
     fadeIn: 0
     fadeOut: 0
     _alpha: 0
+    _textObj: 0
+    textObj: {fileID: 0}
   - fadeTime: 0.0001
     fadeImage: {fileID: 1252969086}
     fadeIn: 0
     fadeOut: 0
     _alpha: 0
+    _textObj: 0
+    textObj: {fileID: 0}
   - fadeTime: 0.0001
     fadeImage: {fileID: 872899393}
     fadeIn: 0
     fadeOut: 0
     _alpha: 0
+    _textObj: 0
+    textObj: {fileID: 0}
   - fadeTime: 0.0001
     fadeImage: {fileID: 686124896}
     fadeIn: 0
     fadeOut: 0
     _alpha: 0
+    _textObj: 0
+    textObj: {fileID: 0}
   sound_fadeIn: 0
   sound_fadeOut: 0
   audioSource:
@@ -1620,12 +1630,14 @@ MonoBehaviour:
   - {fileID: 343379319}
   loadImage: {fileID: 1817741118}
   loadVideo: {fileID: 840510093}
-  loadTime: 1000
+  loadTime: 750
   fixationImage:
   - {fileID: 595473470}
   - {fileID: 1252969086}
   - {fileID: 872899393}
   - {fileID: 686124896}
+  _textObj: 0
+  fixationText: {fileID: 0}
 --- !u!1 &857789950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,13 +1965,28 @@ MonoBehaviour:
     buttonObj: {fileID: 431921844}
     buttonImage: {fileID: 2068669903}
     _buttonScale: {x: 0, y: 0, z: 0}
+  ExitButton: 0
   exitData:
     exitButton: {fileID: 0}
     exitImage: {fileID: 0}
     _exitImage: {x: 0, y: 0, z: 0}
-  ExitButton: 0
   scallSpeed: 1
   maxTime: 1
+  events:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1684500255}
+        m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
+        m_MethodName: Trans_ToGameEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1058130674
 PrefabInstance:
   m_ObjectHideFlags: 0

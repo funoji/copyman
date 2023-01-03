@@ -129,4 +129,11 @@ public class Transtion : MonoBehaviour
         Invoke("Trans_Stage10", transTime);
     }
     private void Trans_Stage10() { SceneManager.LoadScene("Stage10"); }
+
+    public void Trans_ToRetry()
+    {
+        StartCoroutine(Do_FadeOut());
+        Invoke("Trans_Retry", transTime);
+    }
+    private void Trans_Retry() { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
 }

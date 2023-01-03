@@ -14,7 +14,7 @@ public class Fade_Manager : MonoBehaviour
     public struct FadeSystem
     {
         public float fadeTime;
-        public Image fadeImage;
+        public Image imageObj;
         public bool fadeIn;
         public bool fadeOut;
         [HideInInspector]
@@ -39,25 +39,16 @@ public class Fade_Manager : MonoBehaviour
 
     private void Start()
     {
-        for(_fadeNum=0;_fadeNum< fadeSystem.Length;_fadeNum++)
-        {
-            if (fadeSystem[_fadeNum]._textObj) { fadeSystem[_fadeNum]._alpha = fadeSystem[_fadeNum].textObj.color.a; }
-            else { fadeSystem[_fadeNum]._alpha = fadeSystem[_fadeNum].fadeImage.color.a; }
-        }
+        if (fadeSystem[_fadeNum]._textObj) { fadeSystem[_fadeNum]._alpha = fadeSystem[_fadeNum].textObj.color.a; }
+        else { fadeSystem[_fadeNum]._alpha = fadeSystem[_fadeNum].imageObj.color.a; }
     }
 
     private void Update()
     {
         for (_fadeNum = 0; _fadeNum < fadeSystem.Length; _fadeNum++)
         {
-            if (fadeSystem[_fadeNum].fadeIn)
-            {
-                FadeIn(_fadeNum);
-            }
-            if (fadeSystem[_fadeNum].fadeOut)
-            {
-                FadeOut(_fadeNum);
-            }
+            if (fadeSystem[_fadeNum].fadeIn){FadeIn(_fadeNum);}
+            if (fadeSystem[_fadeNum].fadeOut){ FadeOut(_fadeNum);}
         }
 
         if (sound_fadeIn) { Sound_FadeIn(); }
@@ -75,7 +66,7 @@ public class Fade_Manager : MonoBehaviour
         }
         else
         {
-            fadeSystem[Num].fadeImage.enabled = true;
+            fadeSystem[Num].imageObj.enabled = true;
             fadeSystem[Num]._alpha += fadeSystem[Num].fadeTime;
             Set_AlphaImage(Num);
             if (fadeSystem[Num]._alpha >= 1) { fadeSystem[Num].fadeOut = false; }
@@ -89,13 +80,12 @@ public class Fade_Manager : MonoBehaviour
             fadeSystem[Num]._alpha -= fadeSystem[Num].fadeTime;
             Set_AlphaText(Num);
             if (fadeSystem[Num]._alpha <= 0.0f) { fadeSystem[Num].textObj.enabled = false; fadeSystem[Num].fadeIn = false; }
-
         }
         else
         {
             fadeSystem[Num]._alpha -= fadeSystem[Num].fadeTime;
             Set_AlphaImage(Num);
-            if (fadeSystem[Num]._alpha <= 0.0f) { fadeSystem[Num].fadeImage.enabled = false; fadeSystem[Num].fadeIn = false; }
+            if (fadeSystem[Num]._alpha <= 0.0f) { fadeSystem[Num].imageObj.enabled = false; fadeSystem[Num].fadeIn = false; }
         }
     }
 
@@ -127,8 +117,8 @@ public class Fade_Manager : MonoBehaviour
 
     void Set_AlphaImage(int Num)
     {
-        fadeSystem[Num].fadeImage.color = new Color(fadeSystem[Num].fadeImage.color.r, fadeSystem[Num].fadeImage.color.g, fadeSystem[Num].fadeImage.color.b, fadeSystem[Num]._alpha);
-    }
+            fadeSystem[Num].imageObj.color = new Color(fadeSystem[Num].imageObj.color.r, fadeSystem[Num].imageObj.color.g, fadeSystem[Num].imageObj.color.b, fadeSystem[Num]._alpha);
+        }
 
     void Set_AlphaText(int Num)
     {

@@ -6,90 +6,65 @@ using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
-	//[SerializeField] GameObject panel;
-	float fadeSpeed = 0.005f;        //透明度が変わるスピードを管理
-	float red, green, blue, alfa;   //パネルの色、不透明度を管理
+    [Header("Size Change Setting")]
+    public float changeTime;
+    public float waitTime;
 
-	public bool isFadeOut = false;  //フェードアウト処理の開始、完了を管理するフラグ
-
-	Image fadeImage;                //透明度を変更するパネルのイメージ
-
-	private Cause causeFlag;
-
-	[SerializeField] GameObject continueButton;
-	[SerializeField] GameObject endButton;
-	[SerializeField] TextMeshProUGUI gameoverText;
-	[SerializeField] private TextMeshProUGUI causeText;
-	[SerializeField] GameObject Icon;
-
-	public enum Cause
+    [System.Serializable]
+    public struct TextObj
     {
-		none,
-		cause1,
-		cause2,
+        public TextMeshProUGUI text;
+        [HideInInspector]
+        public float _textSize;
+        [HideInInspector]
+        public bool onFade;
+    }
+    [Space(5)]
+    public TextObj[] textObj;
+
+    private void Start()
+    {
+        for (int num = 0; num < textObj.Length; num++)
+        {
+            textObj[num]._textSize = textObj[num].text.fontSize;
+            Debug.Log("_textSize[" + num + "] : " + textObj[num]._textSize);
+            textObj[num].text.GetComponent<TextMeshProUGUI>().fontSize = 0;
+            Debug.Log("textObj[" + num + "] : " + textObj[num].text.fontSize);
+        }
+        StartCoroutine(WaitTime());
     }
 
-    void Start()
-	{
-		fadeImage = GetComponent<Image>();
-		red = fadeImage.color.r;
-		green = fadeImage.color.g;
-		blue = fadeImage.color.b;
-		alfa = fadeImage.color.a;
-		causeFlag = Cause.none;
-
-		continueButton.SetActive(false);
-		endButton.SetActive(false);
-		gameoverText.enabled = false;
-		causeText.enabled = false;
-		Icon.SetActive(false);
-	}
-
-	void Update()
-	{
-		if (isFadeOut)
-		{
-			StartFadeOut();
-		}
-		SetCauseText();
-	}
-
-	void StartFadeOut()
-	{
-		fadeImage.enabled = true;  // a)パネルの表示をオンにする
-		alfa += fadeSpeed;         // b)不透明度を徐々にあげる
-		SetAlpha();               // c)変更した透明度をパネルに反映する
-		if (alfa >= 1)
-		{             // d)完全に不透明になったら処理を抜ける
-			continueButton.SetActive(true);
-			endButton.SetActive(true);
-			gameoverText.enabled = true;
-			causeText.enabled = true;
-			Icon.SetActive(true);
-
-
-			isFadeOut = false;
-		}
-	}
-
-	void SetAlpha()
-	{
-		fadeImage.color = new Color(red, green, blue, alfa);
-	}
-
-	void SetCauseText()
+    IEnumerator WaitTime()
     {
-        switch (causeFlag)
+        yield return new WaitForSeconds(waitTime);
+
+        for (int num = 0; num < textObj.Length; num++)
         {
-			case Cause.cause1:
-				causeText.text = "ケース１";
-				break;
-			case Cause.cause2:
-				causeText.text = "ケース２";
-				break;
-			default:
-				causeText.text = "原因をココに表示";
-				break;
-		}
+            textObj[num].onFade = true;
+        }
+    }
+
+    private void Update()
+    {
+        for (int num = 0; num < textObj.Length; num++)
+        {
+            if (textObj[num].onFade)
+            {
+                Debug.Log(textObj[num].onFade);
+                Change_TextSize(num); 
+            }
+
+        }
+    }
+
+    void Change_TextSize(int Num)
+    {
+        textObj[Num].text.fontSize += Time.deltaTime * changeTime;
+        Debug.Log("textObj[" + Num + "] : " + textObj[Num].text.fontSize);
+        if (textObj[Num]._textSize <= textObj[Num].text.fontSize)
+        {
+            textObj[Num].text.fontSize = textObj[Num]._textSize;
+            textObj[Num].onFade = false;
+        }
     }
 }
