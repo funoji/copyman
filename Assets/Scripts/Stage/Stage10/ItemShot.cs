@@ -14,10 +14,14 @@ public class ItemShot : MonoBehaviour
     [SerializeField] private float spawnCoolTime;
     private int itemNum;
 
+    private void Awake()
+    {
+        itemNum = Random.Range(0, copyManager._CanCopyObj.Length);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        itemNum = Random.Range(0, copyManager._CanCopyObj.Length);
         StartCoroutine(SpawnItem());
     }
 

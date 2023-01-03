@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1885380474542150335}
   - component: {fileID: 5545604732968013023}
   - component: {fileID: 2744179419768121843}
-  - component: {fileID: 8696755996300034109}
   - component: {fileID: 6767347591210528888}
   m_Layer: 0
   m_Name: Poster_Copy
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1005804255380063157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5467500341043190559}
@@ -85,22 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &8696755996300034109
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005804255380063157}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 298.4079
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &6767347591210528888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -140,7 +123,7 @@ Transform:
   m_GameObject: {fileID: 5872510834328728440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1885380474542150335}
