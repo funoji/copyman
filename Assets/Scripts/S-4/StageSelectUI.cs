@@ -25,7 +25,7 @@ public class StageSelectUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Joystick1Button5) && whereinNum < StageNum)
+        if(Input.GetKeyDown(KeyCode.Joystick1Button5) && whereinNum < StageNum)
         {
             rect.localPosition += new Vector3(-GameWindow, 0, 0);
             whereinNum++;
@@ -33,7 +33,7 @@ public class StageSelectUI : MonoBehaviour
             Debug.Log(StageNum);
         }
 
-        if (Input.GetKey(KeyCode.Joystick1Button4) && whereinNum > 0)
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4) && whereinNum > 0)
         {
             rect.localPosition += new Vector3(GameWindow, 0, 0);
             whereinNum--;
