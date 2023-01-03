@@ -52,7 +52,7 @@ public class Load_Manager: MonoBehaviour
                 fadeScript.fadeSystem[num].fadeOut = false;
 
                 fixationImage[num].color = new Color(fixationImage[num].color.r, fixationImage[num].color.g, fixationImage[num].color.b, 0);
-                fadeScript.fadeSystem[num + 1].fadeImage = fixationImage[num];
+                fadeScript.fadeSystem[num + 1].imageObj = fixationImage[num];
             }
         }
         else
@@ -63,9 +63,8 @@ public class Load_Manager: MonoBehaviour
                 fadeScript.fadeSystem[num].fadeOut = false;
 
                 fixationImage[num].color = new Color(fixationImage[num].color.r, fixationImage[num].color.g, fixationImage[num].color.b, 0);
-                fadeScript.fadeSystem[num + 1].fadeImage = fixationImage[num];
+                fadeScript.fadeSystem[num + 1].imageObj = fixationImage[num];
             }
-
         }
     }
 
@@ -89,6 +88,7 @@ public class Load_Manager: MonoBehaviour
             Time.timeScale = 1.0f;
 
             //UIŠÖ˜A‚ÌŒÅ’è‚³‚ê‚Ä‚¢‚é‚à‚Ì‚ð•\Ž¦
+
             for (int num = 1; num < fadeScript.fadeSystem.Length; num++)
             {
                 fadeScript.fadeSystem[num].fadeOut = true;

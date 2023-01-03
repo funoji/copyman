@@ -2427,13 +2427,28 @@ MonoBehaviour:
     buttonObj: {fileID: 192354224}
     buttonImage: {fileID: 639624679}
     _buttonScale: {x: 0, y: 0, z: 0}
+  ExitButton: 0
   exitData:
     exitButton: {fileID: 1534680303}
     exitImage: {fileID: 592646206}
     _exitImage: {x: 0, y: 0, z: 0}
-  ExitButton: 1
   scallSpeed: 1
   maxTime: 1
+  events:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2042513132}
+        m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
+        m_MethodName: Trasn_ToTitle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!225 &1002395273
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3643,7 +3658,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -782, y: -471}
+  m_AnchoredPosition: {x: -728, y: -448}
   m_SizeDelta: {x: 260, y: 66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534680305
@@ -3702,18 +3717,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1534680305}
-        m_TargetAssemblyTypeName: ButtonClickSE, Assembly-CSharp
-        m_MethodName: OnClick_B
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2042513132}
         m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
         m_MethodName: Trasn_ToTitle
@@ -4803,6 +4806,10 @@ PrefabInstance:
     - target: {fileID: 5316250773759041561, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890714084879384825, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
+      propertyPath: transTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7890714084879384825, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
       propertyPath: fadeFeature
