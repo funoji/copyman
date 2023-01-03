@@ -34,6 +34,15 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void BGMValueChange()
+    {
+        bgmAudioSource.volume = BGMslider.value;
+    }
+    public void SEValueChenge()
+    {
+        seAudioSource.volume = SEslider.value;
+    }
+
     public void PlayBGM(BGMSoundData.BGM bgm)
     {
         BGMSoundData data = bgmSoundDatas.Find(data => data.bgm == bgm);
@@ -49,15 +58,6 @@ public class AudioManager : MonoBehaviour
         seAudioSource.volume = data.volume * seMasterVolume * masterVolume;
         seAudioSource.PlayOneShot(data.audioClip);
     }
-
-    //public void BGMValueChange()
-    //{
-    //    bgmMasterVolume = BGMslider.value;
-    //}
-    //public void SEValueChenge()
-    //{
-    //    seMasterVolume = SEslider.value;
-    //}
 
 }
 

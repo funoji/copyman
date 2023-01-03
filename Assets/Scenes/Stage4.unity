@@ -377,7 +377,7 @@ MonoBehaviour:
     volume: 0.5
   seSoundDatas:
   - se: 0
-    audioClip: {fileID: 8300000, guid: 1e71de5734dd63d40b495999dc5c198c, type: 3}
+    audioClip: {fileID: 8300000, guid: 706d726c141e3d747be45e34bb7e8253, type: 3}
     volume: 0.3
   - se: 2
     audioClip: {fileID: 8300000, guid: 54f9b8f6f3aac2a4e9bf92577361a16b, type: 3}
@@ -386,7 +386,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 71583941fb9e01147a69ec232804bea3, type: 3}
     volume: 1
   - se: 4
-    audioClip: {fileID: 8300000, guid: 88ce83b96b3ff47428ddcd8e2ff4e02e, type: 3}
+    audioClip: {fileID: 8300000, guid: 4cc27a3aebdf1ee45bbd28368a0ccc41, type: 3}
     volume: 1
   - se: 5
     audioClip: {fileID: 8300000, guid: b389ad179763dc841b14989b8f6f90c9, type: 3}
@@ -394,8 +394,8 @@ MonoBehaviour:
   - se: 7
     audioClip: {fileID: 8300000, guid: 367b825cd9e95bd4dbac4e879ad12b56, type: 3}
     volume: 1
-  BGMslider: {fileID: 0}
-  SEslider: {fileID: 0}
+  BGMslider: {fileID: 1458913106}
+  SEslider: {fileID: 1458913107}
   masterVolume: 1
   bgmMasterVolume: 1
   seMasterVolume: 1
@@ -6130,8 +6130,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6893984793783491120, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 21396697}
+    - target: {fileID: 6893984793783491120, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BGMValueChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893984793783491120, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893984793783491120, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893984793876645645, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 21396697}
+    - target: {fileID: 6893984793876645645, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SEValueChenge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893984793876645645, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893984793876645645, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+--- !u!114 &1458913106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6893984793783491120, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+  m_PrefabInstance: {fileID: 1458913105}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1458913107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6893984793876645645, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+  m_PrefabInstance: {fileID: 1458913105}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1474864709
 GameObject:
   m_ObjectHideFlags: 0

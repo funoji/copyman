@@ -1871,6 +1871,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1250412501}
     - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: soundVolume
+      value: 0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
       propertyPath: audioSource.Array.data[0]
       value: 
       objectReference: {fileID: 1250412501}
@@ -2004,7 +2008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &771177468
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2976,7 +2980,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.063
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3075,9 +3079,9 @@ MonoBehaviour:
   bgmAudioSource: {fileID: 1250412501}
   seAudioSource: {fileID: 1250412505}
   bgmSoundDatas:
-  - bgm: 6
-    audioClip: {fileID: 8300000, guid: ad724d3e6d006ce4680f257061c4e1d1, type: 3}
-    volume: 0.5
+  - bgm: 0
+    audioClip: {fileID: 8300000, guid: 95136f5bf60c2444597117a48fa61de8, type: 3}
+    volume: 0.063
   seSoundDatas:
   - se: 7
     audioClip: {fileID: 8300000, guid: 367b825cd9e95bd4dbac4e879ad12b56, type: 3}
@@ -3087,7 +3091,7 @@ MonoBehaviour:
     volume: 1
   BGMslider: {fileID: 0}
   SEslider: {fileID: 0}
-  masterVolume: 1
+  masterVolume: 0.063
   bgmMasterVolume: 1
   seMasterVolume: 1
 --- !u!4 &1250412503
@@ -3117,7 +3121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34186a5fd97b362448818b1846cb9abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageNo: 6
+  stageNo: 5
 --- !u!82 &1250412505
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3125,7 +3129,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250412500}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
