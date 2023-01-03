@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class StageSelectUI : MonoBehaviour
 {
+    [SerializeField]
+    public UnityEvent unityEvent = new UnityEvent();
+
     [SerializeField] GameObject UIWindow;
     [SerializeField] float GameWindow;
     [SerializeField] float StageNum;
@@ -43,6 +47,7 @@ public class StageSelectUI : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Joystick1Button1))
         {
+            unityEvent.Invoke();
             EventSystem.current.SetSelectedGameObject(button[5]);
         }
 

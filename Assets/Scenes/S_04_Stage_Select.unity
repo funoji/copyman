@@ -1305,6 +1305,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e849e8f3214b242871a29582424586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 335360295}
+        m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
+        m_MethodName: Trans_ToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   UIWindow: {fileID: 1177379216}
   GameWindow: 1920
   StageNum: 4
@@ -1314,7 +1329,6 @@ MonoBehaviour:
   - {fileID: 1034622499}
   - {fileID: 2119440417}
   - {fileID: 1412000426}
-  - {fileID: 2116721121}
 --- !u!1 &863542419
 GameObject:
   m_ObjectHideFlags: 0
