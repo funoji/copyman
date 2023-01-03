@@ -1878,8 +1878,23 @@ PrefabInstance:
       propertyPath: audioSource.Array.data[0]
       value: 
       objectReference: {fileID: 1250412501}
+    - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: fadeSystem.Array.data[0].imageObj
+      value: 
+      objectReference: {fileID: 739759533}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+--- !u!114 &739759533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5562920282091115055, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+  m_PrefabInstance: {fileID: 739759532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &741957057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,7 +2023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &771177468
 RectTransform:
   m_ObjectHideFlags: 0

@@ -12,24 +12,6 @@ public class Transtion : MonoBehaviour
     public float fadetime;
     public float transTime;
 
-    IEnumerator Do_FadeOut()
-    {
-        if (fadeFeature._soundBool)
-        {
-            fadeFeature.sound_fadeOut = true;
-            for (int num = 0; num < fadeFeature.audioSource.Length; num++) { fadeFeature.audioSource[num].Stop(); }
-        }
-
-        for (int fadeNum = 0; fadeNum < fadeFeature.fadeSystem.Length; fadeNum++) { fadeFeature.fadeSystem[fadeNum].fadeTime = fadetime; }
-
-        //UI関連の固定されているものを表示
-        for (int num = 1; num < fadeFeature.fadeSystem.Length; num++) { fadeFeature.fadeSystem[num].fadeIn = true; }
-
-        fadeFeature.fadeSystem[0].fadeOut = true;
-
-        for(int num = 0; num < 100; num++) { if (num == 99) { yield break; } else { yield return null; } }
-    }
-
     public void Trasn_ToTitle() 
     {
         StartCoroutine(Do_FadeOut());
@@ -136,4 +118,22 @@ public class Transtion : MonoBehaviour
         Invoke("Trans_Retry", transTime);
     }
     private void Trans_Retry() { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
+
+    IEnumerator Do_FadeOut()
+    {
+        if (fadeFeature._soundBool)
+        {
+            fadeFeature.sound_fadeOut = true;
+            for (int num = 0; num < fadeFeature.audioSource.Length; num++) { fadeFeature.audioSource[num].Stop(); }
+        }
+
+        for (int fadeNum = 0; fadeNum < fadeFeature.fadeSystem.Length; fadeNum++) { fadeFeature.fadeSystem[fadeNum].fadeTime = fadetime; }
+
+        //UI関連の固定されているものを表示
+        for (int num = 1; num < fadeFeature.fadeSystem.Length; num++) { fadeFeature.fadeSystem[num].fadeIn = true; }
+
+        fadeFeature.fadeSystem[0].fadeOut = true;
+
+        for (int num = 0; num < 100; num++) { if (num == 99) { yield break; } else { yield return null; } }
+    }
 }

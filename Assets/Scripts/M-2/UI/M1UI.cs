@@ -9,12 +9,16 @@ public class M1UI : MonoBehaviour
 {
     [SerializeField] float CountDown = default!;
     [SerializeField] TextMeshProUGUI countdown;
-    [SerializeField] TextMeshProUGUI GameOverText;
-    [SerializeField] [Tooltip("ボタンの表示")] GameObject transtion;
+    //[SerializeField] TextMeshProUGUI GameOverText;
+    //[SerializeField] [Tooltip("ボタンの表示")] GameObject transtion;
+
+    public GameObject GameCleaPanel;
+    public GameObject GameOverPanel;
+
     // Start is called before the first frame update
     public void Awake()
     {
-        transtion.SetActive(false);
+        //transtion.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -32,13 +36,16 @@ public class M1UI : MonoBehaviour
 
         if(GameDirector.GameOver == true)
         {
-            GameOverText.text = "GAMEOVER";
+            //GameOverText.text = "GAMEOVER";
+            GameOverPanel.SetActive(true);
         }
         if(GameDirector.GameClear == true)
         {
-            GameOverText.text = "GameClear";
-            transtion.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(transtion);
+            //GameOverText.text = "GameClear";
+            //transtion.SetActive(true);
+            //EventSystem.current.SetSelectedGameObject(transtion);
+
+            GameCleaPanel.SetActive(true);
         }
     }
 }
