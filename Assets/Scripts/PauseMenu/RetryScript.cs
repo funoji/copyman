@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class RetryScript : MonoBehaviour
 {
-    public void OnClick()
+    public void RetryOnClick()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void TitleOnClick()
+    {
+        SceneManager.LoadScene("S-01_Title_Scene");
     }
 }
