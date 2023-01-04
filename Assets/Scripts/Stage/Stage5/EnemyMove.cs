@@ -85,7 +85,7 @@ public class EnemyMove : MonoBehaviour
             isExplosion = true;
             animator.SetBool("IsAttack", true);
             Invoke("Explosion", 0.5f);
-            GameDirector.GameOver = true;
+            Invoke("GameOver", 1.0f);
         }
     }
 
@@ -194,5 +194,10 @@ public class EnemyMove : MonoBehaviour
         explosion.StartEff = true;
         rb.isKinematic = true;
         collider.SetActive(false);
+    }
+
+    void GameOver()
+    {
+        GameDirector.GameOver = true;
     }
 }
