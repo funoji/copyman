@@ -18,7 +18,7 @@ public class Stage3_CrearFlag : MonoBehaviour
 
     private void Awake()
     {
-        clearNum = ClearNum(targetObj) / 2;
+        clearNum = ClearNum(targetObj);
     }
 
     void Start()
@@ -56,7 +56,7 @@ public class Stage3_CrearFlag : MonoBehaviour
     {
         while (true)
         {
-            clearNum = ClearNum(targetObj) / 2;
+            clearNum = ClearNum(targetObj) - 1;
             yield return new WaitForSeconds(0.5f);
         }
     }
