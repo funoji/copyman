@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Itemdictionary : MonoBehaviour
 {
@@ -32,5 +33,10 @@ public class Itemdictionary : MonoBehaviour
         if (WhereIN == 1) Images[1].SetActive(true); else Images[1].SetActive(false);
         if (WhereIN == 2) Images[2].SetActive(true); else Images[2].SetActive(false);
         if (WhereIN == 3) Images[3].SetActive(true); else Images[3].SetActive(false);
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("S-02_Menu_Scene");
+        }
     }
 }
