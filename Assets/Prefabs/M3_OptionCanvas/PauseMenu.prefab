@@ -906,6 +906,10 @@ PrefabInstance:
       propertyPath: m_Navigation.m_SelectOnRight
       value: 
       objectReference: {fileID: 6893984793783491120}
+    - target: {fileID: 6644622611041420759, guid: 678545bc00fbc1b4aa285ce35d2d563f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8267482903832174567, guid: 678545bc00fbc1b4aa285ce35d2d563f, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -964,13 +968,16 @@ MonoBehaviour:
     buttonObj: {fileID: 9067330901749482520}
     buttonImage: {fileID: 0}
     _buttonScale: {x: 0, y: 0, z: 0}
+  ExitButton: 1
   exitData:
     exitButton: {fileID: 0}
     exitImage: {fileID: 0}
     _exitImage: {x: 0, y: 0, z: 0}
-  ExitButton: 1
   scallSpeed: 0
   maxTime: 0
+  events:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!224 &6893984792821970393 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1015593366030521153, guid: 678545bc00fbc1b4aa285ce35d2d563f, type: 3}
