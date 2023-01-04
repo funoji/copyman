@@ -7956,7 +7956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2714d1756b78a014c8611a679629de50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gimmick: {fileID: 0}
+  gimmick: {fileID: 2087507958}
 --- !u!1001 &744028457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13066,6 +13066,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7550116481273261431, guid: 6350ede3ad14f744da2db1edfe22ccc1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6350ede3ad14f744da2db1edfe22ccc1, type: 3}
 --- !u!4 &2003153742 stripped
@@ -13393,6 +13397,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087507952}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2087507958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087507952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b355b495835eca4b99f3a571df62d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move: {x: 0, y: -10, z: 0}
+  speed: 5
+  waitTime: 1
+  isActive: 1
 --- !u!1 &2108100391
 GameObject:
   m_ObjectHideFlags: 0
