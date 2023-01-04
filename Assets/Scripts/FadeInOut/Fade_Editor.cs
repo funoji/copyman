@@ -43,30 +43,27 @@ public class Fade_Editor : Editor
             {
                 for (int num = 0; num < fadeObj.arraySize; num++)
                 {
+                    GUILayout.BeginVertical(GUI.skin.box);
                     fade.fadeSystem[num]._textObj = EditorGUILayout.Toggle("Use Other Object ", fade.fadeSystem[num]._textObj);
                     if (fade.fadeSystem[num]._textObj)
                     {
-                        GUILayout.BeginVertical(GUI.skin.box);
                         EditorGUILayout.LabelField("Text Object " + num);
                         fade.fadeSystem[num].textObj = (TextMeshProUGUI)EditorGUILayout.ObjectField("  Text Object ", fade.fadeSystem[num].textObj, typeof(TextMeshProUGUI), true);
                         fade.fadeSystem[num].fadeTime = EditorGUILayout.FloatField("　　Fade Change Time ", fade.fadeSystem[num].fadeTime);
                         fade.fadeSystem[num].fadeIn = EditorGUILayout.Toggle("　　Fade In  ", fade.fadeSystem[num].fadeIn);
                         fade.fadeSystem[num].fadeOut = EditorGUILayout.Toggle("　　Fade Out  ", fade.fadeSystem[num].fadeOut);
-                        GUILayout.EndVertical();
                     }
                     else
                     {
-                        GUILayout.BeginVertical(GUI.skin.box);
                         EditorGUILayout.LabelField("Image Object " + num);
                         fade.fadeSystem[num].imageObj = (Image)EditorGUILayout.ObjectField("　Fade Image " + num, fade.fadeSystem[num].imageObj, typeof(Image), true);
                         fade.fadeSystem[num].fadeTime = EditorGUILayout.FloatField("　　Fade Change Time ", fade.fadeSystem[num].fadeTime);
                         fade.fadeSystem[num].fadeIn = EditorGUILayout.Toggle("　　Fade In  ", fade.fadeSystem[num].fadeIn);
                         fade.fadeSystem[num].fadeOut = EditorGUILayout.Toggle("　　Fade Out  ", fade.fadeSystem[num].fadeOut);
-                        GUILayout.EndVertical();
                     }
+                    GUILayout.EndVertical();
                     EditorGUILayout.Space();
                 }
-
             }
         }
 
@@ -74,15 +71,21 @@ public class Fade_Editor : Editor
 
         //Sound
         EditorGUILayout.LabelField("Sound Setting", EditorStyles.boldLabel);
+        GUILayout.BeginVertical(GUI.skin.box);
         fade._soundBool = EditorGUILayout.Toggle("Use Sound Setting ", fade._soundBool);
         if (fade._soundBool)
         {
             EditorGUILayout.PropertyField(soundObj);
 
-            fade.soundfadeTime = EditorGUILayout.FloatField("　Sound Fade Time ", fade.soundfadeTime);
+            fade.sound_fadeIn= EditorGUILayout.Toggle("　Sound Fade In ", fade.sound_fadeIn);
+            fade.sound_fadeOut= EditorGUILayout.Toggle("　Sound Fade Out ", fade.sound_fadeOut);
+
+            fade.soundfadeIn_Time = EditorGUILayout.FloatField("　Sound Fade In Time ", fade.soundfadeIn_Time);
+            fade.soudfadeOut_Time = EditorGUILayout.FloatField("　Sound Fade Out Time ", fade.soudfadeOut_Time);
             fade.soundVolume = EditorGUILayout.FloatField("　Sound Volume ", fade.soundVolume);
             EditorGUILayout.HelpBox("ロード画面終了後のメインBGMの音量を設定してください。", MessageType.Warning, true);
         }
+        GUILayout.EndVertical();
         serializedObject.ApplyModifiedProperties(); //serializedObjectへの変更を適用
         EditorUtility.SetDirty(fade);
     }

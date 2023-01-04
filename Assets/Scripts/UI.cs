@@ -35,8 +35,9 @@ public class UI : MonoBehaviour
         //        UIobj.GetComponent<Transform>().localScale = ObjectManager._CanCopyObj[i].Scale;
         //    }
         //}
-        if (GameDirector.GameClear) result.text = "StageClear";
-        if (GameDirector.GameOver) result.text = "GameOver";
+
+        //if (GameDirector.GameClear) result.text = "StageClear";
+        //if (GameDirector.GameOver) result.text = "GameOver";
 
         //var rectObj = new RectTransform();  // ÉVÅ[ÉìÇ©ÇÁÇ∆Ç¡ÇƒÇ´ÇΩÇ‡ÇÃÇ∆Ç∑ÇÈ
         //var rectP = rectObj.rect;

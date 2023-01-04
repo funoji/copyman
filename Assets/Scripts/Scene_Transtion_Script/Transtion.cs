@@ -46,7 +46,7 @@ public class Transtion : MonoBehaviour
         StartCoroutine(Do_FadeOut());
         Invoke("Trans_Catalog", transTime);
     }
-    private void Trans_Catalog() { /*SceneManager.LoadScene("");*/}
+    private void Trans_Catalog() { SceneManager.LoadScene("Item_Dictionary");}
 
     public void Trans_ToSelect()
     {
@@ -90,27 +90,27 @@ public class Transtion : MonoBehaviour
     }
     private void Trans_Stage4() { SceneManager.LoadScene("Stage4"); }
 
-    public void Trans_ToStage5()
-    {
-        StartCoroutine(Do_FadeOut());
-        Invoke("Trans_Stage5", transTime);
-    }
-    private void Trans_Stage5() { SceneManager.LoadScene("Stage5"); }
+    //public void Trans_ToStage5()
+    //{
+    //    StartCoroutine(Do_FadeOut());
+    //    Invoke("Trans_Stage5", transTime);
+    //}
+    //private void Trans_Stage5() { SceneManager.LoadScene("Stage5"); }
 
-    public void Trans_ToStage6() { /*SceneManager.LoadScene("Stage6");*/ }
+    //public void Trans_ToStage6() { /*SceneManager.LoadScene("Stage6");*/ }
 
-    public void Trans_ToStage7() { /*SceneManager.LoadScene("Stage7");*/ }
+    //public void Trans_ToStage7() { /*SceneManager.LoadScene("Stage7");*/ }
 
-    public void Trans_ToStage8() { /*SceneManager.LoadScene("Stage8");*/ }
+    //public void Trans_ToStage8() { /*SceneManager.LoadScene("Stage8");*/ }
 
-    public void Trans_ToStage9() { /*SceneManager.LoadScene("Stage9");*/ }
+    //public void Trans_ToStage9() { /*SceneManager.LoadScene("Stage9");*/ }
 
-    public void Trans_ToStage10() 
-    {
-        StartCoroutine(Do_FadeOut());
-        Invoke("Trans_Stage10", transTime);
-    }
-    private void Trans_Stage10() { SceneManager.LoadScene("Stage10"); }
+    //public void Trans_ToStage10() 
+    //{
+    //    StartCoroutine(Do_FadeOut());
+    //    Invoke("Trans_Stage10", transTime);
+    //}
+    //private void Trans_Stage10() { SceneManager.LoadScene("Stage10"); }
 
     public void Trans_ToRetry()
     {
@@ -121,19 +121,14 @@ public class Transtion : MonoBehaviour
 
     IEnumerator Do_FadeOut()
     {
-        if (fadeFeature._soundBool)
-        {
-            fadeFeature.sound_fadeOut = true;
-            for (int num = 0; num < fadeFeature.audioSource.Length; num++) { fadeFeature.audioSource[num].Stop(); }
-        }
-
-        for (int fadeNum = 0; fadeNum < fadeFeature.fadeSystem.Length; fadeNum++) { fadeFeature.fadeSystem[fadeNum].fadeTime = fadetime; }
-
-        //UI関連の固定されているものを表示
-        for (int num = 1; num < fadeFeature.fadeSystem.Length; num++) { fadeFeature.fadeSystem[num].fadeIn = true; }
-
         fadeFeature.fadeSystem[0].fadeOut = true;
+        //UI関連の固定されているものを表示
+        if (fadeFeature.fadeSystem.Length > 1)
+        {
+            for (int num = 1; num < fadeFeature.fadeSystem.Length; num++) { fadeFeature.fadeSystem[num].fadeIn = true; }
+        }
+        if (fadeFeature._soundBool) { fadeFeature.sound_fadeOut = true; }
 
-        for (int num = 0; num < 100; num++) { if (num == 99) { yield break; } else { yield return null; } }
+        yield return new WaitForSeconds(transTime);
     }
 }
