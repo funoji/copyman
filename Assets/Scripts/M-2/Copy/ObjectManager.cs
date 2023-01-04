@@ -21,7 +21,6 @@ public class ObjectManager : MonoBehaviour
         public Vector3 Scale;
 
         //this object got copied
-        [HideInInspector]
         public bool Copied = false;
 
         //suond
@@ -39,6 +38,5 @@ public class ObjectManager : MonoBehaviour
             _CanCopyObj[i].name = _CanCopyObj[i].Object.name;
             _CanCopyObj[i].NumberOfObj = i;
         }
-
     }
 }
