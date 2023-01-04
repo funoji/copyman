@@ -30,9 +30,9 @@ public class Copy : MonoBehaviour
         Area.SetActive(false);
         rotvec = new Vector3 ( 0f, Mathf.Cos(rot * Mathf.Deg2Rad), Mathf.Sin(rot * Mathf.Deg2Rad));
        // TryGetComponent(out animator);
-        objLineRenderer = Instantiate(preLineRenderer, gameObject.transform);
-        objLineRenderer.transform.localPosition = Vector3.zero;
-        lineRenderer = objLineRenderer.GetComponent<LineRenderer>();
+        //objLineRenderer = Instantiate(preLineRenderer, gameObject.transform);
+        //objLineRenderer.transform.localPosition = Vector3.zero;
+        //lineRenderer = objLineRenderer.GetComponent<LineRenderer>();
     }
     public void Active_Area()
     {

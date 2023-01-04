@@ -17,7 +17,7 @@ public class CopyColl : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
     private void OnTriggerStay(Collider other)
     {
@@ -33,6 +33,7 @@ public class CopyColl : MonoBehaviour
                         Obj = ObjectManager._CanCopyObj[i].Object;
                         Obj.name = ObjectManager._CanCopyObj[i].Object.name;
                         ObjectManager._CanCopyObj[i].Copied = true;
+                        //Debug.Log(ObjectManager._CanCopyObj[i].Copied);
                         ForUIObj = Instantiate(ObjectManager._CanCopyObj[i].Object);
                         audio = ObjectManager._CanCopyObj[i].Audio;
                         inName = Name;

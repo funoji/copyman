@@ -28,13 +28,13 @@ public class UI : MonoBehaviour
     {
         UIobj = CopyCollObj.GetComponent<CopyColl>().ForUIObj;
         UIobj.transform.position = ObjUiPos.position;
-        for (int i = 0; i < ObjectManager._CanCopyObj.Length; i++)
-        {
-            if (UIobj.name == ObjectManager._CanCopyObj[i].name)
-            {
-                UIobj.GetComponent<Transform>().localScale = ObjectManager._CanCopyObj[i].Scale;
-            }
-        }
+        //for (int i = 0; i < ObjectManager._CanCopyObj.Length; i++)
+        //{
+        //    if (UIobj.name == ObjectManager._CanCopyObj[i].name)
+        //    {
+        //        UIobj.GetComponent<Transform>().localScale = ObjectManager._CanCopyObj[i].Scale;
+        //    }
+        //}
         if (GameDirector.GameClear) result.text = "StageClear";
         if (GameDirector.GameOver) result.text = "GameOver";
 
