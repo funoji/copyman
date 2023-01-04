@@ -325,7 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeSystem:
   - fadeTime: 0.01
-    fadeImage: {fileID: 5562920282091115055}
+    imageObj: {fileID: 0}
     fadeIn: 0
     fadeOut: 0
     _alpha: 0
@@ -336,6 +336,8 @@ MonoBehaviour:
   audioSource:
   - {fileID: 0}
   soundfadeTime: 5
+  soundfadeIn_Time: 0.05
+  soudfadeOut_Time: 0.001
   soundVolume: 1
   _soundBool: 1
 --- !u!1 &5562920282345918053

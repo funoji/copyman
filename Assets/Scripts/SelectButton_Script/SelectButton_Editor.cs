@@ -51,22 +51,27 @@ public class SelectButton_Editor : Editor
                 //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
                 for (int num = 0; num < selectObj.arraySize; num++)
                 {
-                    //EditorGUILayout.LabelField(select.selectData[num].buttonObj.name);
+                    GUILayout.BeginVertical(GUI.skin.box);
+                    EditorGUILayout.LabelField("Button " + (num + 1));
                     select.selectData[num].buttonObj = (GameObject)EditorGUILayout.ObjectField("button obj:", select.selectData[num].buttonObj, typeof(GameObject), true);
                     select.selectData[num].buttonImage = (GameObject)EditorGUILayout.ObjectField("button image:", select.selectData[num].buttonImage, typeof(GameObject), true);
+                    GUILayout.EndVertical();
 
                     EditorGUILayout.Space(); //スペースを描画
                 }
             }
+            GUILayout.BeginVertical(GUI.skin.box);
             select.ExitButton = EditorGUILayout.Toggle("Use Exit Button ", select.ExitButton);
             if (select.ExitButton)
             {
-                EditorGUILayout.LabelField("Exit Button ");
                 select.exitData.exitButton = (GameObject)EditorGUILayout.ObjectField("Exit button:", select.exitData.exitButton, typeof(GameObject), true);
                 select.exitData.exitImage = (GameObject)EditorGUILayout.ObjectField("Exit button image:", select.exitData.exitImage, typeof(GameObject), true);
 
-                EditorGUILayout.Space(); //スペースを描画
-            }           
+                EditorGUILayout.Space();
+            }
+            EditorGUILayout.PropertyField(events);
+            GUILayout.EndVertical();
+            EditorGUILayout.Space(); //スペースを描画
         }
         if (select.mode == SelectButton_Maneger.ModeType.image)
         {
@@ -88,24 +93,30 @@ public class SelectButton_Editor : Editor
                 //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
                 for (int num = 0; num < selectObj.arraySize; num++)
                 {
-                    //EditorGUILayout.LabelField(select.selectData[num].buttonObj.name);
+                    GUILayout.BeginVertical(GUI.skin.box);
+                    EditorGUILayout.LabelField("Button "+(num+1));
                     select.selectData[num].buttonObj = (GameObject)EditorGUILayout.ObjectField("button obj:", select.selectData[num].buttonObj, typeof(GameObject), true);
                     select.selectData[num].buttonImage = (GameObject)EditorGUILayout.ObjectField("button image:", select.selectData[num].buttonImage, typeof(GameObject), true);
+                    GUILayout.EndVertical();
 
                     EditorGUILayout.Space(); //スペースを描画
                 }
             }
+            GUILayout.BeginVertical(GUI.skin.box);
             select.ExitButton = EditorGUILayout.Toggle("Use Exit Button ", select.ExitButton);
             if (select.ExitButton)
             {
-                EditorGUILayout.LabelField("Exit Button ");
                 select.exitData.exitButton = (GameObject)EditorGUILayout.ObjectField("Exit button:", select.exitData.exitButton, typeof(GameObject), true);
                 select.exitData.exitImage = (GameObject)EditorGUILayout.ObjectField("Exit button image:", select.exitData.exitImage, typeof(GameObject), true);
                 EditorGUILayout.Space(); //スペースを描画
 
                 select.scallSpeed = EditorGUILayout.FloatField("変化する速さ", select.scallSpeed);
                 select.maxTime = EditorGUILayout.FloatField("切り替わる時間", select.maxTime);
+
+                EditorGUILayout.Space();
             }
+            EditorGUILayout.PropertyField(events);
+            GUILayout.EndVertical();
         }
         if (select.mode == SelectButton_Maneger.ModeType.normal)
         {
@@ -127,12 +138,14 @@ public class SelectButton_Editor : Editor
                 //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
                 for (int num = 0; num < selectObj.arraySize; num++)
                 {
-                    //EditorGUILayout.LabelField(select.selectData[num].buttonObj.name);
+                    GUILayout.BeginVertical(GUI.skin.box);
+                    EditorGUILayout.LabelField("Button " + (num + 1));
                     select.selectData[num].buttonObj = (GameObject)EditorGUILayout.ObjectField("button obj:", select.selectData[num].buttonObj, typeof(GameObject), true);
-
+                    GUILayout.EndVertical();
                     EditorGUILayout.Space(); //スペースを描画
                 }
             }
+            GUILayout.BeginVertical(GUI.skin.box);
             select.ExitButton = EditorGUILayout.Toggle("Use Exit Button ", select.ExitButton);
             if (select.ExitButton)
             {
@@ -143,10 +156,12 @@ public class SelectButton_Editor : Editor
 
                 select.scallSpeed = EditorGUILayout.FloatField("変化する速さ", select.scallSpeed);
                 select.maxTime = EditorGUILayout.FloatField("切り替わる時間", select.maxTime);
-            }
-        }
-        EditorGUILayout.PropertyField(events);
 
+                EditorGUILayout.Space();
+            }
+            EditorGUILayout.PropertyField(events);
+            GUILayout.EndVertical();
+        }
         serializedObject.ApplyModifiedProperties(); //serializedObjectへの変更を適用
         EditorUtility.SetDirty(select);
     }

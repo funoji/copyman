@@ -31,6 +31,8 @@ public class Fade_Manager : MonoBehaviour
 
     public AudioSource[] audioSource;
     public float soundfadeTime;
+    public float soundfadeIn_Time;
+    public float soudfadeOut_Time;
     public float soundVolume;
     public bool _soundBool;
 
@@ -47,8 +49,8 @@ public class Fade_Manager : MonoBehaviour
     {
         for (_fadeNum = 0; _fadeNum < fadeSystem.Length; _fadeNum++)
         {
-            if (fadeSystem[_fadeNum].fadeIn){FadeIn(_fadeNum);}
-            if (fadeSystem[_fadeNum].fadeOut){ FadeOut(_fadeNum);}
+            if (fadeSystem[_fadeNum].fadeIn) { FadeIn(_fadeNum); }
+            if (fadeSystem[_fadeNum].fadeOut) { FadeOut(_fadeNum); }
         }
 
         if (sound_fadeIn) { Sound_FadeIn(); }
@@ -92,33 +94,29 @@ public class Fade_Manager : MonoBehaviour
     public void Sound_FadeIn()
     {
         _fadetime += Time.deltaTime;
-        if (_fadetime >= soundfadeTime)
-        {
-            _fadetime = soundfadeTime;
-            sound_fadeIn = false;
-        }
         for (int num = 0; num < audioSource.Length; num++)
         {
-            if (audioSource[num].volume > soundVolume) { audioSource[num].volume = soundVolume; }
-            else if (audioSource[num].volume < soundVolume) { audioSource[num].volume = (float)(_fadetime / soundfadeTime); }
+            if (audioSource[num].volume > soundVolume) { audioSource[num].volume = soundVolume; sound_fadeIn = false; }
+            else if (audioSource[num].volume < soundVolume) { audioSource[num].volume =(soundfadeIn_Time*_fadetime); }
         }
     }
 
     public void Sound_FadeOut()
     {
-        _fadetime += Time.deltaTime;
-        if (_fadetime >= soundfadeTime)
+        for (int num = 0; num < audioSource.Length; num++) 
         {
-            _fadetime = soundfadeTime;
-            sound_fadeOut = false;
+            audioSource[num].volume -= soudfadeOut_Time; 
+            if (audioSource[num].volume <= 0)
+            {
+                sound_fadeOut = false;
+            }
         }
-        for (int num = 0; num < audioSource.Length; num++) { audioSource[num].volume = (float)(soundVolume - _fadetime / soundfadeTime); }
     }
 
     void Set_AlphaImage(int Num)
     {
-            fadeSystem[Num].imageObj.color = new Color(fadeSystem[Num].imageObj.color.r, fadeSystem[Num].imageObj.color.g, fadeSystem[Num].imageObj.color.b, fadeSystem[Num]._alpha);
-        }
+        fadeSystem[Num].imageObj.color = new Color(fadeSystem[Num].imageObj.color.r, fadeSystem[Num].imageObj.color.g, fadeSystem[Num].imageObj.color.b, fadeSystem[Num]._alpha);
+    }
 
     void Set_AlphaText(int Num)
     {
