@@ -8404,27 +8404,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10272,6 +10272,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351645338}
   m_CullTransparentMesh: 1
+--- !u!114 &1356119620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5579703158392393262, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+  m_PrefabInstance: {fileID: 2080321396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1360348103
 GameObject:
   m_ObjectHideFlags: 0
@@ -11341,6 +11352,7 @@ MonoBehaviour:
   - {fileID: 1682148420}
   - {fileID: 845405414}
   - {fileID: 393432906}
+  _bomDie: 0
 --- !u!114 &1466071671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13763,7 +13775,7 @@ MonoBehaviour:
     volume: 0.5
   BGMslider: {fileID: 627776647}
   SEslider: {fileID: 548305497}
-  MasterSlider: {fileID: 0}
+  MasterSlider: {fileID: 1356119620}
   masterVolume: 1
   bgmMasterVolume: 1
   seMasterVolume: 1

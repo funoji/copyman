@@ -56,6 +56,8 @@ public class SelectButton_Maneger : MonoBehaviour
     [SerializeField]
     public UnityEvent events = new UnityEvent();
 
+    public bool _pushBool;
+
     private void Start()
     {
         //初期の選択状態をスタートボタンに設定 : Set initial selection status to Start button
@@ -94,6 +96,7 @@ public class SelectButton_Maneger : MonoBehaviour
 
         //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
         if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == false) { EventSystem.current.SetSelectedGameObject(selectData[1].buttonObj); events.Invoke(); }
+        else if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == false&&_pushBool) { EventSystem.current.SetSelectedGameObject(selectData[0].buttonObj); }
         else if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == true) { EventSystem.current.SetSelectedGameObject(exitData.exitButton); events.Invoke(); }
 
         //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.
@@ -130,7 +133,8 @@ public class SelectButton_Maneger : MonoBehaviour
         Debug.Log(_button.name);
 
         //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == false) { EventSystem.current.SetSelectedGameObject(selectData[1].buttonObj); events.Invoke(); }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == false&&!_pushBool) { EventSystem.current.SetSelectedGameObject(selectData[1].buttonObj); events.Invoke(); }
+        else if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == false && _pushBool) { EventSystem.current.SetSelectedGameObject(selectData[0].buttonObj); }
         else if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == true) { EventSystem.current.SetSelectedGameObject(exitData.exitButton); events.Invoke(); }
 
         //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.

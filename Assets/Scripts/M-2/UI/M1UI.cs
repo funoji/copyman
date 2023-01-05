@@ -28,6 +28,8 @@ public class M1UI : MonoBehaviour
      * stopObj[3]  GameManager
      */
 
+    public bool _bomDie;
+
     // Start is called before the first frame update
     public void Awake()
     {
@@ -73,7 +75,6 @@ public class M1UI : MonoBehaviour
             stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = false;
             //ポーズ画面を起動できなくする。
             stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
-
         }
 
         if (GameDirector.GameOver == true)
@@ -96,7 +97,6 @@ public class M1UI : MonoBehaviour
             stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = false;
             //ポーズ画面を起動できなくする。
             stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
-
         }
         if (GameDirector.GameClear == true)
         {
@@ -120,6 +120,8 @@ public class M1UI : MonoBehaviour
             stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = false;
             //ポーズ画面を起動できなくする。
             stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
+            if (_bomDie) { stopObj[4].GetComponent<EnemyMove>().enabled = false; }
+            GameDirector.GameOver = false;
         }
     }
 }

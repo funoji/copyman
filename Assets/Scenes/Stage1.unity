@@ -1160,27 +1160,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2635,6 +2635,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
+      propertyPath: _pushBool
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -3131,19 +3135,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5340571351271196170, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 172.6951
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5340571351271196170, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 384.2611
+      value: 386
       objectReference: {fileID: 0}
     - target: {fileID: 5340571351271196170, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.9503158
+      value: 2.6329265
       objectReference: {fileID: 0}
     - target: {fileID: 5340571351271196170, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.9774846
+      value: 0.29321605
       objectReference: {fileID: 0}
     - target: {fileID: 5340571351271196170, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_LocalScale.z
@@ -3175,7 +3179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5340571351271196170, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -108.6
+      value: -101
       objectReference: {fileID: 0}
     - target: {fileID: 5340571351271196170, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3440,7 +3444,7 @@ PrefabInstance:
     - target: {fileID: 7691021091631181721, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 04ce2ea310682654ca6fa0a7190ab391, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8179305602109142366, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3837,6 +3841,7 @@ MonoBehaviour:
   events:
     m_PersistentCalls:
       m_Calls: []
+  _pushBool: 0
 --- !u!1 &772410565
 GameObject:
   m_ObjectHideFlags: 0
@@ -7394,7 +7399,7 @@ RectTransform:
   m_GameObject: {fileID: 1797795127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9, y: 1.7, z: 1.3}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 568791607}
@@ -8006,6 +8011,7 @@ MonoBehaviour:
   - {fileID: 31546445}
   - {fileID: 573331270}
   - {fileID: 240445964}
+  _bomDie: 0
 --- !u!114 &1974303221
 MonoBehaviour:
   m_ObjectHideFlags: 0

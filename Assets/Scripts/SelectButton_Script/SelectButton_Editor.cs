@@ -38,6 +38,10 @@ public class SelectButton_Editor : Editor
 
             EditorGUILayout.Space();
 
+            select._pushBool = EditorGUILayout.Toggle("Push Other No Stop", select._pushBool);
+
+            EditorGUILayout.Space();
+
             //一時的に保存した配列の長さと、本来の配列の長さが同じかチェックする
             if (arraysize != selectObj.arraySize)
             {
@@ -79,6 +83,10 @@ public class SelectButton_Editor : Editor
             arraysize = EditorGUILayout.IntField("Number of buttons", arraysize); //一時的に保存した長さをカスタムインスタンスに描画（書き換え可能）
 
             EditorGUILayout.Space(); //スペースを描画
+
+            select._pushBool = EditorGUILayout.Toggle("Push Other No Stop", select._pushBool);
+
+            EditorGUILayout.Space();
 
             //一時的に保存した配列の長さと、本来の配列の長さが同じかチェックする
             if (arraysize != selectObj.arraySize)
