@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombGenerator : MonoBehaviour
 {
-    //[SerializeField] GameObject Bomb;
+    [SerializeField] GameObject Bomb;
     [SerializeField] Transform SpawnPoint1, SpawnPoint2, SpawnPoint3, SpawnPoint4;
     Rigidbody rb;
     public float Power = 5f;
