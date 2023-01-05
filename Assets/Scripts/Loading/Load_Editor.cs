@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
+
 using UnityEngine.Video;
 using TMPro;
 
@@ -92,3 +94,4 @@ public class Load_Editor : Editor
         EditorUtility.SetDirty(loading);
     }
 }
+#endif

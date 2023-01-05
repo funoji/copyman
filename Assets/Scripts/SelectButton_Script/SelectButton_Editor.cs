@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
+#if UNITY_EDITOR 
 using UnityEditor;
 
 [CustomEditor(typeof(SelectButton_Maneger))]
@@ -166,3 +167,4 @@ public class SelectButton_Editor : Editor
         EditorUtility.SetDirty(select);
     }
 }
+#endif
