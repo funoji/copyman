@@ -9,15 +9,25 @@ public class GameQuitScript : MonoBehaviour
     [SerializeField] GameObject DefaltImage;
     [SerializeField] Sprite ReallySprite;
     [SerializeField] Sprite ReallySprite2;
+    [SerializeField] Sprite ReallySprite3;
+    [SerializeField] Transtion transtionSystem;
+
     private bool IsSecond = false;
+    private float vertical;
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+        if (!IsSecond) return;
+        vertical = Input.GetAxis("LstickVertical");
+        if (vertical != 0)
+        {
+            IsSecond = false;
+            DefaltImage.GetComponent<Image>().sprite = ReallySprite3;
+        }
     }
 
     public void OnClick()
@@ -25,12 +35,13 @@ public class GameQuitScript : MonoBehaviour
         if (IsSecond)
         {
             DefaltImage.GetComponent<Image>().sprite = ReallySprite2;
-#if UNITY_STANDALONE
-            Application.Quit();
-#endif
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
+            transtionSystem.Trans_ToGameEnd();
+//#if UNITY_STANDALONE
+//            Application.Quit();
+//#endif
+//#if UNITY_EDITOR
+//            UnityEditor.EditorApplication.isPlaying = false;
+//#endif
         }
         else
         {
