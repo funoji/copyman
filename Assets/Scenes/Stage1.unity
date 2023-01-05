@@ -2596,10 +2596,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
+      propertyPath: events.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
@@ -2609,9 +2613,13 @@ PrefabInstance:
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2913943440619317676, guid: facbbcf09e05aac44b73c1578efdae7f, type: 3}
+      objectReference: {fileID: 391949140}
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
+      propertyPath: events.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
@@ -2620,7 +2628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OnClick_B
+      value: Trans_ToSelect
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2628,7 +2636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: ButtonClickSE, Assembly-CSharp
+      value: Transtion, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645661, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: events.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3415,7 +3423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753021401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.06, y: 1.8, z: 8.4}
+  m_LocalPosition: {x: -12.96, y: 1.8, z: 8.4}
   m_LocalScale: {x: 1, y: 6, z: 8.249362}
   m_ConstrainProportionsScale: 0
   m_Children: []
