@@ -9,7 +9,18 @@ public class CPM_Cheat : MonoBehaviour
     {
         CheatEnd();
         CheatClear();
+        CheatOver();
         CheatReset();
+    }
+
+    void CheatOver()
+    {
+        if ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.X)) || (Input.GetKeyDown(KeyCode.Joystick1Button7) && Input.GetKey(KeyCode.Joystick1Button0)))
+        {
+            Debug.Log("CheatOver");
+            //ClearFlag of Stage1
+            GameDirector.GameOver = true;
+        }
     }
 
     void CheatClear()

@@ -64,10 +64,11 @@ public class Transtion : MonoBehaviour
 
     public void Trans_ToStage1()
     {
+        Debug.Log("Click Trans_ToStage1()");
         StartCoroutine(Do_FadeOut());
         Invoke("Trans_Stage1", transTime);
     }
-    private void Trans_Stage1() { SceneManager.LoadScene("Stage1"); }
+    private void Trans_Stage1() { Debug.Log("Trans_Stage1()"); SceneManager.LoadScene("Stage1"); }
 
     public void Trans_ToStage2()
     {
@@ -128,6 +129,8 @@ public class Transtion : MonoBehaviour
             for (int num = 1; num < fadeFeature.fadeSystem.Length; num++) { fadeFeature.fadeSystem[num].fadeIn = true; }
         }
         if (fadeFeature._soundBool) { fadeFeature.sound_fadeOut = true; }
+
+        Debug.Log("Do_FadeOut()");
 
         yield return new WaitForSeconds(transTime);
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using Cinemachine;
 
 public class M1UI : MonoBehaviour
 {
@@ -12,18 +13,43 @@ public class M1UI : MonoBehaviour
     //[SerializeField] TextMeshProUGUI GameOverText;
     //[SerializeField] [Tooltip("ボタンの表示")] GameObject transtion;
 
+    private bool _countBool;
+
     public GameObject GameCleaPanel;
     public GameObject GameOverPanel;
+
+    [Header("動作を止めるための変数")]
+    public GameObject[] stopObj;
+    /*
+     * ▼アタッチしてほしいオブジェクト
+     * stopObj[0]  Player
+     * stopObj[1]  Player->CPM
+     * stopObj[2]  CameraSystem
+     * stopObj[3]  GameManager
+     */
 
     // Start is called before the first frame update
     public void Awake()
     {
         //transtion.SetActive(false);
+        _countBool = false;
+
+        //プレイヤーの移動、ジャンプ、アニメーションを止める。
+        stopObj[0].GetComponent<PlayerController>().enabled = true;
+        stopObj[0].GetComponent<JumpManager>().enabled = true;
+        stopObj[0].GetComponent<Animator_Controller>().enabled = true;
+        //プレイヤーのコピーペーストを止める。
+        stopObj[1].GetComponent<Copyinput>().enabled = true;
+        //カメラの移動を止める。
+        stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = true;
+        //ポーズ画面を起動できなくする。
+        stopObj[3].GetComponent<CanvasActiveScript>().enabled = true;
+
     }
     // Update is called once per frame
     void Update()
     {
-        CountDown -= Time.deltaTime;
+        if (!_countBool) { Time.timeScale = 1f; CountDown -= Time.deltaTime; }
         if(CountDown >= 0f)
         {
             countdown.text = CountDown.ToString("f1");
@@ -31,21 +57,69 @@ public class M1UI : MonoBehaviour
 
         if(CountDown <=0)
         {
+            //ゲーム時間(CoundDwon)を止める
+            _countBool = true;
+            
+            //ゲームオーバー画面表示
             GameDirector.GameOver = true;
+
+            //プレイヤーの移動、ジャンプ、アニメーションを止める。
+            stopObj[0].GetComponent<PlayerController>().enabled = false;
+            stopObj[0].GetComponent<JumpManager>().enabled = false;
+            stopObj[0].GetComponent<Animator_Controller>().enabled = false;
+            //プレイヤーのコピーペーストを止める。
+            stopObj[1].GetComponent<Copyinput>().enabled = false;
+            //カメラの移動を止める。
+            stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = false;
+            //ポーズ画面を起動できなくする。
+            stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
+
         }
 
-        if(GameDirector.GameOver == true)
+        if (GameDirector.GameOver == true)
         {
             //GameOverText.text = "GAMEOVER";
+
+            //ゲーム時間(CoundDwon)を止める
+            _countBool = true;
+
+            //ゲームオーバー画面表示
             GameOverPanel.SetActive(true);
+
+            //プレイヤーの移動、ジャンプ、アニメーションを止める。
+            stopObj[0].GetComponent<PlayerController>().enabled = false;
+            stopObj[0].GetComponent<JumpManager>().enabled = false;
+            stopObj[0].GetComponent<Animator_Controller>().enabled = false;
+            //プレイヤーのコピーペーストを止める。
+            stopObj[1].GetComponent<Copyinput>().enabled = false;
+            //カメラの移動を止める。
+            stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = false;
+            //ポーズ画面を起動できなくする。
+            stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
+
         }
-        if(GameDirector.GameClear == true)
+        if (GameDirector.GameClear == true)
         {
             //GameOverText.text = "GameClear";
             //transtion.SetActive(true);
             //EventSystem.current.SetSelectedGameObject(transtion);
 
+            //ゲーム時間(CoundDwon)を止める
+            _countBool = true;
+
+            //ゲームクリア画面表示
             GameCleaPanel.SetActive(true);
+
+            //プレイヤーの移動、ジャンプ、アニメーションを止める。
+            stopObj[0].GetComponent<PlayerController>().enabled = false;
+            stopObj[0].GetComponent<JumpManager>().enabled = false;
+            stopObj[0].GetComponent<Animator_Controller>().enabled = false;
+            //プレイヤーのコピーペーストを止める。
+            stopObj[1].GetComponent<Copyinput>().enabled = false;
+            //カメラの移動を止める。
+            stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = false;
+            //ポーズ画面を起動できなくする。
+            stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
         }
     }
 }
