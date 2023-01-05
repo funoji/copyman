@@ -62,5 +62,10 @@ public class BombGenerator : MonoBehaviour
             //rb.AddForce(transform.forward * Power, ForceMode.Impulse);
             count = 0;
         }
+        if (GameDirector.GameClear)
+        {
+            GameObject obj = GameObject.Find("BOMB2(Clone)");
+            Destroy(obj);
+        }
     }
 }
