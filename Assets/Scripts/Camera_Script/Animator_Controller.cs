@@ -11,6 +11,8 @@ public class Animator_Controller : MonoBehaviour
     Rigidbody rb;
     float state = 0.2f;
 
+    private bool canJum = true;
+
     void Awake()
     {
         TryGetComponent(out animator);
@@ -28,6 +30,12 @@ public class Animator_Controller : MonoBehaviour
             animator.SetBool("isRun", true);
         }
         else animator.SetBool("isRun", false);
+
+        //if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+        //{
+        //    canJum = false;
+        //    animator.Play("Up");
+        //}
 
         if (rb.velocity.y > state)
         {
