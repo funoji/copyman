@@ -5,9 +5,6 @@ using Cinemachine;
 
 public class InvertManagerScript : MonoBehaviour
 {
-    public static bool HoriInvert = false;
-    public static bool VertInvert = false;
-
     CinemachineVirtualCamera cinemaCamera;
     private void Start()
     {
@@ -16,13 +13,11 @@ public class InvertManagerScript : MonoBehaviour
 
     public void HoriInvertIsCheck()
     {
-        HoriInvert = !HoriInvert;
         cinemaCamera.GetCinemachineComponent(CinemachineCore.Stage.Aim).GetComponent<CinemachinePOV>().m_HorizontalAxis.m_InvertInput =
             !cinemaCamera.GetCinemachineComponent(CinemachineCore.Stage.Aim).GetComponent<CinemachinePOV>().m_HorizontalAxis.m_InvertInput;
     }
     public void VertInvertIsCheck()
     {
-        VertInvert = !VertInvert;
         cinemaCamera.GetCinemachineComponent(CinemachineCore.Stage.Aim).GetComponent<CinemachinePOV>().m_VerticalAxis.m_InvertInput =
             !cinemaCamera.GetCinemachineComponent(CinemachineCore.Stage.Aim).GetComponent<CinemachinePOV>().m_VerticalAxis.m_InvertInput;
     }
