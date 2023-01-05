@@ -49,7 +49,7 @@ public class M1UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_countBool) { Time.timeScale = 1f; CountDown -= Time.deltaTime; }
+        if (!_countBool) { /*Time.timeScale = 1f;*/ CountDown -= Time.deltaTime; }
         if(CountDown >= 0f)
         {
             countdown.text = CountDown.ToString("f1");

@@ -314,6 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1015593366030521153}
   - component: {fileID: 8539543000765016581}
+  - component: {fileID: 5995998371708521416}
   m_Layer: 5
   m_Name: InActivePanel
   m_TagString: Untagged
@@ -376,13 +377,48 @@ MonoBehaviour:
     buttonObj: {fileID: 1015593367565101320}
     buttonImage: {fileID: 0}
     _buttonScale: {x: 0, y: 0, z: 0}
+  ExitButton: 0
   exitData:
     exitButton: {fileID: 0}
     exitImage: {fileID: 0}
     _exitImage: {x: 0, y: 0, z: 0}
-  ExitButton: 0
   scallSpeed: 0
   maxTime: 0
+  events:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5995998371708521416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015593366030521152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81152cb1c19414b4bb828e3e573acf2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 2
+  selectData:
+  - buttonName: 
+    buttonObj: {fileID: 1015593367147379893}
+    buttonImage: {fileID: 1224063246937414884}
+    _buttonScale: {x: 0, y: 0, z: 0}
+  - buttonName: 
+    buttonObj: {fileID: 1015593367071973778}
+    buttonImage: {fileID: 759661389247605034}
+    _buttonScale: {x: 0, y: 0, z: 0}
+  ExitButton: 0
+  exitData:
+    exitButton: {fileID: 0}
+    exitImage: {fileID: 0}
+    _exitImage: {x: 0, y: 0, z: 0}
+  scallSpeed: 0
+  maxTime: 0
+  events:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1015593366254124403
 GameObject:
   m_ObjectHideFlags: 0
