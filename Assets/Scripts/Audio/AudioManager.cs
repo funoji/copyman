@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private Slider BGMslider;
     [SerializeField] private Slider SEslider;
+    [SerializeField] private Slider MasterSlider;
 
     public float masterVolume = 1;
     public float bgmMasterVolume = 1;
@@ -26,7 +27,6 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -43,11 +43,19 @@ public class AudioManager : MonoBehaviour
         seAudioSource.volume = SEslider.value;
     }
 
+    public void MasterValueChange()
+    {
+        bgmAudioSource.volume = MasterSlider.value;
+        seAudioSource.volume = MasterSlider.value;
+    }
+
     public void PlayBGM(BGMSoundData.BGM bgm)
     {
         BGMSoundData data = bgmSoundDatas.Find(data => data.bgm == bgm);
         bgmAudioSource.clip = data.audioClip;
         bgmAudioSource.volume = data.volume * bgmMasterVolume * masterVolume;
+        bgmAudioSource.volume = BGMslider.value;
+        bgmAudioSource.volume = MasterSlider.value;
         bgmAudioSource.Play();
     }
 
@@ -56,6 +64,8 @@ public class AudioManager : MonoBehaviour
     {
         SESoundData data = seSoundDatas.Find(data => data.se == se);
         seAudioSource.volume = data.volume * seMasterVolume * masterVolume;
+        seAudioSource.volume = SEslider.value;
+        seAudioSource.volume = MasterSlider.value;
         seAudioSource.PlayOneShot(data.audioClip);
     }
 
