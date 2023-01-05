@@ -16,7 +16,7 @@ public class GameQuitScript : MonoBehaviour
     private float vertical;
     void Start()
     {
-        transtionSystem = GameObject.Find("transtionSystem").GetComponent<Transtion>();
+        transtionSystem = GameObject.Find("TranstionSystem").GetComponent<Transtion>();
     }
 
     void Update()
