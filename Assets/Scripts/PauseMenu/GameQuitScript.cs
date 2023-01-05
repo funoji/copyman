@@ -10,13 +10,13 @@ public class GameQuitScript : MonoBehaviour
     [SerializeField] Sprite ReallySprite;
     [SerializeField] Sprite ReallySprite2;
     [SerializeField] Sprite ReallySprite3;
-    [SerializeField] Transtion transtionSystem;
+    Transtion transtionSystem;
 
     private bool IsSecond = false;
     private float vertical;
     void Start()
     {
-
+        transtionSystem = GameObject.Find("transtionSystem").GetComponent<Transtion>();
     }
 
     void Update()
