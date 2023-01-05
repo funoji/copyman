@@ -22,14 +22,15 @@ public class GameOverManager : MonoBehaviour
     [Space(5)]
     public TextObj[] textObj;
 
+    public AudioSource audioSource;
+
     private void Start()
     {
+        audioSource.volume = 0;
         for (int num = 0; num < textObj.Length; num++)
         {
             textObj[num]._textSize = textObj[num].text.fontSize;
-            Debug.Log("_textSize[" + num + "] : " + textObj[num]._textSize);
             textObj[num].text.GetComponent<TextMeshProUGUI>().fontSize = 0;
-            Debug.Log("textObj[" + num + "] : " + textObj[num].text.fontSize);
         }
         StartCoroutine(WaitTime());
     }
@@ -50,7 +51,6 @@ public class GameOverManager : MonoBehaviour
         {
             if (textObj[num].onFade)
             {
-                Debug.Log(textObj[num].onFade);
                 Change_TextSize(num); 
             }
 
@@ -60,7 +60,6 @@ public class GameOverManager : MonoBehaviour
     void Change_TextSize(int Num)
     {
         textObj[Num].text.fontSize += Time.deltaTime * changeTime;
-        Debug.Log("textObj[" + Num + "] : " + textObj[Num].text.fontSize);
         if (textObj[Num]._textSize <= textObj[Num].text.fontSize)
         {
             textObj[Num].text.fontSize = textObj[Num]._textSize;
