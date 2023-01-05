@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class StageSelectUI : MonoBehaviour
 {
@@ -51,8 +52,7 @@ public class StageSelectUI : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
-            unityEvent.Invoke();
-            EventSystem.current.SetSelectedGameObject(button[5]);
+            SceneManager.LoadScene("S-02_Menu_Scene");   
         }
 
         //Tutorial
@@ -61,7 +61,7 @@ public class StageSelectUI : MonoBehaviour
             button[0].SetActive(true);
             if (Input.GetKey(KeyCode.Joystick1Button0))
             {
-                EventSystem.current.SetSelectedGameObject(button[0]);
+                SceneManager.LoadScene("Tutorial");
             }
         }
         else
@@ -75,7 +75,7 @@ public class StageSelectUI : MonoBehaviour
             button[1].SetActive(true);
             if (Input.GetKey(KeyCode.Joystick1Button0))
             {
-                EventSystem.current.SetSelectedGameObject(button[1]);
+                SceneManager.LoadScene("Stage1");
             }
         }
         else 
@@ -89,7 +89,7 @@ public class StageSelectUI : MonoBehaviour
             button[2].SetActive(true);
             if (Input.GetKey(KeyCode.Joystick1Button0))
             {
-                EventSystem.current.SetSelectedGameObject(button[2]);
+                SceneManager.LoadScene("Stage2");
             }
         }
         else 
@@ -103,7 +103,7 @@ public class StageSelectUI : MonoBehaviour
             button[3].SetActive(true);
             if (Input.GetKey(KeyCode.Joystick1Button0))
             {
-                EventSystem.current.SetSelectedGameObject(button[3]);
+                SceneManager.LoadScene("Stage3");
             }
         }
         else
@@ -117,7 +117,7 @@ public class StageSelectUI : MonoBehaviour
             button[4].SetActive(true);
             if (Input.GetKey(KeyCode.Joystick1Button0))
             {
-                EventSystem.current.SetSelectedGameObject(button[4]);
+                SceneManager.LoadScene("Stage4");
             }
         }
         else
