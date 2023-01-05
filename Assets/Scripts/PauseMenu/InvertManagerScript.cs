@@ -14,11 +14,6 @@ public class InvertManagerScript : MonoBehaviour
         cinemaCamera = GameObject.Find("CameraSystem").GetComponent<CinemachineVirtualCamera>();
     }
 
-    private void Update()
-    {
-        Debug.Log(cinemaCamera.GetCinemachineComponent(CinemachineCore.Stage.Aim).GetComponent<CinemachinePOV>().m_HorizontalAxis.m_InvertInput);
-    }
-
     public void HoriInvertIsCheck()
     {
         HoriInvert = !HoriInvert;
