@@ -420,6 +420,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &72609064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5425320187910737307, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
+  m_PrefabInstance: {fileID: 662025377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &72652055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3746,6 +3751,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854258420}
   m_CullTransparentMesh: 1
+--- !u!1 &919978873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2731735962899903258, guid: f251432e45dc04c488085cfa1dcc3d75, type: 3}
+  m_PrefabInstance: {fileID: 73232389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &939617131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,6 +3788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17bebdbd3c90dd4dab52535310d0ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bom: {fileID: 1671797954}
   SpawnPoint: {fileID: 1420259794}
   ball: {fileID: 7122187172659527914, guid: 14c7707b2ce00a044b7b7c0aeeb31fb9, type: 3}
   Canvas: {fileID: 0}
@@ -5457,7 +5468,7 @@ PrefabInstance:
       objectReference: {fileID: 469924411}
     - target: {fileID: 728606448534291626, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Trans_ToSelect
+      value: Trasn_ToTitle
       objectReference: {fileID: 0}
     - target: {fileID: 728606448534291626, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5470,6 +5481,10 @@ PrefabInstance:
     - target: {fileID: 1698093685572005792, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322600447017603608, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
+      propertyPath: m_text
+      value: "\u30BF\u30A4\u30C8\u30EB\u3078"
       objectReference: {fileID: 0}
     - target: {fileID: 2545658601702804191, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -5654,6 +5669,22 @@ PrefabInstance:
     - target: {fileID: 8186745535283032246, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422526007520812965, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.55030185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422526007520812965, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.55030185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422526007520812965, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.55030185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422526007520812965, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
@@ -6779,7 +6810,11 @@ MonoBehaviour:
   countdown: {fileID: 1615175113}
   GameCleaPanel: {fileID: 466346186}
   GameOverPanel: {fileID: 1998782315}
-  stopObj: []
+  stopObj:
+  - {fileID: 1530304810}
+  - {fileID: 72609064}
+  - {fileID: 919978873}
+  - {fileID: 1062475646}
 --- !u!114 &1870680925
 MonoBehaviour:
   m_ObjectHideFlags: 0

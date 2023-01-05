@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombGenerator : MonoBehaviour
 {
-    [SerializeField] GameObject Bomb;
+    //[SerializeField] GameObject Bomb;
     [SerializeField] Transform SpawnPoint1, SpawnPoint2, SpawnPoint3, SpawnPoint4;
     Rigidbody rb;
     public float Power = 5f;
@@ -12,6 +12,7 @@ public class BombGenerator : MonoBehaviour
     private enum spawnNo { FrontLeft,FrontRight,BackLeft,BackRight}
     private spawnNo no;
     private int count = 0;
+    public GameObject[] boms;
 
     void Update()
     {

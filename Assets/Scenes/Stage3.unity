@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17332196d4a898749afbc90bc46b43bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bom: {fileID: 0}
   GoalCount: 15
   CPMScore: {fileID: 0}
 --- !u!1 &46209120
@@ -2032,6 +2033,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404049948}
   m_Mesh: {fileID: -4670371673946364318, guid: af33386134969f845a8df722bfcdaf6a, type: 3}
+--- !u!1 &425297153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2731735962899903258, guid: f251432e45dc04c488085cfa1dcc3d75, type: 3}
+  m_PrefabInstance: {fileID: 916859533}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &440157411
 GameObject:
   m_ObjectHideFlags: 0
@@ -6576,6 +6582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17332196d4a898749afbc90bc46b43bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bom: {fileID: 635186193}
   GoalCount: 15
   CPMScore: {fileID: 1881576951}
 --- !u!64 &1438334680
@@ -10237,7 +10244,11 @@ MonoBehaviour:
   countdown: {fileID: 822415616}
   GameCleaPanel: {fileID: 371238436}
   GameOverPanel: {fileID: 555347426}
-  stopObj: []
+  stopObj:
+  - {fileID: 1396101214}
+  - {fileID: 257850386}
+  - {fileID: 425297153}
+  - {fileID: 2070615502}
 --- !u!114 &1939281938
 MonoBehaviour:
   m_ObjectHideFlags: 0

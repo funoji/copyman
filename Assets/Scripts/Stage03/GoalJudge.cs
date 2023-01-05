@@ -6,6 +6,7 @@ using TMPro;
 
 public class GoalJudge : MonoBehaviour
 {
+    [SerializeField] GameObject bom;
     [SerializeField] private int GoalCount = 15;
     [SerializeField] private TextMeshProUGUI CPMScore;
 
@@ -23,6 +24,7 @@ public class GoalJudge : MonoBehaviour
 
         if (GoalCount <= 0)
         {
+            bom.SetActive(false);
             Debug.Log("Stage3 Clear");
             GameDirector.GameClear = true;
         }

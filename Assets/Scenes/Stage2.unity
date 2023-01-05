@@ -8486,6 +8486,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
+--- !u!1 &845405414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2731735962899903258, guid: f251432e45dc04c488085cfa1dcc3d75, type: 3}
+  m_PrefabInstance: {fileID: 229402536}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &855961381 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 281360660762938432, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
@@ -11224,7 +11229,11 @@ MonoBehaviour:
   countdown: {fileID: 1771949320}
   GameCleaPanel: {fileID: 1677928636}
   GameOverPanel: {fileID: 188906474}
-  stopObj: []
+  stopObj:
+  - {fileID: 1363698328}
+  - {fileID: 1682148420}
+  - {fileID: 845405414}
+  - {fileID: 393432906}
 --- !u!114 &1466071671
 MonoBehaviour:
   m_ObjectHideFlags: 0

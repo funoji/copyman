@@ -6,6 +6,7 @@ using TMPro;
 
 public class BallGenerator : MonoBehaviour
 {
+    [SerializeField] GameObject bom;
     [SerializeField] Transform SpawnPoint;
     [SerializeField] GameObject ball;
     [SerializeField] GameObject Canvas;
@@ -40,6 +41,7 @@ public class BallGenerator : MonoBehaviour
         }
         if(Clearcount <= 0)
         {
+            bom.SetActive(false);
             GameDirector.GameClear = true;
             Canvas.SetActive(true);
             GameDirector.GameClear = true;

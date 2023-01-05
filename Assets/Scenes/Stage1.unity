@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &31546445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5425320187910737307, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
+  m_PrefabInstance: {fileID: 5230321536060792615}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &47375534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,6 +2392,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568791606}
   m_CullTransparentMesh: 1
+--- !u!1 &573331270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2731735962899903258, guid: f251432e45dc04c488085cfa1dcc3d75, type: 3}
+  m_PrefabInstance: {fileID: 1542315177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &654278639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7661,7 +7671,11 @@ MonoBehaviour:
   countdown: {fileID: 1230055644}
   GameCleaPanel: {fileID: 704674081}
   GameOverPanel: {fileID: 697429059}
-  stopObj: []
+  stopObj:
+  - {fileID: 5230321536060792616}
+  - {fileID: 31546445}
+  - {fileID: 573331270}
+  - {fileID: 240445964}
 --- !u!114 &1974303221
 MonoBehaviour:
   m_ObjectHideFlags: 0

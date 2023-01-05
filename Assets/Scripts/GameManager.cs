@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    static bool Gameclear = false;
+   static bool Gameclear = false;
+    [SerializeField] GameObject bom;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     {
         if(Gameclear)
         {
-
+            bom.SetActive(false);
         }
     }
 }
