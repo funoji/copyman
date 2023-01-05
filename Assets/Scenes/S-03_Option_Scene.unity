@@ -3427,9 +3427,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1465193089}
-        m_TargetAssemblyTypeName: Transtion, Assembly-CSharp
-        m_MethodName: Trans_ToGameEnd
+      - m_Target: {fileID: 1612366016}
+        m_TargetAssemblyTypeName: GameQuitScript, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3484,7 +3484,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612366011}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af526a4f427866499a0a8914ff4e2a1, type: 3}
   m_Name: 
@@ -3492,6 +3492,8 @@ MonoBehaviour:
   DefaltImage: {fileID: 1811223816}
   ReallySprite: {fileID: 21300000, guid: 3766bcabaf1ae0c4f9bf1a01da443609, type: 3}
   ReallySprite2: {fileID: 21300000, guid: 916a3bc41d3a29d468991322d815ba9c, type: 3}
+  ReallySprite3: {fileID: 21300000, guid: 2f05d4ac8ef624847a63c0c506457ea0, type: 3}
+  transtionSystem: {fileID: 1465193089}
 --- !u!114 &1612366017
 MonoBehaviour:
   m_ObjectHideFlags: 0

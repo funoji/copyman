@@ -72,12 +72,6 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxis("LstickHorizontal");
         vertical = Input.GetAxis("LstickVertical");
 
-        /*以下変更点に疑問なら保井マデ*/
-        if (InvertManagerScript.HoriInvert)
-            horizontal *= -1;
-        if (InvertManagerScript.VertInvert)
-            vertical *= -1;
-
         //キーボード用
         //horizontal = Input.GetAxis("MoveX");
         //vertical = Input.GetAxis("MoveY");
