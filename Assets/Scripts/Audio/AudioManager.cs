@@ -73,6 +73,7 @@ public class BGMSoundData
         Stage4,
         Tutlial,
         Menu,
+        StageClear,
         Gameover
     }
 
