@@ -72,7 +72,8 @@ public class BGMSoundData
         Stage3,
         Stage4,
         Tutlial,
-        Menu
+        Menu,
+        Gameover
     }
 
     public BGM bgm;
