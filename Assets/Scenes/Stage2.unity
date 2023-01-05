@@ -6650,6 +6650,7 @@ MonoBehaviour:
   ActivePanel: {fileID: 2080321399}
   InActivePanel: {fileID: 2080321397}
   CopyInput: {fileID: 0}
+  button: {fileID: 2080321400}
 --- !u!114 &393432908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13754,6 +13755,7 @@ MonoBehaviour:
     volume: 0.5
   BGMslider: {fileID: 627776647}
   SEslider: {fileID: 548305497}
+  MasterSlider: {fileID: 649834382}
   masterVolume: 1
   bgmMasterVolume: 1
   seMasterVolume: 1
@@ -13960,6 +13962,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2133551471}
     m_Modifications:
+    - target: {fileID: 5579703158392393262, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1977589403}
+    - target: {fileID: 5579703158392393262, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MasterValueChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579703158392393262, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594950933941053163, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594950933941053163, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6893984792364634922, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -14124,6 +14146,18 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8179305602109142366, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179305602109142366, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179305602109142366, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6658145575376273364, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
@@ -14140,6 +14174,11 @@ RectTransform:
 --- !u!1 &2080321399 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6893984792311545625, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
+  m_PrefabInstance: {fileID: 2080321396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2080321400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6893984792261218857, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
   m_PrefabInstance: {fileID: 2080321396}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2087507952
