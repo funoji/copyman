@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CanvasActiveScript : MonoBehaviour
 {
     [SerializeField] GameObject ActivePanel;
     [SerializeField] GameObject InActivePanel;
     [SerializeField] GameObject CopyInput;
+    [SerializeField] GameObject button;
 
     bool IsPose = false;
 
@@ -34,6 +36,9 @@ public class CanvasActiveScript : MonoBehaviour
     {
         if (IsPose==false)
         {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(button);
+
             copyInput.IsActive = false;
             Debug.Log("Panel is active");
             Time.timeScale = 0f;
