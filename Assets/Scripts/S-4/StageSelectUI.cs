@@ -70,6 +70,8 @@ public class StageSelectUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button5) && whereinNum < StageNum)
         {
+            AudioManager.Instance.PlaySE(SESoundData.SE.A_ClickButton);
+
             rect.localPosition += new Vector3(-GameWindow, 0, 0);
             whereinNum++;
             //Debug.Log(whereinNum);
@@ -78,6 +80,8 @@ public class StageSelectUI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button4) && whereinNum > 0)
         {
+            AudioManager.Instance.PlaySE(SESoundData.SE.A_ClickButton);
+
             rect.localPosition += new Vector3(GameWindow, 0, 0);
             whereinNum--;
             //Debug.Log(whereinNum);

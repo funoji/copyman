@@ -21,12 +21,16 @@ public class Itemdictionary : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            AudioManager.Instance.PlaySE(SESoundData.SE.A_ClickButton);
+
             if (WhereIN > 0)WhereIN--;
         }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if(WhereIN < page)WhereIN++;
+            AudioManager.Instance.PlaySE(SESoundData.SE.A_ClickButton);
+
+            if (WhereIN < page)WhereIN++;
         }
 
         if (WhereIN == 0) Images[0].SetActive(true); else Images[0].SetActive(false);
@@ -36,6 +40,8 @@ public class Itemdictionary : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Escape))
         {
+            AudioManager.Instance.PlaySE(SESoundData.SE.A_ClickButton);
+
             SceneManager.LoadScene("S-02_Menu_Scene");
         }
     }
