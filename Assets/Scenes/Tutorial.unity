@@ -2861,31 +2861,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 605933516639073993, guid: f0d0d0269c96a2a4288c0ac7e9ecbaa3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3292,7 +3292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645658, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7723342583296645658, guid: eb5a266cf3b2d8f42a71685551bdd0dd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4455,8 +4455,8 @@ RectTransform:
   - {fileID: 341823160}
   - {fileID: 846363840}
   - {fileID: 1635105957}
-  - {fileID: 283222126}
   - {fileID: 1222265158}
+  - {fileID: 283222126}
   m_Father: {fileID: 229145099}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4498,6 +4498,7 @@ MonoBehaviour:
   - {fileID: 94112735}
   - {fileID: 459602436}
   - {fileID: 2128000841}
+  _bomDie: 0
 --- !u!114 &1080086802
 MonoBehaviour:
   m_ObjectHideFlags: 0
