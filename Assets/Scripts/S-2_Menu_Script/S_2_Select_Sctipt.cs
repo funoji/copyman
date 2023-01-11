@@ -37,6 +37,7 @@ public class S_2_Select_Sctipt : MonoBehaviour
     [SerializeField] [Tooltip("拡大縮小の時間")] private float maxTime;
     private float time;
     private bool enlarge = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,29 +59,21 @@ public class S_2_Select_Sctipt : MonoBehaviour
         //Debug.Log(button.name);
 
         //コントローラー用　ボタン選択状態の設定 : For Controller Set button selection status
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
-        {
-            EventSystem.current.SetSelectedGameObject(ExitButton);
-        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1)) { EventSystem.current.SetSelectedGameObject(ExitButton); }
 
         //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す : Scale the selected button. When done, return to initial size.
-        if (button == optionButton)
-            Scaling(optionImage);
-        else if (button != optionButton)
-            optionImage.transform.localScale = Reset_ImageScale(_optionScale);
-        if (button == itemButton)
-            Scaling(itemImage);
-        else if (button != itemButton)
-            itemImage.transform.localScale = Reset_ImageScale(_itemScale);
-        if (button == mainButton)
-            Scaling(mainImage);
-        else if (button != mainButton)
-            mainImage.transform.localScale = Reset_ImageScale(_mainScale);
-        if (button == ExitButton)
-            Scaling(ExitImage);
-        else if (button != ExitButton)
-            ExitImage.transform.localScale = Reset_ImageScale(_ExitScale);
-
+        //Option
+        if (button == optionButton) { Scaling(optionImage); }
+        else if (button != optionButton) { optionImage.transform.localScale = Reset_ImageScale(_optionScale); }
+        //Item
+        if (button == itemButton) { Scaling(itemImage); }
+        else if (button != itemButton) { itemImage.transform.localScale = Reset_ImageScale(_itemScale); }
+        //Main
+        if (button == mainButton) { Scaling(mainImage); }
+        else if (button != mainButton) { mainImage.transform.localScale = Reset_ImageScale(_mainScale); }
+        //Exit
+        if (button == ExitButton) { Scaling(ExitImage); }
+        else if (button != ExitButton) { ExitImage.transform.localScale = Reset_ImageScale(_ExitScale); }
     }
 
     //拡大縮小の演出の処理 : Processing of scaling direction
@@ -88,10 +81,8 @@ public class S_2_Select_Sctipt : MonoBehaviour
     {
         scallSpeed = Time.deltaTime * 0.1f;
 
-        if (time < 0)
-            enlarge = true;
-        if (time > maxTime)
-            enlarge = false;
+        if (time < 0) { enlarge = true; }
+        if (time > maxTime) { enlarge = false; }
 
         if (enlarge)
         {

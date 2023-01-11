@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoundAngleController: MonoBehaviour
+public class S_7_BoundAngleController : MonoBehaviour
 {
     //オブジェクトのRigidbodyを取得
     [SerializeField] Rigidbody laserObject;

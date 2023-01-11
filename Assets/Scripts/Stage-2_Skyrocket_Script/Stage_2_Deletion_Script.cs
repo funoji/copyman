@@ -1,8 +1,8 @@
-//アタッチするオブジェクト；Debug用Cube「Target」・的
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Objectを消す
 public class Stage_2_Deletion_Script : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)

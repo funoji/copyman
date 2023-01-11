@@ -23,11 +23,11 @@ public class SelectButton_Maneger : MonoBehaviour
     [System.Serializable]
     public struct SelectData
     {
-        public string buttonName;
-        public GameObject buttonObj;
-        public GameObject buttonImage;
+        public string buttonName;  //Inspectorで表示する名前
+        public GameObject buttonObj;  //Buttonオブジェクトの変数
+        public GameObject buttonImage;  //Imageの変数
         [HideInInspector]
-        public Vector3 _buttonScale;
+        public Vector3 _buttonScale;  //大きさの保存用変数
     }
     [SerializeField]
     public SelectData[] selectData;
@@ -37,25 +37,27 @@ public class SelectButton_Maneger : MonoBehaviour
     [System.Serializable]
     public struct ExitData
     {
-        public GameObject exitButton;
-        public GameObject exitImage;
+        public GameObject exitButton;  //オブジェクトの変数
+        public GameObject exitImage;  //オブジェクトのImageの変数
         [HideInInspector]
-        public Vector3 _exitImage;
+        public Vector3 _exitImage;  //大きさの保存用変数
     }
     public ExitData exitData;
 
     //選択状態がサイズの変更時用の変数
-    public float scallSpeed;
-    public  float maxTime;
-    private float time;
+    public float scallSpeed;  //サイズが変わるスピード
+    public  float maxTime;  //大きさが最大になる時間
+    private float time;  //時間の保存用変数
     private bool enlarge = true;
 
     //選択したボタンの保存する変数
     private GameObject _button;
 
+    //Eventの取得
     [SerializeField]
     public UnityEvent events = new UnityEvent();
 
+    //ボタンが一つだけの時にEventを使用しない場合に使用する判定
     public bool _pushBool;
 
     private void Start()

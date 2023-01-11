@@ -9,12 +9,12 @@ public class S_1_RandomObject_Script : MonoBehaviour
     [SerializeField] [Tooltip("生成する範囲終わり")] private Transform rangeB;
     [SerializeField] [Tooltip("生成する周期")] public float cycle;
 
-    private float time;
-    private Rigidbody rb;
-    private Quaternion rotation;
-    private Vector3 scale;
-    private GameObject instansObj;
-    private int instanNum;
+    private float time; //保存用の変数
+    private Rigidbody rb;  //重力用の保存用変数
+    private Quaternion rotation;  //回転用の保存用変数
+    private Vector3 scale;  //大きさの保存用変数
+    private GameObject instansObj;  //生成したオブジェクト用の変数
+    private int instanNum;  //Random用の保存変数
 
     [Header("ランダム値の設定")]
     [SerializeField] [Tooltip("スケールの最小値")] private float scaleMin;
@@ -30,12 +30,6 @@ public class S_1_RandomObject_Script : MonoBehaviour
 
     [Header("表示するオブジェクト")]
     [SerializeField] [Tooltip("生成するオブジェクト")] public GameObject[] creatPrefab;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()

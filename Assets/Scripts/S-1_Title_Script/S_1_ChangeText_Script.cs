@@ -40,6 +40,7 @@ public class S_1_ChangeText_Script : MonoBehaviour
         //初期の選択状態をスタートボタンに設定 : Set initial selection status to Start button
         EventSystem.current.SetSelectedGameObject(startButton);
 
+        //初期のTextサイズを保存
         _startText = startText.transform.localScale;
         _endgameText = endgameText.transform.localScale;
     }
@@ -95,10 +96,8 @@ public class S_1_ChangeText_Script : MonoBehaviour
     {
         scallSpeed = Time.deltaTime * 0.1f;
 
-        if (time < 0)
-            enlarge = true;
-        if (time > maxTime)
-            enlarge = false;
+        if (time < 0) { enlarge = true; }
+        if (time > maxTime) { enlarge = false; }
 
         if (enlarge)
         {
@@ -117,5 +116,4 @@ public class S_1_ChangeText_Script : MonoBehaviour
     {
         return afterObj;
     }
-
 }

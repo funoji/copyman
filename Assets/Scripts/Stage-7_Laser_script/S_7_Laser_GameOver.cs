@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserGameOver : MonoBehaviour
+public class S_7_Laser_GameOver : MonoBehaviour
 {
     //ゲームオーバーフラグ（初期：false）
     public bool gameoverFlag = false;

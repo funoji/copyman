@@ -1,94 +1,51 @@
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+using UnityEngine.Video;
+using TMPro;
 #if UNITY_EDITOR
 using UnityEditor;
 
-using UnityEngine.Video;
-using TMPro;
-
+//Load用カスタムEditor
 [CustomEditor(typeof(Load_Manager))]
 public class Load_Editor : Editor
 {
-    //private int _imagesize = 0;
-    //private int _audiosize = 0; //配列の長さを一時的に保存するための変数
-    //private bool fold = false; //折りたたみ機能のための変数
-
     public override void OnInspectorGUI()
     {
-        Load_Manager loading = target as Load_Manager;
+        Load_Manager loading = target as Load_Manager;  //Load_Managerクラスのインスタンスを取得
+
         serializedObject.Update(); //serializedObjectを最新に変更
-        var imageObj = serializedObject.FindProperty("fixationImage");
-        var loadObj = serializedObject.FindProperty("audioSource");
+
+        var imageObj = serializedObject.FindProperty("fixationImage");  //Load_Managerクラスの配列 fixationImage を取得
+        var loadObj = serializedObject.FindProperty("audioSource");  //Load_Managerクラスの配列 audioSource を取得
+
         EditorGUI.BeginChangeCheck();
 
-        //_imagesize = imageObj.arraySize;
-        //_audiosize = loadObj.arraySize;
+        //Load 
+        EditorGUILayout.LabelField("Load Setting", EditorStyles.boldLabel);  //ラベルを表示
 
-        //Load
-        EditorGUILayout.LabelField("Load Setting", EditorStyles.boldLabel);
-        loading.loadImage = (GameObject)EditorGUILayout.ObjectField("　Load Image ", loading.loadImage, typeof(GameObject), true);
-        loading.loadVideo = (VideoPlayer)EditorGUILayout.ObjectField("　Load Video ", loading.loadVideo, typeof(VideoPlayer), true);
-        loading.loadTime = EditorGUILayout.FloatField("　Load Time ", loading.loadTime);
-        EditorGUILayout.HelpBox("ロード画面の再生時間\n1000…約６秒　500…約２秒", MessageType.None);
-        EditorGUILayout.PropertyField(imageObj);
-        loading._textObj = EditorGUILayout.Toggle("Use Text Object ", loading._textObj);
-        if (loading._textObj) { loading.fixationText = (TextMeshProUGUI)EditorGUILayout.ObjectField("  Text Object ", loading.fixationText, typeof(TextMeshProUGUI), true); }
-       
-        //_imagesize = EditorGUILayout.IntField("Fixation Image ", _imagesize); //一時的に保存した長さをカスタムインスタンスに描画（書き換え可能）
-        ////一時的に保存した配列の長さと、本来の配列の長さが同じかチェックする
-        //if (_imagesize != imageObj.arraySize)
-        //{
-        //    imageObj.arraySize = _imagesize; // 長さの変更を適用
+        loading.loadImage = (GameObject)EditorGUILayout.ObjectField("　Load Image ", loading.loadImage, typeof(GameObject), true);  //Object用のフィールドを表示
+        loading.loadVideo = (VideoPlayer)EditorGUILayout.ObjectField("　Load Video ", loading.loadVideo, typeof(VideoPlayer), true);  //Object用のフィールドを表示
+        loading.loadTime = EditorGUILayout.FloatField("　Load Time ", loading.loadTime);  //Float型のフィールドを表示
 
-        //    //ここでserializedObjectへの変更を適用し、再び更新する
-        //    serializedObject.ApplyModifiedProperties();
-        //    serializedObject.Update();
-        //}
-        //else
-        //{
-        //    //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
-        //    for (int num = 0; num < imageObj.arraySize; num++) { loading.fixationImage[num] = (Image)EditorGUILayout.ObjectField("　 " + num, loading.fixationImage[num], typeof(Image), true); }
-        //}
+        EditorGUILayout.HelpBox("ロード画面の再生時間\n1000…約６秒　500…約２秒", MessageType.None);  //注意書きを表示
 
-        EditorGUILayout.Space();
+        EditorGUILayout.PropertyField(imageObj);  //fixationImage用のフィールドを表示
+
+        loading._textObj = EditorGUILayout.Toggle("Use Text Object ", loading._textObj);  //Toggleを表示
+        if (loading._textObj) { loading.fixationText = (TextMeshProUGUI)EditorGUILayout.ObjectField("  Text Object ", loading.fixationText, typeof(TextMeshProUGUI), true); }  //Object用のフィールドを表示
+
+        EditorGUILayout.Space();  //スペースを確保
 
         //Fade
-        EditorGUILayout.LabelField("Fade Setting", EditorStyles.boldLabel);
-        loading.fadeScript = (Fade_Manager)EditorGUILayout.ObjectField("　Fade Script ", loading.fadeScript, typeof(Fade_Manager), true);
-        EditorGUILayout.Space();
+        EditorGUILayout.LabelField("Fade Setting", EditorStyles.boldLabel);  //ラベルを表示
+
+        loading.fadeScript = (Fade_Manager)EditorGUILayout.ObjectField("　Fade Script ", loading.fadeScript, typeof(Fade_Manager), true);  //Object用のフィールドを表示
+
+        EditorGUILayout.Space();  //スペースを確保
 
         //AudioSource
-        EditorGUILayout.LabelField("Audio Source", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(loadObj);
+        EditorGUILayout.LabelField("Audio Source", EditorStyles.boldLabel);  //ラベルを表示
 
-        ////二つの要素を横並びに表示させる
-        //EditorGUILayout.BeginHorizontal();
-        //fold = EditorGUILayout.Foldout(fold, "　AudioSource ");
-        //_audiosize = EditorGUILayout.IntField(_audiosize, GUILayout.Width(30)); //一時的に保存した長さをカスタムインスタンスに描画（書き換え可能）
-        //EditorGUILayout.EndHorizontal();
-        //if (fold)
-        //{
-        //    //一時的に保存した配列の長さと、本来の配列の長さが同じかチェックする
-        //    if (_audiosize != loadObj.arraySize)
-        //    {
-        //        loadObj.arraySize = _audiosize; // 長さの変更を適用
-
-        //        //ここでserializedObjectへの変更を適用し、再び更新する
-        //        serializedObject.ApplyModifiedProperties();
-        //        serializedObject.Update();
-        //    }
-        //    else
-        //    {
-        //        using (new EditorGUILayout.HorizontalScope())
-        //        {
-        //            GUILayout.FlexibleSpace(); //右端に寄せる
-        //            //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
-        //            for (int num = 0; num < loadObj.arraySize; num++) { loading.audioSource[num] = (AudioSource)EditorGUILayout.ObjectField(loading.audioSource[num], typeof(AudioSource), true, GUILayout.Width(300)); }
-        //        }
-        //    }
-        //    EditorGUILayout.Space();
-        //}
+        EditorGUILayout.PropertyField(loadObj);  //AudioSource用のフィールドを表示
 
         serializedObject.ApplyModifiedProperties(); //serializedObjectへの変更を適用
         EditorUtility.SetDirty(loading);

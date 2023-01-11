@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.Events;
 #if UNITY_EDITOR 
 using UnityEditor;
 
@@ -11,8 +9,10 @@ public class SelectButton_Editor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update(); //serializedObjectを最新に変更
+
         var selectObj = serializedObject.FindProperty("selectData"); //S_3_Selectクラスの配列 SelectDataを取得
         var events = serializedObject.FindProperty("events");
+
         SelectButton_Maneger select = target as SelectButton_Maneger; //S_3_Selectクラスのインスタンスを取得
 
         EditorGUI.BeginChangeCheck();
@@ -36,11 +36,11 @@ public class SelectButton_Editor : Editor
 
             arraysize = EditorGUILayout.IntField("Number of buttons", arraysize); //一時的に保存した長さをカスタムインスタンスに描画（書き換え可能）
 
-            EditorGUILayout.Space();
+            EditorGUILayout.Space();//スペースを描画
 
-            select._pushBool = EditorGUILayout.Toggle("Push Other No Stop", select._pushBool);
+            select._pushBool = EditorGUILayout.Toggle("Push Other No Stop", select._pushBool);  //Toggleを表示
 
-            EditorGUILayout.Space();
+            EditorGUILayout.Space();  //スペースを描画
 
             //一時的に保存した配列の長さと、本来の配列の長さが同じかチェックする
             if (arraysize != selectObj.arraySize)
@@ -151,9 +151,11 @@ public class SelectButton_Editor : Editor
                     EditorGUILayout.LabelField("Button " + (num + 1));
                     select.selectData[num].buttonObj = (GameObject)EditorGUILayout.ObjectField("button obj:", select.selectData[num].buttonObj, typeof(GameObject), true);
                     GUILayout.EndVertical();
+
                     EditorGUILayout.Space(); //スペースを描画
                 }
             }
+
             GUILayout.BeginVertical(GUI.skin.box);
             select.ExitButton = EditorGUILayout.Toggle("Use Exit Button ", select.ExitButton);
             if (select.ExitButton)
@@ -161,6 +163,7 @@ public class SelectButton_Editor : Editor
                 EditorGUILayout.LabelField("Exit Button");
                 select.exitData.exitButton = (GameObject)EditorGUILayout.ObjectField("Exit button:", select.exitData.exitButton, typeof(GameObject), true);
                 select.exitData.exitImage = (GameObject)EditorGUILayout.ObjectField("Exit button image:", select.exitData.exitImage, typeof(GameObject), true);
+
                 EditorGUILayout.Space(); //スペースを描画
 
                 select.scallSpeed = EditorGUILayout.FloatField("変化する速さ", select.scallSpeed);
@@ -171,6 +174,7 @@ public class SelectButton_Editor : Editor
             EditorGUILayout.PropertyField(events);
             GUILayout.EndVertical();
         }
+
         serializedObject.ApplyModifiedProperties(); //serializedObjectへの変更を適用
         EditorUtility.SetDirty(select);
     }

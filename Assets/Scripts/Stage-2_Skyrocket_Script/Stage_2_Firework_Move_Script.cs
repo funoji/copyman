@@ -24,7 +24,7 @@ public class Stage_2_Firework_Move_Script: MonoBehaviour
     {
         //ターゲットを見つけて個数を見つける（Count.Length：ターゲットの個数）
         Count = GameObject.FindGameObjectsWithTag("Target");
-        Debug.Log("残りのターゲット数：" + Count.Length);
+        //Debug.Log("残りのターゲット数：" + Count.Length);
         //個数が０になった時の処理
         if (Count.Length == 0)
         {

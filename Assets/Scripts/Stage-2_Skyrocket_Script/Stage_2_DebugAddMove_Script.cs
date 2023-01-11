@@ -7,16 +7,15 @@ public class Stage_2_DebugAddMove_Script : MonoBehaviour
     //[SerializeField] private float fowardspeed = 0.0001f;
     //[SerializeField] private float backspeed = 0.0f;
 
+    //•Ï”
     [SerializeField] GameObject elever;
-
     public Rigidbody rb;
-
     public Transform initial;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();  //rigidbody‚ğæ“¾
         //initial.transform.position = new Vector3(-8f, 3.8f, 14f);
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GimmickClear : MonoBehaviour
+public class S_7_GimmickClear : MonoBehaviour
 {
     //‹´‚Ì•Ï”
     [SerializeField] GameObject target;

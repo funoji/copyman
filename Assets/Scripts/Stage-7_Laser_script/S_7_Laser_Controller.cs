@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser_Controller: MonoBehaviour
+public class S_7_Laser_Controller : MonoBehaviour
 {
     [SerializeField] [Tooltip("発射場所")] GameObject firingLocatioin;
     [SerializeField] [Tooltip("レーザーの元となるオブジェクト")] GameObject laserObj;
@@ -14,8 +14,8 @@ public class Laser_Controller: MonoBehaviour
 
     [SerializeField] bool gameOver;
     [SerializeField] bool gameClear;
-    LaserGameOver laserGameOverScript;
-    GoarManeger goarScript;
+    S_7_Laser_GameOver laserGameOverScript;
+    S_7_GoarManeger goarScript;
 
     private void Start()
     {

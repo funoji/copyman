@@ -13,10 +13,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Tooltip("horizontal")] public float horizontal;
     [SerializeField] [Tooltip("vertical")] public float vertical;    // Start is called before the first frame update
 
+    //カメラの向き
     private Quaternion targetRotion;
     private Quaternion horizontalRotaion;
+
     private int count = 0;
 
+    //速度
     private Vector3 velocity;
 
     private JumpManager jump;

@@ -9,17 +9,23 @@ using TMPro;
 
 public class Load_Manager: MonoBehaviour
 {
-    public Fade_Manager fadeScript;
-    public AudioSource[] audioSource;
+    //Fade_Manager用変数
+    public Fade_Manager fadeScript;  //
 
-    public GameObject loadImage;
-    public VideoPlayer loadVideo;
-    ///[Header("※ロード画面の再生時間を入れてください。※\n1000…約６秒　500…約２秒")]
+    //LoadIngObject用変数
+    public GameObject loadImage;  //
     public float loadTime;
-    public Image[] fixationImage;
-    public bool _textObj;
-    public TextMeshProUGUI fixationText;
+    public VideoPlayer loadVideo;  //
 
+    //固定化されているObject用変数
+    public Image[] fixationImage;
+    public TextMeshProUGUI fixationText;
+    public bool _textObj;
+
+    //AudioSoucrce
+    public AudioSource[] audioSource;  //
+
+    //保存用変数
     private float count = 0;
 
     private void Start()
@@ -42,6 +48,7 @@ public class Load_Manager: MonoBehaviour
         //ロード動画再生
         loadVideo.Play();
 
+        //
         if (_textObj) 
         {
             fixationText.color = new Color(fixationText.color.r, fixationText.color.g, fixationText.color.b, 0);
