@@ -8,12 +8,18 @@ public class OpenGimmick : MonoBehaviour
     [SerializeField] private float angle;
     [SerializeField] bool isActive = true;
 
+    private bool seFlag = false;
     Quaternion targetRot;
 
     public bool ActiveGimmick
     {
         get => isActive;
         set => isActive = value;
+    }
+    public bool ActiveSeflag
+    {
+        get => seFlag;
+        set => seFlag= value;
     }
 
     void Start()
@@ -25,6 +31,12 @@ public class OpenGimmick : MonoBehaviour
     {
         if (!isActive) return;
         Rotate();
+        if(seFlag)
+        {
+            AudioManager.Instance.PlaySE(SESoundData.SE.treasuryMove);
+            seFlag = false;
+        }
+
     }
 
     void Rotate()

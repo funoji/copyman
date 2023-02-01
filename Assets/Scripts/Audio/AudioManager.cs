@@ -107,7 +107,8 @@ public class SESoundData
         Buck_ClickButton,
         A_ClickButton,
         explosion,
-        button
+        button,
+        treasuryMove
     }
 
     public SE se;
