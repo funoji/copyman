@@ -76,7 +76,8 @@ GameObject:
   - component: {fileID: 8133772592793213378}
   - component: {fileID: 4537501736380254771}
   - component: {fileID: 8133772592793213381}
-  - component: {fileID: 6887389974812260683}
+  - component: {fileID: 1318048057905749209}
+  - component: {fileID: 6294846141379047293}
   m_Layer: 0
   m_Name: polySurface241
   m_TagString: Untagged
@@ -165,8 +166,8 @@ MonoBehaviour:
   rotSpeed: 0.5
   angle: -120
   isActive: 0
---- !u!64 &6887389974812260683
-MeshCollider:
+--- !u!65 &1318048057905749209
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -175,10 +176,22 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2577246641584777804, guid: 5a999aa7b3b65c74a86d189288fc293b, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 427.54117, y: 431.8711, z: 256.2629}
+  m_Center: {x: 275.13858, y: 288.37006, z: -98.69855}
+--- !u!65 &6294846141379047293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580304008281879633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 85.86307, y: 431.8711, z: 54.10367}
+  m_Center: {x: 18.283104, y: 288.37006, z: 2.3810415}
 --- !u!1 &8877036327214215844
 GameObject:
   m_ObjectHideFlags: 0
