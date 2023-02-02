@@ -257,7 +257,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 045573080e8d4d947b7a46c92f8f517c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4afcbb4ba67847246aa394d26467361d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2125,6 +2125,7 @@ GameObject:
   - component: {fileID: 1102400267}
   - component: {fileID: 1102400266}
   - component: {fileID: 1102400268}
+  - component: {fileID: 1102400269}
   m_Layer: 5
   m_Name: SE Slider
   m_TagString: Untagged
@@ -2233,6 +2234,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1102400269}
+        m_TargetAssemblyTypeName: OneAwakeSEScript, Assembly-CSharp
+        m_MethodName: ValueChenge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &1102400268
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2243,11 +2256,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f8413a9165824d14283b0ff5de022453, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 39087d37f8194594096d2ab8471d7f7d, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2329,6 +2342,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1102400269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102400264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad4618b4b03f04428b50fdc64fa0e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SEAudioClip: {fileID: 1102400268}
 --- !u!1 &1110745865
 GameObject:
   m_ObjectHideFlags: 0
@@ -4343,6 +4369,7 @@ GameObject:
   - component: {fileID: 2107237295}
   - component: {fileID: 2107237293}
   - component: {fileID: 2107237294}
+  - component: {fileID: 2107237297}
   m_Layer: 5
   m_Name: Master Slider
   m_TagString: Untagged
@@ -4385,8 +4412,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f8413a9165824d14283b0ff5de022453, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 39087d37f8194594096d2ab8471d7f7d, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 0
@@ -4643,6 +4670,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2107237297}
+        m_TargetAssemblyTypeName: OneAwakeSEScript, Assembly-CSharp
+        m_MethodName: ValueChenge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2107237297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107237291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad4618b4b03f04428b50fdc64fa0e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SEAudioClip: {fileID: 2107237293}
 --- !u!1 &2119264379
 GameObject:
   m_ObjectHideFlags: 0
