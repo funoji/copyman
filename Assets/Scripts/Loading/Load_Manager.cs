@@ -10,12 +10,12 @@ using TMPro;
 public class Load_Manager: MonoBehaviour
 {
     //Fade_Manager用変数
-    public Fade_Manager fadeScript;  //
+    //public Fade_Manager fadeScript; 
 
     //LoadIngObject用変数
-    public GameObject loadImage;  //
+    public GameObject loadImage; 
     public float loadTime;
-    public VideoPlayer loadVideo;  //
+    public VideoPlayer loadVideo; 
 
     //固定化されているObject用変数
     public Image[] fixationImage;
@@ -23,7 +23,8 @@ public class Load_Manager: MonoBehaviour
     public bool _textObj;
 
     //AudioSoucrce
-    public AudioSource[] audioSource;  //
+    public AudioSource[] audioSource;
+    public float soundVolume;  //フェードした後の音量
 
     //保存用変数
     private float count = 0;
@@ -48,31 +49,30 @@ public class Load_Manager: MonoBehaviour
         //ロード動画再生
         loadVideo.Play();
 
-        //
-        if (_textObj) 
-        {
-            fixationText.color = new Color(fixationText.color.r, fixationText.color.g, fixationText.color.b, 0);
-            fadeScript.fadeSystem[1].textObj = fixationText;
-            for (int num = 1; num < fixationImage.Length; num++)
-            {
-                fadeScript.fadeSystem[num].fadeIn = false;
-                fadeScript.fadeSystem[num].fadeOut = false;
+        //if (_textObj) 
+        //{
+        //    fixationText.color = new Color(fixationText.color.r, fixationText.color.g, fixationText.color.b, 0);
+        //    fadeScript.fadeSystem[1].textObj = fixationText;
+        //    for (int num = 1; num < fixationImage.Length; num++)
+        //    {
+        //        fadeScript.fadeSystem[num].fadeIn = false;
+        //        fadeScript.fadeSystem[num].fadeOut = false;
 
-                fixationImage[num].color = new Color(fixationImage[num].color.r, fixationImage[num].color.g, fixationImage[num].color.b, 0);
-                fadeScript.fadeSystem[num + 1].imageObj = fixationImage[num];
-            }
-        }
-        else
-        {
-            for (int num = 0; num < fixationImage.Length; num++)
-            {
-                fadeScript.fadeSystem[num].fadeIn = false;
-                fadeScript.fadeSystem[num].fadeOut = false;
+        //        fixationImage[num].color = new Color(fixationImage[num].color.r, fixationImage[num].color.g, fixationImage[num].color.b, 0);
+        //        fadeScript.fadeSystem[num + 1].imageObj = fixationImage[num];
+        //    }
+        //}
+        //else
+        //{
+        //    for (int num = 0; num < fixationImage.Length; num++)
+        //    {
+        //        fadeScript.fadeSystem[num].fadeIn = false;
+        //        fadeScript.fadeSystem[num].fadeOut = false;
 
-                fixationImage[num].color = new Color(fixationImage[num].color.r, fixationImage[num].color.g, fixationImage[num].color.b, 0);
-                fadeScript.fadeSystem[num + 1].imageObj = fixationImage[num];
-            }
-        }
+        //        fixationImage[num].color = new Color(fixationImage[num].color.r, fixationImage[num].color.g, fixationImage[num].color.b, 0);
+        //        fadeScript.fadeSystem[num + 1].imageObj = fixationImage[num];
+        //    }
+        //}
     }
 
     private void Update()
@@ -83,27 +83,33 @@ public class Load_Manager: MonoBehaviour
     public void Video_Player()
     {
         count++;
-        //Debug.Log("Count : " + count);
+        Debug.Log("Count : " + count);
         if (count >= loadTime)
         {
             //ロード画面
-            loadVideo.Stop();
             loadImage.SetActive(false);
-            fadeScript.fadeSystem[0].fadeIn = true;
+            loadVideo.Stop();
+            //fadeScript.fadeSystem[0].fadeIn = true;
 
             //メインの動作を再生
             Time.timeScale = 1.0f;
 
-            //UI関連の固定されているものを表示
-
-            for (int num = 1; num < fadeScript.fadeSystem.Length; num++)
+            //BGMを一時停止
+            for (int num = 0; num < audioSource.Length; num++)
             {
-                fadeScript.fadeSystem[num].fadeOut = true;
+                audioSource[num].Play();
+                audioSource[num].volume = soundVolume;
             }
 
-            //サウンド
-            for (int num = 0; num < audioSource.Length; num++) { audioSource[num].Play(); }
-            fadeScript.sound_fadeIn = true;
+            //UI関連の固定されているものを表示
+            //for (int num = 1; num < fadeScript.fadeSystem.Length; num++)
+            //{
+            //    fadeScript.fadeSystem[num].fadeOut = true;
+            //}
+
+            ////サウンド
+            //for (int num = 0; num < audioSource.Length; num++) { audioSource[num].Play(); }
+            //fadeScript.sound_fadeIn = true;
         }
     }
 }
