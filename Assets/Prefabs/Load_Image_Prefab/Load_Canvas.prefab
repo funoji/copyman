@@ -224,16 +224,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af367add88ccaa458c028d214d08b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeScript: {fileID: 6221896057266040921}
-  audioSource:
-  - {fileID: 0}
   loadImage: {fileID: 5562920282345918053}
+  loadTime: 100
   loadVideo: {fileID: 5562920281454064894}
-  loadTime: 250
   fixationImage:
   - {fileID: 0}
-  _textObj: 0
   fixationText: {fileID: 0}
+  _textObj: 0
+  audioSource:
+  - {fileID: 0}
+  soundVolume: 0
 --- !u!1 &5562920282091115049
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5562920282091115048
 RectTransform:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5562920282091115049}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e76271bea2883a4f82ae7d1b6726fe7, type: 3}
   m_Name: 
@@ -335,7 +335,6 @@ MonoBehaviour:
   sound_fadeOut: 0
   audioSource:
   - {fileID: 0}
-  soundfadeTime: 5
   soundfadeIn_Time: 0.05
   soudfadeOut_Time: 0.001
   soundVolume: 1

@@ -36,16 +36,21 @@ public class Load_Editor : Editor
         EditorGUILayout.Space();  //スペースを確保
 
         //Fade
-        EditorGUILayout.LabelField("Fade Setting", EditorStyles.boldLabel);  //ラベルを表示
+        //EditorGUILayout.LabelField("Fade Setting", EditorStyles.boldLabel);  //ラベルを表示
 
-        loading.fadeScript = (Fade_Manager)EditorGUILayout.ObjectField("　Fade Script ", loading.fadeScript, typeof(Fade_Manager), true);  //Object用のフィールドを表示
+        //loading.fadeScript = (Fade_Manager)EditorGUILayout.ObjectField("　Fade Script ", loading.fadeScript, typeof(Fade_Manager), true);  //Object用のフィールドを表示
 
-        EditorGUILayout.Space();  //スペースを確保
+        //EditorGUILayout.Space();  //スペースを確保
 
         //AudioSource
         EditorGUILayout.LabelField("Audio Source", EditorStyles.boldLabel);  //ラベルを表示
 
         EditorGUILayout.PropertyField(loadObj);  //AudioSource用のフィールドを表示
+        
+        EditorGUILayout.Space();  //スペースを確保
+
+        loading.soundVolume = EditorGUILayout.FloatField("  Sound Volume ", loading.soundVolume);
+
 
         serializedObject.ApplyModifiedProperties(); //serializedObjectへの変更を適用
         EditorUtility.SetDirty(loading);

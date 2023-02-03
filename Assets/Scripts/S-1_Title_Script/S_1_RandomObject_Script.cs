@@ -23,8 +23,8 @@ public class S_1_RandomObject_Script : MonoBehaviour
     [SerializeField] [Tooltip("回転の最大値")] private float rotaMax;
     [SerializeField] [Tooltip("落ちるスピードの最小値")] private float dragMin;
     [SerializeField] [Tooltip("落ちるスピードの最大値")] private float dragMax;
-    [SerializeField] [Tooltip("回転スピードの最小値")] private float angleMin;
-    [SerializeField] [Tooltip("回転スピードの最大値")] private float angleMax;
+    [SerializeField] [Tooltip("回転スピードの最小値")] private float angleDragMin;
+    [SerializeField] [Tooltip("回転スピードの最大値")] private float angleDragMax;
     [SerializeField] [Tooltip("落下スピードの最小値")] private float speedMin;
     [SerializeField] [Tooltip("落下スピードの最大値")] private float speedMax;
 
@@ -45,6 +45,9 @@ public class S_1_RandomObject_Script : MonoBehaviour
 
         //落下オブジェクトのribidbodyを取得 : Get "ridbody" of the falling object
         rb = creatPrefab[instanNum].GetComponent<Rigidbody>();
+
+        //Constansの初期化
+        rb.constraints = RigidbodyConstraints.None;
 
         //落下オブジェクトの大きさのランダム : Random size of falling objects
         float scaleRandom = Random.Range(scaleMin, scaleMax);
@@ -73,7 +76,7 @@ public class S_1_RandomObject_Script : MonoBehaviour
             //落下オブジェクトの落下スピードと回転スピードを変更 : Change falling speed and rotation speed of falling objects
             rb.drag = Random.Range(-dragMin, dragMax);
             rb.AddForce(0, -speedRandom, 0);
-            rb.angularDrag = Random.Range(angleMin, angleMax);
+            //rb.angularDrag = Random.Range(angleDragMin, angleDragMax);
 
             //時間初期化 : time initialization
             time = 0f;
