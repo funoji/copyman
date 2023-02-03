@@ -48,5 +48,9 @@ public class Animator_Controller : MonoBehaviour
             animator.SetBool("isFall", true);
         }
         else animator.SetBool("isFall", false);
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            animator.Play("dead");
+        }
     }
 }
