@@ -16,6 +16,7 @@ public class UI : MonoBehaviour
     [SerializeField] string Stage;
     [SerializeField] ObjectManager ObjectManager;
     GameObject  UIobj;
+    [SerializeField] GameObject defaltUi;
     
 
     void Start()
@@ -28,6 +29,10 @@ public class UI : MonoBehaviour
     {
         UIobj = CopyCollObj.GetComponent<CopyColl>().ForUIObj;
         UIobj.transform.position = ObjUiPos.position;
+        if(GameDirector.GameClear)
+        {
+            UIobj = defaltUi;
+        }
         //for (int i = 0; i < ObjectManager._CanCopyObj.Length; i++)
         //{
         //    if (UIobj.name == ObjectManager._CanCopyObj[i].name)
