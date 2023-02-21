@@ -2363,6 +2363,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SEAudioClip: {fileID: 1102400268}
+  SESlider: {fileID: 1102400267}
+  MasterSlider: {fileID: 2107237296}
 --- !u!1 &1110745865
 GameObject:
   m_ObjectHideFlags: 0
@@ -4422,7 +4424,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 39087d37f8194594096d2ab8471d7f7d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4703,6 +4705,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SEAudioClip: {fileID: 2107237293}
+  SESlider: {fileID: 1102400267}
+  MasterSlider: {fileID: 2107237296}
 --- !u!1 &2119264379
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class OneAwakeSEScript : MonoBehaviour
 {
     [SerializeField] private AudioSource SEAudioClip;
+    [SerializeField] private Slider SESlider;
+    [SerializeField] private Slider MasterSlider;
 
     void Start()
     {
@@ -14,6 +16,7 @@ public class OneAwakeSEScript : MonoBehaviour
 
     public void ValueChenge()
     {
+        SEAudioClip.volume = SESlider.value * MasterSlider.value;
         SEAudioClip.Play();
     }
 }
