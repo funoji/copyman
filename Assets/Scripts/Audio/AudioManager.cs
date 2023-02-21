@@ -16,9 +16,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Slider SEslider;
     [SerializeField] private Slider MasterSlider;
 
-    public float masterVolume = 1;
-    public float bgmMasterVolume = 1;
-    public float seMasterVolume = 1;
+    public static float masterVolume = 1;
+    public static float bgmMasterVolume = 1;
+    public static float seMasterVolume = 1;
 
     public static AudioManager Instance { get; private set; }
 

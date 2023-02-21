@@ -11,6 +11,7 @@ public class FriendlyGoalJudge : MonoBehaviour
 
     public static bool EnemyGoalFlag = false;
     private int EnemyGoalCount;
+    private Animation animator;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class FriendlyGoalJudge : MonoBehaviour
         if (GameOverCount <= 0)
         {
             Debug.Log("Stage3 GameOver");
+            //animator.Play("dead");
             GameDirector.GameOver = true;
         }
     }
