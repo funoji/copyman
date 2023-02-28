@@ -24,6 +24,8 @@ public class Copy : MonoBehaviour
     private GameObject objLineRenderer;
     private bool count = false;
 
+    //private PlayObjectSEScript playObjectSE;  //‰½‚©‚ ‚ê‚Î•Ûˆä‚Ü‚Å
+
     private void Start()
     {
         AreaCollider.enabled = false;
@@ -33,6 +35,8 @@ public class Copy : MonoBehaviour
         //objLineRenderer = Instantiate(preLineRenderer, gameObject.transform);
         //objLineRenderer.transform.localPosition = Vector3.zero;
         //lineRenderer = objLineRenderer.GetComponent<LineRenderer>();
+
+
     }
     public void Active_Area()
     {
@@ -57,6 +61,8 @@ public class Copy : MonoBehaviour
             Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
         }
         //CopyColl.audio.Play();
+
+        //playObjectSE.PlayObjectSE(PasteObj.gameObject); // ‰½‚©‚ ‚ê‚Î•Ûˆä‚Ü‚Å
     }
 
     public void Shot()
@@ -71,9 +77,11 @@ public class Copy : MonoBehaviour
             moneycount.GetComponent<Money_counter>().metaobject++;
             Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
         }
-       // CopyColl.audio.Play();
+        // CopyColl.audio.Play();
         //  animator.SetBool("isShot",true);
         //ShotPaste.DrawLine();
+
+        //playObjectSE.PlayObjectSE(PasteObj.gameObject);  //‰½‚©‚ ‚ê‚Î•Ûˆä‚Ü‚Å
     }
 
     public void ShotArkDrow(int t)
