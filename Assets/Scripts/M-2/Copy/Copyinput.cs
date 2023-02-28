@@ -70,7 +70,7 @@ public class Copyinput : MonoBehaviour
 
         if(Input.GetKeyUp(KeyCode.R) || Input.GetKeyUp(KeyCode.Joystick1Button3))
         {
-            AudioManager.Instance.PlaySE(SESoundData.SE.shotpaste);
+            //AudioManager.Instance.PlaySE(SESoundData.SE.shotpaste);
             Copy.Shot();
             animator.Play("ShotPaste", 0, 0);
         }

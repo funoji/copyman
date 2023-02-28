@@ -24,7 +24,7 @@ public class Copy : MonoBehaviour
     private GameObject objLineRenderer;
     private bool count = false;
 
-    //private PlayObjectSEScript playObjectSE;  //‰½‚©‚ ‚ê‚Î•Ûˆä‚Ü‚Å
+    [SerializeField] AudioSource ObjectSEAudioSorce;  //‰½‚©‚ ‚ê‚Î•Ûˆä‚Ü‚Å
 
     private void Start()
     {
@@ -60,9 +60,7 @@ public class Copy : MonoBehaviour
             moneycount.GetComponent<Money_counter>().metaobject++;
             Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
         }
-        //CopyColl.audio.Play();
-
-        //playObjectSE.PlayObjectSE(PasteObj.gameObject); // ‰½‚©‚ ‚ê‚Î•Ûˆä‚Ü‚Å
+        ObjectSEAudioSorce.PlayOneShot(CopyColl.audio);
     }
 
     public void Shot()
@@ -77,11 +75,9 @@ public class Copy : MonoBehaviour
             moneycount.GetComponent<Money_counter>().metaobject++;
             Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
         }
-        // CopyColl.audio.Play();
+        ObjectSEAudioSorce.PlayOneShot(CopyColl.audio);
         //  animator.SetBool("isShot",true);
         //ShotPaste.DrawLine();
-
-        //playObjectSE.PlayObjectSE(PasteObj.gameObject);  //‰½‚©‚ ‚ê‚Î•Ûˆä‚Ü‚Å
     }
 
     public void ShotArkDrow(int t)
