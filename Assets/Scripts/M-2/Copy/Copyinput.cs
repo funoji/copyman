@@ -42,7 +42,7 @@ public class Copyinput : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button1) && cooltime)
         {
-            AudioManager.Instance.PlaySE(SESoundData.SE.paste);
+            //AudioManager.Instance.PlaySE(SESoundData.SE.paste);
             Copy.Paseting();
             PlayerAnim.PlessedPasteButton();
             animator.Play("Paste", 0, 0);
@@ -70,7 +70,7 @@ public class Copyinput : MonoBehaviour
 
         if(Input.GetKeyUp(KeyCode.R) || Input.GetKeyUp(KeyCode.Joystick1Button3))
         {
-            AudioManager.Instance.PlaySE(SESoundData.SE.shotpaste);
+            //AudioManager.Instance.PlaySE(SESoundData.SE.shotpaste);
             Copy.Shot();
             animator.Play("ShotPaste", 0, 0);
         }

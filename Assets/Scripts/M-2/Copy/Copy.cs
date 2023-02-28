@@ -24,6 +24,8 @@ public class Copy : MonoBehaviour
     private GameObject objLineRenderer;
     private bool count = false;
 
+    [SerializeField] AudioSource ObjectSEAudioSorce;  //‰½‚©‚ ‚ê‚Î•Ûˆä‚Ü‚Å
+
     private void Start()
     {
         AreaCollider.enabled = false;
@@ -33,6 +35,8 @@ public class Copy : MonoBehaviour
         //objLineRenderer = Instantiate(preLineRenderer, gameObject.transform);
         //objLineRenderer.transform.localPosition = Vector3.zero;
         //lineRenderer = objLineRenderer.GetComponent<LineRenderer>();
+
+
     }
     public void Active_Area()
     {
@@ -56,7 +60,7 @@ public class Copy : MonoBehaviour
             moneycount.GetComponent<Money_counter>().metaobject++;
             Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
         }
-        //CopyColl.audio.Play();
+        ObjectSEAudioSorce.PlayOneShot(CopyColl.audio);
     }
 
     public void Shot()
@@ -71,7 +75,7 @@ public class Copy : MonoBehaviour
             moneycount.GetComponent<Money_counter>().metaobject++;
             Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
         }
-       // CopyColl.audio.Play();
+        ObjectSEAudioSorce.PlayOneShot(CopyColl.audio);
         //  animator.SetBool("isShot",true);
         //ShotPaste.DrawLine();
     }

@@ -13,7 +13,7 @@ public class CopyColl : MonoBehaviour
     [SerializeField] Transform UIpos;
     GameObject Origin;
     public ObjectManager ObjectManager;
-    public AudioSource audio;
+    public AudioClip audio;
 
     private void Start()
     {

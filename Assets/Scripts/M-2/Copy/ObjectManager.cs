@@ -25,7 +25,7 @@ public class ObjectManager : MonoBehaviour
 
         //suond
         [SerializeField]
-        public AudioSource Audio;
+        public AudioClip Audio;
     }
 
     [SerializeField] public CanCopyObj[] _CanCopyObj;
