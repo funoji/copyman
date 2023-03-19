@@ -30,6 +30,12 @@ public class M1UI : MonoBehaviour
 
     public bool _bomDie;
 
+    public float first_limit;
+    public float second_limit;
+    private bool _sound;
+    [SerializeField] AudioClip sound;
+    [SerializeField] AudioSource limitsound;
+
     // Start is called before the first frame update
     public void Awake()
     {
@@ -47,6 +53,8 @@ public class M1UI : MonoBehaviour
         //ƒ|[ƒY‰æ–Ê‚ğ‹N“®‚Å‚«‚È‚­‚·‚éB
         stopObj[3].GetComponent<CanvasActiveScript>().enabled = true;
 
+        //AudioiSource
+        _sound = false;
     }
     // Update is called once per frame
     void Update()
@@ -57,11 +65,30 @@ public class M1UI : MonoBehaviour
             countdown.text = CountDown.ToString("f1");
         }
 
+        //‚T‚O•bˆÈ‰º‚É‚È‚Á‚½‚çƒeƒLƒXƒg‚ÌF‚ğÔ‚É•Ï‚¦‚é
+        if (CountDown <= first_limit&& CountDown >= 0f)
+        {
+            countdown.fontSize = 100f;
+            countdown.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        }
+        //‚P‚O•bˆÈ‰º‚É‚È‚Á‚½‚ç‰¹Šy‚ğ–Â‚ç‚·
+        if (CountDown <= second_limit && CountDown >= 0f)
+        {
+            if (!_sound)
+            {
+                limitsound.PlayOneShot(sound);
+                _sound = true;
+            }
+        }
+
         if(CountDown <=0)
         {
             //ƒQ[ƒ€ŠÔ(CoundDwon)‚ğ~‚ß‚é
             _countBool = true;
-            
+
+            //‰¹Šy‚ğ~‚ß‚é
+            limitsound.Stop();
+
             //ƒQ[ƒ€ƒI[ƒo[‰æ–Ê•\¦
             GameDirector.GameOver = true;
 
@@ -80,6 +107,9 @@ public class M1UI : MonoBehaviour
         if (GameDirector.GameOver == true)
         {
             //GameOverText.text = "GAMEOVER";
+
+            //‰¹Šy‚ğ~‚ß‚é
+            limitsound.Stop();
 
             //ƒQ[ƒ€ŠÔ(CoundDwon)‚ğ~‚ß‚é
             _countBool = true;
@@ -103,6 +133,9 @@ public class M1UI : MonoBehaviour
             //GameOverText.text = "GameClear";
             //transtion.SetActive(true);
             //EventSystem.current.SetSelectedGameObject(transtion);
+
+            //‰¹Šy‚ğ~‚ß‚é
+            limitsound.Stop();
 
             //ƒQ[ƒ€ŠÔ(CoundDwon)‚ğ~‚ß‚é
             _countBool = true;
