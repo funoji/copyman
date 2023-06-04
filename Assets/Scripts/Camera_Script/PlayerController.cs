@@ -51,12 +51,12 @@ public class PlayerController : MonoBehaviour
         //horizontalRotaion = Quaternion.AngleAxis(playerCamera.transform.eulerAngles.y, Vector3.up);
 
         //コントローラー用
-        //horizontal = Input.GetAxis("LstickHorizontal");
-        //vertical = Input.GetAxis("LstickVertical");
+        horizontal = Input.GetAxis("LstickHorizontal");
+        vertical = Input.GetAxis("LstickVertical");
 
         //キーボード用
-        horizontal = Input.GetAxis("MoveX");
-        vertical = Input.GetAxis("MoveY");
+        //horizontal = Input.GetAxis("MoveX");
+        //vertical = Input.GetAxis("MoveY");
 
         //ジャンプ
         if (Input.GetButtonDown("Jump"))

@@ -2486,6 +2486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 185259023}
+  cp: {fileID: 240445966}
 --- !u!1 &598180391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8565892607195484072, guid: 9defd08115985ce4195bfdf57bacf20b, type: 3}
@@ -5838,7 +5839,8 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 147742281006924168, guid: 731ec0eb9037cb9459fb82ba43abdcde, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 731ec0eb9037cb9459fb82ba43abdcde, type: 3}
 --- !u!4 &1388298698 stripped
 Transform:
@@ -9040,6 +9042,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2000864191, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
+      propertyPath: JumpManager
+      value: 
+      objectReference: {fileID: 5230321536060792623}
     - target: {fileID: 1665160842233005595, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
       propertyPath: moneycount
       value: 
@@ -9052,6 +9058,10 @@ PrefabInstance:
       propertyPath: ObjectSEAudioSorce
       value: 
       objectReference: {fileID: 31546446}
+    - target: {fileID: 1983423030279282798, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
+      propertyPath: horizontal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5056826345408798881, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9153,6 +9163,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe1d874686b0e2842950417288befe31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5230321536060792623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1983423030279282799, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
+  m_PrefabInstance: {fileID: 5230321536060792615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5230321536060792616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce34bab6867e954f8ee7e8755d179ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7983202662206331606

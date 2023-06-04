@@ -10,6 +10,8 @@ public class MoneyCount_Manager : MonoBehaviour
     //public TextMeshProUGUI moneyCount;
     private int count;
 
+    [SerializeField] Money_counter cp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +27,7 @@ public class MoneyCount_Manager : MonoBehaviour
         moneyCount.text = "" + count;
         money.text = "count%100 : " + (count % 100) + "万円"+"    count/100 : "+(count/100)+"万円";
         */
-
-        count += CopyColl.count;
+        count = cp.metaobject - 22;
 
         //9900万円以下の時は千万単位で表示。countが99
         //9900億以下の時は億と千万単位で表示。countが999999

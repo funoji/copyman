@@ -33,8 +33,6 @@ public class M1UI : MonoBehaviour
     public float first_limit;
     public float second_limit;
     private bool _sound;
-    [SerializeField] AudioClip sound;
-    [SerializeField] AudioSource limitsound;
 
     // Start is called before the first frame update
     public void Awake()
@@ -76,7 +74,6 @@ public class M1UI : MonoBehaviour
         {
             if (!_sound)
             {
-                limitsound.PlayOneShot(sound);
                 _sound = true;
             }
         }
@@ -85,9 +82,6 @@ public class M1UI : MonoBehaviour
         {
             //ƒQ[ƒ€ŠÔ(CoundDwon)‚ğ~‚ß‚é
             _countBool = true;
-
-            //‰¹Šy‚ğ~‚ß‚é
-            limitsound.Stop();
 
             //ƒQ[ƒ€ƒI[ƒo[‰æ–Ê•\¦
             GameDirector.GameOver = true;
@@ -107,9 +101,6 @@ public class M1UI : MonoBehaviour
         if (GameDirector.GameOver == true)
         {
             //GameOverText.text = "GAMEOVER";
-
-            //‰¹Šy‚ğ~‚ß‚é
-            limitsound.Stop();
 
             //ƒQ[ƒ€ŠÔ(CoundDwon)‚ğ~‚ß‚é
             _countBool = true;
@@ -133,9 +124,6 @@ public class M1UI : MonoBehaviour
             //GameOverText.text = "GameClear";
             //transtion.SetActive(true);
             //EventSystem.current.SetSelectedGameObject(transtion);
-
-            //‰¹Šy‚ğ~‚ß‚é
-            limitsound.Stop();
 
             //ƒQ[ƒ€ŠÔ(CoundDwon)‚ğ~‚ß‚é
             _countBool = true;

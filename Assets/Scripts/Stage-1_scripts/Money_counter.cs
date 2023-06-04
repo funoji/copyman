@@ -6,12 +6,11 @@ public class Money_counter : MonoBehaviour
 {
     [HeaderAttribute("カウントしたいオブジェクトの数")]
     [SerializeField] public int objects;
-    [HideInInspector] public int metaobject;
+    [HideInInspector] public int metaobject = 0;
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(cubeObjects.Length);
-        if(metaobject >= objects)
+        if(metaobject - 22 >= objects)
         {
             GameDirector.GameClear = true;
         }
