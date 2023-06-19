@@ -66,6 +66,7 @@ public class M1UI : MonoBehaviour
         //５０秒以下になったらテキストの色を赤に変える
         if (CountDown <= first_limit&& CountDown >= 0f)
         {
+            AudioManager.Instance.PlaySE(SESoundData.SE.timeLimit);
             countdown.fontSize = 100f;
             countdown.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         }
@@ -74,6 +75,7 @@ public class M1UI : MonoBehaviour
         {
             if (!_sound)
             {
+                AudioManager.Instance.PlaySE(SESoundData.SE.timeLimit);
                 _sound = true;
             }
         }

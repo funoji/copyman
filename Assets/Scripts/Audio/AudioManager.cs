@@ -108,7 +108,8 @@ public class SESoundData
         A_ClickButton,
         explosion,
         button,
-        treasuryMove
+        treasuryMove,
+        timeLimit,
     }
 
     public SE se;

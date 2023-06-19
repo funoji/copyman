@@ -7237,11 +7237,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!82 &1714391809 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1090539287151945593, guid: e71e27dd97b29174ebee5693d46f2e36, type: 3}
-  m_PrefabInstance: {fileID: 7983202662206331606}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1719581882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8112,8 +8107,6 @@ MonoBehaviour:
   _bomDie: 0
   first_limit: 50
   second_limit: 10
-  sound: {fileID: 8300000, guid: 95136f5bf60c2444597117a48fa61de8, type: 3}
-  limitsound: {fileID: 1714391809}
 --- !u!114 &1974303221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8930,20 +8923,32 @@ PrefabInstance:
       objectReference: {fileID: 743355674}
     - target: {fileID: 2749705228239265037, guid: 3ed4e5b0ed31bc34184b99fe5cc781dd, type: 3}
       propertyPath: seSoundDatas.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2749705228239265037, guid: 3ed4e5b0ed31bc34184b99fe5cc781dd, type: 3}
       propertyPath: seSoundDatas.Array.data[8].se
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2749705228239265037, guid: 3ed4e5b0ed31bc34184b99fe5cc781dd, type: 3}
+      propertyPath: seSoundDatas.Array.data[9].se
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749705228239265037, guid: 3ed4e5b0ed31bc34184b99fe5cc781dd, type: 3}
       propertyPath: seSoundDatas.Array.data[8].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749705228239265037, guid: 3ed4e5b0ed31bc34184b99fe5cc781dd, type: 3}
+      propertyPath: seSoundDatas.Array.data[9].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2749705228239265037, guid: 3ed4e5b0ed31bc34184b99fe5cc781dd, type: 3}
       propertyPath: seSoundDatas.Array.data[8].audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 2981e5eab936f164cadd6f5036eea8a2, type: 3}
+      objectReference: {fileID: 8300000, guid: d8724a6a09376f748aff15b60de67503, type: 3}
+    - target: {fileID: 2749705228239265037, guid: 3ed4e5b0ed31bc34184b99fe5cc781dd, type: 3}
+      propertyPath: seSoundDatas.Array.data[9].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f9486aab633edf64bb0784c8f2b14efc, type: 3}
     - target: {fileID: 2749705228239265037, guid: 3ed4e5b0ed31bc34184b99fe5cc781dd, type: 3}
       propertyPath: bgmSoundDatas.Array.data[2].audioClip
       value: 
