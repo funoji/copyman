@@ -83,7 +83,6 @@ public class Load_Manager: MonoBehaviour
     public void Video_Player()
     {
         count++;
-        Debug.Log("Count : " + count);
         if (count >= loadTime)
         {
             //ƒ[ƒh‰æ–Ê

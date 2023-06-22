@@ -5,11 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 using Cinemachine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class M1UI : MonoBehaviour
 {
     [SerializeField] float CountDown = default!;
     [SerializeField] TextMeshProUGUI countdown;
+    [SerializeField] PlayableDirector timeLimitTimeLine;
+    [SerializeField] [Tooltip("Debug_Camera_Animator Reference")] Animator animator;
     //[SerializeField] TextMeshProUGUI GameOverText;
     //[SerializeField] [Tooltip("ボタンの表示")] GameObject transtion;
 
@@ -33,6 +37,7 @@ public class M1UI : MonoBehaviour
     public float first_limit;
     public float second_limit;
     private bool _sound;
+    private bool _first_limit_sound;
 
     // Start is called before the first frame update
     public void Awake()
@@ -53,6 +58,10 @@ public class M1UI : MonoBehaviour
 
         //AudioiSource
         _sound = false;
+        _first_limit_sound = true;
+
+        first_limit = 50f;
+        second_limit = 10f;
     }
     // Update is called once per frame
     void Update()
@@ -64,18 +73,22 @@ public class M1UI : MonoBehaviour
         }
 
         //５０秒以下になったらテキストの色を赤に変える
-        if (CountDown <= first_limit&& CountDown >= 0f)
+        if (CountDown <= first_limit && CountDown >= first_limit - 1)
         {
-            AudioManager.Instance.PlaySE(SESoundData.SE.timeLimit);
-            countdown.fontSize = 100f;
-            countdown.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            if (_first_limit_sound)
+            {
+                timeLimitTimeLine.Play();
+                countdown.fontSize = 100f;
+                countdown.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+                _first_limit_sound = false;
+            }
         }
         //１０秒以下になったら音楽を鳴らす
-        if (CountDown <= second_limit && CountDown >= 0f)
+        if (CountDown <= second_limit && CountDown >= 0)
         {
             if (!_sound)
             {
-                AudioManager.Instance.PlaySE(SESoundData.SE.timeLimit);
+                timeLimitTimeLine.Play();
                 _sound = true;
             }
         }
@@ -106,10 +119,6 @@ public class M1UI : MonoBehaviour
 
             //ゲーム時間(CoundDwon)を止める
             _countBool = true;
-
-            //ゲームオーバー画面表示
-            GameOverPanel.SetActive(true);
-
             //プレイヤーの移動、ジャンプ、アニメーションを止める。
             stopObj[0].GetComponent<PlayerController>().enabled = false;
             stopObj[0].GetComponent<JumpManager>().enabled = false;
@@ -120,6 +129,8 @@ public class M1UI : MonoBehaviour
             stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = false;
             //ポーズ画面を起動できなくする。
             stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
+
+            StartCoroutine("GameOver");
         }
         if (GameDirector.GameClear == true)
         {
@@ -146,5 +157,15 @@ public class M1UI : MonoBehaviour
             if (_bomDie) { stopObj[4].GetComponent<EnemyMove>().enabled = false; }
             GameDirector.GameOver = false;
         }
+
+    }
+
+    IEnumerator GameOver()
+    {
+        animator.SetBool("isGameOver", true);
+        animator.Play("dead");
+        yield return new WaitForSeconds(1.5f);
+        //ゲームオーバー画面表示
+        GameOverPanel.SetActive(true);
     }
 }

@@ -11,8 +11,6 @@ public class Animator_Controller : MonoBehaviour
     Rigidbody rb;
     float state = 0.1f;
 
-    private bool canJum = true;
-
     void Awake()
     {
         TryGetComponent(out animator);
@@ -48,6 +46,7 @@ public class Animator_Controller : MonoBehaviour
             animator.SetBool("isFall", true);
         }
         else animator.SetBool("isFall", false);
+
         if(Input.GetKeyDown(KeyCode.P))
         {
             animator.Play("dead");

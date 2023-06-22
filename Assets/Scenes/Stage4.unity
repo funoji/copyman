@@ -2141,6 +2141,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e6088bd37dc1b4ba657ed180216c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &476033514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 476033516}
+  - component: {fileID: 476033515}
+  m_Layer: 0
+  m_Name: TimeLimit_TimeLine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &476033515
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476033514}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 0763c7098fd638444bda7c55e106e6c6, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 4218819716205325025, guid: 0763c7098fd638444bda7c55e106e6c6, type: 2}
+    value: {fileID: 1316537917}
+  - key: {fileID: -1123419746783986384, guid: 0763c7098fd638444bda7c55e106e6c6, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &476033516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476033514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &481034788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3609,11 +3662,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bee2c2e0b6311834085aa94e5ad18621, type: 3}
---- !u!82 &764413759 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1090539287151945593, guid: e71e27dd97b29174ebee5693d46f2e36, type: 3}
-  m_PrefabInstance: {fileID: 1675922025}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &790582447
 GameObject:
   m_ObjectHideFlags: 0
@@ -5068,6 +5116,7 @@ GameObject:
   - component: {fileID: 1316537914}
   - component: {fileID: 1316537916}
   - component: {fileID: 1316537915}
+  - component: {fileID: 1316537917}
   m_Layer: 5
   m_Name: TimeUI
   m_TagString: Untagged
@@ -5131,6 +5180,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316537913}
   m_CullTransparentMesh: 1
+--- !u!95 &1316537917
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316537913}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1333268960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bee2c2e0b6311834085aa94e5ad18621, type: 3}
@@ -7144,6 +7213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CountDown: 120
   countdown: {fileID: 1615175113}
+  timeLimitTimeLine: {fileID: 476033515}
+  animator: {fileID: 1530304815}
   GameCleaPanel: {fileID: 466346186}
   GameOverPanel: {fileID: 1998782315}
   stopObj:
@@ -7154,8 +7225,6 @@ MonoBehaviour:
   _bomDie: 0
   first_limit: 50
   second_limit: 10
-  sound: {fileID: 8300000, guid: 95136f5bf60c2444597117a48fa61de8, type: 3}
-  limitsound: {fileID: 764413759}
 --- !u!114 &1870680925
 MonoBehaviour:
   m_ObjectHideFlags: 0
