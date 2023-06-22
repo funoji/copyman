@@ -1776,8 +1776,8 @@ RectTransform:
   m_GameObject: {fileID: 341823159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.9, y: 1.9, z: 1.9}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1476643216}
   m_Father: {fileID: 1080086799}
@@ -1785,7 +1785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 58}
+  m_AnchoredPosition: {x: 0, y: 77}
   m_SizeDelta: {x: 700, y: 105.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &341823161
@@ -4189,6 +4189,9 @@ MonoBehaviour:
   - se: 9
     audioClip: {fileID: 8300000, guid: a6d768c26dbb4384095e0c6cfaaeb6a0, type: 3}
     volume: 1
+  - se: 12
+    audioClip: {fileID: 8300000, guid: 024b0ded3d2434a488d6f1d7c4ffd103, type: 3}
+    volume: 0.8
   BGMslider: {fileID: 427927602}
   SEslider: {fileID: 786867649}
   MasterSlider: {fileID: 708239673}

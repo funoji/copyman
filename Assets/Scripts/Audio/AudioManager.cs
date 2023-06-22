@@ -110,6 +110,7 @@ public class SESoundData
         button,
         treasuryMove,
         timeLimit,
+        gameOver,
     }
 
     public SE se;

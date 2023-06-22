@@ -131,6 +131,7 @@ public class M1UI : MonoBehaviour
             stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
 
             StartCoroutine("GameOver");
+            GameDirector.GameOver = false;
         }
         if (GameDirector.GameClear == true)
         {
@@ -164,8 +165,11 @@ public class M1UI : MonoBehaviour
     {
         animator.SetBool("isGameOver", true);
         animator.Play("dead");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
+        AudioManager.Instance.PlaySE(SESoundData.SE.gameOver);
+        yield return new WaitForSeconds(0.5f);
         //ゲームオーバー画面表示
+        
         GameOverPanel.SetActive(true);
     }
 }
