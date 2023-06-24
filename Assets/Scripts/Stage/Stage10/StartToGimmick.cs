@@ -12,6 +12,7 @@ public class StartToGimmick : MonoBehaviour
         if (!firstflag) return;
         if (other.gameObject.CompareTag("Cancopy") || other.gameObject.name == "CPM")
         {
+            AudioManager.Instance.PlaySE(SESoundData.SE.button);
             gimmick.ActiveGimmick = true;
             gimmick.ActiveSeflag = true;
             firstflag = false;

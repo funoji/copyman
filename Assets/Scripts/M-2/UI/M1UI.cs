@@ -38,6 +38,7 @@ public class M1UI : MonoBehaviour
     public float second_limit;
     private bool _sound;
     private bool _first_limit_sound;
+    private bool _first_gameover;
 
     // Start is called before the first frame update
     public void Awake()
@@ -59,6 +60,7 @@ public class M1UI : MonoBehaviour
         //AudioiSource
         _sound = false;
         _first_limit_sound = true;
+        _first_gameover = true;
 
         first_limit = 50f;
         second_limit = 10f;
@@ -113,10 +115,9 @@ public class M1UI : MonoBehaviour
             stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
         }
 
-        if (GameDirector.GameOver == true)
+        if (GameDirector.GameOver == true && _first_gameover)
         {
-            //GameOverText.text = "GAMEOVER";
-
+            _first_gameover = false;
             //ゲーム時間(CoundDwon)を止める
             _countBool = true;
             //プレイヤーの移動、ジャンプ、アニメーションを止める。
