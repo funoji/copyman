@@ -20,6 +20,8 @@ public class ObjectManager : MonoBehaviour
         [SerializeField]
         public Vector3 Scale;
 
+        [SerializeField]
+        public Vector3 Position;
         //this object got copied
         public bool Copied = false;
 

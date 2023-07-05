@@ -170,7 +170,7 @@ public class M1UI : MonoBehaviour
         AudioManager.Instance.PlaySE(SESoundData.SE.gameOver);
         yield return new WaitForSeconds(0.5f);
         //ゲームオーバー画面表示
-        
         GameOverPanel.SetActive(true);
+
     }
 }

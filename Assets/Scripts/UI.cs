@@ -17,7 +17,7 @@ public class UI : MonoBehaviour
     [SerializeField] ObjectManager ObjectManager;
     GameObject  UIobj;
     [SerializeField] GameObject defaltUi;
-    
+    [SerializeField] CopyColl CopyColl;
 
     void Start()
     {
@@ -29,25 +29,23 @@ public class UI : MonoBehaviour
     {
         UIobj = CopyCollObj.GetComponent<CopyColl>().ForUIObj;
         UIobj.transform.position = ObjUiPos.position;
-        if(GameDirector.GameClear)
+        UIobj.name = CopyColl.Obj.name;
+        if (GameDirector.GameClear)
         {
             UIobj = defaltUi;
         }
-        //for (int i = 0; i < ObjectManager._CanCopyObj.Length; i++)
-        //{
-        //    if (UIobj.name == ObjectManager._CanCopyObj[i].name)
-        //    {
-        //        UIobj.GetComponent<Transform>().localScale = ObjectManager._CanCopyObj[i].Scale;
-        //    }
-        //}
-
-        //if (GameDirector.GameClear) result.text = "StageClear";
-        //if (GameDirector.GameOver) result.text = "GameOver";
-
-        //var rectObj = new RectTransform();  // ÉVÅ[ÉìÇ©ÇÁÇ∆Ç¡ÇƒÇ´ÇΩÇ‡ÇÃÇ∆Ç∑ÇÈ
-        //var rectP = rectObj.rect;
-        //rectObj.rect.x--;
-        //rectP.y--;
-        //rectObj.rect = rectP;
+        for (int i = 0; i < ObjectManager._CanCopyObj.Length; i++)
+        {
+            if (UIobj.name == ObjectManager._CanCopyObj[i].name)
+            {
+                UIobj.GetComponent<Transform>().localScale = ObjectManager._CanCopyObj[i].Scale;
+                UIobj.transform.position = ObjUiPos.position + ObjectManager._CanCopyObj[i].Position;
+                Debug.Log(UIobj.GetComponent<Transform>().localScale);
+            }
+            if(GameDirector.GameOver)
+            {
+                UIobj.SetActive(false);
+            }
+        }
     }
 }

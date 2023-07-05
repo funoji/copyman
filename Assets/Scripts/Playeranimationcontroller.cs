@@ -23,8 +23,6 @@ public class Playeranimationcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float limit = 0.5f;
-
         //if (rb.velocity.z > limit)
         //{
         //    IsRunning = true;
