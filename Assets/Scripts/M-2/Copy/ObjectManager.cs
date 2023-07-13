@@ -18,6 +18,9 @@ public class ObjectManager : MonoBehaviour
         public int NumberOfObj;
 
         [SerializeField]
+        public Quaternion Rotate;
+
+        [SerializeField]
         public Vector3 Scale;
 
         [SerializeField]

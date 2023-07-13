@@ -3011,6 +3011,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7064675953536685128, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
   m_PrefabInstance: {fileID: 662025377}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &662025380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7064675953536685142, guid: 3694e926abd34c44c9f90268072cbd8d, type: 3}
+  m_PrefabInstance: {fileID: 662025377}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662025379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab856530a164e83409f9df4d3eebb2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &665681028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3538,7 +3549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825956375}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.330315, y: -14.801687, z: -26.660519}
+  m_LocalPosition: {x: -21.330315, y: -13.26, z: -26.660519}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3961,7 +3972,8 @@ MonoBehaviour:
   MissionStr: "\u30DD\u30B1\u30C3\u30C8\u306B\u5165\u308C\u308D\uFF01\uFF01"
   Stage: 4
   ObjectManager: {fileID: 662025378}
-  defaltUi: {fileID: 0}
+  defaltUi: {fileID: 951993606}
+  CopyColl: {fileID: 662025380}
 --- !u!114 &951993611
 MonoBehaviour:
   m_ObjectHideFlags: 0

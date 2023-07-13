@@ -40,6 +40,7 @@ public class UI : MonoBehaviour
             {
                 UIobj.GetComponent<Transform>().localScale = ObjectManager._CanCopyObj[i].Scale;
                 UIobj.transform.position = ObjUiPos.position + ObjectManager._CanCopyObj[i].Position;
+                UIobj.transform.rotation = ObjectManager._CanCopyObj[i].Rotate;
                 Debug.Log(UIobj.GetComponent<Transform>().localScale);
             }
             if(GameDirector.GameOver)

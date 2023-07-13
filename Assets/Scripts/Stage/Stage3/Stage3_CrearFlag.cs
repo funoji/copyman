@@ -56,7 +56,7 @@ public class Stage3_CrearFlag : MonoBehaviour
     {
         while (true)
         {
-            clearNum = ClearNum(targetObj) - 1;
+            clearNum = ClearNum(targetObj);
             yield return new WaitForSeconds(0.5f);
         }
     }
