@@ -115,7 +115,7 @@ public class M1UI : MonoBehaviour
             stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
         }
 
-        if (GameDirector.GameOver == true && _first_gameover)
+        if (GameDirector.GameOver == true /*&& _first_gameover*/)
         {
             _first_gameover = false;
             //ƒQ[ƒ€ŠÔ(CoundDwon)‚ğ~‚ß‚é

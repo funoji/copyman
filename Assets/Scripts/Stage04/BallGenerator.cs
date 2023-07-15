@@ -9,7 +9,7 @@ public class BallGenerator : MonoBehaviour
     [SerializeField] GameObject bom;
     [SerializeField] Transform SpawnPoint;
     [SerializeField] GameObject ball;
-    [SerializeField] GameObject Canvas;
+    //[SerializeField] GameObject Canvas;
     [SerializeField] TextMeshProUGUI Score;
 
     [SerializeField] private int LoseRate = 5;
@@ -28,7 +28,7 @@ public class BallGenerator : MonoBehaviour
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
-        Canvas.SetActive(false);
+        //Canvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class BallGenerator : MonoBehaviour
         {
             bom.SetActive(false);
             GameDirector.GameClear = true;
-            Canvas.SetActive(true);
+            //Canvas.SetActive(true);
             GameDirector.GameClear = true;
             Score.alpha = 0.0f;
         }

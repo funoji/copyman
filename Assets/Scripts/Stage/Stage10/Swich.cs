@@ -22,7 +22,7 @@ public class Swich : MonoBehaviour
         if (other.tag != "Cancopy" && other.tag !="Player") return;
         AudioManager.Instance.PlaySE(SESoundData.SE.button);
         if (firstPushFlag) return;
-        count.pushButtonNum += 1;
+        count.PushButtonNum += 1;
         firstPushFlag = true;
     }
 

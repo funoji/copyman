@@ -36,7 +36,7 @@ public class Stage3_GameManager : MonoBehaviour
 
     void JudgeCount()
     {
-        if (stage3_CrearFlag.pushButtonNum >= onElevatorCount) onElevetor =true;
+        if (stage3_CrearFlag.PushButtonNum >= onElevatorCount) onElevetor =true;
     }
 
     IEnumerator SpawnBoms()

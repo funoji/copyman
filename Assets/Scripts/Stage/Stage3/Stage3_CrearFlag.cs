@@ -7,7 +7,7 @@ public class Stage3_CrearFlag : MonoBehaviour
 {
     private float clearNum;
     private int pushButtonNow = 0;
-    public int pushButtonNum
+    public int PushButtonNum
     {
         set => pushButtonNow = value;
         get => pushButtonNow;
@@ -24,7 +24,7 @@ public class Stage3_CrearFlag : MonoBehaviour
     void Start()
     {
         StartCoroutine("ClearButton");
-        pushButtonNum = 0;
+        PushButtonNum = 0;
     }
 
     void Update()
@@ -35,7 +35,7 @@ public class Stage3_CrearFlag : MonoBehaviour
 
     void Clear()
     {
-        if (pushButtonNum >= clearNum) GameDirector.GameClear = true;
+        if (PushButtonNum >= clearNum) GameDirector.GameClear = true;
     }
 
     int ClearNum(GameObject[] targets)

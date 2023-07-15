@@ -19,6 +19,7 @@ public class UI : MonoBehaviour
     [SerializeField] GameObject defaltUi;
     [SerializeField] CopyColl CopyColl;
 
+    private GameObject preUiObj;
     void Start()
     {
         StageNum.text = Stage;
@@ -27,13 +28,16 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        preUiObj = UIobj;
         UIobj = CopyCollObj.GetComponent<CopyColl>().ForUIObj;
         UIobj.transform.position = ObjUiPos.position;
-        UIobj.name = CopyColl.Obj.name;
-        if (GameDirector.GameClear)
+        UIobj.name = CopyColl.Obj.name; 
+        if (preUiObj != UIobj)
         {
-            UIobj = defaltUi;
+            //UIobj.GetComponent<Rigidbody>().isKinematic = true;
+            Destroy(preUiObj);
         }
+
         for (int i = 0; i < ObjectManager._CanCopyObj.Length; i++)
         {
             if (UIobj.name == ObjectManager._CanCopyObj[i].name)
@@ -41,9 +45,10 @@ public class UI : MonoBehaviour
                 UIobj.GetComponent<Transform>().localScale = ObjectManager._CanCopyObj[i].Scale;
                 UIobj.transform.position = ObjUiPos.position + ObjectManager._CanCopyObj[i].Position;
                 UIobj.transform.rotation = ObjectManager._CanCopyObj[i].Rotate;
-                Debug.Log(UIobj.GetComponent<Transform>().localScale);
+
+             
             }
-            if(GameDirector.GameOver)
+            if(GameDirector.GameOver || GameDirector.GameClear)
             {
                 UIobj.SetActive(false);
             }
