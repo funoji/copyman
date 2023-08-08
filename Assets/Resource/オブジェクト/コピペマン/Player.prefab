@@ -1630,6 +1630,7 @@ MonoBehaviour:
   countObject: {fileID: 8478351736743436626, guid: 260cc17d18bb7d947b2cb7c011338fe2, type: 3}
   CopyColl: {fileID: 7064675953536685142}
   preLineRenderer: {fileID: 0}
+  ObjectSEAudioSorce: {fileID: 0}
 --- !u!114 &2864978243128715872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1983,6 +1984,7 @@ GameObject:
   - component: {fileID: 7064675952403509594}
   - component: {fileID: 1819753396}
   - component: {fileID: 629259206}
+  - component: {fileID: 3718376882191942482}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2159,6 +2161,21 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3718376882191942482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064675952403509599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad36390866e9ef41a6f937fed936d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 7064675953230851320}
+  rotationSpeed: 75
+  finalDistance: 5
 --- !u!1 &7064675953230851321
 GameObject:
   m_ObjectHideFlags: 0

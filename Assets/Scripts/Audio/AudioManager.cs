@@ -111,6 +111,7 @@ public class SESoundData
         treasuryMove,
         timeLimit,
         gameOver,
+        gameClear,
     }
 
     public SE se;

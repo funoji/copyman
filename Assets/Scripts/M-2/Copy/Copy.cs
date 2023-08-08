@@ -14,15 +14,10 @@ public class Copy : MonoBehaviour
     [SerializeField] GameObject moneycount;
     [SerializeField] GameObject countObject;
     GameObject PasteObj;
-    GameObject willPaste;
-    ShotPaste ShotPaste;
+
     [SerializeField] CopyColl CopyColl;
-    Vector3 v;
     Vector3 rotvec;
-    private LineRenderer lineRenderer;
     public GameObject preLineRenderer;
-    private GameObject objLineRenderer;
-    private bool count = false;
 
     [SerializeField] AudioSource ObjectSEAudioSorce;  //‰½‚©‚ ‚ê‚Î•Ûˆä‚Ü‚Å
 
@@ -76,12 +71,5 @@ public class Copy : MonoBehaviour
             Debug.Log(moneycount.GetComponent<Money_counter>().metaobject);
         }
         ObjectSEAudioSorce.PlayOneShot(CopyColl.audio);
-        //  animator.SetBool("isShot",true);
-        //ShotPaste.DrawLine();
-    }
-
-    public void ShotArkDrow(int t)
-    {
-       
     }
 }

@@ -65,7 +65,7 @@ public class Copyinput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Joystick1Button3))
         {
             count++;
-            Copy.ShotArkDrow(count);
+            //Copy.ShotArkDrow(count);
         }
 
         if(Input.GetKeyUp(KeyCode.R) || Input.GetKeyUp(KeyCode.Joystick1Button3))

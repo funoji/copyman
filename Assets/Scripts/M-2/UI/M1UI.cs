@@ -13,6 +13,7 @@ public class M1UI : MonoBehaviour
     [SerializeField] float CountDown = default!;
     [SerializeField] TextMeshProUGUI countdown;
     [SerializeField] PlayableDirector timeLimitTimeLine;
+    [SerializeField] PlayableDirector ClearTimeLine;
     [SerializeField] [Tooltip("Debug_Camera_Animator Reference")] Animator animator;
     //[SerializeField] TextMeshProUGUI GameOverText;
     //[SerializeField] [Tooltip("ボタンの表示")] GameObject transtion;
@@ -143,9 +144,6 @@ public class M1UI : MonoBehaviour
             //ゲーム時間(CoundDwon)を止める
             _countBool = true;
 
-            //ゲームクリア画面表示
-            GameCleaPanel.SetActive(true);
-
             //プレイヤーの移動、ジャンプ、アニメーションを止める。
             stopObj[0].GetComponent<PlayerController>().enabled = false;
             stopObj[0].GetComponent<JumpManager>().enabled = false;
@@ -156,8 +154,10 @@ public class M1UI : MonoBehaviour
             stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = false;
             //ポーズ画面を起動できなくする。
             stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
-            if (_bomDie) { stopObj[4].GetComponent<EnemyMove>().enabled = false; }
-            GameDirector.GameOver = false;
+            //if (_bomDie) { stopObj[3].GetComponent<EnemyMove>().enabled = false; }
+
+            StartCoroutine("GameClear");
+            GameDirector.GameClear = false;
         }
 
     }
@@ -171,6 +171,11 @@ public class M1UI : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         //ゲームオーバー画面表示
         GameOverPanel.SetActive(true);
-
+    }
+    IEnumerator GameClear()
+    {
+        //ゲームクリア画面表示
+        ClearTimeLine.Play();
+        yield return 0;
     }
 }
