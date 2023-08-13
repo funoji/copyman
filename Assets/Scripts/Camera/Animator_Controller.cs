@@ -9,7 +9,7 @@ public class Animator_Controller : MonoBehaviour
     [SerializeField] [Tooltip("PlayerController Reference")] PlayerController moveController;
     [SerializeField] JumpManager JumpManager;
     Rigidbody rb;
-    float state = 0.1f;
+    float state = 0.2f;
 
     void Awake()
     {
