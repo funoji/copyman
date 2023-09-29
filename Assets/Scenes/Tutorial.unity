@@ -177,10 +177,10 @@ PrefabInstance:
     - target: {fileID: 7890714084879384825, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
       propertyPath: fadeFeature
       value: 
-      objectReference: {fileID: 1146309997}
+      objectReference: {fileID: 0}
     - target: {fileID: 8623283746091921024, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
       propertyPath: m_Name
-      value: TranstionSystem.1
+      value: TranstionSystem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb9f461be9aa50047bc436bf6c72c041, type: 3}
@@ -5881,7 +5881,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5562920281422731058, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
       propertyPath: m_Name
-      value: Load_Canvas.1
+      value: Load_Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 5562920281422731058, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
       propertyPath: m_IsActive
@@ -6026,7 +6026,11 @@ PrefabInstance:
     - target: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
       propertyPath: fadeSystem.Array.data[0].imageObj
       value: 
-      objectReference: {fileID: 1146309998}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675536113719909054, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1397784909}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
 --- !u!1 &1108343558
@@ -6287,28 +6291,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145739602}
   m_CullTransparentMesh: 1
---- !u!114 &1146309997 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6221896057266040921, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
-  m_PrefabInstance: {fileID: 1097838141}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e76271bea2883a4f82ae7d1b6726fe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1146309998 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5562920282091115055, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
-  m_PrefabInstance: {fileID: 1097838141}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1171421829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7465,7 +7447,6 @@ MonoBehaviour:
   events:
     m_PersistentCalls:
       m_Calls: []
-  _pushBool: 0
 --- !u!114 &1670862667
 MonoBehaviour:
   m_ObjectHideFlags: 0

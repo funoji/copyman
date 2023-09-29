@@ -10,6 +10,6 @@ public class GameClea_Manager : MonoBehaviour
     private void Start()
     {
         //Sound‚Ì‰¹—Ê‚ð‚O‚É‚·‚é
-        audioSource.volume = 0;
+        audioSource.Stop();
     }
 }

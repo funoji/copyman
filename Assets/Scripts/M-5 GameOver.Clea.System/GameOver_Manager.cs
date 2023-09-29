@@ -4,22 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-//テキストを時間経過で拡大しながら表示する
+// テキストを時間経過で拡大しながら表示する
 public class GameOver_Manager : MonoBehaviour
 {
-    [Header("Size Change Setting")]
-    public float changeTime;  //拡大する時間
-    public float waitTime;  //表示するまでの待機時間
+    [Header("テキストの設定")]
+    // 拡大する時間
+    public float changeTime;
+    // 表示するまでの待機時間
+    public float waitTime;  
 
     //Text
     [System.Serializable]
     public struct TextObj
     {
-        public TextMeshProUGUI text;  //Text用変数
-        [HideInInspector]
-        public float _textSize;  //Textの保存用変数
-        [HideInInspector]
-        public bool onFade;  //Textの判定用変数
+        //Text用変数
+        public TextMeshProUGUI text;
+        //Textの保存用変数
+        [HideInInspector]public float _textSize;
+        //Textの判定用変数
+        [HideInInspector]public bool onFade; 
     }
     [Space(5)]
     public TextObj[] textObj;
@@ -30,12 +33,14 @@ public class GameOver_Manager : MonoBehaviour
     private void Start()
     {
         //音量を０に初期化
-        audioSource.volume = 0;
+        audioSource.Stop();
 
         for (int num = 0; num < textObj.Length; num++)
         {
-            textObj[num]._textSize = textObj[num].text.fontSize;  //元のテキストサイズを保存
-            textObj[num].text.GetComponent<TextMeshProUGUI>().fontSize = 0;  //フォントサイズを０に初期化
+            //元のテキストサイズを保存
+            textObj[num]._textSize = textObj[num].text.fontSize;
+            //フォントサイズを０に初期化
+            textObj[num].text.GetComponent<TextMeshProUGUI>().fontSize = 0; 
         }
 
         //処理を待つ
@@ -47,7 +52,10 @@ public class GameOver_Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
 
-        for (int num = 0; num < textObj.Length; num++) { textObj[num].onFade = true; }
+        for (int num = 0; num < textObj.Length; num++)
+        {
+            textObj[num].onFade = true;
+        }
     }
 
     private void Update()
@@ -55,7 +63,10 @@ public class GameOver_Manager : MonoBehaviour
         //Textを表示するか判定
         for (int num = 0; num < textObj.Length; num++)
         {
-            if (textObj[num].onFade) { Change_TextSize(num); }
+            if (textObj[num].onFade)
+            {
+                Change_TextSize(num); 
+            }
         }
     }
 
@@ -64,9 +75,13 @@ public class GameOver_Manager : MonoBehaviour
     {
         //Textのサイズに加算
         textObj[Num].text.fontSize += Time.deltaTime * changeTime;
+
         if (textObj[Num]._textSize <= textObj[Num].text.fontSize)
         {
+            // textが大きくなったら大きさを固定にする
             textObj[Num].text.fontSize = textObj[Num]._textSize;
+
+            // フェードアウトの判定を無効にする
             textObj[Num].onFade = false;
         }
     }

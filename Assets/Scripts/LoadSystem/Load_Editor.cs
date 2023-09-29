@@ -8,51 +8,49 @@ using UnityEditor;
 [CustomEditor(typeof(Load_Manager))]
 public class Load_Editor : Editor
 {
+    private int timeMin = 0;
+    private int timeMax = 1000;
+
     public override void OnInspectorGUI()
     {
-        Load_Manager loading = target as Load_Manager;  //Load_Managerクラスのインスタンスを取得
+        // Load_Managerクラスのインスタンスを取得
+        Load_Manager loading = target as Load_Manager;
 
-        serializedObject.Update(); //serializedObjectを最新に変更
-
-        var imageObj = serializedObject.FindProperty("fixationImage");  //Load_Managerクラスの配列 fixationImage を取得
-        var loadObj = serializedObject.FindProperty("audioSource");  //Load_Managerクラスの配列 audioSource を取得
+        // serializedObjectを最新に変更
+        serializedObject.Update();
 
         EditorGUI.BeginChangeCheck();
 
-        //Load 
-        EditorGUILayout.LabelField("Load Setting", EditorStyles.boldLabel);  //ラベルを表示
+        // Load 
+        // 見出しを設定する
+        EditorGUILayout.LabelField("ロードの設定", EditorStyles.boldLabel);
 
-        loading.loadImage = (GameObject)EditorGUILayout.ObjectField("　Load Image ", loading.loadImage, typeof(GameObject), true);  //Object用のフィールドを表示
-        loading.loadVideo = (VideoPlayer)EditorGUILayout.ObjectField("　Load Video ", loading.loadVideo, typeof(VideoPlayer), true);  //Object用のフィールドを表示
-        loading.loadTime = EditorGUILayout.FloatField("　Load Time ", loading.loadTime);  //Float型のフィールドを表示
+        // ロード画面を表示するオブジェクトを取得するフィールドを表示
+        loading.loadImage = (GameObject)EditorGUILayout.ObjectField("　Load_Panel ", loading.loadImage, typeof(GameObject), true);
+        // ロード画面表示するVideoClipを取得するフィールドを表示
+        loading.loadVideo = (VideoPlayer)EditorGUILayout.ObjectField("　Loading_RawImage ", loading.loadVideo, typeof(VideoPlayer), true);
+        // ロード画面を表示する時間を設定するスライダーを表示
+        loading.loadTime = EditorGUILayout.IntSlider("　ロード画面を表示する時間 ", loading.loadTime, timeMin, timeMax);
 
-        EditorGUILayout.HelpBox("ロード画面の再生時間\n1000…約６秒　500…約２秒", MessageType.None);  //注意書きを表示
+        // 注意書きを表示
+        EditorGUILayout.HelpBox("ロード画面の再生時間(参考時間)\n1000…約６秒　500…約２秒", MessageType.None);
 
-        EditorGUILayout.PropertyField(imageObj);  //fixationImage用のフィールドを表示
-
-        loading._textObj = EditorGUILayout.Toggle("Use Text Object ", loading._textObj);  //Toggleを表示
-        if (loading._textObj) { loading.fixationText = (TextMeshProUGUI)EditorGUILayout.ObjectField("  Text Object ", loading.fixationText, typeof(TextMeshProUGUI), true); }  //Object用のフィールドを表示
-
-        EditorGUILayout.Space();  //スペースを確保
-
-        //Fade
-        //EditorGUILayout.LabelField("Fade Setting", EditorStyles.boldLabel);  //ラベルを表示
-
-        //loading.fadeScript = (Fade_Manager)EditorGUILayout.ObjectField("　Fade Script ", loading.fadeScript, typeof(Fade_Manager), true);  //Object用のフィールドを表示
-
-        //EditorGUILayout.Space();  //スペースを確保
+        //スペースを確保
+        EditorGUILayout.Space();  
 
         //AudioSource
-        EditorGUILayout.LabelField("Audio Source", EditorStyles.boldLabel);  //ラベルを表示
+        // 見出しを設定する
+        EditorGUILayout.LabelField("音に関する設定", EditorStyles.boldLabel);
 
-        EditorGUILayout.PropertyField(loadObj);  //AudioSource用のフィールドを表示
-        
-        EditorGUILayout.Space();  //スペースを確保
+        // 音を管理するAudioSourceを取得するフィールドを表示
+        loading.audioSource = (AudioSource)EditorGUILayout.ObjectField("　Audio Source ", loading.audioSource, typeof(AudioSource), true);
+        //loading.audioSource = (GameObject)EditorGUILayout.ObjectField("　Audio Source ", loading.audioSource, typeof(GameObject), true);
 
-        loading.soundVolume = EditorGUILayout.FloatField("  Sound Volume ", loading.soundVolume);
+        //スペースを確保
+        EditorGUILayout.Space();
 
-
-        serializedObject.ApplyModifiedProperties(); //serializedObjectへの変更を適用
+        //serializedObjectへの変更を適用
+        serializedObject.ApplyModifiedProperties(); 
         EditorUtility.SetDirty(loading);
     }
 }
