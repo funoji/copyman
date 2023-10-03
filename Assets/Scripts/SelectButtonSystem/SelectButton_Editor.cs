@@ -6,23 +6,23 @@ using UnityEditor;
 public class SelectButton_Editor : Editor
 {
     // 配列の長さを一時的に保存するための変数
-    private int arraysize = 0; 
+    private int arraysize = 0;
     public override void OnInspectorGUI()
     {
         // serializedObjectを最新に変更
         serializedObject.Update();
 
         // S_3_Selectクラスの配列 SelectDataを取得
-        var selectObj = serializedObject.FindProperty("selectData"); 
+        var selectObj = serializedObject.FindProperty("selectData");
         var events = serializedObject.FindProperty("events");
 
         // S_3_Selectクラスのインスタンスを取得
-        SelectButton_Maneger select = target as SelectButton_Maneger; 
+        SelectButton_Maneger select = target as SelectButton_Maneger;
 
         EditorGUI.BeginChangeCheck();
 
         // 配列SelectDataの長さを一時的に変数に保存しておく
-        arraysize = selectObj.arraySize; 
+        arraysize = selectObj.arraySize;
 
         // 選択状態のモードの設定
         select.mode = (SelectButton_Maneger.ModeType)EditorGUILayout.EnumPopup("選択中の演出モード", select.mode);
@@ -34,9 +34,9 @@ public class SelectButton_Editor : Editor
         EditorGUILayout.Space();
 
         // 特定のモードの時に表示する項目
-        if (select.mode == SelectButton_Maneger.ModeType.none) 
-        { 
-        
+        if (select.mode == SelectButton_Maneger.ModeType.none)
+        {
+            // Inspectorに何も表示しない
         }
         if (select.mode == SelectButton_Maneger.ModeType.size)
         {
@@ -45,21 +45,22 @@ public class SelectButton_Editor : Editor
             // 切り替わるまでの時間を設定するフィールドを表示
             select.maxTime = EditorGUILayout.FloatField("切り替わる時間", select.maxTime);
 
-            //スペースを描画
+            // スペースを描画
             EditorGUILayout.Space();
 
-            //一時的に保存した配列の長さと、本来の配列の長さが同じかチェックする
+            // 一時的に保存した配列の長さと、本来の配列の長さが同じかチェックする
             if (arraysize != selectObj.arraySize)
             {
-                selectObj.arraySize = arraysize; // 長さの変更を適用
+                // 長さの変更を適用
+                selectObj.arraySize = arraysize;
 
                 //ここでserializedObjectへの変更を適用し、再び更新する
                 serializedObject.ApplyModifiedProperties();
                 serializedObject.Update();
             }
-            else 
+            else
             {
-                //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
+                // 一時的に保存した配列の長さと、本来の配列の長さが同じ場合は配列の要素を描画する
                 for (int num = 0; num < selectObj.arraySize; num++)
                 {
                     // 枠組みを作る
@@ -76,7 +77,7 @@ public class SelectButton_Editor : Editor
                     GUILayout.EndVertical();
 
                     //スペースを描画
-                    EditorGUILayout.Space(); 
+                    EditorGUILayout.Space();
                 }
             }
 
@@ -110,7 +111,7 @@ public class SelectButton_Editor : Editor
             if (arraysize != selectObj.arraySize)
             {
                 // 長さの変更を適用
-                selectObj.arraySize = arraysize; 
+                selectObj.arraySize = arraysize;
 
                 //ここでserializedObjectへの変更を適用し、再び更新する
                 serializedObject.ApplyModifiedProperties();
@@ -118,7 +119,7 @@ public class SelectButton_Editor : Editor
             }
             else
             {
-                //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
+                //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は配列の要素を描画する
                 for (int num = 0; num < selectObj.arraySize; num++)
                 {
                     // 枠組みを作る
@@ -176,7 +177,7 @@ public class SelectButton_Editor : Editor
             if (arraysize != selectObj.arraySize)
             {
                 // 長さの変更を適用
-                selectObj.arraySize = arraysize; 
+                selectObj.arraySize = arraysize;
 
                 //ここでserializedObjectへの変更を適用し、再び更新する
                 serializedObject.ApplyModifiedProperties();
@@ -184,7 +185,7 @@ public class SelectButton_Editor : Editor
             }
             else
             {
-                //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は　配列の要素を描画する
+                //一時的に保存した配列の長さと、本来の配列の長さが同じ場合は配列の要素を描画する
                 for (int num = 0; num < selectObj.arraySize; num++)
                 {
                     // 枠組みを作る
@@ -236,7 +237,7 @@ public class SelectButton_Editor : Editor
         }
 
         //serializedObjectへの変更を適用
-        serializedObject.ApplyModifiedProperties(); 
+        serializedObject.ApplyModifiedProperties();
         EditorUtility.SetDirty(select);
     }
 }

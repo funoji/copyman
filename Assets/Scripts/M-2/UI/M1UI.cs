@@ -23,18 +23,6 @@ public class M1UI : MonoBehaviour
     public GameObject GameCleaPanel;
     public GameObject GameOverPanel;
 
-    [Header("動作を止めるための変数")]
-    public GameObject[] stopObj;
-    /*
-     * ▼アタッチしてほしいオブジェクト
-     * stopObj[0]  Player
-     * stopObj[1]  Player->CPM
-     * stopObj[2]  CameraSystem
-     * stopObj[3]  GameManager
-     */
-
-    public bool _bomDie;
-
     public float first_limit;
     public float second_limit;
     private bool _sound;
@@ -46,17 +34,6 @@ public class M1UI : MonoBehaviour
     {
         //transtion.SetActive(false);
         _countBool = false;
-
-        //プレイヤーの移動、ジャンプ、アニメーションを止める。
-        stopObj[0].GetComponent<PlayerController>().enabled = true;
-        stopObj[0].GetComponent<JumpManager>().enabled = true;
-        stopObj[0].GetComponent<Animator_Controller>().enabled = true;
-        //プレイヤーのコピーペーストを止める。
-        stopObj[1].GetComponent<Copyinput>().enabled = true;
-        //カメラの移動を止める。
-        stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = true;
-        //ポーズ画面を起動できなくする。
-        stopObj[3].GetComponent<CanvasActiveScript>().enabled = true;
 
         //AudioiSource
         _sound = false;
@@ -103,8 +80,6 @@ public class M1UI : MonoBehaviour
 
             //ゲームオーバー画面表示
             GameDirector.GameOver = true;
-
-            Move_Stop();
         }
 
         if (GameDirector.GameOver == true /*&& _first_gameover*/)
@@ -114,9 +89,7 @@ public class M1UI : MonoBehaviour
             _countBool = true;
 
             StartCoroutine("GameOver");
-            GameDirector.GameOver = false;
-
-            Move_Stop();
+            //GameDirector.GameOver = false;
         }
         if (GameDirector.GameClear == true)
         {
@@ -128,11 +101,8 @@ public class M1UI : MonoBehaviour
             _countBool = true;
 
             StartCoroutine("GameClear");
-            GameDirector.GameClear = false;
-
-            Move_Stop();
+            //GameDirector.GameClear = false;
         }
-
     }
 
     IEnumerator GameOver()
@@ -150,19 +120,5 @@ public class M1UI : MonoBehaviour
         //ゲームクリア画面表示
         ClearTimeLine.Play();
         yield return 0;
-    }
-
-    void Move_Stop()
-    {
-        //プレイヤーの移動、ジャンプ、アニメーションを止める。
-        stopObj[0].GetComponent<PlayerController>().enabled = false;
-        stopObj[0].GetComponent<JumpManager>().enabled = false;
-        stopObj[0].GetComponent<Animator_Controller>().enabled = false;
-        //プレイヤーのコピーペーストを止める。
-        stopObj[1].GetComponent<Copyinput>().enabled = false;
-        //カメラの移動を止める。
-        stopObj[2].GetComponent<CinemachineVirtualCamera>().enabled = false;
-        //ポーズ画面を起動できなくする。
-        stopObj[3].GetComponent<CanvasActiveScript>().enabled = false;
     }
 }

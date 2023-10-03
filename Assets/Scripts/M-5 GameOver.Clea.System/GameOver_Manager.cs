@@ -11,43 +11,46 @@ public class GameOver_Manager : MonoBehaviour
     // 拡大する時間
     public float changeTime;
     // 表示するまでの待機時間
-    public float waitTime;  
+    public float waitTime;
 
-    //Text
+    // Text
     [System.Serializable]
     public struct TextObj
     {
-        //Text用変数
+        // Text用変数
         public TextMeshProUGUI text;
-        //Textの保存用変数
-        [HideInInspector]public float _textSize;
-        //Textの判定用変数
-        [HideInInspector]public bool onFade; 
+        // Textの保存用変数
+        [HideInInspector] public float _textSize;
+        // Textの判定用変数
+        [HideInInspector] public bool onFade;
     }
     [Space(5)]
     public TextObj[] textObj;
 
-    //AudioSourceの参照
-    public AudioSource audioSource;
+    // AudioSourceの参照
+    [SerializeField]private AudioSource audioSource;
 
     private void Start()
     {
-        //音量を０に初期化
-        audioSource.Stop();
+        if (audioSource.isPlaying)
+        {
+            // 音量を０に初期化
+            audioSource.Stop();
+        }
 
         for (int num = 0; num < textObj.Length; num++)
         {
-            //元のテキストサイズを保存
+            // 元のテキストサイズを保存
             textObj[num]._textSize = textObj[num].text.fontSize;
-            //フォントサイズを０に初期化
-            textObj[num].text.GetComponent<TextMeshProUGUI>().fontSize = 0; 
+            // フォントサイズを０に初期化
+            textObj[num].text.GetComponent<TextMeshProUGUI>().fontSize = 0;
         }
 
-        //処理を待つ
+        // 処理を待つ
         StartCoroutine(WaitTime());
     }
 
-    //表示するまでの待機処理
+    // 表示するまでの待機処理
     IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(waitTime);
@@ -65,12 +68,12 @@ public class GameOver_Manager : MonoBehaviour
         {
             if (textObj[num].onFade)
             {
-                Change_TextSize(num); 
+                Change_TextSize(num);
             }
         }
     }
 
-    //Textのサイズ変更
+    // Textのサイズ変更
     void Change_TextSize(int Num)
     {
         //Textのサイズに加算

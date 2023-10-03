@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GameClea_Manager : MonoBehaviour
 {
-    //AudioSource‚ÌQÆ
-    public AudioSource audioSource;
+    // AudioSource‚ÌQÆ
+    [SerializeField] private AudioSource audioSource;
 
     private void Start()
     {
-        //Sound‚Ì‰¹—Ê‚ğ‚O‚É‚·‚é
+        // Sound‚ğ~‚ß‚é
         audioSource.Stop();
     }
 }

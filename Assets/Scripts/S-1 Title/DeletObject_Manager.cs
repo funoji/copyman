@@ -7,9 +7,9 @@ public class DeletObject_Manager : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject) 
+        if (collision.gameObject)
         {
-            Destroy(collision.gameObject); 
+            Destroy(collision.gameObject);
         }
     }
 }

@@ -64,11 +64,19 @@ public class EnemyMove : MonoBehaviour
     {
         if (isStan) return;
         if (isExplosion) return;
-        rb.angularVelocity = Vector3.zero;
-        Move();
-        Attack();
-        RotateToMove();
-        AnimController();
+
+        if (!GameDirector.GameClear && !GameDirector.GameOver)
+        {
+            rb.angularVelocity = Vector3.zero;
+            Move();
+            Attack();
+            RotateToMove();
+            AnimController();
+        }
+        else if (GameDirector.GameClear || GameDirector.GameOver)
+        {
+            moveSpd = 0;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -79,13 +87,15 @@ public class EnemyMove : MonoBehaviour
             Invoke("IsStan", 3.0f);
         }
 
-        if(collision.gameObject.name == "Player")
+        if((!GameDirector.GameClear && !GameDirector.GameOver)&&collision.gameObject.name == "Player")
         {
             rb.velocity = Vector3.zero;
             isExplosion = true;
             animator.SetBool("IsAttack", true);
             Invoke("Explosion", 0.5f);
             Invoke("GameOver", 1.0f);
+
+            GameOver();
         }
     }
 

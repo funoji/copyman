@@ -30,7 +30,7 @@ public class SelectButton_Maneger : MonoBehaviour
         // Imageの変数
         public GameObject buttonImage;
         // 大きさの保存用変数
-        [HideInInspector]public Vector3 _buttonScale;  
+        [HideInInspector] public Vector3 _buttonScale;
     }
     public SelectData[] selectData;
 
@@ -45,15 +45,15 @@ public class SelectButton_Maneger : MonoBehaviour
         // オブジェクトのImageの変数
         public GameObject exitImage;
         // 大きさの保存用変数
-        [HideInInspector]public Vector3 _exitImage;  
+        [HideInInspector] public Vector3 _exitImage;
     }
     public ExitData exitData;
 
     // 選択状態がサイズの変更時用の変数
     // サイズが変わるスピード
-    public float scallSpeed;
+    public float scallSpeed = 0.1f;
     // 大きさが最大になる時間
-    public float maxTime;
+    public float maxTime = 1f;
     // 時間の保存用変数
     private float time;
     // 変化する大きさの値を保存する変数
@@ -71,11 +71,11 @@ public class SelectButton_Maneger : MonoBehaviour
     {
         // 初期の選択状態をスタートボタンに設定 
         if (ExitButton && selectData.Length == 0)
-        { 
-            EventSystem.current.SetSelectedGameObject(exitData.exitButton); 
+        {
+            EventSystem.current.SetSelectedGameObject(exitData.exitButton);
         }
-        else 
-        { 
+        else
+        {
             EventSystem.current.SetSelectedGameObject(selectData[0].buttonObj);
         }
 
@@ -85,7 +85,7 @@ public class SelectButton_Maneger : MonoBehaviour
         {
             // 初期の大きさを保存
             for (int num = 0; num < selectData.Length; num++)
-            { 
+            {
                 selectData[num]._buttonScale = selectData[num].buttonImage.transform.localScale;
             }
         }
@@ -93,13 +93,13 @@ public class SelectButton_Maneger : MonoBehaviour
         {
             // 初期の表示を設定
             for (int num = 0; num < selectData.Length; num++)
-            { 
-                selectData[num].buttonImage.SetActive(false); 
+            {
+                selectData[num].buttonImage.SetActive(false);
             }
         }
-        if (ExitButton) 
-        { 
-            exitData._exitImage = exitData.exitImage.transform.localScale; 
+        if (ExitButton)
+        {
+            exitData._exitImage = exitData.exitImage.transform.localScale;
         }
     }
 
@@ -115,8 +115,8 @@ public class SelectButton_Maneger : MonoBehaviour
             Select_Image();
         }
         if (mode == ModeType.normal)
-        { 
-            Select_Normal(); 
+        {
+            Select_Normal();
         }
     }
 
@@ -129,30 +129,30 @@ public class SelectButton_Maneger : MonoBehaviour
         //コントローラー用　ボタン選択状態の設定
         if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == true)
         {
-            EventSystem.current.SetSelectedGameObject(exitData.exitButton); events.Invoke(); 
+            EventSystem.current.SetSelectedGameObject(exitData.exitButton); events.Invoke();
         }
 
         //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す 
         for (int num = 0; num < selectData.Length; num++)
         {
-            if (_button == selectData[num].buttonObj) 
-            { 
-                selectData[num].buttonImage.SetActive(true); 
+            if (_button == selectData[num].buttonObj)
+            {
+                selectData[num].buttonImage.SetActive(true);
             }
             else if (_button != selectData[num].buttonObj)
             {
-                selectData[num].buttonImage.SetActive(false); 
+                selectData[num].buttonImage.SetActive(false);
             }
         }
 
         if (ExitButton)
         {
-            if (_button == exitData.exitButton) 
-            { 
-                Scaling(exitData.exitImage); 
+            if (_button == exitData.exitButton)
+            {
+                Scaling(exitData.exitImage);
             }
             else if (_button != exitData.exitButton)
-            { 
+            {
                 exitData.exitImage.transform.localScale = Reset_ImageScale(exitData._exitImage);
             }
         }
@@ -167,7 +167,7 @@ public class SelectButton_Maneger : MonoBehaviour
         //コントローラー用　ボタン選択状態の設定
         if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == false)
         {
-            EventSystem.current.SetSelectedGameObject(selectData[1].buttonObj); events.Invoke(); 
+            EventSystem.current.SetSelectedGameObject(selectData[1].buttonObj); events.Invoke();
         }
         else if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == true)
         {
@@ -182,9 +182,9 @@ public class SelectButton_Maneger : MonoBehaviour
         _button = EventSystem.current.currentSelectedGameObject;
 
         //コントローラー用　ボタン選択状態の設定
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == true) 
-        { 
-            EventSystem.current.SetSelectedGameObject(exitData.exitButton); events.Invoke(); 
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) && ExitButton == true)
+        {
+            EventSystem.current.SetSelectedGameObject(exitData.exitButton); events.Invoke();
         }
 
         //選択されているボタンを拡大縮小させる。終わったら初期の大きさに戻す 
@@ -192,11 +192,11 @@ public class SelectButton_Maneger : MonoBehaviour
         {
             if (_button == selectData[num].buttonObj)
             {
-                Scaling(selectData[num].buttonImage); 
+                Scaling(selectData[num].buttonImage);
             }
-            else 
+            else
             {
-                selectData[num].buttonImage.transform.localScale = Reset_ImageScale(selectData[num]._buttonScale); 
+                selectData[num].buttonImage.transform.localScale = Reset_ImageScale(selectData[num]._buttonScale);
             }
         }
 
@@ -204,11 +204,11 @@ public class SelectButton_Maneger : MonoBehaviour
         {
             if (_button == exitData.exitButton)
             {
-                Scaling(exitData.exitImage); 
+                Scaling(exitData.exitImage);
             }
             else if (_button != exitData.exitButton)
-            { 
-                exitData.exitImage.transform.localScale = Reset_ImageScale(exitData._exitImage); 
+            {
+                exitData.exitImage.transform.localScale = Reset_ImageScale(exitData._exitImage);
             }
         }
     }

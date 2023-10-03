@@ -8,7 +8,9 @@ using UnityEditor;
 [CustomEditor(typeof(Load_Manager))]
 public class Load_Editor : Editor
 {
+    // 時間を設定するスライダーの最小値を保存する変数
     private int timeMin = 0;
+    // 時間を設定するスライダーの最大値を設定する変数
     private int timeMax = 1000;
 
     public override void OnInspectorGUI()
@@ -36,21 +38,21 @@ public class Load_Editor : Editor
         EditorGUILayout.HelpBox("ロード画面の再生時間(参考時間)\n1000…約６秒　500…約２秒", MessageType.None);
 
         //スペースを確保
-        EditorGUILayout.Space();  
+        EditorGUILayout.Space();
 
         //AudioSource
         // 見出しを設定する
         EditorGUILayout.LabelField("音に関する設定", EditorStyles.boldLabel);
 
         // 音を管理するAudioSourceを取得するフィールドを表示
-        loading.audioSource = (AudioSource)EditorGUILayout.ObjectField("　Audio Source ", loading.audioSource, typeof(AudioSource), true);
-        //loading.audioSource = (GameObject)EditorGUILayout.ObjectField("　Audio Source ", loading.audioSource, typeof(GameObject), true);
+        //loading.audioSource = (AudioSource)EditorGUILayout.ObjectField("　Audio Source ", loading.audioSource, typeof(AudioSource), true);
+        loading.audioSource = (GameObject)EditorGUILayout.ObjectField("　Audio Source ", loading.audioSource, typeof(GameObject), true);
 
         //スペースを確保
         EditorGUILayout.Space();
 
         //serializedObjectへの変更を適用
-        serializedObject.ApplyModifiedProperties(); 
+        serializedObject.ApplyModifiedProperties();
         EditorUtility.SetDirty(loading);
     }
 }

@@ -5,22 +5,22 @@ using UnityEngine;
 public class InstanceDropObject_Manager : MonoBehaviour
 {
     [Header("演出用の落下オブジェクトの処理")]
-    [SerializeField,Tooltip("生成する範囲始まり")] private Transform rangeA;
-    [SerializeField,Tooltip("生成する範囲終わり")] private Transform rangeB;
-    [SerializeField,Range(0,10),Tooltip("生成する周期")] private float cycle;
+    [SerializeField, Tooltip("生成する範囲始まり")] private Transform rangeA;
+    [SerializeField, Tooltip("生成する範囲終わり")] private Transform rangeB;
+    [SerializeField, Range(0, 10), Tooltip("生成する周期")] private float cycle;
 
     // 計測する時間を保存する変数
     private float time;
     // Rigidbodyを保存する変数
     private Rigidbody rb;
     // Quaternionを保存する変数
-    private Quaternion rotation; 
+    private Quaternion rotation;
     // オブジェクトの大きさを保存する変数
     private Vector3 scale;
     // 生成したオブジェクト用の変数
     private GameObject instansObj;
     // Randomの数値を保存する変数
-    private int instanNum;  
+    private int instanNum;
 
     [Header("ランダム値の設定")]
     [SerializeField, Range(0, 100), Tooltip("スケールの最小値")] private float scaleMin;
@@ -35,7 +35,7 @@ public class InstanceDropObject_Manager : MonoBehaviour
     [SerializeField, Range(0, 1000), Tooltip("落下スピードの最大値")] private float speedMax;
 
     [Header("表示するオブジェクト")]
-    [SerializeField,Tooltip("生成するオブジェクト")] public GameObject[] creatPrefab;
+    [Tooltip("生成するオブジェクト")] public GameObject[] creatPrefab;
 
     // Update is called once per frame
     void Update()

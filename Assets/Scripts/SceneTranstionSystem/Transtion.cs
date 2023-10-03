@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//Scene遷移のスクリプト
+// Scene遷移のスクリプト
 public class Transtion : MonoBehaviour
 {
     //タイトルへ移行
-    public void Trasn_ToTitle() 
+    public void Trasn_ToTitle()
     {
         SceneManager.LoadScene("S-01_Title_Scene");
     }
@@ -19,13 +19,13 @@ public class Transtion : MonoBehaviour
     }
 
     //メニューへ移行
-    public void Trans_ToMenu() 
+    public void Trans_ToMenu()
     {
         SceneManager.LoadScene("S-02_Menu_Scene");
     }
 
     //オプションへ移行
-    public void Trans_ToOption() 
+    public void Trans_ToOption()
     {
         SceneManager.LoadScene("S-03_Option_Scene");
     }
@@ -61,13 +61,13 @@ public class Transtion : MonoBehaviour
     }
 
     //ステージ３へ移行
-    public void Trans_ToStage3() 
+    public void Trans_ToStage3()
     {
         SceneManager.LoadScene("Stage3");
     }
 
     //ステージ４へ移行
-    public void Trans_ToStage4() 
+    public void Trans_ToStage4()
     {
         SceneManager.LoadScene("Stage4");
     }

@@ -1493,9 +1493,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8675536113719909054, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
+      propertyPath: _isLoadPlay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675536113719909054, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 1250412501}
+      objectReference: {fileID: 1250412500}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72dc6113905e52146a68b59f406a07b5, type: 3}
 --- !u!1 &741957057
@@ -1685,7 +1689,7 @@ MonoBehaviour:
     exitButton: {fileID: 1534680303}
     exitImage: {fileID: 592646206}
     _exitImage: {x: 0, y: 0, z: 0}
-  scallSpeed: 1
+  scallSpeed: 0.1
   maxTime: 1
   events:
     m_PersistentCalls:
@@ -1847,7 +1851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1250412501
 AudioSource:
   m_ObjectHideFlags: 0
