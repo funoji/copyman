@@ -20,10 +20,10 @@ public class Animator_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moveController.horizontal > state ||
-            moveController.vertical > state ||
-            moveController.horizontal < -state ||
-            moveController.vertical < -state)
+        if (moveController.contorollerH > state ||
+            moveController.contorollerV > state ||
+            moveController.contorollerH < -state ||
+            moveController.contorollerV < -state)
         {
             animator.SetBool("isRun", true);
         }

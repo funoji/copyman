@@ -9,23 +9,33 @@ public class PlayerController : MonoBehaviour
 {
     //アタッチ：移動の変数
     [Header("プレイヤーの設定")]
-    [SerializeField][Range(0.0f, 20.0f), Tooltip("移動のスピード")] public float moveSpeed;
-    [SerializeField][Tooltip("プレイヤーカメラの参照")] private Camera playerCamera;
+    [SerializeField,Range(0.0f, 20.0f), Tooltip("移動のスピード")] 
+    public float moveSpeed;
+    [SerializeField,Tooltip("プレイヤーカメラの参照")] 
+    private Camera playerCamera;
+    [SerializeField, Range(0.0f, 1f), Tooltip("キャラクターが前進する際にどのくらいの力で判定するかの値")]
+    private float pushStickPower = 0.01f;
 
     [Header("animationのスクリプトへの参照変数")]
-    [SerializeField][Tooltip("rigidbodyの参照")] public Rigidbody rb;
+    [SerializeField,Tooltip("rigidbodyの参照")] 
+    public Rigidbody rb;
 
-    [HideInInspector] public float horizontal;
-    [HideInInspector] public float vertical;
+    // コントローラーの横に傾けた時の値を取得
+    [HideInInspector] 
+    public float contorollerH;
+
+    // コントローラーを縦に傾けた時の値の取得
+    [HideInInspector] 
+    public float contorollerV;
 
     //カメラの向き
-    private Quaternion horizontalRotaion;
+    private Quaternion _orientation;
 
     // （他）
     //private int count = 0;
 
     //速度
-    private Vector3 velocity;
+    private Vector3 _velocity;
 
     // JumpManagerを取得（他）
     private JumpManager jump;
@@ -35,6 +45,12 @@ public class PlayerController : MonoBehaviour
     // CopyInputを取得（他）
     private Copyinput copyInput;
 
+    // コントローラーのスティックの横方向の名前を保存する変数
+    private readonly string horizontalName = "LstickHorizontal";
+
+    // コントローラーのスティックの縦方向の名前を保存する変数
+    private readonly string verticalName = "LstickVertical";
+
     void Start()
     {
         //Rigidbodyの取得
@@ -43,7 +59,7 @@ public class PlayerController : MonoBehaviour
         // 変数にJumpManagerのコンポーネントを設定する（他）
         jump = GetComponent<JumpManager>();
 
-        //値の初期化
+        //速度ベクトルを初期化
         rb.velocity = Vector3.zero;
 
         // CopyInputがアタッチされているオブジェクトを探す（他）
@@ -64,36 +80,29 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // カメラの正面の向きを取得
-        horizontalRotaion = Quaternion.AngleAxis(playerCamera.transform.eulerAngles.y, Vector3.up);
+        _orientation = Quaternion.AngleAxis(playerCamera.transform.eulerAngles.y, Vector3.up);
 
         // コントローラー用
-        horizontal = Input.GetAxis("LstickHorizontal");
-        vertical = Input.GetAxis("LstickVertical");
+        contorollerH = Input.GetAxis(horizontalName);
+        contorollerV = Input.GetAxis(verticalName);
 
-        // キーボード用
-        //horizontal = Input.GetAxis("MoveX");
-        //vertical = Input.GetAxis("MoveY");
+        // コントローラーのスティックの値を保存しておく
+        var contorollerStick = new Vector3(contorollerH, 0, contorollerV);
 
-        // アニメーション用にRbのvelocityも変える
-        rb.AddForce(new Vector3(horizontal, 0, vertical));
+        // アニメーション用にRbの_velocityも変える
+        rb.AddForce(contorollerStick);
 
-        // 移動のスピードとカメラの正面の向きに合わせる。
-        velocity = horizontalRotaion * new Vector3(horizontal, 0, vertical) * moveSpeed * Time.deltaTime;
+        // 現在のカメラの向きとコントローラーの入力を合わせた力を保存
+        _velocity = _orientation * contorollerStick * (moveSpeed * Time.deltaTime);
 
-        if (velocity.magnitude > 0.05f)
+        // 力の大きさが指定している物以上になった場合
+        if (_velocity.magnitude > pushStickPower)
         {
             // カメラの角度に応じて、プレイヤーをカメラの正面の向きに合わせる
-            transform.rotation = Quaternion.LookRotation(velocity, Vector3.up);
+            transform.rotation = Quaternion.LookRotation(_velocity, Vector3.up);
 
             // プレイヤーの移動
-            rb.MovePosition(transform.position + velocity);
-
-            //count++;
-            //if (count > 10)
-            //{
-            //    //AudioManager.Instance.PlaySE(SESoundData.Object.walk);
-            //    count = 0;
-            //}
+            rb.MovePosition(transform.position + _velocity);
         }
     }
 }
